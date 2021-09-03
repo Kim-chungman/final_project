@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member.MemberDAO">
+
+	<resultMap type="memberVO" id="memberMap">
+		<result column="investment_type" property="investmentType"/>
+		<result column="reg_date" property="regDate"/>
+	</resultMap>
+
+	<select id="login" parameterType="memberVO" resultMap="memberMap">
+		select ID, NAME, PASSWORD, RRN, PHONENUMBER, ADDRESS, GENDER, EMAIL, INVESTMENT_TYPE, NOTICE, REG_DATE
+		 from cm_member
+		where id = #{id} and password = #{password}
+	</select>
+	
+	<select id="idCheck" parameterType="memberVO" resultMap="memberMap">
+		select id
+		 from cm_member
+		where id = #{id}
+	</select>
+	
+	<insert id="join" parameterType="memberVO">
+		INSERT INTO CM_MEMBER(ID, NAME, PASSWORD, RRN, PHONENUMBER, ADDRESS, GENDER, EMAIL, NOTICE)
+		 VALUES(#{id}, #{name}, #{password}, #{rrn}, #{phonenumber}, #{address}, #{gender}, #{email}, #{notice})
+	</insert>
+	
+</mapper>
