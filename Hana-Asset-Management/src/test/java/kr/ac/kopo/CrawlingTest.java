@@ -23,7 +23,7 @@ public class CrawlingTest {
 	public void crawlingTest() {
 		
 		
-	      String url = "https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?catId=spb_2811";
+	      String url = "https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?catId=spb_2812";
 	      Document doc = null;
 	      
 	      try {
@@ -34,9 +34,9 @@ public class CrawlingTest {
 	      
 	      Elements element = doc.select("div.wrap-product-list");
 	      
-	      Iterator<Element> le1 = element.select("span[class=product-tit]>em").iterator();
-	      Iterator<Element> le2 = element.select("span[class=tit-desc]>a").iterator();
-	      Iterator<Element> le3 = element.select("span[class=desc-detail]>strong").iterator();
+	      Iterator<Element> le1 = element.select("li[class=item type2] > div.check-style-type > label.checkCompare > span.label-area > span.product-tit > em").iterator();
+	      Iterator<Element> le2 = element.select("span.tit-desc > a").iterator();
+	      Iterator<Element> le3 = element.select("span.desc-detail > strong").iterator();
 	      
 		  List<DepositCrawlingVO> deposit = new ArrayList<DepositCrawlingVO>();
 		    

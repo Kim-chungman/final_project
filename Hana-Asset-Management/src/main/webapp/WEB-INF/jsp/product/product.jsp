@@ -167,13 +167,13 @@
                          	<tr>
                          		<th style="font-family: inherit; font-size: 12pt; width: 15%;">상품명</th>
                          		<th style="font-family: inherit; font-size: 12pt; width: 75%;">상품설명</th>
-                         		<th style="font-family: inherit; font-size: 12pt; width: 10%; ">이율</th>
+                         		<th style="font-family: inherit; font-size: 12pt; width: 10%;">이율</th>
                          	</tr>
                          	<c:forEach items="${ deposit }" var="deposit" varStatus="Loop">
-                         		<tr>
-                         			<td style="font-family: inherit; font-size: 12pt;">${ deposit.name }</td>
+                         		<tr style="height: 100px;">
+                         			<td style="font-family: inherit; font-size: 12pt; text-align: center;">${ deposit.name }</td>
                          			<td style="font-family: inherit; font-size: 12pt;">${ deposit.desc }</td>
-                         			<td style="font-family: inherit; font-size: 12pt;">${ deposit.rate }</td>
+                         			<td style="font-family: inherit; font-size: 12pt; text-align: center;">${ deposit.rate }</td>
                          		</tr>
                          	</c:forEach>
                          </table>
