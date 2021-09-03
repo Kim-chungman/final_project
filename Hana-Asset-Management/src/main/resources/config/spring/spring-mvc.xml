@@ -48,9 +48,8 @@
 			<mvc:exclude-mapping path="/login" />
 			<mvc:exclude-mapping path="/resources/**"/>
 			<mvc:exclude-mapping path="/member/**"/>
-			<mvc:exclude-mapping path="/board" />
 			<mvc:exclude-mapping path="/logout" />
-			<mvc:exclude-mapping path="/idCheck" />
+			<mvc:exclude-mapping path="/product" />
 			<mvc:exclude-mapping path="/" />
 			<ref bean="LoginIntercepter"/>
 		</mvc:interceptor>

@@ -180,7 +180,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" style="color: #008B8B;">이체</a>
+                                    <a href="${ pageContext.request.contextPath }/transfer" style="color: #008B8B;">이체</a>
                                     <ul class="sub-menu">
                                         <li><a href="slider-layerslider.jsp" style="color: #008B8B;">계좌이체</a></li>
                                         <li><a href="slider-flexslider.jsp" style="color: #008B8B;">다른은행계좌 이체(오픈뱅킹)</a></li>
@@ -190,7 +190,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" style="color: #008B8B;">추천상품</a>
+                                    <a href="${ pageContext.request.contextPath }/product" style="color: #008B8B;">추천상품</a>
                                     <ul class="sub-menu">
                                         <li><a href="corporate-about.jsp" style="color: #008B8B;">예금</a></li>
                                         <li><a href="landing-page.jsp" style="color: #008B8B;">적금</a></li>
@@ -200,7 +200,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" style="color: #008B8B;">재무설계</a>
+                                    <a href="${ pageContext.request.contextPath }/assetManagement" style="color: #008B8B;">재무설계</a>
                                     <ul class="sub-menu">
                                         <li><a href="portfolio-filterable.jsp" style="color: #008B8B;">재무설계란?</a></li>
                                         <li><a href="portfolio-three-columns.jsp" style="color: #008B8B;">투자성향확인</a></li>
@@ -209,7 +209,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" style="color: #008B8B;">맞춤설계</a>
+                                    <a href="${ pageContext.request.contextPath }/plan" style="color: #008B8B;">맞춤설계</a>
                                     <ul class="sub-menu">
                                         <li><a href="blog-big-image.jsp" style="color: #008B8B;">연령별 재무설계</a></li>
                                         <li><a href="blog-small-image.jsp" style="color: #008B8B;">목표 재무설계</a></li>
@@ -217,7 +217,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" style="color: #008B8B;">보고서</a>
+                                    <a href="${ pageContext.request.contextPath }/report" style="color: #008B8B;">보고서</a>
                                     <ul class="sub-menu">
                                         <li><a href="features-right-sidebar.jsp" style="color: #008B8B;">My Report</a></li>
                                         <li><a href="features-left-sidebar.jsp" style="color: #008B8B;">나의 자산현황</a></li>
@@ -225,7 +225,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" style="color: #008B8B;">게시판</a>
+                                    <a href="${ pageContext.request.contextPath }/board" style="color: #008B8B;">게시판</a>
                                     <ul class="sub-menu">
                                         <li><a href="shortcodes-typography.jsp" style="color: #008B8B;">공지사항</a></li>
                                         <li><a href="shortcodes-icon-section.jsp" style="color: #008B8B;">상담신청</a></li>
