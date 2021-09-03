@@ -13,6 +13,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import kr.ac.kopo.home.crawling.DepositCrawlingVO;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:config/spring/spring-mvc.xml"})
 public class CrawlingTest {
@@ -34,11 +36,27 @@ public class CrawlingTest {
 	      
 	      Iterator<Element> le1 = element.select("span[class=product-tit]>em").iterator();
 	      Iterator<Element> le2 = element.select("span[class=tit-desc]>a").iterator();
+	      Iterator<Element> le3 = element.select("span[class=desc-detail]>strong").iterator();
 	      
+		  List<DepositCrawlingVO> deposit = new ArrayList<DepositCrawlingVO>();
+		    
+		  while(le1.hasNext()) {
+			
+			  DepositCrawlingVO depositCraw = new DepositCrawlingVO();
+			  
+			  depositCraw.setName(le1.next().text());
+			  depositCraw.setDesc(le2.next().text());
+			  depositCraw.setRate(le3.next().text());
+			  
+			  deposit.add(depositCraw);
+		  }
+		  System.out.println(deposit.toString());
+	      
+	      /*
 	      while(le1.hasNext()) {
 	         System.out.println(le1.next().text() + " : " + le2.next().text());
 	      }
-	    
+	      */
 	      
 		/*
 	      String url = "https://finance.naver.com/sise/lastsearch2.nhn";
