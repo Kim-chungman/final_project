@@ -1,6 +1,7 @@
 package kr.ac.kopo.member.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import kr.ac.kopo.member.vo.MemberVO;
 
@@ -14,4 +15,5 @@ public interface MemberService {
 
 	public void mailSendWithUserKey(String email, String name, HttpServletRequest request);
 
+	public void sendAttach(String email, String name, HttpSession session);
 }

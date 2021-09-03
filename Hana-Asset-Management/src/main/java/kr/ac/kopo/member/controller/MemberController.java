@@ -119,7 +119,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/member/joinIndiInfo")
-	public String joinSuccess(MemberVO member, Model model, HttpServletRequest request) {
+	public String joinSuccess(MemberVO member, Model model, HttpServletRequest request, HttpSession session) {
 		
 		// 암호 확인
 	    System.out.println("첫번째:" + member.getPassword());
@@ -150,6 +150,7 @@ public class MemberController {
 		if(memberVO.getName()!=null) {
 			
 			memberService.mailSendWithUserKey(member.getEmail(), member.getName(), request);
+			memberService.sendAttach(member.getEmail(), member.getName(), session);
 			
 			model.addAttribute("userVO", memberVO);
 			return "/member/joinSuccess";
