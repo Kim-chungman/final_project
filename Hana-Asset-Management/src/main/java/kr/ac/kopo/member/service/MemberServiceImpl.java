@@ -1,6 +1,7 @@
 package kr.ac.kopo.member.service;
 
 import java.net.URL;
+import java.util.List;
 import java.util.Random;
 
 import javax.mail.MessagingException;
@@ -146,6 +147,14 @@ public class MemberServiceImpl implements MemberService{
 	   this.lowerCheck = lowerCheck;
 	   this.size = size;
 	   return init();
+	}
+
+	@Override
+	public List<MemberVO> memberSelectAll() {
+
+		List<MemberVO> memberList = memberDAO.memberSelectAll();
+		
+		return memberList;
 	}
 
 }

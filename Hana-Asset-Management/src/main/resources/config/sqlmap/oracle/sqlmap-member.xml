@@ -26,4 +26,10 @@
 		 VALUES(#{id}, #{name}, #{password}, #{rrn}, #{phonenumber}, #{address}, #{gender}, #{email}, #{notice})
 	</insert>
 	
+	<select id="selectAll" resultMap="memberMap">
+		select *
+		  from cm_member
+		 order by id asc
+	</select>
+	
 </mapper>

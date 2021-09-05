@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/layout.css"></link>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/board.css"></link>
 <script src="${ pageContext.request.contextPath }/resources/js/myJS.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/html2canvas.js"></script>
