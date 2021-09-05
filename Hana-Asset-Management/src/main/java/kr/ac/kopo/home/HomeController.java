@@ -59,4 +59,10 @@ public class HomeController {
 		
 		return "product/product";
 	}
+	
+	@GetMapping("/map")
+	public String viewMap() {
+		
+		return "map/kakaoMap";
+	}
 }
