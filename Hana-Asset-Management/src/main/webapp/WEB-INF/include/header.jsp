@@ -173,7 +173,7 @@
                                     <a href="${ pageContext.request.contextPath }/account" style="color: #008B8B;">조회</a>
                                     <ul class="sub-menu">
                                         <li><a href="${ pageContext.request.contextPath }/counseling" style="color: #008B8B;">전체계좌조회</a></li>
-                                        <li><a href="#" style="color: #008B8B;">내계좌조회</a></li>
+                                        <li><a href="${ pageContext.request.contextPath }/portfolio/pdf" style="color: #008B8B;">내계좌조회</a></li>
                                         <li><a href="#" style="color: #008B8B;">거래내역조회</a></li>
                                         <li><a href="#" style="color: #008B8B;">거래중지/휴면계좌</a></li>
                                         <li><a href="#" style="color: #008B8B;">해지계좌 조회</a></li>

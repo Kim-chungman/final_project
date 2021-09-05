@@ -16,6 +16,7 @@
 <style type="text/css">
 	*{
 		font-family: 나눔고딕;
+		
 	}
 	#messageWindow{
 		background: black;
@@ -40,7 +41,7 @@
 		border:1px solid black;
 		margin:10px;
 		display: inline-block;
-		
+		margin-left: 100px;
 	}
 	#chat-container{
 		vertical-align: bottom;
@@ -109,6 +110,10 @@
 </style>
 </head>
 <body>
+	<header>
+		<jsp:include page="/WEB-INF/include/header.jsp" />
+	</header>
+	<section>
 	<div id="main-container">
 		<div id="chat-container">
 			
@@ -118,6 +123,10 @@
 			<input id="btn-submit" type="submit" value="전송" >
 		</div>
 	</div>
+	</section>
+	<footer>
+		<jsp:include page="/WEB-INF/include/footer.jsp" />
+	</footer>
 </body>
 <script type="text/javascript">
 	
