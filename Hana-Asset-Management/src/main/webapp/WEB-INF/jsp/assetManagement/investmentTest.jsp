@@ -150,76 +150,35 @@
 					<td id="tdNum" style="color: #008B8B;">
 						<a href="${ pageContext.request.contextPath }/assetManagement/investmentForm" style="color: #008B8B; font-size: 12pt; font-family: inherit;">1 약관동의</a>
 					</td>
-					<td id="tdNum">2 성향분석</td>
+					<td id="tdNum" style="color: #008B8B;">
+						<a href="${ pageContext.request.contextPath }/assetManagement/investmentTest" style="color: #008B8B; font-size: 12pt; font-family: inherit;">2 성향분석</a>
+					</td>
 					<td id="tdNum">3 분석결과</td>
 					<td id="tdNum">4 설계받기</td>
 				</tr>
 			</table>
 		</div>
-		<div>
-			<table style="width: 900px; align-content: center; margin-right: 100px; margin-top: 20px;">
-				<tr>
-					<td style="padding:5px; font-size: 11pt; font-family: inherit;"><strong>구속행위 규제 유의사항 안내<br><br></strong></td>
-				</tr>
-				<tr>
-					<td style="padding:5px; font-size: 10pt; font-family: inherit;">중소기업 및 기업의 대표자, 개인인 금융소비자의 경우, 『금융소비자 보호에 관한 법률』등의 '구속행위'여부 판정에 따라 신용평가등급과 무관하게 아래의 '거래가 제한' 될 수 있습니다.<br><br></td>
-				</tr>
-				<tr>
-					<td style="padding-left: 20px;"> 1.투자상품 신규 후 1개월 이내 대출거래 예정이거나, </td>
-				</tr>
-				<tr>
-					<td style="padding-left: 20px;"> 2. 대출 거래 후 1개월 이내 투자상품 신규예정이 아님을 확인합니다.</td>
-				</tr>
-				<tr>
-					<td style="padding: 5px;"><input type="checkbox" required="required">확인함<br><br></td>
-				</tr>
-			</table>
-		</div>
 		<div style="margin-top: 20px;">
-			<h5 style="color: #008B8B; font-family: inherit;">※금융 취약소비자 우선설명</h5>
-			<p style="font-size: 11pt; margin-left: 10px; margin-right: 20px;">!! 금융감독원의 금융소비자보호 모범규준에 따라 특정소비자(만 65세 이상 고령층,은퇴자,주부 등)에 대하여는 소비자의 불이익 사항을 우선적으로 설명해드립니다.</p>
-            <br>
+			<h5 style="color: #008B8B; font-family: inherit;">※투자성향분석</h5>
+			<p style="font-family: inherit; font-size:10pt; padding-left: 10px; padding-top: 10px; padding-right: 10px;">다음 8개 문항에 답해주세요</p>
 		</div>
 		<div>
-			<table style="width: 900px; align-content: center; margin-right: 100px; margin-top: 20px;">
-				<tr>
-					<td style="padding:5px; font-size: 11pt; font-family: inherit;"><strong>특정 소비자 해당여부에 대한 정보를 당행에 제공하는 것에 동의하십니까?<br><br></strong></td>
-				</tr>
-				<tr>
-					<td style="padding: 5px;"><input type="checkbox" id="select1">개인정보 제공 미동의 or 금융취약소비자 해당 없음 (금융소비자 불이익 사항 우선 설명대상에서 제외)</td>
-				</tr>
-				<tr>
-					<td style="padding: 5px;"><input type="checkbox" id="select1">개인정보 제공 동의</td>
-				</tr>
-				<tr>
-					<td style="padding-left: 15px;"><input type="checkbox" id="select1" class="select2">만65세 이상</td>
-				</tr>
-				<tr>
-					<td style="padding-left: 15px;"><input type="checkbox" id="select1" class="select2">은퇴자</td>
-				</tr>
-				<tr>
-					<td style="padding-left: 15px;"><input type="checkbox" id="select1" class="select2">주부</td>
-				</tr>
-				<tr>
-					<td style="padding-left: 15px;"><input type="checkbox" id="select1" class="select2">기타<br><br></td>
-				</tr>
-			</table>
-		</div>
-		<div style="margin-top: 20px;">
-			<h5 style="color: #008B8B; font-family: inherit;">※금융소비자 불이익 사항</h5><br>
-			<div style="background-color: #F7F9FC; width: 900px; align-content: center; margin-right: 100px;">
-				<br>
-				<div style="background-color:white; width: 95%; height: 70%; margin: auto;">
-					<p style="font-family: inherit; padding-left: 10px; padding-top: 10px; padding-right: 10px;">▷ 투자상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.<br>
-																												▷ 투자상품은 투자원금의 손실이 발생할 수 있으며, 손실가능범위는 투자원금의 전부 또는 일부에 대한 손실의 위험이 존재합니다.<br>
-																												▷ 투자상품은 운용실적에 따라 이익 또는 손실이 발생할 수 있으며, 그 결과는 투자자에게 귀속됩니다.<br>
-																												▷ 투자상품의 중도해지 시 환매수수료 또는 기타 비용이 발생할 수 있으며, 중도해지를 신청하는 경우라도 상품 종류에 따라 중도해지가 제한될 수 있으므로, 상품별 정하고 있는 중도해지 시 불이익 항목을 반드시 확인하시기 바랍니다.<br></p>
-					<p style="font-family: inherit; padding-left: 10px; padding-top: 10px; padding-right: 10px;">※ 가입하시기 전 투자대상, 환매방법 및 보수 등에 관하여 설명서*를 확인하시고 상품의 내용을 충분히 이해한 후 투자여부를 결정하시기 바랍니다.<br>
-																												   * (간이)투자설명서, 사모집합투자증권 상품설명서/(요약)제안서, 특정금전신탁 상품설명서 등</p>
-				</div>
-				<p style="font-family: inherit; padding-left: 30px; padding-top: 10px; padding-right: 10px;">금융소비자 불이익 사항에 대하여 우선적으로 설명 듣고 이해하였음<input type="checkbox" style="margin-left: 30px;">확인함</p>
-				<br>
-			</div>
+			<form action="${ pageContext.request.contextPath }/assetManagement/investmentResult" method="get">
+				<input type="hidden" name="id" value="${ userVO.id }">
+				<table style="width: 900px; align-content: center; margin-right: 100px;">
+					<tr>
+						<td style="padding:5px; font-size: 11pt; font-family: inherit;">금융투자상품의 취득 및 처분목적을 선택해주세요</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="q1" value="1">생활자금
+							<input type="radio" name="q1" value="2">주택자금
+							<input type="radio" name="q1" value="3">노후자금
+							<input type="radio" name="q1" value="4">여유자금
+						</td>
+					</tr>
+				</table>
+			</form>
 		</div>
 		<button id="agreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 40%;">확인</button>
 		<button id="unagreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none;">취소</button>

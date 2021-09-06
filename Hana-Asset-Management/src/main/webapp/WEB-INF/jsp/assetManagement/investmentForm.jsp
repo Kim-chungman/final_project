@@ -68,7 +68,7 @@
 		$(document).ready(function() {
 			
 			$('#agreeBtn').click(function() {
-				location.href= "${ pageContext.request.contextPath }/assetManagement/investmentForm";
+				location.href= "${ pageContext.request.contextPath }/assetManagement/investmentTest";
 			})
 			
 			$('#unagreeBtn').click(function() {
