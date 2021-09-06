@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
         <!-- this line will appear only if the website is visited with an iPad -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
         
-        <title>Hana Solution - 투자성향분석</title>
+        <title>Hana Solution - 투자성향분석결과</title>
         
         <!-- [favicon] begin -->
         <link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/resources/images/favicon.png" />
@@ -64,17 +65,15 @@
 		<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/jquery.tweetable.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
         
+        <!-- Remember to include jQuery :) -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		
+		<!-- jQuery Modal -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+        
         <script>
 		$(document).ready(function() {
-			
-			$('#unagreeBtn').click(function() {
-				location.href= "${ pageContext.request.contextPath }/";
-			})
-			
-			$('#helpBtn').click(function() {
-				alert('채팅 도움이 필요하신가요?');
-				location.href= "${ pageContext.request.contextPath }/counseling";
-			})
 			
 		})
 		
@@ -154,119 +153,25 @@
 					<td id="tdNum" style="color: #008B8B;">
 						<a href="${ pageContext.request.contextPath }/assetManagement/investmentTest" style="color: #008B8B; font-size: 12pt; font-family: inherit;">2 성향분석</a>
 					</td>
-					<td id="tdNum">3 분석결과</td>
+					<td id="tdNum" style="color: #008B8B;">
+						<a href="${ pageContext.request.contextPath }/assetManagement/investmentResult" style="color: #008B8B; font-size: 12pt; font-family: inherit;">3 분석결과</a>
+					</td>
 					<td id="tdNum">4 설계받기</td>
 				</tr>
 			</table>
 		</div>
-		<div style="margin-top: 20px;">
-			<h5 style="color: #008B8B; font-family: inherit;">※투자성향분석</h5>
-			<p style="font-family: inherit; font-size:10pt; padding-left: 10px; padding-top: 10px; padding-right: 10px;">다음 8개 문항에 답해주세요</p>
+		
+		<!-- Modal HTML embedded directly into document -->
+		<div id="ex1" class="modal">
+		  <p>${ userVO.name }님은 총점 ${ score }점으로<br>
+		  	${ investType }입니다.
+		  </p>
+		  <a href="${ pageContext.request.contextPath }/assetManagement/investmentTest" rel="modal:close">다시 분석하기</a>
 		</div>
-		<div>
-			<form action="${ pageContext.request.contextPath }/assetManagement/investmentResult" method="post">
-				<input type="hidden" name="id" value="${ userVO.id }">
-				<table style="width: 900px; align-content: center; margin-right: 100px;">
-					<tr>
-						<td style="padding:5px; font-size: 11pt; font-family: inherit; padding-left: 10px;"><strong>1. 금융투자상품의 취득 및 처분목적을 선택해주세요</strong></td>
-					</tr>
-					<tr>
-						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q1" value="1">생활자금<br>
-							<input type="radio" name="q1" value="2">주택자금<br>
-							<input type="radio" name="q1" value="3">노후자금<br>
-							<input type="radio" name="q1" value="4">여유자금<br><br>
-						</td>
-					</tr>
-					<tr>
-						<td style="padding:5px; font-size: 11pt; font-family: inherit; padding-left: 10px;"><strong>2. 본인의 연령대를 선택해주세요</strong></td>
-					</tr>
-					<tr>
-						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q2" value="2.5">19세 이하<br>
-							<input type="radio" name="q2" value="2.5">20대<br>
-							<input type="radio" name="q2" value="2">30대<br>
-							<input type="radio" name="q2" value="1.5">40대<br>
-							<input type="radio" name="q2" value="1">50대<br>
-							<input type="radio" name="q2" value="0.5">60대 이상<br><br>
-						</td>
-					</tr>
-					<tr>
-						<td style="padding:5px; font-size: 11pt; font-family: inherit; padding-left: 10px;"><strong>3. 현재 투자하는 자금에 대하여 기대수익 및 손실위험에 대한 태도를 선택해주세요.</strong></td>
-					</tr>
-					<tr>
-						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q3" value="10">기대수익이 높다면 위험이 높아도 상관하지 않아요.<br>
-							<input type="radio" name="q3" value="8.5">투자원금에서 20% 초과 ~ 100% 이내의 손실을 감내할 수 있어요.<br>
-							<input type="radio" name="q3" value="6">투자원금에서 20% 이내까지 손실을 감내할 수 있어요.<br>
-							<input type="radio" name="q3" value="3">투자원금에서 10% 이내까지 손실을 감내할 수 있어요.<br>
-							<input type="radio" name="q3" value="1">무슨 일이 있어도 투자 원금은 보전되어야 해요.<br><br>
-						</td>
-					</tr>
-					<tr>
-						<td style="padding:5px; font-size: 11pt; font-family: inherit; padding-left: 10px;"><strong>4. 현재 투자하는 자금의 투자 예정기간을 선택해주세요.</strong></td>
-					</tr>
-					<tr>
-						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q4" value="2.5">3년 이상<br>
-							<input type="radio" name="q4" value="2">2년 이상 ~ 3년 미만<br>
-							<input type="radio" name="q4" value="1.5">1년 이상 ~ 2년 미만<br>
-							<input type="radio" name="q4" value="1">6개월 이상 ~ 1년 미만<br>
-							<input type="radio" name="q4" value="0.5">6개월 미만<br>
-							<input type="radio" name="q4" value="2.5">투자상품 특정만기일까지 보유(ELF. ELT. 목표전환형 등)<br>
-							 ※1년 미만 선택시 ELF 가입불가<br><br>
-						</td>
-					</tr>
-					<tr>
-						<td style="padding:5px; font-size: 11pt; font-family: inherit; padding-left: 10px;"><strong>5. 총 자산대비 투자상품의 비중은 얼마나 되시나요?</strong></td>
-					</tr>
-					<tr>
-						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q5" value="1">5% 이하<br>
-							<input type="radio" name="q5" value="2">10% 이하<br>
-							<input type="radio" name="q5" value="2.5">15% 이하<br>
-							<input type="radio" name="q5" value="3">20% 이하<br>
-							<input type="radio" name="q5" value="3.5">25% 초과<br><br>
-						</td>
-					</tr>
-					<tr>
-						<td style="padding:5px; font-size: 11pt; font-family: inherit; padding-left: 10px;"><strong>6. 다음 중 손님의 수입원을 가장 잘 나타낸 것을 선택해 주세요.</strong></td>
-					</tr>
-					<tr>
-						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q6" value="5.5">현재 일정한 수입이 발생하고 있으며, 향후 현재 수준을 유지하거나 증가할 것으로 예상해요<br>
-							<input type="radio" name="q6" value="3.5">현재 일정한 수입이 발생하고 있으나, 향후 감소하거나 불안정할 것으로 예상해요.<br>
-							<input type="radio" name="q6" value="1">현재 일정한 수입이 없거나, 연금 등이 주 수입원이에요.<br><br>
-						</td>
-					</tr>
-					<tr>
-						<td style="padding:5px; font-size: 11pt; font-family: inherit; padding-left: 10px;"><strong>7. 손님의 투자경험과 가장 가까운 항목을 선택해 주세요.(중복선택가능)</strong></td>
-					</tr>
-					<tr>
-						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q7_1" value="1">은행 예적금, 국채, 지방채, 보증채, MMF, CMA 등<br>
-							<input type="radio" name="q7_2" value="2.5">채권형펀드, 원금보장형 ELS, 금융채, 신용도가 높은 회사채<br>
-							<input type="radio" name="q7_3" value="3.5">혼합형펀드, 원금의 일부만 보장되는 ELS, 신용도도 중간 등급의 회사채 등<br>
-							<input type="radio" name="q7_4" value="4.5">시장수익률 수준의 수익을 추구하는 주식형펀드, 원금이 보장되지 않는 ELS, 신용도가 낮은 회사채, 주식 등<br>
-							<input type="radio" name="q7_5" value="5.5">시장수익률 이상의 수익을 추구하는 주식형펀드, 파생상품펀드, ELW, 선물옵션, 주식, 신용거래 등<br><br>
-						</td>
-					</tr>
-					<tr>
-						<td style="padding:5px; font-size: 11pt; font-family: inherit; padding-left: 10px;"><strong>8. 금융상품 투자에 대한 손님의 지식수준이 어는정도라고 생각하시나요?</strong></td>
-					</tr>
-					<tr>
-						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q8" value="5.5">파생상품을 포함한 대부분의 금융상품의 구조 및 위험을 이해하고 있어요<br>
-							<input type="radio" name="q8" value="4">널리 알려진 금융투자상품(주식, 채권 및 펀드 등)의 구조 및 위험을 깊이 있게 이해하고 있어요.<br>
-							<input type="radio" name="q8" value="2.5">널리 알려진 금융투자상품(주식, 채권 및 펀드 등)의 구조 및 위험을 일정 부분 이해하고 있어요.<br>
-							<input type="radio" name="q8" value="1">금융상품 중 예적금에 대해서만 이해하고 있어요.<br><br>
-						</td>
-					</tr>
-				</table>
-			<input type="submit" value="제출" style="font-size:10pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 40%;">
-			<button id="unagreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none;">취소</button>
-			<button id="helpBtn" style="font-size:10pt; width: 90px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none;">도와주세요</button>
-			</form>
+		
+		<!-- Link to open the modal -->
+		<div style="font-size:10pt; width: 70px; height: 40px; border-radius: 10px; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 40%;">
+			<a href="#ex1" rel="modal:open" style="color: white; margin-top: 20px;">결과확인</a>
 		</div>
 	</section>
 	<footer style="clear: both;">
