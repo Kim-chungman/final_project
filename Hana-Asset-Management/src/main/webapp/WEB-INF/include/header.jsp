@@ -200,10 +200,10 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="${ pageContext.request.contextPath }/assetManagement" style="color: #008B8B;">재무설계</a>
+                                    <a href="${ pageContext.request.contextPath }/assetManagement/explain" style="color: #008B8B;">재무설계</a>
                                     <ul class="sub-menu">
                                         <li><a href="${ pageContext.request.contextPath }/assetManagement/explain" style="color: #008B8B;">재무설계란?</a></li>
-                                        <li><a href="portfolio-three-columns.jsp" style="color: #008B8B;">투자성향확인</a></li>
+                                        <li><a href="${ pageContext.request.contextPath }/assetManagement/investmentForm" style="color: #008B8B;">투자성향확인</a></li>
                                         <li><a href="project.jsp" style="color: #008B8B;">소비지출분석</a></li>
                                         <li><a href="portfolio-big-image.jsp" style="color: #008B8B;">재무상태분석</a></li>
                                     </ul>

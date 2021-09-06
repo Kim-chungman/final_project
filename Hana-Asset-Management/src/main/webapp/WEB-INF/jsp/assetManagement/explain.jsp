@@ -103,7 +103,7 @@
 	                    	<a href="${ pageContext.request.contextPath }/assetManagement/explain" title="재무설계" class="manageMenu" style="color: #008B8B; font-size: 11pt;">재무설계란?</a>
 	                    </div>
 	                    <div class="hentry-post group">
-	                        <a href="#" title="재무설계" class="manageMenu" style="font-size: 11pt;">투자성향확인</a>
+	                        <a href="${ pageContext.request.contextPath }/assetManagement/investmentForm" title="재무설계" class="manageMenu" style="font-size: 11pt;">투자성향확인</a>
 	                    </div>
 	                    <div class="hentry-post group">
 	                        <a href="#" title="재무설계" class="manageMenu" style="font-size: 11pt;">소비지출분석</a>

@@ -11,4 +11,17 @@ public class AssetManagementController {
 		
 		return "assetManagement/explain";
 	}
+	
+	@RequestMapping("/assetManagement/investmentForm")
+	public String investmentForm() {
+		
+		return "assetManagement/investmentForm";
+	}
+	
+	@RequestMapping("/assetManagement/investmentTest")
+	public String investmentTest() {
+		
+		return "assetManagement/investmentTest";
+	}
+	
 }

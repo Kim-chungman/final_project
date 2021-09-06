@@ -149,33 +149,33 @@
 				        <div id="menuGroup" class="yit-widget-content inner group">
 				            <div id="centerMenu" class="widget-last yit-widget widget col1_4 one-fourth col yit_text_quote" style="width: 16%;">
 				                <img class="icon-img" src="${ pageContext.request.contextPath }/resources/images/icons/searched.svg" alt="" />		
-				                <h3 id="centerText" style="font-family: 'inherit';">계좌조회</h3>
-				                <p id="centerText" style="font-family: 'inherit'; font-size: 10pt;">내 계좌를 확인하세요!</p>
+				                <h3 id="centerText" style="font-family: 'inherit'; font-size: 11pt;">계좌조회</h3>
+				                <p id="centerText" style="font-family: 'inherit'; font-size: 8pt;">내 계좌를 확인하세요!</p>
 				            </div>
 				            <div id="centerMenu" class="widget-last yit-widget widget col1_4 one-fourth col yit_text_quote" style="width: 17%;">
 				                <img class="icon-img" src="${ pageContext.request.contextPath }/resources/images/icons/trans.svg" alt="" />		
-				                <h3 id="centerText" style="font-family: 'inherit';">계좌이체</h3>
-				                <p id="centerText" style="font-family: 'inherit'; font-size: 10pt;">간편계좌이체</p>
+				                <h3 id="centerText" style="font-family: 'inherit'; font-size: 11pt;">계좌이체</h3>
+				                <p id="centerText" style="font-family: 'inherit'; font-size: 8pt;">간편계좌이체</p>
 				            </div>
 				            <div id="centerMenu" class="widget-last yit-widget widget col1_4 one-fourth col yit_text_quote" style="width: 17%;">
 				                <img class="icon-img" src="${ pageContext.request.contextPath }/resources/images/icons/event.svg" alt="" />		
-				                <h3 id="centerText" style="font-family: 'inherit';">이벤트</h3>
-				                <p id="centerText" style="font-family: 'inherit'; font-size: 10pt;">이벤트를 한눈에!</p>
+				                <h3 id="centerText" style="font-family: 'inherit'; font-size: 11pt;">이벤트</h3>
+				                <p id="centerText" style="font-family: 'inherit'; font-size: 8pt;">이벤트를 한눈에!</p>
 				            </div>
 				            <div id="centerMenu" class="widget-last yit-widget widget col1_4 one-fourth col yit_text_quote" style="width: 17%;">
 				                <img class="icon-img" src="${ pageContext.request.contextPath }/resources/images/icons/myPage.svg" alt="" />		
-				                <h3 id="centerText" style="font-family: 'inherit';">My Page</h3>
-				                <p id="centerText" style="font-family: 'inherit'; font-size: 10pt;">나의 포트폴리오</p>
+				                <h3 id="centerText" style="font-family: 'inherit'; font-size: 11pt;">My Page</h3>
+				                <p id="centerText" style="font-family: 'inherit'; font-size: 8pt;">나의 포트폴리오</p>
 				            </div>
 				            <div id="centerMenu" class="widget-last yit-widget widget col1_4 one-fourth col yit_text_quote" style="width: 17%;">
 				                <img class="icon-img" src="${ pageContext.request.contextPath }/resources/images/icons/plan.svg" alt="" />		
-				                <h3 id="centerText" style="font-family: 'inherit';">자산설계받기</h3>
-				                <p id="centerText" style="font-family: 'inherit'; font-size: 10pt;">맞춤설계 받으세요!</p>
+				                <h3 id="centerText" style="font-family: 'inherit'; font-size: 11pt;">자산설계받기</h3>
+				                <p id="centerText" style="font-family: 'inherit'; font-size: 8pt;">맞춤설계 받으세요!</p>
 				            </div>
 				            <div id="centerMenu" class="widget-last yit-widget widget col1_4 one-fourth col yit_text_quote" style="width: 16%;">
 				                <img class="icon-img" src="${ pageContext.request.contextPath }/resources/images/icons/customer.svg" alt="" />		
-				                <h3 id="centerText" style="font-family: 'inherit';">손님의 소리</h3>
-				                <p id="centerText" style="font-family: 'inherit'; font-size: 10pt;">문의하기</p>
+				                <h3 id="centerText" style="font-family: 'inherit'; font-size: 11pt;">손님의 소리</h3>
+				                <p id="centerText" style="font-family: 'inherit'; font-size: 8pt;">문의하기</p>
 				            </div>
 				        </div>
 				    </div>
