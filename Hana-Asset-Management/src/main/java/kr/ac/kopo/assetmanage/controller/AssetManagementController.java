@@ -1,7 +1,9 @@
 package kr.ac.kopo.assetmanage.controller;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -56,7 +58,7 @@ public class AssetManagementController {
 		
 		String investType = "";
 		if(avg < 43) {
-			investType = "매우안전형";
+			investType = "안전형";
 		} else if(avg < 55) {
 			investType = "안전추구형";
 		} else if(avg < 68) {
@@ -68,11 +70,11 @@ public class AssetManagementController {
 		}
 		
 		if(type.getQ1().equals("3") && type.getQ2().equals("0.5")) {
-			investType = "매우안전형";
+			investType = "안전형";
 		}
 		
 		if(type.getQ3().equals("1")) {
-			investType = "매우안전형";
+			investType = "안전형";
 		}
 		
 		double score = Math.round(avg);
@@ -84,6 +86,14 @@ public class AssetManagementController {
 		model.addAttribute("score", score);
 		
 		return "assetManagement/investmentResult";
+	}
+	
+	@GetMapping("/assetManagement/productDesign")
+	public String productDesign(@Param("type") String type) {
+		
+		System.out.println(type);
+		
+		return "assetManagement/productDesign";
 	}
 	
 }

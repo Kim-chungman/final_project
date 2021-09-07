@@ -65,19 +65,30 @@
 		<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/jquery.tweetable.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
         
-        <!-- Remember to include jQuery :) -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-		
-		<!-- jQuery Modal -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+        <!-- modal -->
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
         
-        <script>
-		$(document).ready(function() {
-			
-		})
-		
-		</script>
+        <script type="text/javascript">
+      
+        jQuery(document).ready(function() {
+                $('#myModal').show();
+        });
+        
+        // 팝업 Close 기능
+        function close_pop(flag) {
+             $('#myModal').hide();
+        };
+        
+      	// 다시 분석하기
+        function replay(flag) {
+             location.href='${ pageContext.request.contextPath }/assetManagement/investmentTest';
+        };
+        
+      	// 상품설계하기로 이동
+        function design(flag) {
+             location.href='${ pageContext.request.contextPath }/assetManagement/productDesign?type='+${ investType };
+        };
+    	</script>
         
     </head>
     <!-- END HEAD -->
@@ -110,6 +121,28 @@
 		background-color: white;
 		}
     	
+    	.modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+    
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;                         
+        }
+
     </style>
 <body>
 	<header>
@@ -139,6 +172,31 @@
 	                </div>
 	            </div>
 	            
+	             <!-- The Modal -->
+			    <div id="myModal" class="modal">
+			 
+			      <!-- Modal content -->
+			      <div class="modal-content">
+			                <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">투자성향분석결과</span></b></span></p>
+			                <c:if test="${ investType eq '안전형' }">
+				                <p style="text-align: center; line-height: 1.5; font-size: 12pt; color: #008B8B;"><br />${ userVO.name }님은</p>
+				                <p style="text-align: center; line-height: 1.5; font-size: 12pt;">${ investType }입니다.</p>
+				                <p><br /></p>
+			                </c:if>
+			                <c:if test="${ investType ne '안전형' }">
+				                <p style="text-align: center; line-height: 1.5; font-size: 12pt; color: #008B8B;"><br />${ userVO.name }님</p>
+				                <p style="text-align: center; line-height: 1.5; font-size: 12pt;">총점 ${ score }점으로</p>
+				                <p style="text-align: center; line-height: 1.5; font-size: 12pt; color: #FF4500;"> ${ investType }입니다.</p>
+				                <p><br /></p>
+			                </c:if>
+			            <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="close_pop();">
+			                <span class="pop_bt" style="font-size: 13pt;" >
+			                     닫기
+			                </span>
+			            </div>           
+			      </div>
+			    </div>
+		        <!--End Modal-->
 	        </div>
 	     </div>
 	     <!-- END SIDEBAR -->
@@ -160,18 +218,37 @@
 				</tr>
 			</table>
 		</div>
-		
-		<!-- Modal HTML embedded directly into document -->
-		<div id="ex1" class="modal">
-		  <p>${ userVO.name }님은 총점 ${ score }점으로<br>
-		  	${ investType }입니다.
-		  </p>
-		  <a href="${ pageContext.request.contextPath }/assetManagement/investmentTest" rel="modal:close">다시 분석하기</a>
-		</div>
-		
-		<!-- Link to open the modal -->
-		<div style="font-size:10pt; width: 70px; height: 40px; border-radius: 10px; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 40%;">
-			<a href="#ex1" rel="modal:open" style="color: white; margin-top: 20px;">결과확인</a>
+		<div style="margin-top: 30px;">
+			<h4 style="color: #008B8B; font-family: inherit; text-align: center; margin-right: 30px;">※투자성향결과※</h4><br>
+			<div style="background-color: #F7F9FC; width: 900px; align-content: center; margin-right: 100px;">
+				<br>
+				<div style="background-color:white; width: 95%; height: 70%; margin: auto;">
+					<p style="font-family: inherit; padding-left: 10px; padding-top: 10px; padding-right: 10px; text-align: center; font-size: 15pt;"><strong style="color: #008B8B;">${ userVO.name }님</strong>의</p>
+					<p style="font-family: inherit; padding-left: 10px; padding-top: 10px; padding-right: 10px; text-align: center; font-size: 15pt;">투자성향은 <strong style="color: #FF4500;">${ investType }</strong>입니다.<br><br></p>
+				</div>
+				<c:if test="${ investType eq '안전형' }">
+					<img alt="안전형" src="${ pageContext.request.contextPath }/resources/images/investmentType/safety.png" style="display: block; margin: auto;">
+				</c:if>
+				<c:if test="${ investType eq '안전추구형' }">
+					<img alt="안전추구형" src="${ pageContext.request.contextPath }/resources/images/investmentType/safetyPursuit.png" style="display: block; margin: auto;">
+				</c:if>
+				<c:if test="${ investType eq '위험중립형' }">
+					<img alt="위험중립형" src="${ pageContext.request.contextPath }/resources/images/investmentType/riskNeutral.png" style="display: block; margin: auto;">
+				</c:if>
+				<c:if test="${ investType eq '적극투자형' }">
+					<img alt="적극투자형" src="${ pageContext.request.contextPath }/resources/images/investmentType/active.png" style="display: block; margin: auto;">
+				</c:if>
+				<c:if test="${ investType eq '공격투자형' }">
+					<img alt="공격투자형" src="${ pageContext.request.contextPath }/resources/images/investmentType/attack.png" style="display: block; margin: auto;">
+				</c:if>
+				<div style="background-color:white; width: 95%; height: 20%;">
+					<img alt="투자성향설명" src="${ pageContext.request.contextPath }/resources/images/investmentType/explain.png" style="display: block; margin: auto;">
+				</div>
+				<br>
+				<br>
+			</div>
+			<button onClick="replay();" style="font-size:10pt; width: 150px; border-radius:10px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 33%;">다시분석하기</button>
+			<button onClick="design();" style="font-size:10pt; width: 150px; border-radius:10px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none;">설계받기</button>
 		</div>
 	</section>
 	<footer style="clear: both;">
