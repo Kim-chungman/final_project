@@ -64,6 +64,10 @@
         <script>
 		$(document).ready(function() {
 			
+			$('#joinBtn').click(function() {
+				location.href= "${ pageContext.request.contextPath }/account/join";
+			})
+			
 		})
 		
 		</script>
@@ -146,65 +150,142 @@
                <div class="tabs-container" style="width:60%; margin: auto;">
                    <ul class="tabs">
                        <li>
-                           <h4><a href="#tab1" title="예금" style="color: #008B8B; font-family: inherit;">예금</a></h4>
+                           <h4><a href="#tab1" title="예금" style="color: #008B8B; font-family: inherit; width: 13%;">정기예금</a></h4>
                        </li>
                        <li>
-                           <h4><a href="#tab2" title="적금" style="color: #008B8B; font-family: inherit;">적금</a></h4>
+                           <h4><a href="#tab2" title="적금" style="color: #008B8B; font-family: inherit; width: 13%;">적금</a></h4>
                        </li>
                        <li>
-                           <h4><a href="#tab3" title="펀드" style="color: #008B8B; font-family: inherit;">펀드</a></h4>
+                           <h4><a href="#tab3" title="펀드" style="color: #008B8B; font-family: inherit; width: 13%;">수시입출금</a></h4>
                        </li>
                        <li>
-                           <h4><a href="#tab4" title="연금" style="color: #008B8B; font-family: inherit;">연금</a></h4>
+                           <h4><a href="#tab4" title="연금" style="color: #008B8B; font-family: inherit; width: 13%;">연금</a></h4>
                        </li>
                        <li>
-                           <h4><a href="#tab4" title="방카슈랑스" style="color: #008B8B; font-family: inherit;">방카슈랑스</a></h4>
+                           <h4><a href="#tab4" title="방카슈랑스" style="color: #008B8B; font-family: inherit; width: 17.55%;">방카슈랑스</a></h4>
                        </li>
                    </ul>
                    <div class="border-box group">
                        <div id="tab1" class="panel group">
-                         <table style="width: 100%;">
-                         	<tr>
-                         		<th style="font-family: inherit; font-size: 12pt; width: 15%;">상품명</th>
-                         		<th style="font-family: inherit; font-size: 12pt; width: 75%;">상품설명</th>
-                         		<th style="font-family: inherit; font-size: 12pt; width: 10%;">이율</th>
-                         	</tr>
-                         	<c:forEach items="${ deposit }" var="deposit" varStatus="Loop">
-                         		<tr style="height: 100px;">
-                         			<td style="font-family: inherit; font-size: 12pt; text-align: center;">${ deposit.name }</td>
-                         			<td style="font-family: inherit; font-size: 12pt;">${ deposit.desc }</td>
-                         			<td style="font-family: inherit; font-size: 12pt; text-align: center;">${ deposit.rate }</td>
+                         <div style="width: 100%;">
+                         	<table style="width: 100%;">
+                         		<tr>
+                         			<th colspan="2" style="font-family: inherit; font-size: 12pt; width: 15%;">상품명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 75%;">상품설명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 10%;">이율(최대 연)</th>
                          		</tr>
+                         	</table>
+                         	<c:forEach items="${ deposit }" var="deposit" varStatus="Loop">
+                         		<div style="height: 120px; background-color: white; margin-bottom: 10px;">
+                         			<hr style="border-color: #E6E6FA;">
+                         			<p style="font-family: inherit; font-size: 11pt; text-align: left;">
+	                         			<input type="checkbox" style="float: left; margin-top: 7px; margin-left: 20px; width: 15px; height: 15px;">
+	                         			<span style="color: white; font-family: inherit; background-color: #008B8B; padding: 2px; float: left;">${ deposit.type }</span><br>
+	                         			<span style="color: red; font-family: inherit; margin-right: 15px; font-size:16pt; float: right;">${ deposit.rate }</span><br>
+	                         			<span style="clear: both; color: #008B8B; margin-left: 35px; font-size: 15pt;">${ deposit.name }</span><br>
+	                         			<span style="margin-left: 35px; font-size: 12pt;">${ deposit.desc }</span>
+	                         			<button id="joinBtn" style="width: 100px; line-height: 30px; border-radius: 80px; color: white; background-color: #008B8B; border: none; font-size: 12pt; float: right;">가입하기</button>
+                         			</p>
+                         		</div>
                          	</c:forEach>
-                         </table>
+                         </div>
                        </div>
                        <div id="tab2" class="panel group">
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing lorem<br />
-                               ipsum dolor sit amet, consectetur adipiscing elit.<br />
-                               <strong>Donec blandit enim libero</strong>, quis tincidunt arcu.
-                           </p>
-                           <p>Eaque ipsa quae ab illo veritatis et quasi architecto beatae vitae dicta.</p>
+                           <div style="width: 100%;">
+                         	<table style="width: 100%;">
+                         		<tr>
+                         			<th colspan="2" style="font-family: inherit; font-size: 12pt; width: 15%;">상품명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 75%;">상품설명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 10%;">이율(최대 연)</th>
+                         		</tr>
+                         	</table>
+                         	<c:forEach items="${ saving }" var="deposit" varStatus="Loop">
+                         		<div style="height: 120px; background-color: white; margin-bottom: 10px;">
+                         			<hr style="border-color: #E6E6FA;">
+                         			<p style="font-family: inherit; font-size: 11pt; text-align: left;">
+	                         			<input type="checkbox" style="float: left; margin-top: 7px; margin-left: 20px; width: 15px; height: 15px;">
+	                         			<span style="color: white; font-family: inherit; background-color: #008B8B; padding: 2px; float: left;">${ deposit.type }</span><br>
+	                         			<span style="color: red; font-family: inherit; margin-right: 15px; font-size:16pt; float: right;">${ deposit.rate }</span><br>
+	                         			<span style="clear: both; color: #008B8B; margin-left: 35px; font-size: 15pt;">${ deposit.name }</span><br>
+	                         			<span style="margin-left: 35px; font-size: 12pt;">${ deposit.desc }</span><br>
+	                         			<button id="joinBtn" style="width: 100px; line-height: 30px; border-radius: 80px; color: white; background-color: #008B8B; border: none; font-size: 12pt; float: right;">가입하기</button>
+                         			</p>
+                         		</div>
+                         		<br>
+                         	</c:forEach>
+                         </div>
                        </div>
                        <div id="tab3" class="panel group">
-                           <ul class="short arrow">
-                               <li>item</li>
-                               <li>item</li>
-                               <li>item</li>
-                           </ul>
+                           <div style="width: 100%;">
+                         	<table style="width: 100%;">
+                         		<tr>
+                         			<th colspan="2" style="font-family: inherit; font-size: 12pt; width: 15%;">상품명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 75%;">상품설명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 10%;">이율(최대 연)</th>
+                         		</tr>
+                         	</table>
+                         	<c:forEach items="${ account }" var="deposit" varStatus="Loop">
+                         		<div style="height: 120px; background-color: white; margin-bottom: 10px;">
+                         			<hr style="border-color: #E6E6FA;">
+                         			<p style="font-family: inherit; font-size: 11pt; text-align: left;">
+	                         			<input type="checkbox" style="float: left; margin-top: 7px; margin-left: 20px; width: 15px; height: 15px;">
+	                         			<span style="color: white; font-family: inherit; background-color: #008B8B; padding: 2px; float: left;">${ deposit.type }</span><br>
+	                         			<span style="color: #008B8B; font-family: inherit; margin-right: 15px; font-size:16pt; float: right;">${ deposit.rate }</span><br>
+	                         			<span style="clear: both; color: #008B8B; margin-left: 35px; font-size: 13pt;">${ deposit.name }</span><br>
+	                         			<span style="margin-left: 35px;">${ deposit.desc }</span>
+	                         			<button id="joinBtn" style="width: 100px; line-height: 30px; border-radius: 80px; color: white; background-color: #008B8B; border: none; font-size: 12pt; float: right;">전환하기</button>
+                         			</p>
+                         		</div>
+                         	</c:forEach>
+                         </div>
                        </div>
                        <div id="tab4" class="panel group">
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing lorem<br />
-                               ipsum dolor sit amet, consectetur adipiscing elit.<br />
-                               <strong>Donec blandit enim libero</strong>, quis tincidunt arcu.
-                           </p>
-                           <p>Eaque ipsa quae ab illo veritatis et quasi architecto beatae vitae dicta.</p>
+                           <div style="width: 100%;">
+                         	<table style="width: 100%;">
+                         		<tr>
+                         			<th colspan="2" style="font-family: inherit; font-size: 12pt; width: 15%;">상품명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 75%;">상품설명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 10%;">이율(최대 연)</th>
+                         		</tr>
+                         	</table>
+                         	<c:forEach items="${ deposit }" var="deposit" varStatus="Loop">
+                         		<div style="height: 120px; background-color: white; margin-bottom: 10px;">
+                         			<hr style="border-color: #E6E6FA;">
+                         			<p style="font-family: inherit; font-size: 11pt; text-align: left;">
+	                         			<input type="checkbox" style="float: left; margin-top: 7px; margin-left: 20px; width: 15px; height: 15px;">
+	                         			<span style="color: white; font-family: inherit; background-color: #008B8B; padding: 2px; float: left;">${ deposit.type }</span><br>
+	                         			<span style="color: #008B8B; font-family: inherit; margin-right: 15px; font-size:16pt; float: right;">${ deposit.rate }</span><br>
+	                         			<span style="clear: both; color: #008B8B; margin-left: 35px; font-size: 13pt;">${ deposit.name }</span><br>
+	                         			<span style="margin-left: 35px;">${ deposit.desc }</span>
+	                         			<button id="joinBtn" style="width: 100px; line-height: 30px; border-radius: 80px; color: white; background-color: #008B8B; border: none; font-size: 12pt; float: right;">가입하기</button>
+                         			</p>
+                         		</div>
+                         	</c:forEach>
+                         </div>
                        </div>
                        <div id="tab5" class="panel group">
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing lorem<br />
-                               ipsum dolor sit amet, consectetur adipiscing elit.<br />
-                               <strong>Donec blandit enim libero</strong>, quis tincidunt arcu.
-                           </p>
-                           <p>Eaque ipsa quae ab illo veritatis et quasi architecto beatae vitae dicta.</p>
+                           <div style="width: 100%;">
+                         	<table style="width: 100%;">
+                         		<tr>
+                         			<th colspan="2" style="font-family: inherit; font-size: 12pt; width: 15%;">상품명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 75%;">상품설명</th>
+                         			<th style="font-family: inherit; font-size: 12pt; width: 10%;">이율(최대 연)</th>
+                         		</tr>
+                         	</table>
+                         	<c:forEach items="${ deposit }" var="deposit" varStatus="Loop">
+                         		<div style="height: 120px; background-color: white; margin-bottom: 10px;">
+                         			<hr style="border-color: #E6E6FA;">
+                         			<p style="font-family: inherit; font-size: 11pt; text-align: left;">
+	                         			<input type="checkbox" style="float: left; margin-top: 7px; margin-left: 20px; width: 15px; height: 15px;">
+	                         			<span style="color: white; font-family: inherit; background-color: #008B8B; padding: 2px; float: left;">${ deposit.type }</span><br>
+	                         			<span style="color: #008B8B; font-family: inherit; margin-right: 15px; font-size:16pt; float: right;">${ deposit.rate }</span><br>
+	                         			<span style="clear: both; color: #008B8B; margin-left: 35px; font-size: 13pt;">${ deposit.name }</span><br>
+	                         			<span style="margin-left: 35px;">${ deposit.desc }</span>
+	                         			<button id="joinBtn" style="width: 100px; line-height: 30px; border-radius: 80px; color: white; background-color: #008B8B; border: none; font-size: 12pt; float: right;">가입하기</button>
+                         			</p>
+                         		</div>
+                         	</c:forEach>
+                         </div>
                        </div>
                    </div>
                </div>

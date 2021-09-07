@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import kr.ac.kopo.home.crawling.DepositCrawlingVO;
+import kr.ac.kopo.crawling.vo.DepositCrawlingVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:config/spring/spring-mvc.xml"})
@@ -22,8 +22,10 @@ public class CrawlingTest {
 	@Test
 	public void crawlingTest() {
 		
-		
-	      String url = "https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?catId=spb_2812";
+		  String url = "https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?catId=spb_2811";
+//	      String url = "https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?catId=spb_2812";
+//	      String url = "https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?catId=spb_2813";
+	      
 	      Document doc = null;
 	      
 	      try {
@@ -34,9 +36,12 @@ public class CrawlingTest {
 	      
 	      Elements element = doc.select("div.wrap-product-list");
 	      
-	      Iterator<Element> le1 = element.select("li[class=item type2] > div.check-style-type > label.checkCompare > span.label-area > span.product-tit > em").iterator();
+//		  li[class=item type2] > div.check-style-type > label.checkCompare > span.label-area > span.product-tit > em 절대경로	      
+	      
+	      Iterator<Element> le1 = element.select("span.product-tit > em").iterator();
 	      Iterator<Element> le2 = element.select("span.tit-desc > a").iterator();
 	      Iterator<Element> le3 = element.select("span.desc-detail > strong").iterator();
+	      Iterator<Element> le4 = element.select("span.product-tit > i").iterator();
 	      
 		  List<DepositCrawlingVO> deposit = new ArrayList<DepositCrawlingVO>();
 		    
@@ -47,6 +52,7 @@ public class CrawlingTest {
 			  depositCraw.setName(le1.next().text());
 			  depositCraw.setDesc(le2.next().text());
 			  depositCraw.setRate(le3.next().text());
+			  depositCraw.setType(le4.next().text());
 			  
 			  deposit.add(depositCraw);
 		  }
