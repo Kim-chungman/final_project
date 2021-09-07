@@ -210,12 +210,14 @@
 			<div style="background-color: #F7F9FC; width: 900px; align-content: center; margin-right: 100px;">
 				<br>
 				<div style="background-color:white; width: 95%; height: 70%; margin: auto;">
-					<p style="font-family: inherit; padding-left: 10px; padding-top: 10px; padding-right: 10px;">▷ 투자상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.<br>
+					<br>
+					<p style="font-family: inherit; font-size: 10pt; padding-left: 10px; padding-top: 10px; padding-right: 10px;">▷ 투자상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.<br>
 																												▷ 투자상품은 투자원금의 손실이 발생할 수 있으며, 손실가능범위는 투자원금의 전부 또는 일부에 대한 손실의 위험이 존재합니다.<br>
 																												▷ 투자상품은 운용실적에 따라 이익 또는 손실이 발생할 수 있으며, 그 결과는 투자자에게 귀속됩니다.<br>
 																												▷ 투자상품의 중도해지 시 환매수수료 또는 기타 비용이 발생할 수 있으며, 중도해지를 신청하는 경우라도 상품 종류에 따라 중도해지가 제한될 수 있으므로, 상품별 정하고 있는 중도해지 시 불이익 항목을 반드시 확인하시기 바랍니다.<br></p>
-					<p style="font-family: inherit; padding-left: 10px; padding-top: 10px; padding-right: 10px;">※ 가입하시기 전 투자대상, 환매방법 및 보수 등에 관하여 설명서*를 확인하시고 상품의 내용을 충분히 이해한 후 투자여부를 결정하시기 바랍니다.<br>
+					<p style="font-family: inherit; font-size: 10pt; padding-left: 10px; padding-top: 10px; padding-right: 10px;">※ 가입하시기 전 투자대상, 환매방법 및 보수 등에 관하여 설명서*를 확인하시고 상품의 내용을 충분히 이해한 후 투자여부를 결정하시기 바랍니다. 
 																												   * (간이)투자설명서, 사모집합투자증권 상품설명서/(요약)제안서, 특정금전신탁 상품설명서 등</p>
+					<br>
 				</div>
 				<p style="font-family: inherit; padding-left: 30px; padding-top: 10px; padding-right: 10px;">금융소비자 불이익 사항에 대하여 우선적으로 설명 듣고 이해하였음<input type="checkbox" style="margin-left: 30px;">확인함</p>
 				<br>

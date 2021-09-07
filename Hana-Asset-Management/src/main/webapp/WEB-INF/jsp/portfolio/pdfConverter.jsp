@@ -21,7 +21,7 @@
 		    var imgData = canvas.toDataURL('image/png');
 			     
 		    var imgWidth = 190; // 이미지 가로 길이(mm) / A4 기준 210mm
-		    var pageHeight = imgWidth * 1.414;  // 출력 페이지 세로 길이 계산 A4 기준
+		    var pageHeight = imgWidth * 1.414;  // 출력 페이지 세로 길이 계산 A4 기준 1.414
 		    var imgHeight = canvas.height * imgWidth / canvas.width;
 		    var heightLeft = imgHeight;
 		    var margin = 10; // 출력 페이지 여백설정
@@ -41,7 +41,7 @@
 		    }
 		 
 		    // 파일 저장
-		    doc.save('file-name.pdf');
+		    doc.save('file-${ userVO.name}.pdf');
 	
 			  
 		});
@@ -149,13 +149,14 @@
 </style>
 </head>
 <body>
+	<div id="pdfDiv">
 	<header>
 		<jsp:include page="/WEB-INF/include/header.jsp" />
 	</header>
-	<div id="pdfDiv">
+	<section>
 		<div id="main-container">
 			<div id="chat-container">
-				
+			
 			</div>
 			<div id="bottom-container">
 				<input id="inputMessage" type="text">
@@ -164,9 +165,10 @@
 		</div>
 		<br>
 		<button type="button" class="btn btn-primary" id="savePdf" >PDF 저장</button>
-	</div>
+	</section>
 	<footer>
 		<jsp:include page="/WEB-INF/include/footer.jsp" />
 	</footer>
+	</div>
 </body>
 </html>
