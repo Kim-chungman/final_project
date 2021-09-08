@@ -12,4 +12,9 @@ public class AccountController {
 		return "account/join";
 	}
 	
+	@GetMapping("/account/accountInfo")
+	public String accountInfo() {
+		
+		return "account/accountInfo";
+	}
 }
