@@ -26,16 +26,16 @@
       
       var data = new google.visualization.DataTable(jsonData);
       
-      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+      /* var chart = new google.visualization.PieChart(document.getElementById('chart_div')); */
       /* var chart = new google.visualization.LineChart(document.getElementById('chart_div')); */
-      /* var chart = new google.visualization.ColumnChart(document.getElementById('chart_div')); */
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
       
       chart.draw(data, {
-         title : "성별 신용한도",
+         title : "2021년 월별 지출내역",
          curveType : "function",
          width : 600,
          height : 400,
-         colors: ['#E6EDF5', 'aqua'],
+         colors: ['red','orange','yellow','green','blue','navy','purple','black'],
          is3D: true
       });
       
@@ -48,11 +48,11 @@
 		<jsp:include page="/WEB-INF/include/header.jsp" />
 	</header>
 	<section>
-		<div id="chart_div">
+		<div id="chart_div" align="center">
    
    		</div>
    
-   		<button id="btn" type="button" onclick="drawChart()">refresh</button>
+   		<button id="btn" type="button" onclick="drawChart()" style="margin: auto; display: block;">refresh</button>
 	</section>
 	<footer>
 		<jsp:include page="/WEB-INF/include/footer.jsp" />

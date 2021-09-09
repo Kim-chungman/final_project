@@ -2,47 +2,103 @@ package kr.ac.kopo.expense.vo;
 
 public class ExpenseVO {
 
-	private String category;
 	private String memberId;
-	private int cost;
-	private int expenditure;
-	private String regDate;
+	private int jan;
+	private int feb;
+	private int mar;
+	private int apr;
+	private int may;
+	private int jun;
+	private int jul;
+	private int aug;
+	private int sep;
+	private int oct;
+	private int nov;
+	private int dec;
 	
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
 	public String getMemberId() {
 		return memberId;
 	}
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public int getCost() {
-		return cost;
+	public int getJan() {
+		return jan;
 	}
-	public void setCost(int cost) {
-		this.cost = cost;
+	public void setJan(int jan) {
+		this.jan = jan;
 	}
-	public int getExpenditure() {
-		return expenditure;
+	public int getFeb() {
+		return feb;
 	}
-	public void setExpenditure(int expenditure) {
-		this.expenditure = expenditure;
+	public void setFeb(int feb) {
+		this.feb = feb;
 	}
-	public String getRegDate() {
-		return regDate;
+	public int getMar() {
+		return mar;
 	}
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
+	public void setMar(int mar) {
+		this.mar = mar;
 	}
-	
+	public int getApr() {
+		return apr;
+	}
+	public void setApr(int apr) {
+		this.apr = apr;
+	}
+	public int getMay() {
+		return may;
+	}
+	public void setMay(int may) {
+		this.may = may;
+	}
+	public int getJun() {
+		return jun;
+	}
+	public void setJun(int jun) {
+		this.jun = jun;
+	}
+	public int getJul() {
+		return jul;
+	}
+	public void setJul(int jul) {
+		this.jul = jul;
+	}
+	public int getAug() {
+		return aug;
+	}
+	public void setAug(int aug) {
+		this.aug = aug;
+	}
+	public int getSep() {
+		return sep;
+	}
+	public void setSep(int sep) {
+		this.sep = sep;
+	}
+	public int getOct() {
+		return oct;
+	}
+	public void setOct(int oct) {
+		this.oct = oct;
+	}
+	public int getNov() {
+		return nov;
+	}
+	public void setNov(int nov) {
+		this.nov = nov;
+	}
+	public int getDec() {
+		return dec;
+	}
+	public void setDec(int dec) {
+		this.dec = dec;
+	}
 	@Override
 	public String toString() {
-		return "ExpenseVO [category=" + category + ", memberId=" + memberId + ", cost=" + cost + ", expenditure="
-				+ expenditure + ", regDate=" + regDate + "]";
+		return "ExpenseVO [memberId=" + memberId + ", jan=" + jan + ", feb=" + feb + ", mar=" + mar + ", apr=" + apr
+				+ ", may=" + may + ", jun=" + jun + ", jul=" + jul + ", aug=" + aug + ", sep=" + sep + ", oct=" + oct
+				+ ", nov=" + nov + ", dec=" + dec + "]";
 	}
 	
 }

@@ -6,8 +6,21 @@
 
 	<resultMap type="expenseVO" id="expenseMap">
 		<result column="member_id" property="memberId"/>
-		<result column="reg_date" property="regDate"/>
 	</resultMap>
 
+	<select id="selectList" resultMap="expenseMap">
+		select member_id,
+			(select round(sum(cost)/100000)*10 from CM_DETAIL_EXPENDITURE where member_id = 'hana' and REG_DATE BETWEEN '21/01/01' and '21/01/31') jan,
+			(select round(sum(cost)/100000)*10 from CM_DETAIL_EXPENDITURE where member_id = 'hana' and REG_DATE BETWEEN '21/02/01' and '21/02/28') feb,
+			(select round(sum(cost)/100000)*10 from CM_DETAIL_EXPENDITURE where member_id = 'hana' and REG_DATE BETWEEN '21/03/01' and '21/03/31') mar,
+			(select round(sum(cost)/100000)*10 from CM_DETAIL_EXPENDITURE where member_id = 'hana' and REG_DATE BETWEEN '21/04/01' and '21/04/30') apr,
+			(select round(sum(cost)/100000)*10 from CM_DETAIL_EXPENDITURE where member_id = 'hana' and REG_DATE BETWEEN '21/05/01' and '21/05/31') may,
+			(select round(sum(cost)/100000)*10 from CM_DETAIL_EXPENDITURE where member_id = 'hana' and REG_DATE BETWEEN '21/06/01' and '21/06/30') jun,
+			(select round(sum(cost)/100000)*10 from CM_DETAIL_EXPENDITURE where member_id = 'hana' and REG_DATE BETWEEN '21/07/01' and '21/07/31') jul,
+			(select round(sum(cost)/100000)*10 from CM_DETAIL_EXPENDITURE where member_id = 'hana' and REG_DATE BETWEEN '21/08/01' and '21/08/31') aug
+			 from CM_DETAIL_EXPENDITURE
+			  where MEMBER_ID = 'hana'
+			   group by MEMBER_ID
+	</select>
 	
 </mapper>
