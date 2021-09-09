@@ -6,4 +6,7 @@
 	<typeAliases>
 		<typeAlias type="kr.ac.kopo.member.vo.MemberVO" alias="memberVO" />
 	</typeAliases>
+	<typeAliases>
+		<typeAlias type="kr.ac.kopo.account.vo.AccountVO" alias="accountVO" />
+	</typeAliases>
 </configuration>

@@ -198,7 +198,7 @@
 					<td id="tdNum" style="color: #008B8B;">
 						<a href="${ pageContext.request.contextPath }/account/join" style="color: #008B8B; font-size: 12pt; font-family: inherit;">1 약관동의</a>
 					</td>
-					<td id="tdNum">2 성향분석</td>
+					<td id="tdNum">2 정보입력</td>
 					<td id="tdNum">3 분석결과</td>
 				</tr>
 			</table><br><br>
