@@ -190,7 +190,7 @@
 					<td id="tdNum" style="color: #008B8B;">
 						<a href="${ pageContext.request.contextPath }/account/accountInfo" style="color: #008B8B; font-size: 12pt; font-family: inherit;">2 정보입력</a>
 					</td>
-					<td id="tdNum">3 분석결과</td>
+					<td id="tdNum">3 개설완료</td>
 				</tr>
 			</table><br><br>
 			<h2 style="text-align: left;">예금상품 가입</h2>

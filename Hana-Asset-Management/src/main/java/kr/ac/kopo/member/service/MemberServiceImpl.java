@@ -91,20 +91,15 @@ public class MemberServiceImpl implements MemberService{
 	         mail.setFrom("cndaks23@gmail.com", "영하나플러스통장 약관발송");   //보내는 사람 메일 / 이름 설정
 	         mail.addTo(email, name); //받는 사람 메일 / 이름, 회원가입 페이지에에서 가져온다.
 	         
-	         String htmlStr = "<div style='margin-top: 50px; width: 1500px; height: 400px; border: none; margin-left: 80px;'>"
-	 	            + "<h2 style='color: #008B8B font-family: inherit; margin-top: 30px;'>안녕하세요 Hana Solution 입니다!</h2><br>" 
-	 	            + "<strong style='color: #008B8B font-family: inherit; font-size: 13pt;'>" + name + "님</strong>" + "<p style='color: gray; font-size: 13pt; font-family: inherit;'>Hana Solution 영하나플러스통장 계좌개설 축하합니다.</p><br>" 
-	 	            + "<p>아래 더보기 버튼을 누르시면 홈페이지 로그인을 하실 수 있습니다. </p>(본인 메일이 아니면 삭제하시면 됩니다.)</div>" 
-	 	            + "<div><img alt='가입축하' src='http://localhost:9999/Hana-Asset-Management/resources/images/celebration.png'>"
-	 	            + "</div>"
-	 	            + "<div style='margin-top: 20px; margin-left: 85px;'>"
-	 	            + "<a href='http://localhost:9999/Hana-Asset-Management/login'><button style='font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none;'>"
-	 	            + "더보기"
-	 	            + "</button></a></div>";
+	         String htmlStr = "안녕하세요 Hana Solution 입니다!\n" 
+	 	            + name + "님 Hana Solution 영하나플러스통장 계좌개설 축하합니다.\n" 
+	 	            + "약관을 함께보내니 참고해주세요\n" 
+	 	            + "감사합니다.";
 	         
 	         mail.setSubject("약관발송 메일입니다."); //메일 제목
 	         mail.setMsg(htmlStr); //메일 내용
 	         
+
 	         //파일 첨부하기
 	         EmailAttachment file = new EmailAttachment();
 	         

@@ -10,7 +10,7 @@
         <!-- this line will appear only if the website is visited with an iPad -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
         
-        <title>Hana Solution - 예금통장개설</title>
+        <title>Hana Solution - 예금통장개설(정보입력)</title>
         
         <!-- [favicon] begin -->
         <link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/resources/images/favicon.png" />
@@ -199,7 +199,7 @@
 						<a href="${ pageContext.request.contextPath }/account/join" style="color: #008B8B; font-size: 12pt; font-family: inherit;">1 약관동의</a>
 					</td>
 					<td id="tdNum">2 정보입력</td>
-					<td id="tdNum">3 분석결과</td>
+					<td id="tdNum">3 개설완료</td>
 				</tr>
 			</table><br><br>
 			<h2 style="text-align: left; margin-right: 30px;">약관동의 및 금리확인</h2>
