@@ -1,9 +1,9 @@
 package kr.ac.kopo.assetmanage.controller;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -88,10 +88,10 @@ public class AssetManagementController {
 		return "assetManagement/investmentResult";
 	}
 	
-	@GetMapping("/assetManagement/productDesign")
-	public String productDesign(@Param("type") String type) {
+	@GetMapping("/assetManagement/productDesign/{investType}")
+	public String productDesign(@PathVariable String investType) {
 		
-		System.out.println(type);
+		System.out.println(investType);
 		
 		return "assetManagement/productDesign";
 	}

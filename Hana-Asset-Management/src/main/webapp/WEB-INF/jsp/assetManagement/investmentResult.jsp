@@ -86,7 +86,7 @@
         
       	// 상품설계하기로 이동
         function design(flag) {
-             location.href='${ pageContext.request.contextPath }/assetManagement/productDesign?type='+${ investType };
+             location.href='${ pageContext.request.contextPath }/assetManagement/productDesign/${investType}';
         };
     	</script>
         
