@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>점심이나 먹어라</h2>
+	<h2>${ accountVO.memberId }님 계좌개설을 축하합니다.</h2>
 </body>
 </html>

@@ -88,21 +88,32 @@ public class MemberServiceImpl implements MemberService{
 	      mail.setSSLOnConnect(true); //입력한 정보로 로그인 요청
 	      
 	      try {
-	         mail.setFrom("cndaks23@gmail.com", "관리자");   //보내는 사람 메일 / 이름 설정
+	         mail.setFrom("cndaks23@gmail.com", "영하나플러스통장 약관발송");   //보내는 사람 메일 / 이름 설정
 	         mail.addTo(email, name); //받는 사람 메일 / 이름, 회원가입 페이지에에서 가져온다.
 	         
-	         mail.setSubject("첨부 파일 테스트"); //메일 제목
-	         mail.setMsg(name + "님! 가입을 축하드립니다!\n 첨부 파일 테스트"); //메일 내용
+	         String htmlStr = "<div style='margin-top: 50px; width: 1500px; height: 400px; border: none; margin-left: 80px;'>"
+	 	            + "<h2 style='color: #008B8B font-family: inherit; margin-top: 30px;'>안녕하세요 Hana Solution 입니다!</h2><br>" 
+	 	            + "<strong style='color: #008B8B font-family: inherit; font-size: 13pt;'>" + name + "님</strong>" + "<p style='color: gray; font-size: 13pt; font-family: inherit;'>Hana Solution 영하나플러스통장 계좌개설 축하합니다.</p><br>" 
+	 	            + "<p>아래 더보기 버튼을 누르시면 홈페이지 로그인을 하실 수 있습니다. </p>(본인 메일이 아니면 삭제하시면 됩니다.)</div>" 
+	 	            + "<div><img alt='가입축하' src='http://localhost:9999/Hana-Asset-Management/resources/images/celebration.png'>"
+	 	            + "</div>"
+	 	            + "<div style='margin-top: 20px; margin-left: 85px;'>"
+	 	            + "<a href='http://localhost:9999/Hana-Asset-Management/login'><button style='font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none;'>"
+	 	            + "더보기"
+	 	            + "</button></a></div>";
+	         
+	         mail.setSubject("약관발송 메일입니다."); //메일 제목
+	         mail.setMsg(htmlStr); //메일 내용
 	         
 	         //파일 첨부하기
 	         EmailAttachment file = new EmailAttachment();
 	         
 	         //① 물리적 디스크내 파일 첨부
-	         file.setPath("C:/Users/HP/Desktop/DB/2160340092_김충만_DataBase_주말과제.pptx");
+	         file.setPath("C:/Users/HP/Pictures/project/영하나플러스통장.pdf");
 	         mail.attach(file);
 	         
+	         /*
 	         //② 프로젝트 내의 파일 첨부
-	         
 	         file = new EmailAttachment();
 	         file.setPath(session.getServletContext().getRealPath("resources/images/logo.png"));
 	         mail.attach(file);
@@ -111,6 +122,7 @@ public class MemberServiceImpl implements MemberService{
 	         file = new EmailAttachment();
 	         file.setURL(new URL("https://mvnrepository.com/assets/images/392dffac024b9632664e6f2c0cac6fe5-logo.png"));
 	         mail.attach(file);
+	         */
 	         
 	         mail.send(); //메일 발송 
 	      } catch (Exception e) {

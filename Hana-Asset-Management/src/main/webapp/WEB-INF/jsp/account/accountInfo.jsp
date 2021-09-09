@@ -200,9 +200,9 @@
 		<div>
 			<h4 style="text-align: left; margin-top: 40px;"><strong>정보입력</strong></h4>
 			<form method="post">
-				<input type="hidden" id="memberId" value="${ userVO.id }">
-				<input type="hidden" id="corporationCode" value="081">
-				<input type="hidden" id="mgr" value="10108413">
+				<input type="hidden" id="memberId" name="memberId" value="${ userVO.id }">
+				<input type="hidden" id="corporationCode" name="corporationCode" value="081">
+				<input type="hidden" id="mgr" name="mgr" value="10108413">
 				<hr>
 				<table style="width: 100%; text-align: left;">
 					<tr style="height: 100px;">

@@ -4,6 +4,25 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="account.AccountDAO">
 
+	<resultMap type="accountVO" id="accountMap">
+		<result column="acc_no" property="accNo"/>
+		<result column="member_id" property="memberId"/>
+		<result column="corporation_code" property="corporationCode"/>
+		<result column="acc_type" property="accType"/>
+		<result column="acc_name" property="accName"/>
+		<result column="autodebit_code" property="autodebitCode"/>
+		<result column="reg_date" property="regDate"/>
+	</resultMap>
 	
+	<insert id="join" parameterType="accountVO">
+		INSERT INTO CM_ACCOUNT(ACC_NO, MEMBER_ID, PASSWORD, CORPORATION_CODE, BALANCE, ACC_TYPE, ACC_NAME, MGR) 
+		 VALUES(CM_ACCNO_SEQ.NEXTVAL, #{memberId}, #{password}, #{corporationCode}, #{balance}, #{accType}, #{accName}, #{mgr})
+	</insert>
+	
+	<select id="accountSelect" parameterType="accountVO" resultMap="accountMap">
+		SELECT ACC_NO, MEMBER_ID, CORPORATION_CODE, BALANCE, ACC_TYPE, ACC_NAME, MGR, REG_DATE, HOLDER
+		 FROM CM_ACCOUNT
+		WHERE MEMBER_ID = #{memberId} and password = #{password}
+	</select>
 	
 </mapper>
