@@ -87,7 +87,7 @@ public class ExpenseServiceImpl implements ExpenseService{
       for(ExpenseVO list : items) {
          
          JSONObject memberId = new JSONObject();
-         memberId.put("v", list.getMemberId());
+         memberId.put("v", list.getMemberId()+"님의 최근 1년간 월간 지출액");
          
          JSONObject sep = new JSONObject();
          sep.put("v", list.getSep());
@@ -196,7 +196,7 @@ public class ExpenseServiceImpl implements ExpenseService{
       for(ExpenseVO list : items) {
          
          JSONObject memberId = new JSONObject();
-         memberId.put("v", list.getMemberId());
+         memberId.put("v", list.getMemberId()+"님의 최근 6개월간 월간 지출액");
          
          JSONObject mar = new JSONObject();
          mar.put("v", list.getMar());
@@ -271,7 +271,7 @@ public class ExpenseServiceImpl implements ExpenseService{
       for(ExpenseVO list : items) {
          
          JSONObject memberId = new JSONObject();
-         memberId.put("v", list.getMemberId());
+         memberId.put("v", list.getMemberId()+"님의 최근 3개월간 월간 지출액");
          
          JSONObject jun = new JSONObject();
          jun.put("v", list.getJun());
@@ -299,6 +299,132 @@ public class ExpenseServiceImpl implements ExpenseService{
 	      
 	}
 
-   
+	@Override
+	public JSONObject getpieChartData(ExpenseVO expense) {
+
+		JSONObject data = dataGet(1, expense);
+		
+		return data;
+		
+	}
+
+	@Override
+	public JSONObject getpieChartData2(ExpenseVO expense) {
+
+		JSONObject data = dataGet(2, expense);
+		
+		return data;
+	      
+	}
+
+	@Override
+	public JSONObject getpieChartData3(ExpenseVO expense) {
+
+		JSONObject data = dataGet(3, expense);
+		
+		return data;
+		
+	}
+
+	@Override
+	public JSONObject getpieChartData4(ExpenseVO expense) {
+
+		JSONObject data = dataGet(4, expense);
+		
+		return data;
+	}
+	
+	public JSONObject dataGet(int no, ExpenseVO expense) {
+		
+		List<ExpenseVO> items = null;
+		String msg = "";
+		switch(no) {
+		
+		case 1 :
+			items = chartDAO.pieChartData(expense);
+			msg = "지난 1달간";
+			break;
+		case 2 :
+			items = chartDAO.pieChartData2(expense);
+			msg = "지난 3달간";
+			break;
+		case 3 :
+			items = chartDAO.pieChartData3(expense);
+			msg = "지난 6달간";
+			break;
+		case 4 :
+			items = chartDAO.pieChartData4(expense);
+			msg = "지난 1년간";
+			break;
+		}
+		
+		JSONObject data = new JSONObject();
+	     
+	      JSONObject col1 = new JSONObject();
+	      JSONObject col2 = new JSONObject();
+	      
+	      JSONArray title = new JSONArray();
+	      
+	      col1.put("label", "카테고리");
+	      col1.put("type", "string");
+	      col2.put("label", msg);
+	      col2.put("type", "number");
+	      
+	      title.add(col1);
+	      title.add(col2);
+	      
+	      data.put("cols", title);
+	      
+	      JSONArray body = new JSONArray();
+	      for(ExpenseVO list : items) {
+	         
+	         JSONObject category = new JSONObject();
+	         
+	         switch(list.getCategory()) {
+	         
+	         case "ENTERTAINMENT_COST" :
+	        	 list.setCategory("문화/오락");
+	        	 break;
+	         case "TRANSPORTATION_COST" :
+	        	 list.setCategory("교통비");
+	        	 break;
+	         case "EDUCATIONAL_COST" :
+	        	 list.setCategory("교육비");
+	        	 break;
+	         case "COMMUNICATION_COST" :
+	        	 list.setCategory("통신비");
+	        	 break;
+	         case "FOOD_COST" :
+	        	 list.setCategory("식비");
+	        	 break;
+	         case "HEALTH_CARE_COST" :
+	        	 list.setCategory("의료비");
+	        	 break;
+	         case "INSURANCE_PREMIUM" :
+	        	 list.setCategory("보험료");
+	        	 break;
+	         case "APPAREL_COST" :
+	        	 list.setCategory("쇼핑/의류");
+	        	 break;	 
+	         }
+	         category.put("v", list.getCategory());
+	         
+	         JSONObject expensed = new JSONObject();
+	         expensed.put("v", list.getExpense());
+	         
+	         JSONArray row = new JSONArray();
+	         row.add(category);
+	         row.add(expensed);
+	         
+	         JSONObject cell = new JSONObject();
+	         cell.put("c", row);
+	         body.add(cell);
+	         
+	      }
+	      data.put("rows", body);
+	      
+	      return data;
+		
+	}
    
 }

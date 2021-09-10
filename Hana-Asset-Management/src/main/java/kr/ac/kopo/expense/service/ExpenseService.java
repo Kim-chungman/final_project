@@ -12,4 +12,12 @@ public interface ExpenseService {
 
 	public JSONObject getChartData3(ExpenseVO expense);
 
+	public JSONObject getpieChartData(ExpenseVO expense);
+
+	public JSONObject getpieChartData2(ExpenseVO expense);
+
+	public JSONObject getpieChartData3(ExpenseVO expense);
+
+	public JSONObject getpieChartData4(ExpenseVO expense);
+
 }

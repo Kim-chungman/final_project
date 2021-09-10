@@ -12,4 +12,12 @@ public interface ExpenseDAO {
 
 	public List<ExpenseVO> customerList3(ExpenseVO expense);
 
+	public List<ExpenseVO> pieChartData(ExpenseVO expense);
+
+	public List<ExpenseVO> pieChartData2(ExpenseVO expense);
+
+	public List<ExpenseVO> pieChartData3(ExpenseVO expense);
+
+	public List<ExpenseVO> pieChartData4(ExpenseVO expense);
+
 }

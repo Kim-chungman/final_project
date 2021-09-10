@@ -3,16 +3,8 @@ package kr.ac.kopo.expense.vo;
 public class ExpenseVO {
 
 	private String memberId;
-	private String startDay;
-	private String startYear;
-	private String startMonth;
-	private String startDate;
-	private String startMonthLast;
-	private String lastDay;
-	private String lastYear;
-	private String lastMonth;
-	private String lastDate;
-	private String LastMonthLast;
+	private String category;
+	private int expense;
 	private int jan;
 	private int feb;
 	private int mar;
@@ -32,17 +24,17 @@ public class ExpenseVO {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public String getStartMonthLast() {
-		return startMonthLast;
+	public String getCategory() {
+		return category;
 	}
-	public void setStartMonthLast(String startMonthLast) {
-		this.startMonthLast = startMonthLast;
+	public void setCategory(String category) {
+		this.category = category;
 	}
-	public String getLastMonthLast() {
-		return LastMonthLast;
+	public int getExpense() {
+		return expense;
 	}
-	public void setLastMonthLast(String lastMonthLast) {
-		LastMonthLast = lastMonthLast;
+	public void setExpense(int expense) {
+		this.expense = expense;
 	}
 	public int getJan() {
 		return jan;
@@ -116,62 +108,11 @@ public class ExpenseVO {
 	public void setDec(int dec) {
 		this.dec = dec;
 	}
-	public String getStartDay() {
-		return startDay;
-	}
-	public void setStartDay(String startDay) {
-		this.startDay = startDay;
-	}
-	public String getStartYear() {
-		return startYear;
-	}
-	public void setStartYear(String startYear) {
-		this.startYear = startYear;
-	}
-	public String getStartMonth() {
-		return startMonth;
-	}
-	public void setStartMonth(String startMonth) {
-		this.startMonth = startMonth;
-	}
-	public String getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-	public String getLastDay() {
-		return lastDay;
-	}
-	public void setLastDay(String lastDay) {
-		this.lastDay = lastDay;
-	}
-	public String getLastYear() {
-		return lastYear;
-	}
-	public void setLastYear(String lastYear) {
-		this.lastYear = lastYear;
-	}
-	public String getLastMonth() {
-		return lastMonth;
-	}
-	public void setLastMonth(String lastMonth) {
-		this.lastMonth = lastMonth;
-	}
-	public String getLastDate() {
-		return lastDate;
-	}
-	public void setLastDate(String lastDate) {
-		this.lastDate = lastDate;
-	}
 	@Override
 	public String toString() {
-		return "ExpenseVO [memberId=" + memberId + ", startDay=" + startDay + ", startYear=" + startYear
-				+ ", startMonth=" + startMonth + ", startDate=" + startDate + ", startMonthLast=" + startMonthLast
-				+ ", lastDay=" + lastDay + ", lastYear=" + lastYear + ", lastMonth=" + lastMonth + ", lastDate="
-				+ lastDate + ", LastMonthLast=" + LastMonthLast + ", jan=" + jan + ", feb=" + feb + ", mar=" + mar
-				+ ", apr=" + apr + ", may=" + may + ", jun=" + jun + ", jul=" + jul + ", aug=" + aug + ", sep=" + sep
-				+ ", oct=" + oct + ", nov=" + nov + ", dec=" + dec + "]";
+		return "ExpenseVO [memberId=" + memberId + ", category=" + category + ", expense=" + expense + ", jan=" + jan
+				+ ", feb=" + feb + ", mar=" + mar + ", apr=" + apr + ", may=" + may + ", jun=" + jun + ", jul=" + jul
+				+ ", aug=" + aug + ", sep=" + sep + ", oct=" + oct + ", nov=" + nov + ", dec=" + dec + "]";
 	}
 	
 }

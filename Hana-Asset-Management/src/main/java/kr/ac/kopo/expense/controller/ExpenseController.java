@@ -64,4 +64,60 @@ public class ExpenseController {
 		return service.getChartData3(expense);
     }
 	
+	@RequestMapping("/pieChart")
+	public JSONObject pieChart(HttpServletRequest request) throws Exception {
+     
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		
+		ExpenseVO expense = new ExpenseVO();
+		
+		expense.setMemberId(id);
+		
+		return service.getpieChartData(expense);
+    }
+	
+	@RequestMapping("/pieChart2")
+	public JSONObject pieChart2(HttpServletRequest request) throws Exception {
+     
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		
+		ExpenseVO expense = new ExpenseVO();
+		
+		expense.setMemberId(id);
+		
+		return service.getpieChartData2(expense);
+    }
+	
+	@RequestMapping("/pieChart3")
+	public JSONObject pieChart3(HttpServletRequest request) throws Exception {
+     
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		
+		ExpenseVO expense = new ExpenseVO();
+		
+		expense.setMemberId(id);
+		
+		return service.getpieChartData3(expense);
+    }
+	
+	@RequestMapping("/pieChart4")
+	public JSONObject pieChart4(HttpServletRequest request) throws Exception {
+     
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		
+		ExpenseVO expense = new ExpenseVO();
+		
+		expense.setMemberId(id);
+		
+		return service.getpieChartData4(expense);
+    }
+	
 }

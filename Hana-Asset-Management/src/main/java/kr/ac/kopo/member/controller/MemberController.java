@@ -150,7 +150,7 @@ public class MemberController {
 		if(memberVO.getName()!=null) {
 			
 			memberService.mailSendWithUserKey(member.getEmail(), member.getName(), request);
-			memberService.sendAttach(member.getEmail(), member.getName(), session);
+		//	memberService.sendAttach(member.getEmail(), member.getName(), session);
 			
 			model.addAttribute("userVO", memberVO);
 			return "/member/joinSuccess";

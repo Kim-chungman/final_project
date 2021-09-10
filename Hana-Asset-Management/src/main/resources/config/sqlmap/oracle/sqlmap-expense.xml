@@ -50,4 +50,32 @@
 			   group by MEMBER_ID
 	</select>
 	
+	<select id="pieChartData" parameterType="expenseVO" resultMap="expenseMap">
+		select sum(cost) expense, category
+		 from CM_DETAIL_EXPENDITURE
+		  where MEMBER_ID = #{memberId} and REG_DATE BETWEEN '21-08-01'and '21-08-31'
+		   group by member_id, category
+	</select>
+	
+	<select id="pieChartData2" parameterType="expenseVO" resultMap="expenseMap">
+		select sum(cost) expense, category
+		 from CM_DETAIL_EXPENDITURE
+		  where MEMBER_ID = #{memberId} and REG_DATE BETWEEN '21-06-01'and '21-08-31'
+		   group by member_id, category
+	</select>
+	
+	<select id="pieChartData3" parameterType="expenseVO" resultMap="expenseMap">
+		select sum(cost) expense, category
+		 from CM_DETAIL_EXPENDITURE
+		  where MEMBER_ID = #{memberId} and REG_DATE BETWEEN '21-03-01'and '21-08-31'
+		   group by member_id, category
+	</select>
+	
+	<select id="pieChartData4" parameterType="expenseVO" resultMap="expenseMap">
+		select sum(cost) expense, category
+		 from CM_DETAIL_EXPENDITURE
+		  where MEMBER_ID = #{memberId} and REG_DATE BETWEEN '20-09-01'and '21-08-31'
+		   group by member_id, category
+	</select>
+	
 </mapper>
