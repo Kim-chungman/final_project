@@ -6,6 +6,10 @@ import kr.ac.kopo.expense.vo.ExpenseVO;
 
 public interface ExpenseDAO {
 
-	public List<ExpenseVO> customerList();
+	public List<ExpenseVO> customerList(ExpenseVO expense);
+
+	public List<ExpenseVO> customerList2(ExpenseVO expense);
+
+	public List<ExpenseVO> customerList3(ExpenseVO expense);
 
 }

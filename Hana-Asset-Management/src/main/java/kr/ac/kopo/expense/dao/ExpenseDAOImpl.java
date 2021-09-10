@@ -15,10 +15,28 @@ public class ExpenseDAOImpl implements ExpenseDAO{
    private SqlSessionTemplate sqlSessionTemplate;
    
    @Override
-   public List<ExpenseVO> customerList() {
+   public List<ExpenseVO> customerList(ExpenseVO expense) {
       
-      List<ExpenseVO> customerList = sqlSessionTemplate.selectList("expense.ExpenseDAO.selectList");
+      List<ExpenseVO> customerList = sqlSessionTemplate.selectList("expense.ExpenseDAO.selectList", expense);
       
       return customerList;
    }
+
+	@Override
+	public List<ExpenseVO> customerList2(ExpenseVO expense) {
+
+		List<ExpenseVO> customerList = sqlSessionTemplate.selectList("expense.ExpenseDAO.selectList2", expense);
+	      
+	    return customerList;
+		
+	}
+
+	@Override
+	public List<ExpenseVO> customerList3(ExpenseVO expense) {
+
+		List<ExpenseVO> customerList = sqlSessionTemplate.selectList("expense.ExpenseDAO.selectList3", expense);
+	      
+	    return customerList;
+		
+	}
 }
