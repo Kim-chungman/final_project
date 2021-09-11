@@ -78,4 +78,17 @@
 		   group by member_id, category
 	</select>
 	
+	<select id="ageSelect" parameterType="expenseVO" resultMap="expenseMap">
+		select substr(rrn,1,2) type 
+		 from cm_member 
+		  where id = #{memberId}
+	</select>
+	
+	<select id="ageChartData" parameterType="expenseVO" resultMap="expenseMap">
+		select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1) expense, category
+         from CM_DETAIL_EXPENDITURE
+          where REG_DATE BETWEEN '21-08-01'and '21-08-31' and member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last})
+           group by category
+	</select>
+	
 </mapper>

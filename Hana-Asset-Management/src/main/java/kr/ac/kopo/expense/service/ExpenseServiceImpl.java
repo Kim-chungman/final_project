@@ -3,6 +3,8 @@ package kr.ac.kopo.expense.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -356,6 +358,17 @@ public class ExpenseServiceImpl implements ExpenseService{
 			items = chartDAO.pieChartData4(expense);
 			msg = "지난 1년간";
 			break;
+		/*	
+		case 5 :
+			int age = chartDAO.ageData(expense);
+			if(age>92) {
+				expense.setStart("93-01-01");
+				expense.setLast("99-12-31");
+				items = chartDAO.ageChartData(expense);
+			}
+			msg = "지난 1달간";
+			break;
+		*/
 		}
 		
 		JSONObject data = new JSONObject();
@@ -405,7 +418,13 @@ public class ExpenseServiceImpl implements ExpenseService{
 	        	 break;
 	         case "APPAREL_COST" :
 	        	 list.setCategory("쇼핑/의류");
-	        	 break;	 
+	        	 break;
+	         case "HOUSING_COST" :
+	        	 list.setCategory("주거비");
+	        	 break;
+	         case "INSTALLMENT_SAVING" :
+	        	 list.setCategory("적금");
+	        	 break;
 	         }
 	         category.put("v", list.getCategory());
 	         
@@ -422,9 +441,17 @@ public class ExpenseServiceImpl implements ExpenseService{
 	         
 	      }
 	      data.put("rows", body);
-	      
+	     
 	      return data;
 		
+	}
+
+	@Override
+	public JSONObject getageChartData(ExpenseVO expense) {
+		
+		JSONObject data = dataGet(5, expense);
+		
+		return data;
 	}
    
 }

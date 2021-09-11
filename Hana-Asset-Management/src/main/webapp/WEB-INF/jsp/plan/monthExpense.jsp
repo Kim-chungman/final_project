@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -274,6 +275,119 @@
 	}
 	  
 </script>
+<script>
+	/* 
+   google.load('visualization','1', {
+      'packages' : ['corechart']
+   })
+   
+   google.setOnLoadCallback(drawAgeChart);
+   function drawAgeChart() {
+	   
+	      var jsonData = $.ajax({
+	         
+	         url : "${ pageContext.request.contextPath }/ageChart",
+	         data: { id: idCheck},
+	         dataType : "JSON",
+	         async : false
+	      }).responseText;
+	      console.log(jsonData);
+	      
+	      var data = new google.visualization.DataTable(jsonData);
+	      
+	      var chart = new google.visualization.PieChart(document.getElementById('agechart_div')); 
+	      
+	      chart.draw(data, {
+	         title : "<지난 1달간 지출구성비>",
+	         curveType : "function",
+	         fontSize: 16,
+	         width : 1000,
+	         height : 500,
+	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black'],
+	         is3D: true
+	      });
+	      
+	}
+   function drawAgeChart2() {
+	   
+	      var jsonData = $.ajax({
+	         
+	         url : "${ pageContext.request.contextPath }/ageChart",
+	         data: { id: idCheck},
+	         dataType : "JSON",
+	         async : false
+	      }).responseText;
+	      console.log(jsonData);
+	      
+	      var data = new google.visualization.DataTable(jsonData);
+	      
+	      var chart = new google.visualization.PieChart(document.getElementById('agechart_div')); 
+	      
+	      chart.draw(data, {
+	         title : "<지난 3달간 지출구성비>",
+	         curveType : "function",
+	         fontSize: 16,
+	         width : 1000,
+	         height : 500,
+	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black'],
+	         is3D: true
+	      });
+	      
+	}
+   function drawAgeChart3() {
+	   
+	      var jsonData = $.ajax({
+	         
+	         url : "${ pageContext.request.contextPath }/ageChart",
+	         data: { id: idCheck},
+	         dataType : "JSON",
+	         async : false
+	      }).responseText;
+	      console.log(jsonData);
+	      
+	      var data = new google.visualization.DataTable(jsonData);
+	      
+	      var chart = new google.visualization.PieChart(document.getElementById('agechart_div')); 
+	      
+	      chart.draw(data, {
+	         title : "<지난 6달간 지출구성비>",
+	         curveType : "function",
+	         fontSize: 16,
+	         width : 1000,
+	         height : 500,
+	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black'],
+	         is3D: true
+	      });
+	      
+	}
+   function drawAgeChart4() {
+	   
+	      var jsonData = $.ajax({
+	         
+	         url : "${ pageContext.request.contextPath }/ageChart",
+	         data: { id: idCheck},
+	         dataType : "JSON",
+	         async : false
+	      }).responseText;
+	      console.log(jsonData);
+	      
+	      var data = new google.visualization.DataTable(jsonData);
+	      
+	      var chart = new google.visualization.PieChart(document.getElementById('agechart_div')); 
+	      
+	      chart.draw(data, {
+	         title : "<지난 1년간 지출구성비>",
+	         curveType : "function",
+	         fontSize: 16,
+	         width : 1000,
+	         height : 500,
+	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black'],
+	         is3D: true
+	      });
+	      
+	}
+	   */
+</script>
 <style>
 	.manageMenu:hover {
     		color: #008B8B; 
@@ -376,6 +490,15 @@
 		<button type="button" onclick="drawPieChart3()" style="width: 160px; line-height: 32px; border-radius: 80px; color: white; background-color: #008B8B; border: none;">최근 6달간 지출구성비</button>
 		<button type="button" onclick="drawPieChart4()" style="width: 160px; line-height: 32px; border-radius: 80px; color: white; background-color: #008B8B; border: none;">최근 1년간 지출구성비</button>
         <div id="Piechart_div" align="center">
+
+		</div>
+		<h3 style="font-family: 'inherit'; text-align: center; margin-top: 30px;"><strong>나의 연령대와 비교하기</strong></h3>
+		<hr style="border-color: #008B8B; margin-bottom: 20px; border-width: 1px; width: 23%;">
+        <button type="button" onclick="drawAgeChart()" style="margin-left:140px; width: 160px; line-height: 32px; border-radius: 80px; color: white; background-color: #008B8B; border: none;">최근 1달간 지출구성비</button>
+		<button type="button" onclick="drawAgeChart2()" style="width: 160px; line-height: 32px; border-radius: 80px; color: white; background-color: #008B8B; border: none;">최근 3달간 지출구성비</button>
+		<button type="button" onclick="drawAgeChart3()" style="width: 160px; line-height: 32px; border-radius: 80px; color: white; background-color: #008B8B; border: none;">최근 6달간 지출구성비</button>
+		<button type="button" onclick="drawAgeChart4()" style="width: 160px; line-height: 32px; border-radius: 80px; color: white; background-color: #008B8B; border: none;">최근 1년간 지출구성비</button>
+        <div id="agechart_div" align="center">
 
 		</div>
 	</section>

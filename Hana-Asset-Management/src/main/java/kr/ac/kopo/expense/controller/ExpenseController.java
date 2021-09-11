@@ -1,5 +1,6 @@
 package kr.ac.kopo.expense.controller;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
@@ -70,10 +71,9 @@ public class ExpenseController {
 		request.setCharacterEncoding("utf-8");
 		
 		String id = request.getParameter("id");
+		System.out.println(id);
 		
 		ExpenseVO expense = new ExpenseVO();
-		
-		expense.setMemberId(id);
 		
 		return service.getpieChartData(expense);
     }
@@ -118,6 +118,20 @@ public class ExpenseController {
 		expense.setMemberId(id);
 		
 		return service.getpieChartData4(expense);
+    }
+	
+	@RequestMapping("/ageChart")
+	public JSONObject ageChart(HttpServletRequest request) throws Exception {
+     
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		
+		System.out.println(id);
+		
+		ExpenseVO expense = new ExpenseVO();
+		
+		return service.getageChartData(expense);
     }
 	
 }

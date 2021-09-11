@@ -4,6 +4,9 @@ public class ExpenseVO {
 
 	private String memberId;
 	private String category;
+	private int type;
+	private String start;
+	private String last;
 	private int expense;
 	private int jan;
 	private int feb;
@@ -30,11 +33,29 @@ public class ExpenseVO {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 	public int getExpense() {
 		return expense;
 	}
 	public void setExpense(int expense) {
 		this.expense = expense;
+	}
+	public String getStart() {
+		return start;
+	}
+	public void setStart(String start) {
+		this.start = start;
+	}
+	public String getLast() {
+		return last;
+	}
+	public void setLast(String last) {
+		this.last = last;
 	}
 	public int getJan() {
 		return jan;
@@ -110,9 +131,10 @@ public class ExpenseVO {
 	}
 	@Override
 	public String toString() {
-		return "ExpenseVO [memberId=" + memberId + ", category=" + category + ", expense=" + expense + ", jan=" + jan
-				+ ", feb=" + feb + ", mar=" + mar + ", apr=" + apr + ", may=" + may + ", jun=" + jun + ", jul=" + jul
-				+ ", aug=" + aug + ", sep=" + sep + ", oct=" + oct + ", nov=" + nov + ", dec=" + dec + "]";
+		return "ExpenseVO [memberId=" + memberId + ", category=" + category + ", type=" + type + ", start=" + start
+				+ ", last=" + last + ", expense=" + expense + ", jan=" + jan + ", feb=" + feb + ", mar=" + mar
+				+ ", apr=" + apr + ", may=" + may + ", jun=" + jun + ", jul=" + jul + ", aug=" + aug + ", sep=" + sep
+				+ ", oct=" + oct + ", nov=" + nov + ", dec=" + dec + "]";
 	}
 	
 }

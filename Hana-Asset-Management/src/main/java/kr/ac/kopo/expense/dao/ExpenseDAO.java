@@ -20,4 +20,8 @@ public interface ExpenseDAO {
 
 	public List<ExpenseVO> pieChartData4(ExpenseVO expense);
 
+	public int ageData(ExpenseVO expense);
+
+	public List<ExpenseVO> ageChartData(ExpenseVO expense);
+
 }
