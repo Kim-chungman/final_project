@@ -77,9 +77,9 @@ public class ExpenseDAOImpl implements ExpenseDAO{
 	}
 
 	@Override
-	public int ageData(ExpenseVO expense) {
+	public String ageData(ExpenseVO expense) {
 		
-		int age = sqlSessionTemplate.selectOne("expense.ExpenseDAO.ageSelect", expense);
+		String age = sqlSessionTemplate.selectOne("expense.ExpenseDAO.ageSelect", expense);
 		
 		return age;
 	}
@@ -90,5 +90,31 @@ public class ExpenseDAOImpl implements ExpenseDAO{
 		List<ExpenseVO> customerList = sqlSessionTemplate.selectList("expense.ExpenseDAO.ageChartData", expense);
 	      
 	    return customerList;
+	}
+
+	@Override
+	public List<ExpenseVO> ageChartData2(ExpenseVO expense) {
+
+		List<ExpenseVO> customerList = sqlSessionTemplate.selectList("expense.ExpenseDAO.ageChartData2", expense);
+	      
+	    return customerList;
+		
+	}
+
+	@Override
+	public List<ExpenseVO> ageChartData3(ExpenseVO expense) {
+		
+		List<ExpenseVO> customerList = sqlSessionTemplate.selectList("expense.ExpenseDAO.ageChartData3", expense);
+	      
+	    return customerList;
+	}
+
+	@Override
+	public List<ExpenseVO> ageChartData4(ExpenseVO expense) {
+
+		List<ExpenseVO> customerList = sqlSessionTemplate.selectList("expense.ExpenseDAO.ageChartData4", expense);
+	      
+	    return customerList;
+		
 	}
 }

@@ -24,4 +24,10 @@ public interface ExpenseService {
 
 	public JSONObject getageChartData(ExpenseVO expense);
 
+	public JSONObject getageChartData2(ExpenseVO expense);
+
+	public JSONObject getageChartData3(ExpenseVO expense);
+
+	public JSONObject getageChartData4(ExpenseVO expense);
+
 }

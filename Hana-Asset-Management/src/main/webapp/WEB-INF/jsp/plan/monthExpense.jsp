@@ -64,11 +64,10 @@
       'packages' : ['corechart']
    })
    
-   let idCheck = '${ userVO.id }';
-   
    google.setOnLoadCallback(drawChart);
    function drawChart() {
 	   
+	   	  var idCheck = '${ userVO.id }';
 	      var jsonData = $.ajax({
 	         
 	         url : "${ pageContext.request.contextPath }/customerList",
@@ -96,7 +95,7 @@
 	      
 	}
    	function drawChart2() {
-	   
+  	  	  var idCheck = '${ userVO.id }';
 	      var jsonData = $.ajax({
 	         
 	         url : "${ pageContext.request.contextPath }/customerList2",
@@ -124,7 +123,7 @@
 	      
 	}
    	function drawChart3() {
- 	   
+  	  	  var idCheck = '${ userVO.id }';
 	      var jsonData = $.ajax({
 	         
 	         url : "${ pageContext.request.contextPath }/customerList3",
@@ -151,22 +150,19 @@
 	      });
 	      
 	}
-	  
 </script>
 <script>
    google.load('visualization','1', {
       'packages' : ['corechart']
    })
    
-   let idCheck2 = '${ userVO.id }';
-   
    google.setOnLoadCallback(drawPieChart);
    function drawPieChart() {
-	   
+		  var idCheck = '${ userVO.id }';
 	      var jsonData = $.ajax({
 	         
 	         url : "${ pageContext.request.contextPath }/pieChart",
-	         data: { id: idCheck2},
+	         data: { id: idCheck},
 	         dataType : "JSON",
 	         async : false
 	      }).responseText;
@@ -179,7 +175,7 @@
 	      /* var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); */
 	      
 	      chart.draw(data, {
-	         title : "<지난 1달간 지출구성비>",
+	         title : "지난 1달간 지출구성비",
 	         curveType : "function",
 	         fontSize: 16,
 	         width : 1000,
@@ -190,11 +186,11 @@
 	      
 	}
    function drawPieChart2() {
-	   
+		  var idCheck = '${ userVO.id }';
 	      var jsonData = $.ajax({
 	         
 	         url : "${ pageContext.request.contextPath }/pieChart2",
-	         data: { id: idCheck2},
+	         data: { id: idCheck},
 	         dataType : "JSON",
 	         async : false
 	      }).responseText;
@@ -218,11 +214,11 @@
 	      
 	}
    function drawPieChart3() {
-	   
+		  var idCheck = '${ userVO.id }';
 	      var jsonData = $.ajax({
 	         
 	         url : "${ pageContext.request.contextPath }/pieChart3",
-	         data: { id: idCheck2},
+	         data: { id: idCheck},
 	         dataType : "JSON",
 	         async : false
 	      }).responseText;
@@ -246,11 +242,11 @@
 	      
 	}
    function drawPieChart4() {
-	   
+		  var idCheck = '${ userVO.id }'; 
 	      var jsonData = $.ajax({
 	         
 	         url : "${ pageContext.request.contextPath }/pieChart4",
-	         data: { id: idCheck2},
+	         data: { id: idCheck},
 	         dataType : "JSON",
 	         async : false
 	      }).responseText;
@@ -276,14 +272,14 @@
 	  
 </script>
 <script>
-	/* 
-   google.load('visualization','1', {
-      'packages' : ['corechart']
-   })
-   
-   google.setOnLoadCallback(drawAgeChart);
-   function drawAgeChart() {
-	   
+
+	google.load('visualization','1', {
+	    'packages' : ['corechart']
+	 })
+	 
+	 google.setOnLoadCallback(drawAgeChart);
+	 function drawAgeChart() {
+		  var idCheck = '${ userVO.id }';
 	      var jsonData = $.ajax({
 	         
 	         url : "${ pageContext.request.contextPath }/ageChart",
@@ -303,16 +299,16 @@
 	         fontSize: 16,
 	         width : 1000,
 	         height : 500,
-	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black'],
+	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black','Chocolate','CadetBlue'],
 	         is3D: true
 	      });
-	      
-	}
-   function drawAgeChart2() {
-	   
+		      
+		}
+	 function drawAgeChart2() {
+		  var idCheck = '${ userVO.id }';  
 	      var jsonData = $.ajax({
 	         
-	         url : "${ pageContext.request.contextPath }/ageChart",
+	         url : "${ pageContext.request.contextPath }/ageChart2",
 	         data: { id: idCheck},
 	         dataType : "JSON",
 	         async : false
@@ -329,16 +325,16 @@
 	         fontSize: 16,
 	         width : 1000,
 	         height : 500,
-	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black'],
+	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black','Chocolate','CadetBlue'],
 	         is3D: true
 	      });
-	      
-	}
-   function drawAgeChart3() {
-	   
+		      
+		}
+	 function drawAgeChart3() {
+		 var idCheck = '${ userVO.id }';   
 	      var jsonData = $.ajax({
 	         
-	         url : "${ pageContext.request.contextPath }/ageChart",
+	         url : "${ pageContext.request.contextPath }/ageChart3",
 	         data: { id: idCheck},
 	         dataType : "JSON",
 	         async : false
@@ -355,16 +351,16 @@
 	         fontSize: 16,
 	         width : 1000,
 	         height : 500,
-	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black'],
+	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black','Chocolate','CadetBlue'],
 	         is3D: true
 	      });
-	      
-	}
-   function drawAgeChart4() {
-	   
+		      
+		}
+	 function drawAgeChart4() {
+		  var idCheck = '${ userVO.id }';  
 	      var jsonData = $.ajax({
 	         
-	         url : "${ pageContext.request.contextPath }/ageChart",
+	         url : "${ pageContext.request.contextPath }/ageChart4",
 	         data: { id: idCheck},
 	         dataType : "JSON",
 	         async : false
@@ -381,13 +377,14 @@
 	         fontSize: 16,
 	         width : 1000,
 	         height : 500,
-	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black'],
+	         colors: ['red','orange','PaleVioletRed','green','blue','navy','purple','black','Chocolate','CadetBlue'],
 	         is3D: true
 	      });
-	      
-	}
-	   */
+		      
+		}
+
 </script>
+
 <style>
 	.manageMenu:hover {
     		color: #008B8B; 
@@ -492,6 +489,7 @@
         <div id="Piechart_div" align="center">
 
 		</div>
+		
 		<h3 style="font-family: 'inherit'; text-align: center; margin-top: 30px;"><strong>나의 연령대와 비교하기</strong></h3>
 		<hr style="border-color: #008B8B; margin-bottom: 20px; border-width: 1px; width: 23%;">
         <button type="button" onclick="drawAgeChart()" style="margin-left:140px; width: 160px; line-height: 32px; border-radius: 80px; color: white; background-color: #008B8B; border: none;">최근 1달간 지출구성비</button>
@@ -501,6 +499,7 @@
         <div id="agechart_div" align="center">
 
 		</div>
+		 
 	</section>
 	<footer style="clear: both;">
 		<jsp:include page="/WEB-INF/include/footer.jsp" />

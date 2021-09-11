@@ -2,9 +2,9 @@ package kr.ac.kopo.expense.vo;
 
 public class ExpenseVO {
 
-	private String memberId;
+	private String member_id;
 	private String category;
-	private int type;
+	private String agetype;
 	private String start;
 	private String last;
 	private int expense;
@@ -21,11 +21,12 @@ public class ExpenseVO {
 	private int nov;
 	private int dec;
 	
-	public String getMemberId() {
-		return memberId;
+	
+	public String getMember_id() {
+		return member_id;
 	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
 	public String getCategory() {
 		return category;
@@ -33,11 +34,11 @@ public class ExpenseVO {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public int getType() {
-		return type;
+	public String getAgetype() {
+		return agetype;
 	}
-	public void setType(int type) {
-		this.type = type;
+	public void setAgetype(String agetype) {
+		this.agetype = agetype;
 	}
 	public int getExpense() {
 		return expense;
@@ -131,8 +132,8 @@ public class ExpenseVO {
 	}
 	@Override
 	public String toString() {
-		return "ExpenseVO [memberId=" + memberId + ", category=" + category + ", type=" + type + ", start=" + start
-				+ ", last=" + last + ", expense=" + expense + ", jan=" + jan + ", feb=" + feb + ", mar=" + mar
+		return "ExpenseVO [member_id=" + member_id + ", category=" + category + ", agetype=" + agetype + ", start="
+				+ start + ", last=" + last + ", expense=" + expense + ", jan=" + jan + ", feb=" + feb + ", mar=" + mar
 				+ ", apr=" + apr + ", may=" + may + ", jun=" + jun + ", jul=" + jul + ", aug=" + aug + ", sep=" + sep
 				+ ", oct=" + oct + ", nov=" + nov + ", dec=" + dec + "]";
 	}

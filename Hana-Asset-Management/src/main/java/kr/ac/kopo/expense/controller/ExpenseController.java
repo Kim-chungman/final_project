@@ -32,7 +32,7 @@ public class ExpenseController {
 		
 		ExpenseVO expense = new ExpenseVO();
 		
-		expense.setMemberId(id);
+		expense.setMember_id(id);
 		
 		return service.getChartData(expense);
     }
@@ -46,7 +46,7 @@ public class ExpenseController {
 		
 		ExpenseVO expense = new ExpenseVO();
 		
-		expense.setMemberId(id);
+		expense.setMember_id(id);
 		
 		return service.getChartData2(expense);
     }
@@ -60,7 +60,7 @@ public class ExpenseController {
 		
 		ExpenseVO expense = new ExpenseVO();
 		
-		expense.setMemberId(id);
+		expense.setMember_id(id);
 		
 		return service.getChartData3(expense);
     }
@@ -71,9 +71,12 @@ public class ExpenseController {
 		request.setCharacterEncoding("utf-8");
 		
 		String id = request.getParameter("id");
+		
 		System.out.println(id);
 		
 		ExpenseVO expense = new ExpenseVO();
+		
+		expense.setMember_id(id);
 		
 		return service.getpieChartData(expense);
     }
@@ -87,7 +90,7 @@ public class ExpenseController {
 		
 		ExpenseVO expense = new ExpenseVO();
 		
-		expense.setMemberId(id);
+		expense.setMember_id(id);
 		
 		return service.getpieChartData2(expense);
     }
@@ -101,7 +104,7 @@ public class ExpenseController {
 		
 		ExpenseVO expense = new ExpenseVO();
 		
-		expense.setMemberId(id);
+		expense.setMember_id(id);
 		
 		return service.getpieChartData3(expense);
     }
@@ -115,7 +118,7 @@ public class ExpenseController {
 		
 		ExpenseVO expense = new ExpenseVO();
 		
-		expense.setMemberId(id);
+		expense.setMember_id(id);;
 		
 		return service.getpieChartData4(expense);
     }
@@ -131,7 +134,57 @@ public class ExpenseController {
 		
 		ExpenseVO expense = new ExpenseVO();
 		
+		expense.setMember_id(id);
+		
 		return service.getageChartData(expense);
+    }
+	
+	@RequestMapping("/ageChart2")
+	public JSONObject ageChart2(HttpServletRequest request) throws Exception {
+     
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		
+		System.out.println(id);
+		
+		ExpenseVO expense = new ExpenseVO();
+		
+		expense.setMember_id(id);
+		
+		return service.getageChartData2(expense);
+    }
+	
+	@RequestMapping("/ageChart3")
+	public JSONObject ageChart3(HttpServletRequest request) throws Exception {
+     
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		
+		System.out.println(id);
+		
+		ExpenseVO expense = new ExpenseVO();
+		
+		expense.setMember_id(id);
+		
+		return service.getageChartData3(expense);
+    }
+	
+	@RequestMapping("/ageChart4")
+	public JSONObject ageChart4(HttpServletRequest request) throws Exception {
+     
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		
+		System.out.println(id);
+		
+		ExpenseVO expense = new ExpenseVO();
+		
+		expense.setMember_id(id);
+		
+		return service.getageChartData4(expense);
     }
 	
 }
