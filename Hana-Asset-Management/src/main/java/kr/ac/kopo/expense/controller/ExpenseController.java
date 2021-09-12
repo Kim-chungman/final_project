@@ -1,16 +1,21 @@
 package kr.ac.kopo.expense.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.ac.kopo.expense.service.ExpenseService;
 import kr.ac.kopo.expense.vo.ExpenseVO;
+import kr.ac.kopo.member.vo.MemberVO;
 
 @RestController
 public class ExpenseController {
@@ -19,7 +24,22 @@ public class ExpenseController {
 	private ExpenseService service;
 	
 	@RequestMapping("/plan/expense")
-	public ModelAndView chart2() {
+	public ModelAndView chart2(HttpServletRequest request, Model model) {
+	  
+	  HttpSession session = request.getSession();
+	  MemberVO userVO = (MemberVO)session.getAttribute("userVO");
+	
+	  ExpenseVO expense = new ExpenseVO();
+	  expense.setMember_id(userVO.getId());
+	  
+	  String age = service.ageData(expense);
+	  List<ExpenseVO> myData = service.getMyData(expense);
+	  List<ExpenseVO> yourData = service.getyourData(expense);
+	  
+	  model.addAttribute("myage", age);
+	  model.addAttribute("myData", myData);
+	  model.addAttribute("yourData", yourData);
+	  
       return new ModelAndView("plan/monthExpense");
     }
 	

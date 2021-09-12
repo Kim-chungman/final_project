@@ -30,4 +30,8 @@ public interface ExpenseDAO {
 
 	public List<ExpenseVO> ageChartData4(ExpenseVO expense);
 
+	public List<ExpenseVO> getMyData(ExpenseVO expense);
+
+	public List<ExpenseVO> getYourData(ExpenseVO expense);
+
 }

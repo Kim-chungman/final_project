@@ -26,10 +26,18 @@ public class MybatisTest {
 		System.out.println("dataSource : " + dataSource);
 	}
 	
+	@Ignore
 	@Test
 	public void mybatis연동테스트() throws Exception {
 		System.out.println("sessionTemplate : " + sessionTemplate);
 	}
 	
+	
+	@Test
+	public void 연산테스트() throws Exception {
+		double num = (((285100 / 250215) + (285100 % 250215)*0.000001)-1)*100;
+		double no = ((285100 - 250215)*100/250215);
+		System.out.println(no);
+	}
 	
 }

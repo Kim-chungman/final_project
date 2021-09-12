@@ -117,4 +117,22 @@ public class ExpenseDAOImpl implements ExpenseDAO{
 	    return customerList;
 		
 	}
+
+	@Override
+	public List<ExpenseVO> getMyData(ExpenseVO expense) {
+		
+		List<ExpenseVO> myData = sqlSessionTemplate.selectList("expense.ExpenseDAO.getMyData", expense);
+	      
+	    return myData;
+	    
+	}
+
+	@Override
+	public List<ExpenseVO> getYourData(ExpenseVO expense) {
+		
+		List<ExpenseVO> yourData = sqlSessionTemplate.selectList("expense.ExpenseDAO.getYourData", expense);
+	      
+	    return yourData;
+		
+	}
 }

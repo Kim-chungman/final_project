@@ -455,7 +455,6 @@ public class ExpenseServiceImpl implements ExpenseService{
 		case 1 :
 			num = chartDAO.ageData(expense);
 			age = Integer.parseInt(num);
-			System.out.println(age);
 			if(age>92) {
 				expense.setStart("93-01-01");
 				expense.setLast("99-12-31");
@@ -644,6 +643,135 @@ public class ExpenseServiceImpl implements ExpenseService{
 		JSONObject data = ageDataGet(4, expense);
 		
 		return data;
+	}
+
+	@Override
+	public List<ExpenseVO> getMyData(ExpenseVO expense) {
+		
+		List<ExpenseVO> myData = chartDAO.getMyData(expense);
+		
+		for(ExpenseVO list : myData) {
+	       
+	         switch(list.getCategory()) {
+	         
+	         case "ENTERTAINMENT_COST" :
+	        	 list.setCategory("문화/오락");
+	        	 break;
+	         case "TRANSPORTATION_COST" :
+	        	 list.setCategory("교통비");
+	        	 break;
+	         case "EDUCATIONAL_COST" :
+	        	 list.setCategory("교육비");
+	        	 break;
+	         case "COMMUNICATION_COST" :
+	        	 list.setCategory("통신비");
+	        	 break;
+	         case "FOOD_COST" :
+	        	 list.setCategory("식비");
+	        	 break;
+	         case "HEALTH_CARE_COST" :
+	        	 list.setCategory("의료비");
+	        	 break;
+	         case "INSURANCE_PREMIUM" :
+	        	 list.setCategory("보험료");
+	        	 break;
+	         case "APPAREL_COST" :
+	        	 list.setCategory("쇼핑/의류");
+	        	 break;
+	         case "HOUSING_COST" :
+	        	 list.setCategory("주거비");
+	        	 break;
+	         case "INSTALLMENT_SAVING" :
+	        	 list.setCategory("적금");
+	        	 break;
+	        	 
+	         }
+	         
+	      }
+		
+		return myData;
+	}
+
+	@Override
+	public String ageData(ExpenseVO expense) {
+		
+		String num = chartDAO.ageData(expense);
+		int age = Integer.parseInt(num);
+		if(age>92) {
+			num="20대";
+		} else if(age>=83 && age <= 92) {
+			num="30대";
+		} else if(age>=73 && age <= 82) {
+			num="40대";
+		} else if(age>=63 && age <= 72) {
+			num="50대";
+		}
+		
+		return num;
+	}
+
+	@Override
+	public List<ExpenseVO> getyourData(ExpenseVO expense) {
+		
+		String num = chartDAO.ageData(expense);
+		int age = Integer.parseInt(num);
+		if(age>92) {
+			expense.setStart("93-01-01");
+			expense.setLast("99-12-31");
+		} else if(age>=83 && age <= 92) {
+			expense.setStart("83-01-01");
+			expense.setLast("92-12-31");
+		} else if(age>=73 && age <= 82) {
+			expense.setStart("73-01-01");
+			expense.setLast("82-12-31");
+		} else if(age>=63 && age <= 72) {
+			expense.setStart("63-01-01");
+			expense.setLast("72-12-31");
+		}
+		
+		List<ExpenseVO> yourData = chartDAO.getYourData(expense);
+		
+		for(ExpenseVO list : yourData) {
+	       
+	         switch(list.getCategory()) {
+	         
+	         case "ENTERTAINMENT_COST" :
+	        	 list.setCategory("문화/오락");
+	        	 break;
+	         case "TRANSPORTATION_COST" :
+	        	 list.setCategory("교통비");
+	        	 break;
+	         case "EDUCATIONAL_COST" :
+	        	 list.setCategory("교육비");
+	        	 break;
+	         case "COMMUNICATION_COST" :
+	        	 list.setCategory("통신비");
+	        	 break;
+	         case "FOOD_COST" :
+	        	 list.setCategory("식비");
+	        	 break;
+	         case "HEALTH_CARE_COST" :
+	        	 list.setCategory("의료비");
+	        	 break;
+	         case "INSURANCE_PREMIUM" :
+	        	 list.setCategory("보험료");
+	        	 break;
+	         case "APPAREL_COST" :
+	        	 list.setCategory("쇼핑/의류");
+	        	 break;
+	         case "HOUSING_COST" :
+	        	 list.setCategory("주거비");
+	        	 break;
+	         case "INSTALLMENT_SAVING" :
+	        	 list.setCategory("적금");
+	        	 break;
+	        	 
+	         }
+	         
+	      }
+		
+		return yourData;
+		
 	}
    
 }

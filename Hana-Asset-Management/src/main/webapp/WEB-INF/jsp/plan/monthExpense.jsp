@@ -175,7 +175,7 @@
 	      /* var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); */
 	      
 	      chart.draw(data, {
-	         title : "지난 1달간 지출구성비",
+	         title : "<지난 1달간 지출구성비>",
 	         curveType : "function",
 	         fontSize: 16,
 	         width : 1000,
@@ -499,7 +499,50 @@
         <div id="agechart_div" align="center">
 
 		</div>
-		 
+		
+		<div>
+			<h3 style="font-family: 'inherit'; text-align: center; margin-top: 30px;"><strong>2021년 ${ userVO.name }님 vs ${ myage } 연령대 고객님</strong></h3>
+			<hr style="border-color: #008B8B; margin-bottom: 20px; border-width: 1px; width: 40%;">
+			<table style="width: 900px; align-content: center; margin-right: 100px; margin-top: 20px;">
+				<tr>
+					<th colspan="2" style ="padding:5px; font-size: 11pt; font-family: inherit;">${ userVO.name }님</th>
+					<th colspan="2" style ="padding:5px; font-size: 11pt; font-family: inherit;">${ myage } 고객님</th>
+					<th style ="padding:5px; font-size: 11pt; font-family: inherit;">비교</th>
+				</tr>
+				<tr>
+					<th style ="padding:5px; font-size: 11pt; font-family: inherit;">카테고리</th>
+					<th style ="padding:5px; font-size: 11pt; font-family: inherit;">지출액</th>
+					<th style ="padding:5px; font-size: 11pt; font-family: inherit;">카테고리</th>
+					<th style ="padding:5px; font-size: 11pt; font-family: inherit;">지출액</th>
+					<th style ="padding:5px; font-size: 11pt; font-family: inherit;">%</th>
+				</tr>
+				<c:forEach items="${ myData }" var="myData" varStatus="Loop">
+				<c:forEach items="${ yourData }" var="yourData" varStatus="Loop">
+					<tr>
+					<c:if test="${ myData.category eq yourData.category }">
+						<td style ="text-align: center; padding:5px; font-size: 10pt; font-family: inherit;">${ myData.category }</td>
+						<td style ="text-align: center; padding:5px; font-size: 10pt; font-family: inherit;">${ myData.expense }</td>
+						<td style ="text-align: center; padding:5px; font-size: 10pt; font-family: inherit;">${ yourData.category }</td>
+						<td style ="text-align: center; padding:5px; font-size: 10pt; font-family: inherit;">${ yourData.expense }</td>
+						<c:if test="${ myData.expense gt yourData.expense }">
+							<td style ="padding:5px; font-size: 10pt; font-family: inherit; color: red; text-align: center;">
+								약 ${ ((myData.expense - yourData.expense)*100) div yourData.expense }%↑
+							</td>
+						</c:if>
+						<c:if test="${ yourData.expense gt myData.expense }">
+							<td style ="padding:5px; font-size: 10pt; font-family: inherit; color: blue; text-align: center;">
+								약 ${ ((yourData.expense - myData.expense)*100) div myData.expense }%↓
+							</td>
+						</c:if>
+					</c:if>
+					</tr>
+				</c:forEach>
+				</c:forEach>
+			</table>
+			<br>
+			<br>
+		</div>
+        
 	</section>
 	<footer style="clear: both;">
 		<jsp:include page="/WEB-INF/include/footer.jsp" />

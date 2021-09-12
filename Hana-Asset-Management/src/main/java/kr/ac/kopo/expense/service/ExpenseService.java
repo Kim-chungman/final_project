@@ -1,5 +1,7 @@
 package kr.ac.kopo.expense.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
@@ -29,5 +31,11 @@ public interface ExpenseService {
 	public JSONObject getageChartData3(ExpenseVO expense);
 
 	public JSONObject getageChartData4(ExpenseVO expense);
+
+	public List<ExpenseVO> getMyData(ExpenseVO expense);
+
+	public String ageData(ExpenseVO expense);
+
+	public List<ExpenseVO> getyourData(ExpenseVO expense);
 
 }

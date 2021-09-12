@@ -53,28 +53,28 @@
 	<select id="pieChartData" parameterType="ExpenseVO" resultType="ExpenseVO">
 		select category, sum(cost) as expense
 		 from CM_DETAIL_EXPENDITURE
-		  where MEMBER_ID = #{member_id, jdbcType=VARCHAR} and REG_DATE BETWEEN '21-08-01'and '21-08-31'
+		  where MEMBER_ID = #{member_id, jdbcType=VARCHAR} and REG_DATE BETWEEN '21-08-01' and '21-08-31'
 		   group by member_id, category
 	</select>
 	
 	<select id="pieChartData2" parameterType="ExpenseVO" resultType="ExpenseVO">
 		select category, sum(cost) as expense
 		 from CM_DETAIL_EXPENDITURE
-		  where MEMBER_ID = #{member_id, jdbcType=VARCHAR} and REG_DATE BETWEEN '21-06-01'and '21-08-31'
+		  where MEMBER_ID = #{member_id, jdbcType=VARCHAR} and REG_DATE BETWEEN '21-06-01' and '21-08-31'
 		   group by member_id, category
 	</select>
 	
 	<select id="pieChartData3" parameterType="ExpenseVO" resultType="ExpenseVO">
 		select category, sum(cost) as expense
 		 from CM_DETAIL_EXPENDITURE
-		  where MEMBER_ID = #{member_id, jdbcType=VARCHAR} and REG_DATE BETWEEN '21-03-01'and '21-08-31'
+		  where MEMBER_ID = #{member_id, jdbcType=VARCHAR} and REG_DATE BETWEEN '21-03-01' and '21-08-31'
 		   group by member_id, category
 	</select>
 	
 	<select id="pieChartData4" parameterType="ExpenseVO" resultType="ExpenseVO">
 		select category, sum(cost) as expense
 		 from CM_DETAIL_EXPENDITURE
-		  where MEMBER_ID = #{member_id, jdbcType=VARCHAR} and REG_DATE BETWEEN '20-09-01'and '21-08-31'
+		  where MEMBER_ID = #{member_id, jdbcType=VARCHAR} and REG_DATE BETWEEN '20-09-01' and '21-08-31'
 		   group by member_id, category
 	</select>
 	
@@ -109,6 +109,20 @@
 		select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1) expense, category
          from CM_DETAIL_EXPENDITURE
           where REG_DATE BETWEEN '20-09-01'and '21-08-31' and member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last})
+           group by category
+	</select>
+	
+	<select id="getMyData" parameterType="ExpenseVO" resultType="ExpenseVO">
+		select category, sum(cost) as expense
+		 from CM_DETAIL_EXPENDITURE
+		  where MEMBER_ID = #{member_id, jdbcType=VARCHAR} and REG_DATE BETWEEN '21-01-01' and '21-08-31'
+		   group by member_id, category
+	</select>
+	
+	<select id="getYourData" parameterType="ExpenseVO" resultType="ExpenseVO">
+		select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1) expense, category
+         from CM_DETAIL_EXPENDITURE
+          where REG_DATE BETWEEN '21-01-01'and '21-08-31' and member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last})
            group by category
 	</select>
 	
