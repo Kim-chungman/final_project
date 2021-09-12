@@ -32,4 +32,10 @@
 		 order by id asc
 	</select>
 	
+	<update id="investTypeUpdate" parameterType="memberVO">
+		update cm_member 
+		 set investment_type = #{investmentType} 
+		  where id = #{id}
+	</update>
+	
 </mapper>

@@ -164,4 +164,11 @@ public class MemberServiceImpl implements MemberService{
 		return memberList;
 	}
 
+	@Override
+	public void investTypeUpdate(MemberVO userVO) {
+		
+		memberDAO.investTypeUpdate(userVO);
+		
+	}
+
 }

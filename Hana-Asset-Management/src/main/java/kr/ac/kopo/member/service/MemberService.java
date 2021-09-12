@@ -20,4 +20,7 @@ public interface MemberService {
 	public void sendAttach(String email, String name, HttpSession session);
 	
 	public List<MemberVO> memberSelectAll();
+
+	public void investTypeUpdate(MemberVO userVO);
+	
 }

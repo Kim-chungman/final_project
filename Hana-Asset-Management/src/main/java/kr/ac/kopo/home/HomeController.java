@@ -17,4 +17,10 @@ public class HomeController {
 		
 		return "map/kakaoMap";
 	}
+	
+	@GetMapping("/design")
+	public String design() {
+		return "assetManagement/productDesign";
+	}
+	
 }

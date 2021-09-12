@@ -1,5 +1,9 @@
 package kr.ac.kopo.assetmanage.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,10 +12,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.kopo.assetmanage.vo.InvestmentTypeVO;
+import kr.ac.kopo.member.service.MemberService;
+import kr.ac.kopo.member.vo.MemberVO;
 
 @Controller
 public class AssetManagementController {
 
+	@Autowired
+	private MemberService service;
+	
 	@RequestMapping("/assetManagement/explain")
 	public String explain() {
 		
@@ -89,9 +98,46 @@ public class AssetManagementController {
 	}
 	
 	@GetMapping("/assetManagement/productDesign/{investType}")
-	public String productDesign(@PathVariable String investType) {
+	public String productDesign(@PathVariable String investType, Model model, HttpServletRequest request) {
 		
-		System.out.println(investType);
+		model.addAttribute("investType", investType);
+		
+		HttpSession session = request.getSession();
+		MemberVO userVO = (MemberVO)session.getAttribute("userVO");
+		int no = 0;
+		
+		switch(investType) {
+		
+		case "안전형" :
+			no = 1;
+			userVO.setInvestmentType(no);
+			break;
+		case "안전추구형" :
+			no = 2;
+			userVO.setInvestmentType(no);
+			break;
+		case "위험중립형" :
+			no = 3;
+			userVO.setInvestmentType(no);
+			break;
+		case "적극투자형" :
+			no = 4;
+			userVO.setInvestmentType(no);
+			break;
+		case "공격투자형" :
+			no = 5;
+			userVO.setInvestmentType(no);
+			break;
+		}
+		
+		service.investTypeUpdate(userVO);
+		
+		session.removeAttribute("userVO");
+		MemberVO member = service.login(userVO);
+		
+		session.setAttribute("userVO", member);
+		
+		System.out.println(userVO);
 		
 		return "assetManagement/productDesign";
 	}

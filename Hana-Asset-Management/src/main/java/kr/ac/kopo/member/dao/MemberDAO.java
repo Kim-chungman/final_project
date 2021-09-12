@@ -13,5 +13,7 @@ public interface MemberDAO {
 	public MemberVO joinMember(MemberVO member);
 	
 	public List<MemberVO> memberSelectAll();
+
+	public void investTypeUpdate(MemberVO userVO);
 	
 }

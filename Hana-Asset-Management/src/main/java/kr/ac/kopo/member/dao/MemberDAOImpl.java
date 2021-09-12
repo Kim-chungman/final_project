@@ -52,4 +52,11 @@ public class MemberDAOImpl implements MemberDAO{
 		return memberList;
 	}
 
+	@Override
+	public void investTypeUpdate(MemberVO userVO) {
+		
+		sqlSessionTemplate.update("member.MemberDAO.investTypeUpdate", userVO);
+		
+	}
+
 }
