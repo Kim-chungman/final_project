@@ -34,4 +34,28 @@ public interface ExpenseDAO {
 
 	public List<ExpenseVO> getYourData(ExpenseVO expense);
 
+	public List<ExpenseVO> janList(ExpenseVO expense);
+
+	public List<ExpenseVO> febList(ExpenseVO expense);
+
+	public List<ExpenseVO> marList(ExpenseVO expense);
+
+	public List<ExpenseVO> aprList(ExpenseVO expense);
+
+	public List<ExpenseVO> mayList(ExpenseVO expense);
+
+	public List<ExpenseVO> junList(ExpenseVO expense);
+
+	public List<ExpenseVO> julList(ExpenseVO expense);
+
+	public List<ExpenseVO> augList(ExpenseVO expense);
+
+	public List<ExpenseVO> sepList(ExpenseVO expense);
+
+	public List<ExpenseVO> octList(ExpenseVO expense);
+
+	public List<ExpenseVO> novList(ExpenseVO expense);
+
+	public List<ExpenseVO> decList(ExpenseVO expense);
+
 }

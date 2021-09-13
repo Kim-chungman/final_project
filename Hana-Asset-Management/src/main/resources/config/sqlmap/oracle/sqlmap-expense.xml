@@ -126,4 +126,10 @@
            group by category
 	</select>
 	
+	<select id="getJanData" parameterType="expenseVO" resultType="ExpenseVO">
+		select category, cost as expense, reg_date
+		 from (select * from CM_DETAIL_EXPENDITURE where MEMBER_ID = #{member_id} and REG_DATE between '21/01/01' and '21/01/31' order by cost desc)
+		  where 5 >= ROWNUM
+	</select>
+	
 </mapper>

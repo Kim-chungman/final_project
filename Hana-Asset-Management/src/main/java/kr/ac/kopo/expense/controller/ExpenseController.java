@@ -33,12 +33,52 @@ public class ExpenseController {
 	  expense.setMember_id(userVO.getId());
 	  
 	  String age = service.ageData(expense);
+	  List<ExpenseVO> monthExpense = service.getMonthExpense(expense);
 	  List<ExpenseVO> myData = service.getMyData(expense);
 	  List<ExpenseVO> yourData = service.getyourData(expense);
+	  
+	  int maxExpense = 0;
+	  int avgExpense = 0;
+	  String maxMonth = "";
+	  for(ExpenseVO list: monthExpense) {
+		  
+		  maxExpense = list.getJan() > list.getFeb() ? list.getJan() : list.getFeb();
+		  maxMonth = list.getJan() > list.getFeb() ? "1월" : "2월";
+		  maxExpense = maxExpense > list.getMar() ? maxExpense : list.getMar();
+		  maxMonth = maxExpense > list.getMar() ? maxMonth : "3월";
+		  maxExpense = maxExpense > list.getApr() ? maxExpense : list.getApr();
+		  maxMonth = maxExpense > list.getApr() ? maxMonth : "4월";
+		  maxExpense = maxExpense > list.getMay() ? maxExpense : list.getMay();
+		  maxMonth = maxExpense > list.getMay() ? maxMonth : "5월";
+		  maxExpense = maxExpense > list.getJun() ? maxExpense : list.getJun();
+		  maxMonth = maxExpense > list.getJun() ? maxMonth : "6월";
+		  maxExpense = maxExpense > list.getJul() ? maxExpense : list.getJul();
+		  maxMonth = maxExpense > list.getJul() ? maxMonth : "7월";
+		  maxExpense = maxExpense > list.getAug() ? maxExpense : list.getAug();
+		  maxMonth = maxExpense > list.getAug() ? maxMonth : "8월";
+		  maxExpense = maxExpense > list.getSep() ? maxExpense : list.getSep();
+		  maxMonth = maxExpense > list.getSep() ? maxMonth : "9월";
+		  maxExpense = maxExpense > list.getOct() ? maxExpense : list.getOct();
+		  maxMonth = maxExpense > list.getOct() ? maxMonth : "10월";
+		  maxExpense = maxExpense > list.getNov() ? maxExpense : list.getNov();
+		  maxMonth = maxExpense > list.getNov() ? maxMonth : "11월";
+		  maxExpense = maxExpense > list.getDec() ? maxExpense : list.getDec();
+		  maxMonth = maxExpense > list.getDec() ? maxMonth : "12월";
+		  avgExpense = (list.getJan() + list.getFeb() + list.getMar() + list.getApr() +
+				  	    list.getMay() + list.getJun() + list.getJul() + list.getAug() +
+				  	    list.getSep() + list.getOct() + list.getNov() + list.getDec())/12;
+		  avgExpense = Math.round(avgExpense);
+	  }
+	  
+	  List<ExpenseVO> expenseList = service.getExpenseRank(maxMonth, expense);
 	  
 	  model.addAttribute("myage", age);
 	  model.addAttribute("myData", myData);
 	  model.addAttribute("yourData", yourData);
+	  model.addAttribute("maxExpense", maxExpense);
+	  model.addAttribute("maxMonth", maxMonth);
+	  model.addAttribute("avgExpense", avgExpense);
+	  model.addAttribute("expenseList", expenseList);
 	  
       return new ModelAndView("plan/monthExpense");
     }

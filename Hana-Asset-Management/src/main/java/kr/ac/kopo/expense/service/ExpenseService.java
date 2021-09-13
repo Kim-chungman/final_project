@@ -38,4 +38,8 @@ public interface ExpenseService {
 
 	public List<ExpenseVO> getyourData(ExpenseVO expense);
 
+	public List<ExpenseVO> getMonthExpense(ExpenseVO expense);
+
+	public List<ExpenseVO> getExpenseRank(String maxMonth, ExpenseVO expense);
+
 }

@@ -773,5 +773,100 @@ public class ExpenseServiceImpl implements ExpenseService{
 		return yourData;
 		
 	}
+
+	@Override
+	public List<ExpenseVO> getMonthExpense(ExpenseVO expense) {
+		
+		List<ExpenseVO> items = chartDAO.customerList(expense);
+		
+		return items;
+	}
+
+	@Override
+	public List<ExpenseVO> getExpenseRank(String maxMonth, ExpenseVO expense) {
+		
+		List<ExpenseVO> items = null;
+		
+		switch(maxMonth) {
+		
+		case "1월" :
+			items = chartDAO.janList(expense);
+			break;
+		case "2월" :
+			items = chartDAO.febList(expense);
+			break;
+		case "3월" :
+			items = chartDAO.marList(expense);
+			break;
+		case "4월" :
+			items = chartDAO.aprList(expense);
+			break;
+		case "5월" :
+			items = chartDAO.mayList(expense);
+			break;
+		case "6월" :
+			items = chartDAO.junList(expense);
+			break;
+		case "7월" :
+			items = chartDAO.julList(expense);
+			break;
+		case "8월" :
+			items = chartDAO.augList(expense);
+			break;
+		case "9월" :
+			items = chartDAO.sepList(expense);
+			break;
+		case "10월" :
+			items = chartDAO.octList(expense);
+			break;
+		case "11월" :
+			items = chartDAO.novList(expense);
+			break;
+		case "12월" :
+			items = chartDAO.decList(expense);
+			break;
+		}
+		
+		for(ExpenseVO list : items) {
+		       
+	         switch(list.getCategory()) {
+	         
+	         case "ENTERTAINMENT_COST" :
+	        	 list.setCategory("문화/오락");
+	        	 break;
+	         case "TRANSPORTATION_COST" :
+	        	 list.setCategory("교통비");
+	        	 break;
+	         case "EDUCATIONAL_COST" :
+	        	 list.setCategory("교육비");
+	        	 break;
+	         case "COMMUNICATION_COST" :
+	        	 list.setCategory("통신비");
+	        	 break;
+	         case "FOOD_COST" :
+	        	 list.setCategory("식비");
+	        	 break;
+	         case "HEALTH_CARE_COST" :
+	        	 list.setCategory("의료비");
+	        	 break;
+	         case "INSURANCE_PREMIUM" :
+	        	 list.setCategory("보험료");
+	        	 break;
+	         case "APPAREL_COST" :
+	        	 list.setCategory("쇼핑/의류");
+	        	 break;
+	         case "HOUSING_COST" :
+	        	 list.setCategory("주거비");
+	        	 break;
+	         case "INSTALLMENT_SAVING" :
+	        	 list.setCategory("적금");
+	        	 break;
+	        	 
+	         }
+	         
+	      }
+		
+		return items;
+	}
    
 }
