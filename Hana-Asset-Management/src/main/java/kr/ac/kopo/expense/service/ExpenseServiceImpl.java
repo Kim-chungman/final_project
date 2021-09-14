@@ -340,6 +340,203 @@ public class ExpenseServiceImpl implements ExpenseService{
 		
 		List<ExpenseVO> items = null;
 		String msg = "";
+		String num = "";
+		int age = 0;
+		
+		num = chartDAO.ageData(expense);
+		age = Integer.parseInt(num);
+		
+		switch(no) {
+		
+		case 1 :
+			if(age>92) {
+				expense.setStart("93-01-01");
+				expense.setLast("99-12-31");
+				num = "20대";
+				items = chartDAO.ageChartData(expense);
+			} else if(age>=83 && age <= 92) {
+				expense.setStart("83-01-01");
+				expense.setLast("92-12-31");
+				num = "30대";
+				items = chartDAO.ageChartData(expense);
+			} else if(age>=73 && age <= 82) {
+				expense.setStart("73-01-01");
+				expense.setLast("82-12-31");
+				num = "40대";
+				items = chartDAO.ageChartData(expense);
+			} else if(age>=63 && age <= 72) {
+				expense.setStart("63-01-01");
+				expense.setLast("72-12-31");
+				num = "50대";
+				items = chartDAO.ageChartData(expense);
+			}
+			msg = "지난 1달간 비교";
+			break;
+		case 2 :
+			if(age>92) {
+				expense.setStart("93-01-01");
+				expense.setLast("99-12-31");
+				num = "20대";
+				items = chartDAO.ageChartData2(expense);
+			} else if(age>=83 && age <= 92) {
+				expense.setStart("83-01-01");
+				expense.setLast("92-12-31");
+				num = "30대";
+				items = chartDAO.ageChartData2(expense);
+			} else if(age>=73 && age <= 82) {
+				expense.setStart("73-01-01");
+				expense.setLast("82-12-31");
+				num = "40대";
+				items = chartDAO.ageChartData2(expense);
+			} else if(age>=63 && age <= 72) {
+				expense.setStart("63-01-01");
+				expense.setLast("72-12-31");
+				num = "50대";
+				items = chartDAO.ageChartData2(expense);
+			}
+			msg = "지난 3달간 비교";
+			break;
+		case 3 :
+			if(age>92) {
+				expense.setStart("93-01-01");
+				expense.setLast("99-12-31");
+				num = "20대";
+				items = chartDAO.ageChartData3(expense);
+			} else if(age>=83 && age <= 92) {
+				expense.setStart("83-01-01");
+				expense.setLast("92-12-31");
+				num = "30대";
+				items = chartDAO.ageChartData3(expense);
+			} else if(age>=73 && age <= 82) {
+				expense.setStart("73-01-01");
+				expense.setLast("82-12-31");
+				num = "40대";
+				items = chartDAO.ageChartData3(expense);
+			} else if(age>=63 && age <= 72) {
+				expense.setStart("63-01-01");
+				expense.setLast("72-12-31");
+				num = "50대";
+				items = chartDAO.ageChartData3(expense);
+			}
+			msg = "지난 6달간 비교";
+			break;
+		case 4 :
+			if(age>92) {
+				expense.setStart("93-01-01");
+				expense.setLast("99-12-31");
+				num = "20대";
+				items = chartDAO.ageChartData4(expense);
+			} else if(age>=83 && age <= 92) {
+				expense.setStart("83-01-01");
+				expense.setLast("92-12-31");
+				num = "30대";
+				items = chartDAO.ageChartData4(expense);
+			} else if(age>=73 && age <= 82) {
+				expense.setStart("73-01-01");
+				expense.setLast("82-12-31");
+				num = "40대";
+				items = chartDAO.ageChartData4(expense);
+			} else if(age>=63 && age <= 72) {
+				expense.setStart("63-01-01");
+				expense.setLast("72-12-31");
+				num = "50대";
+				items = chartDAO.ageChartData4(expense);
+			}
+			msg = "지난 1년간 비교";
+			break;
+		}
+		
+		JSONObject data = new JSONObject();
+	     
+	      JSONObject col1 = new JSONObject();
+	      JSONObject col2 = new JSONObject();
+	      JSONObject col3 = new JSONObject();
+	      
+	      JSONArray title = new JSONArray();
+	      
+	      col1.put("label", "카테고리");
+	      col1.put("type", "string");
+	      col2.put("label", expense.getMember_id());
+	      col2.put("type", "number");
+	      col3.put("label", num);
+	      col3.put("type", "number");
+	      
+	      title.add(col1);
+	      title.add(col2);
+	      title.add(col3);
+	      
+	      data.put("cols", title);
+	      
+	      JSONArray body = new JSONArray();
+	      for(ExpenseVO list : items) {
+	         
+	         JSONObject category = new JSONObject();
+	         
+	         switch(list.getCategory()) {
+	         
+	         case "ENTERTAINMENT_COST" :
+	        	 list.setCategory("문화/오락");
+	        	 break;
+	         case "TRANSPORTATION_COST" :
+	        	 list.setCategory("교통비");
+	        	 break;
+	         case "EDUCATIONAL_COST" :
+	        	 list.setCategory("교육비");
+	        	 break;
+	         case "COMMUNICATION_COST" :
+	        	 list.setCategory("통신비");
+	        	 break;
+	         case "FOOD_COST" :
+	        	 list.setCategory("식비");
+	        	 break;
+	         case "HEALTH_CARE_COST" :
+	        	 list.setCategory("의료비");
+	        	 break;
+	         case "INSURANCE_PREMIUM" :
+	        	 list.setCategory("보험료");
+	        	 break;
+	         case "APPAREL_COST" :
+	        	 list.setCategory("쇼핑/의류");
+	        	 break;
+	         case "HOUSING_COST" :
+	        	 list.setCategory("주거비");
+	        	 break;
+	         case "INSTALLMENT_SAVING" :
+	        	 list.setCategory("적금");
+	        	 break;
+	        	 
+	         }
+	         category.put("v", list.getCategory());
+	         
+	         JSONObject expensed = new JSONObject();
+	         expensed.put("v", list.getExpense());
+	         
+	         JSONObject jan = new JSONObject();
+	         jan.put("v", list.getJan());
+	         
+	         JSONArray row = new JSONArray();
+	         row.add(category);
+	         row.add(expensed);
+	         row.add(jan);
+	         
+	         JSONObject cell = new JSONObject();
+	         cell.put("c", row);
+	         body.add(cell);
+	         
+	      }
+	      data.put("rows", body);
+	     
+	      return data;
+		
+		/*
+		List<ExpenseVO> items = null;
+		String msg = "";
+		String num = "";
+		int age = 0;
+		
+		num = chartDAO.ageData(expense);
+		age = Integer.parseInt(num);
+		
 		switch(no) {
 		
 		case 1 :
@@ -433,7 +630,7 @@ public class ExpenseServiceImpl implements ExpenseService{
 	      data.put("rows", body);
 	     
 	      return data;
-		
+		*/
 	}
 
 	@Override

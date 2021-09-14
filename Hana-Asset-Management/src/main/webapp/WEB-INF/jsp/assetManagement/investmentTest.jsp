@@ -77,6 +77,89 @@
 			
 		})
 		
+		function checkOnlyOne(element) {
+  
+		  const checkboxes 
+		      = document.getElementsByName("q1");
+		  
+		  checkboxes.forEach((cb) => {
+		    cb.checked = false;
+		  })
+		  
+		  element.checked = true;
+		}
+		
+		function checkOnlyOne2(element) {
+			  
+		  const checkboxes 
+		      = document.getElementsByName("q2");
+		  
+		  checkboxes.forEach((cb) => {
+		    cb.checked = false;
+		  })
+		  
+		  element.checked = true;
+		}
+		
+		function checkOnlyOne3(element) {
+			  
+		  const checkboxes 
+		      = document.getElementsByName("q3");
+		  
+		  checkboxes.forEach((cb) => {
+		    cb.checked = false;
+		  })
+		  
+		  element.checked = true;
+		}
+		
+		function checkOnlyOne4(element) {
+			  
+			  const checkboxes 
+			      = document.getElementsByName("q4");
+			  
+			  checkboxes.forEach((cb) => {
+			    cb.checked = false;
+			  })
+			  
+			  element.checked = true;
+			}
+		
+		function checkOnlyOne5(element) {
+			  
+			  const checkboxes 
+			      = document.getElementsByName("q5");
+			  
+			  checkboxes.forEach((cb) => {
+			    cb.checked = false;
+			  })
+			  
+			  element.checked = true;
+			}
+		
+		function checkOnlyOne6(element) {
+			  
+			  const checkboxes 
+			      = document.getElementsByName("q6");
+			  
+			  checkboxes.forEach((cb) => {
+			    cb.checked = false;
+			  })
+			  
+			  element.checked = true;
+			}
+		
+		function checkOnlyOne8(element) {
+			  
+		  const checkboxes 
+		      = document.getElementsByName("q8");
+		  
+		  checkboxes.forEach((cb) => {
+		    cb.checked = false;
+		  })
+		  
+		  element.checked = true;
+		}
 		</script>
         
     </head>
@@ -171,10 +254,10 @@
 					</tr>
 					<tr>
 						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q1" value="1">생활자금<br>
-							<input type="radio" name="q1" value="2">주택자금<br>
-							<input type="radio" name="q1" value="3">노후자금<br>
-							<input type="radio" name="q1" value="4">여유자금<br><br>
+							<input type="checkbox" name="q1" value="1" onclick='checkOnlyOne(this)'>생활자금<br>
+							<input type="checkbox" name="q1" value="2" onclick='checkOnlyOne(this)'>주택자금<br>
+							<input type="checkbox" name="q1" value="3" onclick='checkOnlyOne(this)'>노후자금<br>
+							<input type="checkbox" name="q1" value="4" onclick='checkOnlyOne(this)'>여유자금<br><br>
 						</td>
 					</tr>
 					<tr>
@@ -182,12 +265,12 @@
 					</tr>
 					<tr>
 						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q2" value="2.5">19세 이하<br>
-							<input type="radio" name="q2" value="2.5">20대<br>
-							<input type="radio" name="q2" value="2">30대<br>
-							<input type="radio" name="q2" value="1.5">40대<br>
-							<input type="radio" name="q2" value="1">50대<br>
-							<input type="radio" name="q2" value="0.5">60대 이상<br><br>
+							<input type="checkbox" name="q2" value="2.5" onclick='checkOnlyOne2(this)'>19세 이하<br>
+							<input type="checkbox" name="q2" value="2.5" onclick='checkOnlyOne2(this)'>20대<br>
+							<input type="checkbox" name="q2" value="2" onclick='checkOnlyOne2(this)'>30대<br>
+							<input type="checkbox" name="q2" value="1.5" onclick='checkOnlyOne2(this)'>40대<br>
+							<input type="checkbox" name="q2" value="1" onclick='checkOnlyOne2(this)'>50대<br>
+							<input type="checkbox" name="q2" value="0.5" onclick='checkOnlyOne2(this)'>60대 이상<br><br>
 						</td>
 					</tr>
 					<tr>
@@ -195,11 +278,11 @@
 					</tr>
 					<tr>
 						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q3" value="10">기대수익이 높다면 위험이 높아도 상관하지 않아요.<br>
-							<input type="radio" name="q3" value="8.5">투자원금에서 20% 초과 ~ 100% 이내의 손실을 감내할 수 있어요.<br>
-							<input type="radio" name="q3" value="6">투자원금에서 20% 이내까지 손실을 감내할 수 있어요.<br>
-							<input type="radio" name="q3" value="3">투자원금에서 10% 이내까지 손실을 감내할 수 있어요.<br>
-							<input type="radio" name="q3" value="1">무슨 일이 있어도 투자 원금은 보전되어야 해요.<br><br>
+							<input type="checkbox" name="q3" value="10" onclick='checkOnlyOne3(this)'>기대수익이 높다면 위험이 높아도 상관하지 않아요.<br>
+							<input type="checkbox" name="q3" value="8.5" onclick='checkOnlyOne3(this)'>투자원금에서 20% 초과 ~ 100% 이내의 손실을 감내할 수 있어요.<br>
+							<input type="checkbox" name="q3" value="6" onclick='checkOnlyOne3(this)'>투자원금에서 20% 이내까지 손실을 감내할 수 있어요.<br>
+							<input type="checkbox" name="q3" value="3" onclick='checkOnlyOne3(this)'>투자원금에서 10% 이내까지 손실을 감내할 수 있어요.<br>
+							<input type="checkbox" name="q3" value="1" onclick='checkOnlyOne3(this)'>무슨 일이 있어도 투자 원금은 보전되어야 해요.<br><br>
 						</td>
 					</tr>
 					<tr>
@@ -207,12 +290,12 @@
 					</tr>
 					<tr>
 						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q4" value="2.5">3년 이상<br>
-							<input type="radio" name="q4" value="2">2년 이상 ~ 3년 미만<br>
-							<input type="radio" name="q4" value="1.5">1년 이상 ~ 2년 미만<br>
-							<input type="radio" name="q4" value="1">6개월 이상 ~ 1년 미만<br>
-							<input type="radio" name="q4" value="0.5">6개월 미만<br>
-							<input type="radio" name="q4" value="2.5">투자상품 특정만기일까지 보유(ELF. ELT. 목표전환형 등)<br>
+							<input type="checkbox" name="q4" value="2.5" onclick='checkOnlyOne4(this)'>3년 이상<br>
+							<input type="checkbox" name="q4" value="2" onclick='checkOnlyOne4(this)'>2년 이상 ~ 3년 미만<br>
+							<input type="checkbox" name="q4" value="1.5" onclick='checkOnlyOne4(this)'>1년 이상 ~ 2년 미만<br>
+							<input type="checkbox" name="q4" value="1" onclick='checkOnlyOne4(this)'>6개월 이상 ~ 1년 미만<br>
+							<input type="checkbox" name="q4" value="0.5" onclick='checkOnlyOne4(this)'>6개월 미만<br>
+							<input type="checkbox" name="q4" value="2.5" onclick='checkOnlyOne4(this)'>투자상품 특정만기일까지 보유(ELF. ELT. 목표전환형 등)<br>
 							 ※1년 미만 선택시 ELF 가입불가<br><br>
 						</td>
 					</tr>
@@ -221,11 +304,11 @@
 					</tr>
 					<tr>
 						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q5" value="1">5% 이하<br>
-							<input type="radio" name="q5" value="2">10% 이하<br>
-							<input type="radio" name="q5" value="2.5">15% 이하<br>
-							<input type="radio" name="q5" value="3">20% 이하<br>
-							<input type="radio" name="q5" value="3.5">25% 초과<br><br>
+							<input type="checkbox" name="q5" value="1" onclick='checkOnlyOne5(this)'>5% 이하<br>
+							<input type="checkbox" name="q5" value="2" onclick='checkOnlyOne5(this)'>10% 이하<br>
+							<input type="checkbox" name="q5" value="2.5" onclick='checkOnlyOne5(this)'>15% 이하<br>
+							<input type="checkbox" name="q5" value="3" onclick='checkOnlyOne5(this)'>20% 이하<br>
+							<input type="checkbox" name="q5" value="3.5" onclick='checkOnlyOne5(this)'>25% 초과<br><br>
 						</td>
 					</tr>
 					<tr>
@@ -233,9 +316,9 @@
 					</tr>
 					<tr>
 						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q6" value="5.5">현재 일정한 수입이 발생하고 있으며, 향후 현재 수준을 유지하거나 증가할 것으로 예상해요<br>
-							<input type="radio" name="q6" value="3.5">현재 일정한 수입이 발생하고 있으나, 향후 감소하거나 불안정할 것으로 예상해요.<br>
-							<input type="radio" name="q6" value="1">현재 일정한 수입이 없거나, 연금 등이 주 수입원이에요.<br><br>
+							<input type="checkbox" name="q6" value="5.5" onclick='checkOnlyOne6(this)'>현재 일정한 수입이 발생하고 있으며, 향후 현재 수준을 유지하거나 증가할 것으로 예상해요<br>
+							<input type="checkbox" name="q6" value="3.5" onclick='checkOnlyOne6(this)'>현재 일정한 수입이 발생하고 있으나, 향후 감소하거나 불안정할 것으로 예상해요.<br>
+							<input type="checkbox" name="q6" value="1" onclick='checkOnlyOne6(this)'>현재 일정한 수입이 없거나, 연금 등이 주 수입원이에요.<br><br>
 						</td>
 					</tr>
 					<tr>
@@ -243,11 +326,11 @@
 					</tr>
 					<tr>
 						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q7_1" value="1">은행 예적금, 국채, 지방채, 보증채, MMF, CMA 등<br>
-							<input type="radio" name="q7_2" value="2.5">채권형펀드, 원금보장형 ELS, 금융채, 신용도가 높은 회사채<br>
-							<input type="radio" name="q7_3" value="3.5">혼합형펀드, 원금의 일부만 보장되는 ELS, 신용도도 중간 등급의 회사채 등<br>
-							<input type="radio" name="q7_4" value="4.5">시장수익률 수준의 수익을 추구하는 주식형펀드, 원금이 보장되지 않는 ELS, 신용도가 낮은 회사채, 주식 등<br>
-							<input type="radio" name="q7_5" value="5.5">시장수익률 이상의 수익을 추구하는 주식형펀드, 파생상품펀드, ELW, 선물옵션, 주식, 신용거래 등<br><br>
+							<input type="checkbox" name="q7_1" value="1">은행 예적금, 국채, 지방채, 보증채, MMF, CMA 등<br>
+							<input type="checkbox" name="q7_2" value="2.5">채권형펀드, 원금보장형 ELS, 금융채, 신용도가 높은 회사채<br>
+							<input type="checkbox" name="q7_3" value="3.5">혼합형펀드, 원금의 일부만 보장되는 ELS, 신용도도 중간 등급의 회사채 등<br>
+							<input type="checkbox" name="q7_4" value="4.5">시장수익률 수준의 수익을 추구하는 주식형펀드, 원금이 보장되지 않는 ELS, 신용도가 낮은 회사채, 주식 등<br>
+							<input type="checkbox" name="q7_5" value="5.5">시장수익률 이상의 수익을 추구하는 주식형펀드, 파생상품펀드, ELW, 선물옵션, 주식, 신용거래 등<br><br>
 						</td>
 					</tr>
 					<tr>
@@ -255,10 +338,10 @@
 					</tr>
 					<tr>
 						<td style="font-size: 10pt; font-family: inherit; padding-left: 10px;">
-							<input type="radio" name="q8" value="5.5">파생상품을 포함한 대부분의 금융상품의 구조 및 위험을 이해하고 있어요<br>
-							<input type="radio" name="q8" value="4">널리 알려진 금융투자상품(주식, 채권 및 펀드 등)의 구조 및 위험을 깊이 있게 이해하고 있어요.<br>
-							<input type="radio" name="q8" value="2.5">널리 알려진 금융투자상품(주식, 채권 및 펀드 등)의 구조 및 위험을 일정 부분 이해하고 있어요.<br>
-							<input type="radio" name="q8" value="1">금융상품 중 예적금에 대해서만 이해하고 있어요.<br><br>
+							<input type="checkbox" name="q8" value="5.5" onclick='checkOnlyOne8(this)'>파생상품을 포함한 대부분의 금융상품의 구조 및 위험을 이해하고 있어요<br>
+							<input type="checkbox" name="q8" value="4" onclick='checkOnlyOne8(this)'>널리 알려진 금융투자상품(주식, 채권 및 펀드 등)의 구조 및 위험을 깊이 있게 이해하고 있어요.<br>
+							<input type="checkbox" name="q8" value="2.5" onclick='checkOnlyOne8(this)'>널리 알려진 금융투자상품(주식, 채권 및 펀드 등)의 구조 및 위험을 일정 부분 이해하고 있어요.<br>
+							<input type="checkbox" name="q8" value="1" onclick='checkOnlyOne8(this)'>금융상품 중 예적금에 대해서만 이해하고 있어요.<br><br>
 						</td>
 					</tr>
 				</table>

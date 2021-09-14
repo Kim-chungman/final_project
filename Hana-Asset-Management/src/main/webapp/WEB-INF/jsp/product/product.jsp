@@ -77,7 +77,7 @@
         
  		$(document).on('click', '.modal-content', function(){
  		  window.history.back();   
- 		}).on('click', 'button', function(){
+ 		}).on('click', '#joinBtn', function(){
  		  window.history.pushState({}, 'modal', '/modal');
  		  modal.open();
  		});

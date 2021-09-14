@@ -67,9 +67,9 @@ public class AssetManagementController {
 		
 		String investType = "";
 		if(avg < 43) {
-			investType = "안전형";
+			investType = "안정형";
 		} else if(avg < 55) {
-			investType = "안전추구형";
+			investType = "안정추구형";
 		} else if(avg < 68) {
 			investType = "위험중립형";
 		} else if(avg < 81) {
@@ -79,11 +79,11 @@ public class AssetManagementController {
 		}
 		
 		if(type.getQ1().equals("3") && type.getQ2().equals("0.5")) {
-			investType = "안전형";
+			investType = "안정형";
 		}
 		
 		if(type.getQ3().equals("1")) {
-			investType = "안전형";
+			investType = "안정형";
 		}
 		
 		double score = Math.round(avg);
@@ -108,11 +108,11 @@ public class AssetManagementController {
 		
 		switch(investType) {
 		
-		case "안전형" :
+		case "안정형" :
 			no = 1;
 			userVO.setInvestmentType(no);
 			break;
-		case "안전추구형" :
+		case "안정추구형" :
 			no = 2;
 			userVO.setInvestmentType(no);
 			break;

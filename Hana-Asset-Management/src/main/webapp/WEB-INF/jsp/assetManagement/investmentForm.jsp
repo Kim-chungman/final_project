@@ -75,7 +75,23 @@
 				location.href= "${ pageContext.request.contextPath }/";
 			})
 			
+			$('#select1').click(function(){
+				if(this.checked){
+					$("input.select2:checkbox").prop("disabled", true);
+				} else {
+					$("input.select2:checkbox").prop("disabled", false);
+				}
+			});
+			
+			$('#select2').click(function(){
+				if(this.checked){
+					$("input.select1:checkbox").prop("disabled", true);
+				} else {
+					$("input.select1:checkbox").prop("disabled", false);
+				}
+			});
 		})
+		
 		
 		</script>
         
@@ -186,22 +202,22 @@
 					<td style="padding:5px; font-size: 11pt; font-family: inherit;"><strong>특정 소비자 해당여부에 대한 정보를 당행에 제공하는 것에 동의하십니까?<br><br></strong></td>
 				</tr>
 				<tr>
-					<td style="padding: 5px;"><input type="checkbox" id="select1">개인정보 제공 미동의 or 금융취약소비자 해당 없음 (금융소비자 불이익 사항 우선 설명대상에서 제외)</td>
+					<td style="padding: 5px;"><input type="checkbox" id="select1" class="select1">개인정보 제공 미동의 or 금융취약소비자 해당 없음 (금융소비자 불이익 사항 우선 설명대상에서 제외)</td>
 				</tr>
 				<tr>
-					<td style="padding: 5px;"><input type="checkbox" id="select1">개인정보 제공 동의</td>
+					<td style="padding: 5px;"><input type="checkbox" id="select2" class="select2">개인정보 제공 동의</td>
 				</tr>
 				<tr>
-					<td style="padding-left: 15px;"><input type="checkbox" id="select1" class="select2">만65세 이상</td>
+					<td style="padding-left: 15px;"><input type="checkbox" class="select2">만65세 이상</td>
 				</tr>
 				<tr>
-					<td style="padding-left: 15px;"><input type="checkbox" id="select1" class="select2">은퇴자</td>
+					<td style="padding-left: 15px;"><input type="checkbox" class="select2">은퇴자</td>
 				</tr>
 				<tr>
-					<td style="padding-left: 15px;"><input type="checkbox" id="select1" class="select2">주부</td>
+					<td style="padding-left: 15px;"><input type="checkbox" class="select2">주부</td>
 				</tr>
 				<tr>
-					<td style="padding-left: 15px;"><input type="checkbox" id="select1" class="select2">기타<br><br></td>
+					<td style="padding-left: 15px;"><input type="checkbox" class="select2">기타<br><br></td>
 				</tr>
 			</table>
 		</div>
@@ -219,7 +235,7 @@
 																												   * (간이)투자설명서, 사모집합투자증권 상품설명서/(요약)제안서, 특정금전신탁 상품설명서 등</p>
 					<br>
 				</div>
-				<p style="font-family: inherit; padding-left: 30px; padding-top: 10px; padding-right: 10px;">금융소비자 불이익 사항에 대하여 우선적으로 설명 듣고 이해하였음<input type="checkbox" style="margin-left: 30px;">확인함</p>
+				<p style="font-family: inherit; padding-left: 30px; padding-top: 10px; padding-right: 10px;">금융소비자 불이익 사항에 대하여 우선적으로 설명 듣고 이해하였음<input type="checkbox" style="margin-left: 30px;" class="select2">확인함</p>
 				<br>
 			</div>
 		</div>

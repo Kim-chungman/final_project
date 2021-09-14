@@ -85,31 +85,43 @@
 	</select>
 	
 	<select id="ageChartData" parameterType="ExpenseVO" resultType="ExpenseVO">
-		select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1) expense, category
-         from CM_DETAIL_EXPENDITURE
-          where REG_DATE BETWEEN '21-08-01'and '21-08-31' and member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last})
-           group by category
+		select e.category, sum(cost) as expense, (select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1)
+		 from CM_DETAIL_EXPENDITURE p
+		  where p.REG_DATE BETWEEN '21-08-01'and '21-08-31' and p.member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) and p.CATEGORY = e.CATEGORY
+		   group by p.category) as jan
+		    from CM_DETAIL_EXPENDITURE e
+		     where e.MEMBER_ID = #{member_id} and e.REG_DATE BETWEEN '21-08-01' and '21-08-31'
+		      group by e.member_id, e.category
 	</select>
 	
 	<select id="ageChartData2" parameterType="ExpenseVO" resultType="ExpenseVO">
-		select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1) expense, category
-         from CM_DETAIL_EXPENDITURE
-          where REG_DATE BETWEEN '21-06-01'and '21-08-31' and member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last})
-           group by category
+		select e.category, sum(cost) as expense, (select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1)
+		 from CM_DETAIL_EXPENDITURE p
+		  where p.REG_DATE BETWEEN '21-06-01'and '21-08-31' and p.member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) and p.CATEGORY = e.CATEGORY
+		   group by p.category) as jan
+		    from CM_DETAIL_EXPENDITURE e
+		     where e.MEMBER_ID = #{member_id} and e.REG_DATE BETWEEN '21-06-01' and '21-08-31'
+		      group by e.member_id, e.category
 	</select>
 	
 	<select id="ageChartData3" parameterType="ExpenseVO" resultType="ExpenseVO">
-		select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1) expense, category
-         from CM_DETAIL_EXPENDITURE
-          where REG_DATE BETWEEN '21-03-01'and '21-08-31' and member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last})
-           group by category
+		select e.category, sum(cost) as expense, (select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1)
+		 from CM_DETAIL_EXPENDITURE p
+		  where p.REG_DATE BETWEEN '21-03-01'and '21-08-31' and p.member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) and p.CATEGORY = e.CATEGORY
+		   group by p.category) as jan
+		    from CM_DETAIL_EXPENDITURE e
+		     where e.MEMBER_ID = #{member_id} and e.REG_DATE BETWEEN '21-03-01' and '21-08-31'
+		      group by e.member_id, e.category
 	</select>
 	
 	<select id="ageChartData4" parameterType="ExpenseVO" resultType="ExpenseVO">
-		select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1) expense, category
-         from CM_DETAIL_EXPENDITURE
-          where REG_DATE BETWEEN '20-09-01'and '21-08-31' and member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last})
-           group by category
+		select e.category, sum(cost) as expense, (select round(sum(cost)/(select count(*) from (select member_id from CM_DETAIL_EXPENDITURE where member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) group by member_id)),-1)
+		 from CM_DETAIL_EXPENDITURE p
+		  where p.REG_DATE BETWEEN '20-09-01'and '21-08-31' and p.member_id in(select id from cm_member where substr(rrn,1,2) between #{start} and #{last}) and p.CATEGORY = e.CATEGORY
+		   group by p.category) as jan
+		    from CM_DETAIL_EXPENDITURE e
+		     where e.MEMBER_ID = #{member_id} and e.REG_DATE BETWEEN '20-09-01' and '21-08-31'
+		      group by e.member_id, e.category
 	</select>
 	
 	<select id="getMyData" parameterType="ExpenseVO" resultType="ExpenseVO">
@@ -127,7 +139,7 @@
 	</select>
 	
 	<select id="getJanData" parameterType="expenseVO" resultType="ExpenseVO">
-		select category, cost as expense, reg_date
+		select category, cost as expense, to_char(reg_date, 'yy/mm/dd') as reg_date
 		 from (select * from CM_DETAIL_EXPENDITURE where MEMBER_ID = #{member_id} and REG_DATE between '21/01/01' and '21/01/31' order by cost desc)
 		  where 5 >= ROWNUM
 	</select>

@@ -140,7 +140,7 @@
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 30%;                         
+            width: 50%;                         
         }
 
     </style>
@@ -178,18 +178,99 @@
 			      <!-- Modal content -->
 			      <div class="modal-content">
 			                <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">투자성향분석결과</span></b></span></p>
-			                <c:if test="${ investType eq '안전형' }">
-				                <p style="text-align: center; line-height: 1.5; font-size: 12pt; color: #008B8B;"><br />${ userVO.name }님은</p>
-				                <p style="text-align: center; line-height: 1.5; font-size: 12pt;">${ investType }입니다.</p>
+			                <c:if test="${ investType eq '안정형' }">
+				                <p style="text-align: center; line-height: 1.5; font-size: 15pt; color: #008B8B;"><br />${ userVO.name }<span style="color: black;">님은</span></p>
+				                <p style="text-align: center; line-height: 1.5; font-size: 15pt;"><span style="color: red; text-decoration: underline;">${ investType }</span>입니다.</p>
 				                <p><br /></p>
 			                </c:if>
-			                <c:if test="${ investType ne '안전형' }">
-				                <p style="text-align: center; line-height: 1.5; font-size: 12pt; color: #008B8B;"><br />${ userVO.name }님</p>
-				                <p style="text-align: center; line-height: 1.5; font-size: 12pt;">총점 ${ score }점으로</p>
-				                <p style="text-align: center; line-height: 1.5; font-size: 12pt; color: #FF4500;"> ${ investType }입니다.</p>
+			                <c:if test="${ investType ne '안정형' }">
+				                <p style="text-align: center; line-height: 1.5; font-size: 15pt; color: #008B8B;"><br />${ userVO.name }<span style="color: black;">님</span></p>
+				                <p style="text-align: center; line-height: 1.5; font-size: 15pt;">총점 <span style="color: red; text-decoration: underline;">${ score }점</span>으로</p>
+				                <p style="text-align: center; line-height: 1.5; font-size: 15pt; color: #FF4500;"> ${ investType }입니다.</p>
 				                <p><br /></p>
 			                </c:if>
-			            <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="close_pop();">
+			                <table style="width: 100%; height: 600px;">
+			                	<tr>
+			                		<th style="font-size: 12pt;">투자성향</th>
+			                		<th style="font-size: 12pt;">투자성향 설명</th>
+			                		<th style="font-size: 12pt;">적합한 상품 위험등급</th>
+			                	</tr>
+			                	<tr style="background-color: white;">
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '안정형' }"><span style="color: red;">안정형<br>42점 이하</span></c:if>
+			                			<c:if test="${ investType ne '안정형' }">안정형<br>42점 이하</c:if>
+			                		</td>
+			                		<td style="font-size: 12pt;">
+			                			<c:if test="${ investType eq '안정형' }"><span style="color: red;">예금 또는 적금 수준의 수익률을 기대하며, 투자원금에 손실이 발생하는 것을 원하지 않습니다.</span></c:if>
+			                			<c:if test="${ investType ne '안정형' }">예금 또는 적금 수준의 수익률을 기대하며, 투자원금에 손실이 발생하는 것을 원하지 않습니다.</c:if>
+			                		</td>
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '안정형' }"><span style="color: red;">매우낮은위험<br>(6등급)상품</span></c:if>
+			                			<c:if test="${ investType ne '안정형' }">매우낮은위험<br>(6등급)상품</c:if>
+			                		</td>
+			                	</tr>
+			                	<tr>
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '안정추구형' }"><span style="color: red;">안정추구형<br>43~54점 이하</span></c:if>
+			                			<c:if test="${ investType ne '안정추구형' }">안정추구형<br>43~54점 이하</c:if>
+			                		</td>
+			                		<td style="font-size: 12pt;">
+			                			<c:if test="${ investType eq '안정추구형' }"><span style="color: red;">투자원금 손실위험은 최소화하고 이자소득이나 배당소득 수준의 안정적인 투자를 목표로 합니다.
+			                			다만, 수익을 위해 단기적인 손실을 수용할 수 있으며 예 적금보다 높은 수익을 위해 자산 중 일부를 변동성 높은 상품에 투자할 의향이 있습니다.</span></c:if>
+			                			<c:if test="${ investType ne '안정추구형' }">투자원금 손실위험은 최소화하고 이자소득이나 배당소득 수준의 안정적인 투자를 목표로 합니다.
+			                			다만, 수익을 위해 단기적인 손실을 수용할 수 있으며 예 적금보다 높은 수익을 위해 자산 중 일부를 변동성 높은 상품에 투자할 의향이 있습니다.</c:if>
+			                		</td>
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '안정추구형' }"><span style="color: red;">낮은위험<br>(5등급) 이하 상품</span></c:if>
+			                			<c:if test="${ investType ne '안정추구형' }">낮은위험<br>(5등급) 이하 상품</c:if>
+			                		</td>
+			                	</tr>
+			                	<tr style="background-color: white;">
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '위험중립형' }"><span style="color: red;">위험중립형<br>55~67점 이하</span></c:if>
+			                			<c:if test="${ investType ne '위험중립형' }">위험중립형<br>55~67점 이하</c:if>
+			                		</td>
+			                		<td style="font-size: 12pt;">
+			                			<c:if test="${ investType eq '위험중립형' }"><span style="color: red;">투자에는 그에 상응하는 투자위험이 있음을 충분히 인식하고 있으며, 예 적금보다 높은 수익을 기대할 수 있다면 일정수준의 손실위험을 감수할 수 있습니다.</span></c:if>
+			                			<c:if test="${ investType ne '위험중립형' }">투자에는 그에 상응하는 투자위험이 있음을 충분히 인식하고 있으며, 예 적금보다 높은 수익을 기대할 수 있다면 일정수준의 손실위험을 감수할 수 있습니다.</c:if>
+			                		</td>
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '위험중립형' }"><span style="color: red;">보통위험<br>(4등급)이하 상품</span></c:if>
+			                			<c:if test="${ investType ne '위험중립형' }">보통위험<br>(4등급)이하 상품</c:if>
+			                		</td>
+			                	</tr>
+			                	<tr>
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '적극투자형' }"><span style="color: red;">적극투자형<br>68~80점 이하</span></c:if>
+			                			<c:if test="${ investType ne '적극투자형' }">적극투자형<br>68~80점 이하</c:if>
+			                		</td>
+			                		<td style="font-size: 12pt;">
+			                			<c:if test="${ investType eq '적극투자형' }"><span style="color: red;">투자원금의 보존보다는 위험을 감내하더라도 높은 수준의 투자수익 실현을 추구합니다.
+			                			투자자금의 상당부분을 주식, 주식형펀드 또는 파생상품등의 위험자산에 투자할 의향이 있습니다.</span></c:if>
+			                			<c:if test="${ investType ne '적극투자형' }">투자원금의 보존보다는 위험을 감내하더라도 높은 수준의 투자수익 실현을 추구합니다.
+			                			투자자금의 상당부분을 주식, 주식형펀드 또는 파생상품등의 위험자산에 투자할 의향이 있습니다.</c:if>
+			                		</td>
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '적극투자형' }"><span style="color: red;">다소높은위험<br>(3등급)이하 상품</span></c:if>
+			                			<c:if test="${ investType ne '적극투자형' }">다소높은위험<br>(3등급)이하 상품</c:if>
+			                		</td>
+			                	</tr>
+			                	<tr style="background-color: white;">
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '공격투자형' }"><span style="color: red;">공격투자형<br>81점 이상</span></c:if>
+			                			<c:if test="${ investType ne '공격투자형' }">공격투자형<br>81점 이상</c:if>
+			                		</td>
+			                		<td style="font-size: 12pt;">
+			                			<c:if test="${ investType eq '공격투자형' }"><span style="color: red;">시장평균 수익률을 넘어서는 높은 수준의 투자수익을 추구하며, 이를 위해 자산가치의 변동에 따른 손실 위험을 적극수용, 투자자금 대부분을 주식, 주식형펀드 또는 파생상품등의 위험자산에 투자할 의향이 있습니다.</span></c:if>
+			                			<c:if test="${ investType ne '공격투자형' }">시장평균 수익률을 넘어서는 높은 수준의 투자수익을 추구하며, 이를 위해 자산가치의 변동에 따른 손실 위험을 적극수용, 투자자금 대부분을 주식, 주식형펀드 또는 파생상품등의 위험자산에 투자할 의향이 있습니다.</c:if>
+			                		</td>
+			                		<td style="text-align: center; width: 20%; font-size: 12pt;">
+			                			<c:if test="${ investType eq '공격투자형' }"><span style="color: red;">매우높은위험<br>(1등급)이하 상품</span></c:if>
+			                			<c:if test="${ investType ne '공격투자형' }">매우높은위험<br>(1등급)이하 상품</c:if>
+			                		</td>
+			                	</tr>
+			                </table>
+			            <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px; margin-top: 20px;" onClick="close_pop();">
 			                <span class="pop_bt" style="font-size: 13pt;" >
 			                     닫기
 			                </span>
@@ -226,11 +307,11 @@
 					<p style="font-family: inherit; padding-left: 10px; padding-top: 10px; padding-right: 10px; text-align: center; font-size: 15pt;"><strong style="color: #008B8B;">${ userVO.name }님</strong>의</p>
 					<p style="font-family: inherit; padding-left: 10px; padding-top: 10px; padding-right: 10px; text-align: center; font-size: 15pt;">투자성향은 <strong style="color: #FF4500;">${ investType }</strong>입니다.<br><br></p>
 				</div>
-				<c:if test="${ investType eq '안전형' }">
-					<img alt="안전형" src="${ pageContext.request.contextPath }/resources/images/investmentType/safety.png" style="display: block; margin: auto;">
+				<c:if test="${ investType eq '안정형' }">
+					<img alt="안정형" src="${ pageContext.request.contextPath }/resources/images/investmentType/safety.png" style="display: block; margin: auto;">
 				</c:if>
-				<c:if test="${ investType eq '안전추구형' }">
-					<img alt="안전추구형" src="${ pageContext.request.contextPath }/resources/images/investmentType/safetyPursuit.png" style="display: block; margin: auto;">
+				<c:if test="${ investType eq '안정추구형' }">
+					<img alt="안정추구형" src="${ pageContext.request.contextPath }/resources/images/investmentType/safetyPursuit.png" style="display: block; margin: auto;">
 				</c:if>
 				<c:if test="${ investType eq '위험중립형' }">
 					<img alt="위험중립형" src="${ pageContext.request.contextPath }/resources/images/investmentType/riskNeutral.png" style="display: block; margin: auto;">

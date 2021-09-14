@@ -38,6 +38,7 @@ public class CounselingSocket {
 	
 	@OnOpen
 	public void onOpen(Session session){
+		
 		String userName = "상담자";
 		int rand_num = (int)(Math.random()*1000);
 		
