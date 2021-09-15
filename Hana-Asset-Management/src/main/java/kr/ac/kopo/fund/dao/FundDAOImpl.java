@@ -22,5 +22,19 @@ public class FundDAOImpl implements FundDAO{
 		return fundList;
 	}
 
+	@Override
+	public void presentPrice(FundVO fund) {
+		
+		sqlSessionTemplate.update("fund.FundDAO.presentPrice", fund);
+		
+	}
+
+	@Override
+	public void threeMonthPrice(FundVO fund) {
+
+		sqlSessionTemplate.update("fund.FundDAO.threeMonthPrice", fund);
+		
+	}
+
 	
 }

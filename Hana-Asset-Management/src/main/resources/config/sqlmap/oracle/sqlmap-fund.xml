@@ -5,10 +5,21 @@
 <mapper namespace="fund.FundDAO">
 
 	<select id="fundList" resultType="FundVO">
-		select c.fund_code, c.fund_name, e.type, e.total_asset, e.stock_rate, e.bond_rate, e.money_rate, e.etc_rate, e.present_price, e.one_month_rate, e.six_month_rate, e.one_year_rate, e.commission, e.reg_date
+		select c.fund_code, c.fund_name, e.type, e.total_asset, e.stock_rate, e.bond_rate, e.money_rate, e.etc_rate, e.present_price, e.one_month_rate, e.three_month_rate, e.six_month_rate, e.one_year_rate, e.commission, e.reg_date
 		 from CM_FUND_CODE c, cm_product_fund e
 		  where c.fund_name = e.fund_name
 	</select>
 
+	<update id="presentPrice" parameterType="FundVO">
+		update cm_product_fund
+		 set present_price = #{ present_price }
+		  where fund_name = #{ fund_name }
+	</update>
+	
+	<update id="threeMonthPrice" parameterType="FundVO">
+		update cm_product_fund
+		 set three_month_rate = #{ three_month_rate }
+		  where fund_name = #{ fund_name }
+	</update>
 	
 </mapper>

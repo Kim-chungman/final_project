@@ -8,4 +8,8 @@ public interface FundDAO {
 
 	public List<FundVO> fundList();
 
+	public void presentPrice(FundVO fund);
+
+	public void threeMonthPrice(FundVO fund);
+
 }
