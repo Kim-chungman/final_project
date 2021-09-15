@@ -8,6 +8,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -19,10 +20,11 @@ import kr.ac.kopo.crawling.vo.DepositCrawlingVO;
 @ContextConfiguration(locations = {"classpath:config/spring/spring-mvc.xml"})
 public class CrawlingTest {
 
+	@Ignore
 	@Test
 	public void crawlingTest() {
 		
-		  String url = "https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?catId=spb_2811";
+		  String url = "https://www.kebhana.com/cont/mall/mall26/mall2602/index.jsp?_menuNo=62634#//HanaBank";
 //	      String url = "https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?catId=spb_2812";
 //	      String url = "https://www.kebhana.com/cont/mall/mall08/mall0805/index.jsp?catId=spb_2813";
 	      
@@ -34,7 +36,7 @@ public class CrawlingTest {
 	         e.printStackTrace();
 	      }
 	      
-	      Elements element = doc.select("div.wrap-product-list");
+	      Elements element = doc.select("table[themefundList leftLine]");
 	      
 //		  li[class=item type2] > div.check-style-type > label.checkCompare > span.label-area > span.product-tit > em 절대경로	      
 	      
@@ -134,4 +136,34 @@ public class CrawlingTest {
 
 		*/
 	}
+	
+	@Test
+	public void crawlingTest2() {
+		
+		String str = "KR5306AJ1406";
+		String url = "https://finance.naver.com/fund/fundDetail.nhn?fundCd="+str;	      
+	    Document doc = null;
+	      
+	      try {
+	         doc = Jsoup.connect(url).get();
+	      } catch(Exception e) {
+	         e.printStackTrace();
+	      }
+	      
+	      Elements element = doc.select("div[id=content]");
+	      
+//		  li[class=item type2] > div.check-style-type > label.checkCompare > span.label-area > span.product-tit > em 절대경로	      
+	      
+	      Iterator<Element> le1 = element.select("div[class=spot fund_deatil]>div[class=rate_info]>div[class=today]>p[class=no_today no_today_v2]>em[class=no_up]").iterator();
+	      Iterator<Element> le2 = element.select("div[class=spot fund_deatil]>div[class=rate_info]>div[class=today]>p[class=no_exday]>em[class=no_up]").iterator();
+		    
+		  while(le1.hasNext()) {
+			
+			  System.out.println(le1.next().text());
+			  System.out.println(le2.next().text());
+		  
+		  }
+		
+	}
+	
 }

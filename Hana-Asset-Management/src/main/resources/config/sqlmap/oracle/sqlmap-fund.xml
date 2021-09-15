@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fund.FundDAO">
+
+	<select id="fundList" resultType="FundVO">
+		select c.fund_code, c.fund_name, e.type, e.total_asset, e.stock_rate, e.bond_rate, e.money_rate, e.etc_rate, e.present_price, e.one_month_rate, e.six_month_rate, e.one_year_rate, e.commission, e.reg_date
+		 from CM_FUND_CODE c, cm_product_fund e
+		  where c.fund_name = e.fund_name
+	</select>
+
+	
+</mapper>
