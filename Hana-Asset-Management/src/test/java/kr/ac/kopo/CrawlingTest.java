@@ -156,13 +156,45 @@ public class CrawlingTest {
 	      
 	      Iterator<Element> le1 = element.select("div[class=spot fund_deatil]>div[class=rate_info]>div[class=today]>p[class=no_today no_today_v2]>em[class=no_up]").iterator();
 	      Iterator<Element> le2 = element.select("div[class=spot fund_deatil]>div[class=rate_info]>div[class=today]>p[class=no_exday]>em[class=no_up]").iterator();
-		    
+	      Iterator<Element> le3 = element.select("div[class=spot fund_deatil]>div[class=rate_info]>table[class=no_info]>tbody>tr>td").iterator();
+	      Iterator<Element> le4 = element.select("div[class=section_analysis]>table[class=tbl_fund]>tbody>tr>td").iterator();
+	      
+	      String three_month_rate = "";
+	      String three = "";
+	      String[] three_month = null;
+	      String[] three_mr = null;
+	      double rate = 0;
+	      
 		  while(le1.hasNext()) {
 			
 			  System.out.println(le1.next().text());
 			  System.out.println(le2.next().text());
 		  
 		  }
+		 
+		  while(le3.hasNext()) {
+			  
+			  three_month_rate = le3.next().text();
+			  three_month = three_month_rate.split(" ");
+			  if(three_month[0].equals("3개월")) {
+				  three = three_month[2];
+				  System.out.println(three_month[0]);
+				  three_mr = three.split("%");
+				  rate = Double.parseDouble(three_mr[0]);
+				  System.out.println(rate);
+			  }
+			  
+			  
+		  }
+		  
+		  int no = 0;
+		  String[] ratio = new String[20];
+		  while(le4.hasNext()) {
+			  ratio[no] = le4.next().text();
+			  System.out.println(ratio[no]);
+			  no++;
+		  }
+		  
 		
 	}
 	
