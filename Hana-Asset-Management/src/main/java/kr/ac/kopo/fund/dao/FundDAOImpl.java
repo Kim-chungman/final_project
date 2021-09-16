@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.fund.vo.FundVO;
+import kr.ac.kopo.fund.vo.RatioVO;
 
 @Repository
 public class FundDAOImpl implements FundDAO{
@@ -33,6 +34,13 @@ public class FundDAOImpl implements FundDAO{
 	public void threeMonthPrice(FundVO fund) {
 
 		sqlSessionTemplate.update("fund.FundDAO.threeMonthPrice", fund);
+		
+	}
+
+	@Override
+	public void rateInsert(RatioVO rateVO) {
+		
+		sqlSessionTemplate.insert("fund.FundDAO.rateInsert", rateVO);
 		
 	}
 

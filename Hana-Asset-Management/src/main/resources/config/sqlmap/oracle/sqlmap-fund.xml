@@ -22,4 +22,11 @@
 		  where fund_name = #{ fund_name }
 	</update>
 	
+	<insert id="rateInsert" parameterType="RatioVO">
+		insert into CM_FUND_RATIO(FUND_RATIO_NO, FUND_CODE, FUND_NAME, TYPE, THREE_MONTH_RATE, SIX_MONTH_RATE, ONE_YEAR_RATE, TWO_YEAR_RATE, THREE_YEAR_RATE, FIVE_YEAR_RATE,
+		 AVG_THREE_MONTH_RATE, AVG_SIX_MONTH_RATE, AVG_ONE_YEAR_RATE, AVG_TWO_YEAR_RATE, AVG_THREE_YEAR_RATE, AVG_FIVE_YEAR_RATE)
+		  values(FUND_RATIO_SEQ.nextval, #{fund_code}, #{fund_name}, #{type}, #{three_month_rate}, #{six_month_rate}, #{one_year_rate}, #{two_year_rate}, #{three_year_rate}, #{five_year_rate}, 
+		   #{avg_three_month_rate}, #{avg_six_month_rate}, #{avg_one_year_rate}, #{avg_two_year_rate}, #{avg_three_year_rate}, #{avg_five_year_rate})
+	</insert>
+	
 </mapper>

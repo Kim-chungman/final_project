@@ -177,7 +177,7 @@ public class CrawlingTest {
 		  
 		  }
 		 */
-	      
+	      /*
 		  while(le3.hasNext()) {
 			  
 			  three_month_rate = le3.next().text();
@@ -199,16 +199,25 @@ public class CrawlingTest {
 			  
 			  
 		  }
-		  /*
-		  int no = 0;
-		  String[] ratio = new String[20];
-		  while(le4.hasNext()) {
-			  ratio[no] = le4.next().text();
-			  System.out.println(ratio[no]);
-			  no++;
-		  }
 		  */
-		
+		  
+		  List<String> ratio = new ArrayList<String>();
+		  while(le4.hasNext()) {
+			  ratio.add(le4.next().text());
+		  }
+		  
+		  System.out.println(ratio.get(1));
+		  System.out.println(ratio.get(8));
+		  System.out.println();
+		  for(int i=0; i<ratio.size(); i++) {
+			  if(ratio.get(i).equals("N/A")) {
+				  ratio.set(i, "0");
+			  }
+		  }
+		  
+		  for(String radio : ratio) {
+			  System.out.println(radio);
+		  }
 	}
 	
 }
