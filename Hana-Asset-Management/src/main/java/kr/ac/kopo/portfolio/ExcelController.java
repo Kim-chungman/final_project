@@ -145,7 +145,7 @@ public class ExcelController {
 		
 	}
 	
-	@GetMapping("/testing")
+	@PostMapping("/testing")
 	public String test(HttpServletRequest request) throws Exception {
 		
 		request.setCharacterEncoding("utf-8");
@@ -155,15 +155,45 @@ public class ExcelController {
 		String slider3 = request.getParameter("slider3");
 		String investmentType = request.getParameter("investmentType");
 		String rrn = request.getParameter("rrn");
+		String[] analysis = request.getParameterValues("analysis");
 	
 		String[] per = slider3.split(",");
+		String[] ageNum = rrn.split("-");
+		int age = Integer.parseInt(ageNum[0])/10000;
+		String start = "";
+		String last = "";
+		
+		if(age>=93) {
+			// 20대
+			start = "93/01/01";
+			last = "99/12/31";
+		} else if(age>=83 && age <93) {
+			// 30대
+			start = "83/01/01";
+			last = "92/12/31";
+		} else if(age>=73 && age <83) {
+			// 40대
+			start = "73/01/01";
+			last = "82/12/31";
+		} else if(age>=63 && age <73) {
+			// 50대
+			start = "63/01/01";
+			last = "72/12/31";
+		} else if(age>=53 && age <63) {
+			// 60대
+			start = "53/01/01";
+			last = "62/12/31";
+		}
+		
+		for(String as : analysis) {
+			System.out.println(as.toString());
+		}
 		
 		System.out.println(slider);
 		System.out.println(slider2);
-		System.out.println(per[0]);
 		System.out.println(per[1]);
 		System.out.println(investmentType);
-		System.out.println(rrn);
+		System.out.println(age + " : " + start + " ~ " + last);
 		
 		return "index";
 	}

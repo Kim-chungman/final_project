@@ -67,6 +67,11 @@
        
     	<%-- range jquery --%>
     	<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/rSlider.min.css">
+    
+    	<%-- multi select jquery --%>
+    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+		<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+    	
     </head>
     <!-- END HEAD -->
     
@@ -169,10 +174,23 @@
         	</h2>
         </div>
         <div>
-        	<form action="${ pageContext.request.contextPath }/testing">
+        	<form action="${ pageContext.request.contextPath }/testing" method="post">
         	<input type="hidden" id="investmentType" name="investmentType" value="${ investType }">
         	<input type="hidden" id="rrn" name="rrn" value="${ userVO.rrn }">
-        	<div class="container">
+        	<div class="container" style="text-align: center;">
+        		<strong><span style="font-size: 14pt;"><분석지표 설정></span></strong>
+        		<div class="row d-flex justify-content-center mt-100" style="border: none; margin-left: 110px; width: 500px; margin-bottom: 20px; margin-top: 20px;">
+				    <div class="col-md-6" style="border: none;"> 
+				    	<select id="choices-multiple-remove-button" name="analysis" style="opacity: 60;" multiple>
+				            <option style="border: none;" value="표준편차(%)">표준편차(σ)</option>
+				            <option style="border: none;" value="BM민감도(B)">BM민감도(β)</option>
+				            <option style="border: none;" value="트래킹에러(TE,%)">트래킹에러(TE,%)</option>
+				            <option style="border: none;" value="Sharpe Ratio">Sharpe Ratio</option>
+				            <option style="border: none;" value="젠센의 알파(%)">젠센의 알파(%)</option>
+				            <option style="border: none;" value="정보비율(IR)">정보비율(IR)</option>
+				        </select> 
+				    </div>
+				</div>
 		        <div class="slider-container" style="text-align: center;">
 		        	<strong><span style="font-size: 14pt;"><투자기간 설정></span></strong>
 		        	<p style="font-size: 11pt; margin-left: 440px; margin-bottom: 35px;"><strong>투자기간</strong></p>
@@ -189,7 +207,7 @@
 		            <input type="text" id="slider3" name="slider3" class="slider" />
 		        </div>
 		        <div>
-		        	<input type="submit" value="설계" style="font-size:10pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 45%;">
+		        	<input type="submit" value="설계" style="font-size:10pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px;">
 		        </div>
 		    </div>
 		    </form>
@@ -210,7 +228,7 @@
                     target: '#slider2',
                     values: [1, 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300],
                     range: false,
-                    set: [1],
+                    set: [5],
                     tooltip: true,
                     labels: false,
                     onChange: function (vals) {
@@ -253,6 +271,17 @@
 			
 			document.getElementById("balance").value = sum;
 		}
+        
+		$(document).ready(function(){
+
+			var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+			removeItemButton: true,
+			maxItemCount:5,
+			searchResultLimit:5,
+			renderChoiceLimit:5
+			});
+
+		});
     </script>
 </body>
 </html>
