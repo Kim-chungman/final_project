@@ -65,11 +65,8 @@
 		<script type="text/javascript" src="${ pageContext.request.contextPath }/resources/js/jquery.tweetable.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
        
-        <script type="text/javascript">
-      
-        
-    	</script>
-        
+    	<%-- range jquery --%>
+    	<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/rSlider.min.css">
     </head>
     <!-- END HEAD -->
     
@@ -93,15 +90,24 @@
     	}
     	
     	#tdNum {
-		text-align: center;
-		font-size: 12pt;
-		font-family: 'inherit';
-		border-bottom: solid;
-		border-bottom-width: 2px;
-		background-color: white;
+			text-align: center;
+			font-size: 12pt;
+			font-family: 'inherit';
+			border-bottom: solid;
+			border-bottom-width: 2px;
+			background-color: white;
 		}
-    	
-
+		
+		.container {
+            width: 80%;
+            margin: 70px auto;
+        }
+        .slider-container {
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto 50px;
+        }
+		
     </style>
 <body>
 	<header>
@@ -158,925 +164,95 @@
 			<h3 style="font-family: 'inherit'; text-align: center; margin-top: 30px;"><strong style="color: #008B8B;">${ userVO.name }님</strong><strong>을 위한 상품설계</strong></h3>
 			<hr style="border-color: #008B8B; margin-bottom: 20px; border-width: 1px; width: 27%;">
         	
-        	<h2 style="margin-top: 50px;">
-        		<span style="color: #008B8B;">${ investType }</span>성향 고객님을 위한 상품
+        	<h2 style="margin-top: 50px; text-align: center;">
+        		<span style="color: #008B8B;">${ investType }</span>성향 고객님을 위한 맞춤형 상품추천
         	</h2>
         </div>
-        <c:if test="${ userVO.investmentType eq 1}">
-        <div style="width: 900px; margin-top: 50px;">
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head white">
-                        <p>예금</p>
-                        <h2 class="price">20%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head grey">
-                        <p>적금</p>
-                        <h2 class="price">30%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third last">
-                <div class="price-table">
-                    <div class="head blue">
-                        <p>펀드</p>
-                        <h2 class="price">15%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head red">
-                        <p>연금</p>
-                        <h2 class="price">25%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head green">
-                        <p>방카슈랑스</p>
-                        <h2 class="price">10%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
+        <div>
+        	<form action="${ pageContext.request.contextPath }/testing">
+        	<input type="hidden" id="investmentType" name="investmentType" value="${ investType }">
+        	<input type="hidden" id="rrn" name="rrn" value="${ userVO.rrn }">
+        	<div class="container">
+		        <div class="slider-container" style="text-align: center;">
+		        	<strong><span style="font-size: 14pt;"><투자기간 설정></span></strong>
+		        	<p style="font-size: 11pt; margin-left: 440px; margin-bottom: 35px;"><strong>투자기간</strong></p>
+		            <input type="text" id="slider" name="slider" class="slider" />
+		        </div>
+		        <div class="slider-container" style="text-align: center;">
+		        	<strong><span style="font-size: 14pt;"><투자금액 설정></span></strong>
+		        	<p style="font-size: 11pt; margin-left: 360px; margin-bottom: 35px;"><strong>월 투자액(단위: 만원)</strong></p>
+		            <input type="text" id="slider2" name="slider2" class="slider" />
+		        </div>	        
+		        <div class="slider-container" style="text-align: center;">
+		        	<strong><span style="font-size: 14pt;"><기대수익률 설정></span></strong>
+		        	<p style="font-size: 11pt; margin-left: 400px; margin-bottom: 35px;"><strong>기대수익률(%)</strong></p>
+		            <input type="text" id="slider3" name="slider3" class="slider" />
+		        </div>
+		        <div>
+		        	<input type="submit" value="설계" style="font-size:10pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 45%;">
+		        </div>
+		    </div>
+		    </form>
         </div>
-        </c:if>
-        <c:if test="${ userVO.investmentType eq 2}">
-        <div style="width: 900px; margin-top: 50px;">
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head white">
-                        <p>예금</p>
-                        <h2 class="price">15%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head grey">
-                        <p>적금</p>
-                        <h2 class="price">30%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third last">
-                <div class="price-table">
-                    <div class="head blue">
-                        <p>펀드</p>
-                        <h2 class="price">20%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head red">
-                        <p>연금</p>
-                        <h2 class="price">20%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head green">
-                        <p>방카슈랑스</p>
-                        <h2 class="price">15%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </c:if>
-        <c:if test="${ userVO.investmentType eq 3}">
-        <div style="width: 900px; margin-top: 50px;">
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head white">
-                        <p>예금</p>
-                        <h2 class="price">10%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head grey">
-                        <p>적금</p>
-                        <h2 class="price">25%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third last">
-                <div class="price-table">
-                    <div class="head blue">
-                        <p>펀드</p>
-                        <h2 class="price">30%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head red">
-                        <p>연금</p>
-                        <h2 class="price">20%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head green">
-                        <p>방카슈랑스</p>
-                        <h2 class="price">15%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </c:if>
-        <c:if test="${ userVO.investmentType eq 4}">
-        <div style="width: 900px; margin-top: 50px;">
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head white">
-                        <p>예금</p>
-                        <h2 class="price">10%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head grey">
-                        <p>적금</p>
-                        <h2 class="price">20%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third last">
-                <div class="price-table">
-                    <div class="head blue">
-                        <p>펀드</p>
-                        <h2 class="price">25%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head red">
-                        <p>연금</p>
-                        <h2 class="price">20%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head green">
-                        <p>방카슈랑스</p>
-                        <h2 class="price">10%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third last">
-                <div class="price-table">
-                    <div class="head yellow">
-                        <p>주식</p>
-                        <h2 class="price">15%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </c:if>
-        <c:if test="${ userVO.investmentType eq 5}">
-        <div style="width: 900px; margin-top: 50px;">
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head white">
-                        <p>예금</p>
-                        <h2 class="price">10%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head grey">
-                        <p>적금</p>
-                        <h2 class="price">15%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third last">
-                <div class="price-table">
-                    <div class="head blue">
-                        <p>펀드</p>
-                        <h2 class="price">25%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head red">
-                        <p>연금</p>
-                        <h2 class="price">10%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third">
-                <div class="price-table">
-                    <div class="head green">
-                        <p>방카슈랑스</p>
-                        <h2 class="price">10%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="one-third last">
-                <div class="price-table">
-                    <div class="head yellow">
-                        <p>주식</p>
-                        <h2 class="price">30%</h2>
-                    </div>
-                    <div class="body">
-                        <ul>
-                            <li>
-                            	<strong style="font-size: 11pt;">하나 더예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.40%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">주거래 정기예금</strong> <br>
-                            	최저 연0.75%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.25%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">언제나 청춘 정기예금</strong> <br>
-                            	최저 연0.90%~최고 연<span style="font-size: 11pt; color: #008B8B;">1.10%
-                            	</span>
-                            </li>
-                            <li>
-                            	<strong style="font-size: 11pt;">3·6·9정기예금</strong> <br>
-                            	최저 연0.85%~최고 연<span style="font-size: 11pt; color: #008B8B;">0.95%
-                            	</span>
-                            </li>
-                        </ul>
-                        <p class="more"><a href="#">더보기</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </c:if>
 	</section>
 	<footer style="clear: both;">
 		<br><br>
 		<jsp:include page="/WEB-INF/include/footer.jsp" />
 	</footer>
+	<script src="${ pageContext.request.contextPath }/resources/js/rSlider.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            var init = function () {                
+        		
+                var slider2 = new rSlider({
+                    target: '#slider2',
+                    values: [1, 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300],
+                    range: false,
+                    set: [1],
+                    tooltip: true,
+                    labels: false,
+                    onChange: function (vals) {
+                    }        
+                });
+
+                var slider3 = new rSlider({
+                    target: '#slider3',
+                    values: {min: 0, max: 30},
+                    step: 1,
+                    range: true,
+                    set: [0, 5],
+                    scale: true,
+                    labels: false,
+                    onChange: function (vals) {
+                    }
+                });
+
+                var slider = new rSlider({
+                	target: '#slider',
+                    values: ['1개월', '3개월', '6개월', '1년', '2년', '3년', '5년'],
+                    range: false,
+                    set: ['1년'],
+                    tooltip: true,
+                    onChange: function (vals) {
+                    }  
+                });
+            };
+            window.onload = init;
+        })();
+        
+        var sum = 0;//함수 안에 지역변수로 선언하면 0으로 계속 초기화돼서 sum+=으로 더해지지 않는 거였음.
+		
+		function calc(button) {
+			
+			if(parseInt(button.value) != 0)
+				sum+= parseInt(button.value);//parseInt를 안하면 값이 더하기가 안되고 옆에 붙여넣기가 됨		
+			else
+				sum = 0;
+			
+			document.getElementById("balance").value = sum;
+		}
+    </script>
 </body>
 </html>

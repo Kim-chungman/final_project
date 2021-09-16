@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
@@ -142,4 +144,28 @@ public class ExcelController {
 		return cellStyle;
 		
 	}
+	
+	@GetMapping("/testing")
+	public String test(HttpServletRequest request) throws Exception {
+		
+		request.setCharacterEncoding("utf-8");
+		
+		String slider = request.getParameter("slider");
+		String slider2 = request.getParameter("slider2");
+		String slider3 = request.getParameter("slider3");
+		String investmentType = request.getParameter("investmentType");
+		String rrn = request.getParameter("rrn");
+	
+		String[] per = slider3.split(",");
+		
+		System.out.println(slider);
+		System.out.println(slider2);
+		System.out.println(per[0]);
+		System.out.println(per[1]);
+		System.out.println(investmentType);
+		System.out.println(rrn);
+		
+		return "index";
+	}
+	
 }
