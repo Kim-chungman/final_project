@@ -100,17 +100,17 @@
     	}
     	
     	#manageNav{
-    		width: 10%;
-    		position: relative;
-    		margin-left: 25%;
-    		float: left;
-    	}
-    	
-    	#manageSec{
-    		width: 40%;
-    		position: relative;
-    		float: left;
-    	}
+	   		width: 10%;
+	   		position: relative;
+	   		margin-left: 17%;
+	   		float: left;
+	   	}
+	   	
+	   	#manageSec{
+	   		width: 55%;
+	   		position: relative;
+	   		float: left;
+	   	}
     	
     	#tdNum {
 		text-align: center;

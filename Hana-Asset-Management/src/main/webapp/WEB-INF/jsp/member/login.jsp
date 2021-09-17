@@ -58,6 +58,11 @@
 	#form-div {
 		margin-right: 140px;
 	}
+	input {
+		 border-color: #008B8B;
+		 border-width: 1px;
+	}
+	
 </style>
 </head>
 <body>
@@ -73,7 +78,7 @@
 			<hr id="loginHr" style="width: 2%; color: #008B8B;">
 		</div>
 		
-		<div align="center">
+		<div align="center" style="margin-left: 40px;">
 			<h2 style="text-align: center; margin-right: 120px; color: #008B8B;">환영합니다</h2>
 			<br>
 			
@@ -82,27 +87,27 @@
 					<input type="text" id="id" name="id" placeholder="아이디" style="width:300px; height: 40px; border-radius: 10px; border-width: 1px; border-color: #008B8B; margin-bottom: 5px;">
 					<span id="msg" style="color: red;"></span>
 					<br>
-					<input type="password" id="password" name="password" placeholder="비밀번호" style="width:300px; height: 40px; border-radius: 10px; border-width: 1px; border-color: #008B8B;">
+					<input type="password" id="password" name="password" placeholder="비밀번호" style="width:300px; height: 40px; border-radius: 10px; border-color: #008B8B">
 				</div>
 				
 				<br>
-				<input type="submit" id="login" value="로그인" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-right: 140px;">
+				<input type="submit" id="login" value="로그인" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-right: 90px;">
 			</form>
-			<div style="margin-right: 140px;">
+			<div style="margin-right: 90px;">
 				<input type="checkbox">아이디저장
 				<a style="font-size: 10pt; margin-left: 50px;">아이디 찾기</a> <a style="font-size: 10pt; margin-left: 10px;">비밀번호 찾기</a>
 			</div>
 			
 			<div style="margin-top: 50px;">
-				<h5 style="text-align: center; margin-right: 120px; color: #008B8B; font-family: 'inherit';">회원이 아니신가요?</h5>
+				<h5 style="text-align: center; margin-right: 80px; color: #008B8B; font-family: 'inherit';">회원이 아니신가요?</h5>
 			</div>
-			<button id="joinBtn" style="font-size:13pt; width: 220px; height: 40px; border-radius: 5px; color: white; background-color: #008B8B; border: none; margin-right: 130px; margin-top: 5px;">회원가입</button>
+			<button id="joinBtn" style="font-size:13pt; width: 220px; height: 40px; border-radius: 5px; color: white; background-color: #008B8B; border: none; margin-right: 90px; margin-top: 5px;">회원가입</button>
 			
 			<div>
 				
 			</div>
 			<div id="loginBtn" style="margin-top: 5px; margin-bottom: 30px;">
-				<a id="kakao-login-btn" style="margin-right: 130px;"></a>
+				<a id="kakao-login-btn" style="margin-right: 90px;"></a>
 				<a href="http://developers.kakao.com/logout"></a>
 				<script type='text/javascript'>
 				    Kakao.init('e3a32771d0c4bba4f7f84fcd7a531f9a');

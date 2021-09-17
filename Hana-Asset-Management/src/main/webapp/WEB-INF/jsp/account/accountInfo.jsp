@@ -100,12 +100,12 @@
    	#manageNav{
    		width: 10%;
    		position: relative;
-   		margin-left: 25%;
+   		margin-left: 17%;
    		float: left;
    	}
    	
    	#manageSec{
-   		width: 40%;
+   		width: 55%;
    		position: relative;
    		float: left;
    	}
@@ -143,6 +143,10 @@
     	width: 70px;
     	height: 30px;
     }
+    
+    input {
+		border: none;
+	}
     
 </style>
 
@@ -205,44 +209,44 @@
 				<input type="hidden" id="mgr" name="mgr" value="10108413">
 				<hr>
 				<table style="width: 100%; text-align: left;">
-					<tr style="height: 100px;">
-						<th style="width: 20%; font-size: 11pt; font-family: inherit;">고객아이디</th>
-						<td style="font-size: 11pt; font-family: inherit; background-color: white; padding-left: 20px;">
-							<input type="text" value="${ userVO.id }" readonly="readonly" style="width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC;">
+					<tr style="height: 100px; background-color: #F7F9FC;">
+						<th style="width: 20%; font-size: 12pt; font-family: inherit;">고객아이디</th>
+						<td style="font-size: 12pt; font-family: inherit; background-color: white; padding-left: 20px;">
+							<input type="text" value="${ userVO.id }" readonly="readonly" style="width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC; border: none;">
 						</td>
 					</tr>
-					<tr style="height: 100px;">
-						<th style="width: 20%; font-size: 11pt; font-family: inherit;">계좌 비밀번호</th>
-						<td style="font-size: 11pt; font-family: inherit; background-color: white; padding-left: 20px;">
-							<input type="password" id="password" name="password" placeholder="숫자 4자리 비밀번호" style="width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC;">
+					<tr style="height: 100px; background-color: #F7F9FC;">
+						<th style="width: 20%; font-size: 12pt; font-family: inherit;">계좌 비밀번호</th>
+						<td style="font-size: 12pt; font-family: inherit; background-color: white; padding-left: 20px;">
+							<input type="password" id="password" name="password" placeholder="숫자 4자리 비밀번호" style="width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC; outline: none; box-shadow: none;">
 						</td>
 					</tr>
-					<tr style="height: 100px;">
-						<th style="width: 20%; font-size: 11pt; font-family: inherit;">계좌 비밀번호</th>
-						<td style="font-size: 11pt; font-family: inherit; background-color: white; padding-left: 20px;">
+					<tr style="height: 100px; background-color: #F7F9FC;">
+						<th style="width: 20%; font-size: 12pt; font-family: inherit;">계좌 비밀번호</th>
+						<td style="font-size: 12pt; font-family: inherit; background-color: white; padding-left: 20px;">
 							<button type="button" id="changeBtn" value="1000000" onclick="calc(this)">+100만원</button>
 							<button type="button" id="changeBtn" value="500000" onclick="calc(this)">+50만원</button>
 							<button type="button" id="changeBtn" value="100000" onclick="calc(this)">+10만원</button>
 							<button type="button" id="changeBtn" value="10000" onclick="calc(this)">+1만원</button>
 							<button type="button" id="changeBtn" value="0" onclick="calc(this)">정정</button><br>
-							<input type="text" id="balance" name="balance" placeholder="최초 입금액" style="margin-top:20px; width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC;">
+							<input type="text" id="balance" name="balance" placeholder="최초 입금액" style="margin-top:20px; width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC; border: none;">
 						</td>
 					</tr>
-					<tr style="height: 100px;">
-						<th style="width: 20%; font-size: 11pt; font-family: inherit;">계좌유형</th>
-						<td style="font-size: 11pt; font-family: inherit; background-color: white; padding-left: 20px;">
-							<input type="text" id="accType" name="accType" value="입출금통장" readonly="readonly" style="width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC;">
+					<tr style="height: 100px; background-color: #F7F9FC;">
+						<th style="width: 20%; font-size: 12pt; font-family: inherit;">계좌유형</th>
+						<td style="font-size: 12pt; font-family: inherit; background-color: white; padding-left: 20px;">
+							<input type="text" id="accType" name="accType" value="입출금통장" readonly="readonly" style="width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC; border: none;">
 						</td>
 					</tr>
-					<tr style="height: 100px;">
-						<th style="width: 20%; font-size: 11pt; font-family: inherit;">상품이름</th>
-						<td style="font-size: 11pt; font-family: inherit; background-color: white; padding-left: 20px;">
-							<input type="text" id="accName" name="accName" value="영하나플러스" readonly="readonly" style="width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC;">
+					<tr style="height: 100px; background-color: #F7F9FC;">
+						<th style="width: 20%; font-size: 12pt; font-family: inherit;">상품이름</th>
+						<td style="font-size: 12pt; font-family: inherit; background-color: white; padding-left: 20px;">
+							<input type="text" id="accName" name="accName" value="영하나플러스" readonly="readonly" style="width: 200px; height: 40px; border-color: #DCDCDC; background-color: #F7F9FC; border: none;">
 						</td>
 					</tr>
 				</table>
-	        	<input type="submit" value="가입" style="font-size:10pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 40%;">
-				<button id="unagreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none;">취소</button> 
+	        	<input type="submit" value="가입" style="font-size:12pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 40%;">
+				<button id="unagreeBtn" style="font-size:12pt; width: 70px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none;">취소</button> 
 			</form>
 			<br><br>
 		</div>

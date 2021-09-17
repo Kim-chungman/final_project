@@ -69,15 +69,14 @@
 	   	}
 	   	
 	   	#manageNav{
-	   		width: 7%;
+	   		width: 10%;
 	   		position: relative;
-	   		margin-top: 20px;
-	   		margin-left: 25%;
+	   		margin-left: 17%;
 	   		float: left;
 	   	}
 	   	
 	   	#manageSec{
-	   		width: 40%;
+	   		width: 55%;
 	   		position: relative;
 	   		float: left;
 	   	}
@@ -136,7 +135,7 @@
     </div>
     <ol class="owm-fin-tab1 clearfix on over2" style="margin: auto; background-image: url('${ pageContext.request.contextPath }/resources/plan/assetplan.png');">
         <li style="list-style: none;">
-             <a href="#">
+             <a href="${ pageContext.request.contextPath }/design2030">
                 <strong class="tit" style="margin-top: 35px; margin-right: 5px;"><em>2030’s</em>사회초년기·자산형성기</strong>
                 <span class="txt">
                     <span>학자금마련</span>
@@ -148,7 +147,7 @@
             </a>
         </li>
         <li style="list-style: none;">
-            <a href="#">
+            <a href="${ pageContext.request.contextPath }/design3040">
                 <strong class="tit" style="margin-top: 35px; margin-right: 5px;"><em>3040’s</em>가족형성기·자산증식기</strong>
                 <span class="txt">
                     <span>재무설계관심</span>
@@ -160,7 +159,7 @@
             </a>
         </li>
         <li style="list-style: none;">
-            <a href="#">
+            <a href="${ pageContext.request.contextPath }/design4050">
                 <strong class="tit" style="margin-top: 35px; margin-right: 5px;"><em>4050’s</em>노후준비기·자산보존기</strong>
                 <span class="txt">
                     <span>자녀교육비급증</span>
@@ -172,7 +171,7 @@
             </a>
         </li>
         <li style="list-style: none;">
-            <a href="#">
+            <a href="${ pageContext.request.contextPath }/design5060">
                 <strong class="tit" style="margin-top: 35px; margin-right: 5px;"><em>5060’s</em>청춘100세·제2의 인생</strong>
                 <span class="txt">
                     <span>상속 및 증세</span>

@@ -20,13 +20,13 @@
 		position: absolute;
 		z-index: 99;
 		top: 26%;
-		left: 42%;
+		left: 40%;
 	}
 	#loginLogo2 {
 		position: absolute;
 		z-index: 99;
 		top: 24.5%;
-		left: 44%;
+		left: 42%;
 		font-size: 15pt;
 		font-family: 'inherit';
 	}
@@ -34,7 +34,7 @@
 		position: absolute;
 		z-index: 99;
 		top: 32%;
-		left: 47%;
+		left: 45%;
 		font-family: 'inherit';
 		color: #008B8B; 
 	}

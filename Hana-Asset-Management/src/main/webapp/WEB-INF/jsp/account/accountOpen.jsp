@@ -22,24 +22,17 @@
 		position: absolute;
 		z-index: 99;
 		top: 26%;
-		left: 42%;
+		left: 38%;
 	}
 	#loginLogo2 {
 		position: absolute;
 		z-index: 99;
 		top: 24.5%;
-		left: 44%;
+		left: 41%;
 		font-size: 15pt;
 		font-family: 'inherit';
 	}
-	#loginHr {
-		position: absolute;
-		z-index: 99;
-		top: 32%;
-		left: 47%;
-		font-family: 'inherit';
-		color: #008B8B; 
-	}
+
 	#form-div {
 		margin-right: 140px;
 	}
@@ -77,7 +70,6 @@
 		<div style="height: 100px;">
 			<img alt="logo" id="loginLogo" src="${ pageContext.request.contextPath }/resources/images/favicon.png">
 			<p id="loginLogo2">Hana Solution | 계좌개설성공</p>
-			<hr id="loginHr" style="width: 2%; color: #008B8B;">
 		</div>
 		
 		<div align="center">
@@ -108,6 +100,7 @@
 					<img alt="가입축하" src="${ pageContext.request.contextPath }/resources/images/celebration.png">
 				</div>
 			</div>
+			<%-- 
 			<div style="margin-top: 30px; width: 900px; margin-right: 100px; border: none;">
 				<h4 style="text-align: center; margin-top: 40px;"><strong>계좌개설내역</strong></h4>
 				<table style="width: 100%; text-align: left;">
@@ -143,6 +136,7 @@
 					</tr>
 				</table>
 			</div>
+			 --%>
 			<div style="margin-top: 30px;">
 				<button id="startBtn" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-right: 140px;">
 					시작하기

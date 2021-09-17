@@ -69,14 +69,14 @@
 	   	}
 	   	
 	   	#manageNav{
-	   		width: 7%;
+	   		width: 10%;
 	   		position: relative;
-	   		margin-left: 25%;
+	   		margin-left: 17%;
 	   		float: left;
 	   	}
 	   	
 	   	#manageSec{
-	   		width: 40%;
+	   		width: 55%;
 	   		position: relative;
 	   		float: left;
 	   	}

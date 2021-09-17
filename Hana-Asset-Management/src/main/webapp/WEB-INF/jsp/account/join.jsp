@@ -118,16 +118,16 @@
    	#manageNav{
    		width: 10%;
    		position: relative;
-   		margin-left: 25%;
+   		margin-left: 17%;
    		float: left;
    	}
    	
    	#manageSec{
-   		width: 40%;
+   		width: 55%;
    		position: relative;
    		float: left;
    	}
-   	
+  	
    	#tdNum {
 	text-align: center;
 	font-size: 12pt;
@@ -618,7 +618,7 @@
 		<div>
 			<h3 style="font-family: 'inherit';"><strong>불법 탈법 차명거래 금지 설명 확인서</strong></h3><br>
 			<table style="width: 100%; height: 150px;">
-				<tr>
+				<tr style="background-color: #F7F9FC;">
 					<th style="font-family: 'inherit'; font-size: 11pt; text-align: left;">[금융실명거래 및 비밀보장에 관한 법률] 제 3조 제 3항에 따라 불법 재산의 은닉, 자금세탁행위, 공중협박자금조달행위 및 강제 집행의 면탈, 그 밖의 탈법행위를 목적으로 타인의 실명으로 금융거래를 하여서는 아니 되며, 이를 위반시 5년 이하의 징역 또는 5천만원 이하의 벌금에 처할 수 있습니다.</th>
 				</tr>
 			</table>
@@ -626,14 +626,14 @@
 		</div>
 		<div>
 			<table>
-				<tr>
-					<td style="font-family: 'inherit'; font-size: 11pt;">
+				<tr style="background-color: #F7F9FC;">
+					<td style="font-family: 'inherit'; font-size: 11pt; padding: 5px;">
 						금융회사는「금융소비자보호에 관한 법률(시행일 2021.03.25)」 제19조(설명의무)에 따라 예금상품의 중요한 사항을 소비자가 이해할수 있도록 설명해야 하며, 동법 제23조(계약서류의 제공의무)에 따라 금융소비자에게 지체없이 제공해야 합니다.<br><br>
 					</td>
 				</tr>
-				<tr>
-					<td style="font-family: 'inherit'; font-size: 11pt;">
-						본인은 약관 및 상품설명서의 주요 내용에 대하여 충분히 이해하였습니다.
+				<tr style="background-color: #F7F9FC;">
+					<td style="font-family: 'inherit'; font-size: 11pt; padding: 5px;">
+						<strong>본인은 약관 및 상품설명서의 주요 내용에 대하여 충분히 이해하였습니다.</strong>
 					</td>
 				</tr>
 			</table>

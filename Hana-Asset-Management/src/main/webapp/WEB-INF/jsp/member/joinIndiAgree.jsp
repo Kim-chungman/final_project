@@ -17,13 +17,13 @@
 		position: absolute;
 		z-index: 99;
 		top: 26%;
-		left: 42%;
+		left: 40%;
 	}
 	#loginLogo2 {
 		position: absolute;
 		z-index: 99;
 		top: 24.5%;
-		left: 44%;
+		left: 42%;
 		font-size: 15pt;
 		font-family: 'inherit';
 	}
@@ -31,7 +31,7 @@
 		position: absolute;
 		z-index: 99;
 		top: 32%;
-		left: 47%;
+		left: 45%;
 		font-family: 'inherit';
 		color: #008B8B; 
 	}
@@ -99,7 +99,7 @@
 					<tr>
 						<td id="tdNo">
 							<p style="font-size: 15pt; font-family: inherit; text-align: left;"><strong>Hana Solution 서비스 이용약관</strong></p>
-							<textarea id="memberType" style="border-color: gray; background-color: white; font-size: 10pt;">
+							<textarea id="memberType" style="border-color: gray; background-color: white; font-size: 12pt;">
 Hana Solution 서비스 이용약관
 
 1. 목적
@@ -241,13 +241,13 @@ Hana Solution 서비스 이용약관
 15.2. 회사와 회원의 협의에도 불구하고 분쟁이 해결되지 않을 경우 양 당사자는 민사소송법에 따라 소를 제기할 수 있습니다.
 15.3. 이 약관에 따른 거래에 관하여 분쟁이 발생하는 경우에는 회원의 주소지 또는 영업소 소재지를 관할하는 법원을 제1심 관할법원으로 합니다.
 							</textarea>
-							<p style="text-align: right; color: red; font-size: 11pt;"><input type="checkbox" required="required">상기 이용안내에 동의합니다.(필수)</p>
+							<p style="text-align: right; color: red; font-size: 13pt;"><input type="checkbox" required="required">상기 이용안내에 동의합니다.(필수)</p>
 						</td>
 					</tr>
 					<tr>
 						<td id="tdNo">
 							<p style="font-size: 15pt; font-family: inherit; text-align: left;"><strong>Hana Solution 서비스 이용약관</strong></p>
-							<textarea id="memberType" style="border-color: gray; background-color: white;">
+							<textarea id="memberType" style="border-color: gray; background-color: white; font-size: 12pt;">
 Hana Solution(이하 ‘회사’라 합니다)는 정보통신망 이용촉진 및 정보보호 등에 관한 법률, 개인정보보호법 등 법령상의 개인정보보호 규정을 준수하며, 회원의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 회원의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.
 
 제1조 개인정보의 수집 및 이용 목적
@@ -353,13 +353,13 @@ Hana Solution(이하 ‘회사’라 합니다)는 정보통신망 이용촉진 
 • 경찰청 사이버안전국 (cyberbureau.police.go.kr / 02-3150-2659)
 
 							</textarea>
-							<p style="text-align: right; color: red; font-size: 11pt;"><input type="checkbox" required="required">상기 이용안내에 동의합니다.(필수)</p>
+							<p style="text-align: right; color: red; font-size: 13pt;"><input type="checkbox" required="required">상기 이용안내에 동의합니다.(필수)</p>
 						</td>
 					</tr>
 				</table>
 				<br>
 				<br>
-				<input type="submit" id="agree" value="다음" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-right: 140px;">
+				<input type="submit" id="agree" value="다음" style="font-size:15pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-right: 140px;">
 				</form>
 			</div>
 			

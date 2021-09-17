@@ -189,8 +189,8 @@
            </div>
            <!-- END SLIDER -->
            
-           <h2 style="width: 60%;  margin: auto; color: #008B8B; font-family: inherit;">상품 한눈에 보기</h2><br>
-               <div class="tabs-container" style="width:60%; margin: auto;">
+           <h2 style="width: 80%;  margin: auto; color: #008B8B; font-family: inherit;">상품 한눈에 보기</h2><br>
+               <div class="tabs-container" style="width:80%; margin: auto;">
                    <ul class="tabs">
                        <li>
                            <h4><a href="#tab1" title="예금" style="color: #008B8B; font-family: inherit; width: 13%;">정기예금</a></h4>
@@ -339,52 +339,51 @@
 		      <div class="modal-content" style="border-color: #008B8B; border-width: 3px; width: 700px;">
 	                <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 15pt; color: #008B8B;">상품상세설명</span></b></span></p>
 	                <hr style="border-color: #008B8B; border-width: 1px;">
-	                <p style="text-align: left; font-size: 20pt;">영하나플러스통장</p>
-	                <p style="text-align: left; font-size: 13pt;">젊은 그대, 당신을 위한 Must Have 통장</p>
+	                <p style="text-align: left; font-size: 23pt;">영하나플러스통장</p>
+	                <p style="text-align: left; font-size: 15pt;">젊은 그대, 당신을 위한 Must Have 통장</p>
 		            <br><br>
 		            <table style="width: 97%;">
 		            	<tr style="background-color: white; border: none;">
-		            		<th style="vertical-align: top;">상품특징</th>
-		            		<td>다양한 수수료 우대서비스를 제공하는 YOUTH고객 전용통장</td>
+		            		<th style="vertical-align: top; font-size: 11pt;">상품특징</th>
+		            		<td style="font-size: 11pt;">다양한 수수료 우대서비스를 제공하는 YOUTH고객 전용통장</td>
 		            	</tr>
 		            	<tr style="background-color: white; border: none;">
-		            		<th style="vertical-align: top;">가입대상</th>
-		            		<td>만 30세 이하 실명의 개인 및 개인사업자 (1인 1계좌)</td>
+		            		<th style="vertical-align: top; font-size: 11pt;">가입대상</th>
+		            		<td style="font-size: 11pt;">만 30세 이하 실명의 개인 및 개인사업자 (1인 1계좌)</td>
 		            	</tr>
 		            	<tr style="background-color: white; border: none;">
-		            		<th style="vertical-align: top;">예금종류</th>
-		            		<td>저축예금</td>
+		            		<th style="vertical-align: top; font-size: 11pt;">예금종류</th>
+		            		<td style="font-size: 11pt;">저축예금</td>
 		            	</tr>
 		            	<tr style="background-color: white; border: none;">
-		            		<th style="vertical-align: top;">전환여부</th>
-		            		<td>
+		            		<th style="vertical-align: top; font-size: 11pt;">전환여부</th>
+		            		<td style="font-size: 11pt;">
 		            			① 저축예금에 한하여 동 상품으로 전환가능<br>
-		            			(단, 기존 수수료면제통장에서 전환 시 수수료면제횟수는 해당월은 기존 상품의 잔여횟수를 적용하고,<br>
-		            			다음달부터는 동 상품의 실적에 따라 수수료면제혜택 제공)<br>
+		            			(단, 기존 수수료면제통장에서 전환 시 수수료면제횟수는 해당월은 기존 상품의 잔여횟수를 적용하고, 다음달부터는 동 상품의 실적에 따라 수수료면제혜택 제공)<br>
 		            			② 상품가입(전환) 후, 만 35세가 되는 시점의 익월 첫 영업일에 [주거래하나통장]으로 자동 전환됨.<br>
-		            			(단, [주거래하나통장]을 보유하고 있는 경우에는 [저축예금]으로 자동전환 됨. 전환이후에는 전환된 상품의<br>
+		            			(단, [주거래하나통장]을 보유하고 있는 경우에는 [저축예금]으로 자동전환 됨. 전환이후에는 전환된 상품의
 		            			우대서비스 및 혜택만 제공)
 		            		</td>
 		            	</tr>
 		            	<tr style="background-color: white; border: none;">
-		            		<th style="vertical-align: top;">금리</th>
-		            		<td>
-		            			<strong>영하나플러스 통장</strong><strong style="padding-left: 350px;">기준일자: 2021-09-08</strong><br>
+		            		<th style="vertical-align: top; font-size: 11pt;">금리</th>
+		            		<td style="font-size: 11pt;">
+		            			<strong>영하나플러스 통장</strong><strong style="padding-left: 300px;">기준일자: 2021-09-08</strong><br>
 		            			<table style="border-left: none; border-right: none; width: 95%;">
 		            				<tr>
-		            					<th><strong>분류</strong></th>
-		            					<th><strong>금리(연율,세전)</strong></th>
+		            					<th style="font-size: 11pt;"><strong>분류</strong></th>
+		            					<th style="font-size: 11pt;"><strong>금리(연율,세전)</strong></th>
 		            				</tr>
 		            				<tr style="background-color: white;">
-		            					<td style="text-align: center; font-size: 10pt;">-</td>
-		            					<td style="text-align: center; font-size: 10pt;">0.1%</td>
+		            					<td style="text-align: center; font-size: 11pt;">-</td>
+		            					<td style="text-align: center; font-size: 11pt;">0.1%</td>
 		            				</tr>
 		            			</table>
 		            		</td>
 		            	</tr>
 		            	<tr style="background-color: white; border: none;">
-		            		<th style="vertical-align: top;">수수료 우대</th>
-		            		<td>
+		            		<th style="vertical-align: top; font-size: 11pt;">수수료 우대</th>
+		            		<td style="font-size: 11pt;">
 		            			아래의 서비스 제공 조건 중 1가지 이상을 해당월에 충족한 경우, 충족월 다음달(익월 1일부터 말일까지)에 수수료<br>
 		            			우대서비스를 제공<br><br>
 		            			<strong>서비스 제공 조건</strong><br>
@@ -401,23 +400,23 @@
 		            		</td>
 		            	</tr>
 		            	<tr style="background-color: white; border: none;">
-		            		<th style="vertical-align: top;">세제혜택</th>
-		            		<td>비과세종합저축 가능 (전 금융기관 통합한도 범위 내)</td>
+		            		<th style="vertical-align: top; font-size: 11pt;">세제혜택</th>
+		            		<td style="font-size: 11pt;">비과세종합저축 가능 (전 금융기관 통합한도 범위 내)</td>
 		            	</tr>
 		            	<tr style="background-color: white; border: none;">
-		            		<th style="vertical-align: top;">유의사항</th>
-		            		<td>
-		            			· 수수료 우대서비스는 이 통장에 의한 거래에만 적용되며, 매월 요건 충족여부를 확인하여 다음월에 수수료<br>
+		            		<th style="vertical-align: top; font-size: 11pt;">유의사항</th>
+		            		<td style="font-size: 11pt;">
+		            			· 수수료 우대서비스는 이 통장에 의한 거래에만 적용되며, 매월 요건 충족여부를 확인하여 다음월에 수수료
 		            			　우대서비스를 제공합니다.<br>
-		            			· 우대서비스 내용은 은행의 사정에 의해 변경될 수 있습니다. 동 내용 변경 시 변경사유, 변경내용 등 내용을<br>
+		            			· 우대서비스 내용은 은행의 사정에 의해 변경될 수 있습니다. 동 내용 변경 시 변경사유, 변경내용 등 내용을
 		            			　영업점 및 당행 인터넷 홈페이지에 1개월간 게시합니다.<br><br>
 		            		</td>
 		            	</tr>
 		            	<tr style="background-color: white; border: none;">
-		            		<th style="vertical-align: top; width: 15%;">예금자 보호</th>
+		            		<th style="vertical-align: top; width: 15%; font-size: 11pt;">예금자 보호</th>
 		            		<td>
 		            			<img style="position:relative; float: left;" alt="보호인증마크" src="${ pageContext.request.contextPath }/resources/images/account/productMark.png">
-		            			<span style="position:relative; float: left; width: 80%;">이 예금은 예금자보호법에 따라 예금보험공사가 보호하되, 보호한도는 본 은행에 있는 귀하의 모든 예금보호대상 금융상품의 원금과 소정의 이자를 합하여 1인당 “최고 5천만원”이며, 5천만원을 초과하는 나머지 금액은 보호하지 않습니다.</span>
+		            			<span style="position:relative; float: left; width: 80%; font-size: 11pt;">이 예금은 예금자보호법에 따라 예금보험공사가 보호하되, 보호한도는 본 은행에 있는 귀하의 모든 예금보호대상 금융상품의 원금과 소정의 이자를 합하여 1인당 “최고 5천만원”이며, 5천만원을 초과하는 나머지 금액은 보호하지 않습니다.</span>
 		            		</td>
 		            	</tr>
 		            </table>
