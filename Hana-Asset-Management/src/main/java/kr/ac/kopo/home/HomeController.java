@@ -33,4 +33,18 @@ public class HomeController {
 		return "plan/plan2030";
 	}
 	
+	@GetMapping("/design3040")
+	public String design3040() {
+		return "plan/plan3040";
+	}
+	
+	@GetMapping("/design4050")
+	public String design4050() {
+		return "plan/plan4050";
+	}
+	
+	@GetMapping("/design5060")
+	public String design5060() {
+		return "plan/plan5060";
+	}
 }

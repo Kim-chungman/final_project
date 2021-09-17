@@ -125,17 +125,15 @@
     <h2 style="margin: 0px; padding-left: 50px;">연령별재무설계</h2>
     <hr style="border-color: #008B8B; border-width: 1px; width: 20%; text-align: center;">
 </div>
-<ol class="owm-fin-tab2 clearfix" style="margin-top: 17px; background-color: #F7F9FC; vertical-align: middle; padding-top: 50px;">
+<ol class="owm-fin-tab2 clearfix" style="margin-top: 15px; background-color: #F7F9FC; vertical-align: middle; padding-top: 50px;">
     <li style="list-style: none; margin-left: 100px;">
-        <a href="${ pageContext.request.contextPath }/design2030" style="color: #008B8B; font-size: 14pt;">
-            <strong style="color: #008B8B; font-size: 35pt;">2030’s</strong>
-            <br>
-            <span style="font-size: 12pt;">사회초년기·자산형성기</span>
+        <a href="${ pageContext.request.contextPath }/design2030" style="font-size: 14pt;">
+            <strong>2030’s</strong><br><span style="font-size: 12pt;">사회초년기·자산형성기</span>
         </a>
     </li>
     <li style="list-style: none; margin-left: 20px;">
-        <a href="${ pageContext.request.contextPath }/design3040" style="font-size: 14pt;">
-            <strong>3040’s</strong><br><span style="font-size: 12pt;">가족형성기·자산증식기</span>
+        <a href="${ pageContext.request.contextPath }/design3040" style="color: #008B8B; font-size: 14pt;">
+            <strong style="color: #008B8B; font-size: 35pt;">3040’s</strong><br><span style="font-size: 12pt;">가족형성기·자산증식기</span>
         </a>
     </li>
     <li style="list-style: none; margin-left: 20px;">
@@ -151,10 +149,10 @@
 </ol>
 
     <div class="owm-fin-con">
-        <h3 class="hidden" style="padding-top: 5px;">2030's 사회초년기 : 자산형성기</h3>
+        <h3 class="hidden" style="padding-top: 5px;">3040's 가족형성기 · 자산증식기</h3>
         <dl class="f-con1">
-            <dt>재테크의 기본은 지출관리!</dt>
-            <dd style="font-size: 11pt;">용돈통장, 급여통장, 생활비통장 등 통장을 분리하여 <br>목적별로 관리하고 주거래은행을 만들자!</dd>
+            <dt>목적자금마련을 위해<br> 가장 중요한 것은 굳은 의지!</dt>
+            <dd style="font-size: 11pt;">지출이 많아지는 시기로 급여통장, 생활비통장, 비상금통장 등<br> 통장을 분리하여 관리하고, 체크카드를 이용하여 규모 있는 지출을 생활화 하자.</dd>
             <dd class="btn_fin1">
                 <a href="#"><img alt="은퇴설계" src="${ pageContext.request.contextPath }/resources/plan/btn1.png"></a>
                 <a href="#"><img alt="결혼자금 설계" src="${ pageContext.request.contextPath }/resources/plan/btn2.png"></a>
@@ -164,25 +162,25 @@
         </dl>
         <div class="f-con2 clearfix">
             <div class="fleft" style="position: relative; float: left; width: 33%;">
-                <h4>2030's 재무목표</h4>
-                <div class="img"><img src="${ pageContext.request.contextPath }/resources/plan/img_f2030_1.gif" alt="학자금 마련, 재테크 관심, 자동차 구입, 결혼비용 마련, 전세자금 마련"></div>
+                <h4>3040's 재무목표</h4>
+                <div class="img"><img src="${ pageContext.request.contextPath }/resources/plan/img_f3040_1.gif" alt="학자금 마련, 재테크 관심, 자동차 구입, 결혼비용 마련, 전세자금 마련"></div>
             </div>
             <div class="fleft fin_txt" style="position: relative; float: left; width: 30%;">
                 <div>
-                    <strong class="tit_copy">더 넓은 세상을 향한 준비, <br>적정한 목표를 세워 실천하자!</strong>
-                    <span style="font-size: 10pt;">대학에 입학하고 어학연수를 떠나고, <br>더 넓은 세상을 준비하는 20대, <br>사회생활을 시작하는 사회초년생!<br>첫 월급을 받기 시작하는 순간부터 재테크 습관을<br>
-                    생활화 해 보세요.<br>전세자금, 결혼자금 등 구체적인 금액과 기간을<br>목표로 정한 후 절약과 저축을 생활화하면<br>올바른 소비습관이 형성됩니다.</span>
+                    <strong class="tit_copy">규모 있는 지출관리로 목돈을 모아 내 집 마련의 꿈을 이루자!</strong>
+                    <span style="font-size: 10pt;">결혼과 함께 가정을 형성하고, <br>지출이 많아지게 되는 시기로 통장을 목적 별로<br>분리하여 관리하고,<br>
+                    체크카드와 신용카드의 규모 있는 사용으로<br>합리적인 지출습관을 길러 저축금액을 늘리세요.<br>가장 기본적인 재테크는 절약과 저축입니다.<br>주기적인 자산현황의 점검과<br>저축은 내 집 마련의 시작입니다.</span>
                 </div>
             </div>
             <div class="fleft" style="position: relative; float: left; width: 33%; margin-bottom: 20px;">
                 <h4>자산배분비율</h4>
-                <div class="graph"><img src="${ pageContext.request.contextPath }/resources/plan/graph_f2030.gif" alt="비상금 10%, 노후자금 10% , 주택자금 30%, 결혼자금 50%"></div>
+                <div class="graph"><img src="${ pageContext.request.contextPath }/resources/plan/graph_f3040.gif" alt="비상금 10%, 노후자금 10% , 주택자금 30%, 결혼자금 50%"></div>
             </div>
         </div>
         <div class="owm-infobox mt40" style="clear: both; text-align: left; margin-bottom: 20px;">
             <dl>
                 <dt class="hidden" style="font-size: 12pt;">안내</dt>
-                <dd style="font-size: 12pt;">우선순위가 높은 단기목표에 집중하여 적금을 기본으로 저축하고 적립식 펀드는 중장기적인 목적자금 마련을 목표로 활용하세요. <br>내집마련 준비를 위한 청약통장, 위험대비를 위한 보장성보험, 소득공제 상품으로 절세와 균형을 맞춰보세요.</dd>
+                <dd style="font-size: 12pt;">내집마련, 자녀교육 등 분명한 목적을 정하고 목적과 기간에 따라 나에게 맞는 금융상품을 선택한 후 <br>계획적인 소비생활로 저축금액을 늘리고 꾸준히 저축하세요.</dd>
             </dl>
         </div>
         <div class="owm-table2 mt50 pb80">
@@ -193,14 +191,14 @@
                     <tr>
                         <th class="txt-c" scope="row" style="text-align: center;">
                             <div class="img"><img src="${ pageContext.request.contextPath }/resources/plan/ico_f2030_1.gif" alt=""></div>
-                            용돈, 급여, 모임
+                            급여, 생활비
                         </th>
                         <td>
                             <ul class="product_list">
                                 <li style="margin-left: 10px;">
                                     <dl>
-                                        <dt>영하나플러스 통장</dt>
-                                        <dd>젊은 그대, 당신을 위한 Must Have 통장 <br>다양한 수수료 우대서비스를 제공하는 YOUTH고객 전용통장!!</dd>
+                                        <dt>급여하나 통장</dt>
+                                        <dd>급여 하나면 된다!  <br>급여실적 하나로 수수료우대 혜택과 만35세이하 청년직장인을 위한 우대금리가 제공되는 월급통장!</dd>
                                         <dd class="btn"><a href="#" class="owm-btn-s bl" style="background-color: #008B8B; border: none;">가입하기</a></dd>
                                     </dl>
                                 </li>
@@ -213,8 +211,8 @@
                                 </li>
                                 <li style="margin-left: 10px;">
                                     <dl>
-                                        <dt>모임통장</dt>
-                                        <dd>더 이상 손으로 회비를 관리하지 마세요. <br>인터넷 뱅킹을 통한 회비관리, 회원관리, 일정관리, 알림서비스등의 간편한 모임관리 서비스!</dd>
+                                        <dt>주거래 정기예금</dt>
+                                        <dd>입출금 거래가 늘어날수록 정기예금 금리도 쑥~쑥! <br>KEB하나은행 주거래 고객을 위한 주거래 정기예금</dd>
                                         <dd class="btn"><a href="#" class="owm-btn-s bl" style="background-color: #008B8B; border: none;">가입하기</a></dd>
                                     </dl>
                                 </li>

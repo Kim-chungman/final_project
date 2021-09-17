@@ -125,12 +125,10 @@
     <h2 style="margin: 0px; padding-left: 50px;">연령별재무설계</h2>
     <hr style="border-color: #008B8B; border-width: 1px; width: 20%; text-align: center;">
 </div>
-<ol class="owm-fin-tab2 clearfix" style="margin-top: 17px; background-color: #F7F9FC; vertical-align: middle; padding-top: 50px;">
+<ol class="owm-fin-tab2 clearfix" style="margin-top: 15px; background-color: #F7F9FC; vertical-align: middle; padding-top: 50px;">
     <li style="list-style: none; margin-left: 100px;">
-        <a href="${ pageContext.request.contextPath }/design2030" style="color: #008B8B; font-size: 14pt;">
-            <strong style="color: #008B8B; font-size: 35pt;">2030’s</strong>
-            <br>
-            <span style="font-size: 12pt;">사회초년기·자산형성기</span>
+        <a href="${ pageContext.request.contextPath }/design2030" style="font-size: 14pt;">
+            <strong>2030’s</strong><br><span style="font-size: 12pt;">사회초년기·자산형성기</span>
         </a>
     </li>
     <li style="list-style: none; margin-left: 20px;">
@@ -139,8 +137,8 @@
         </a>
     </li>
     <li style="list-style: none; margin-left: 20px;">
-        <a href="${ pageContext.request.contextPath }/design4050" style="font-size: 14pt;">
-            <strong>4050’s</strong><br><span style="font-size: 12pt;">노후준비기·자산보존기</span>
+        <a href="${ pageContext.request.contextPath }/design4050" style="color: #008B8B; font-size: 14pt;">
+            <strong style="color: #008B8B; font-size: 35pt;">4050’s</strong><br><span style="font-size: 12pt;">노후준비기·자산보존기</span>
         </a>
     </li>
     <li style="list-style: none; margin-left: 20px;">
@@ -151,10 +149,10 @@
 </ol>
 
     <div class="owm-fin-con">
-        <h3 class="hidden" style="padding-top: 5px;">2030's 사회초년기 : 자산형성기</h3>
+        <h3 class="hidden" style="padding-top: 5px;">4050's 노후준비기 : 자산보존기</h3>
         <dl class="f-con1">
-            <dt>재테크의 기본은 지출관리!</dt>
-            <dd style="font-size: 11pt;">용돈통장, 급여통장, 생활비통장 등 통장을 분리하여 <br>목적별로 관리하고 주거래은행을 만들자!</dd>
+            <dt>행복한 100세 시대의<br>미래를 준비하자!</dt>
+            <dd style="font-size: 11pt;">은퇴준비를 위해 가장 중요한 투자는 자신에 대한 투자! <br>자기계발을 게을리 하지 말자!</dd>
             <dd class="btn_fin1">
                 <a href="#"><img alt="은퇴설계" src="${ pageContext.request.contextPath }/resources/plan/btn1.png"></a>
                 <a href="#"><img alt="결혼자금 설계" src="${ pageContext.request.contextPath }/resources/plan/btn2.png"></a>
@@ -164,25 +162,25 @@
         </dl>
         <div class="f-con2 clearfix">
             <div class="fleft" style="position: relative; float: left; width: 33%;">
-                <h4>2030's 재무목표</h4>
-                <div class="img"><img src="${ pageContext.request.contextPath }/resources/plan/img_f2030_1.gif" alt="학자금 마련, 재테크 관심, 자동차 구입, 결혼비용 마련, 전세자금 마련"></div>
+                <h4>4050's 재무목표</h4>
+                <div class="img"><img src="${ pageContext.request.contextPath }/resources/plan/img_f4050_1.gif" alt="학자금 마련, 재테크 관심, 자동차 구입, 결혼비용 마련, 전세자금 마련"></div>
             </div>
             <div class="fleft fin_txt" style="position: relative; float: left; width: 30%;">
                 <div>
-                    <strong class="tit_copy">더 넓은 세상을 향한 준비, <br>적정한 목표를 세워 실천하자!</strong>
-                    <span style="font-size: 10pt;">대학에 입학하고 어학연수를 떠나고, <br>더 넓은 세상을 준비하는 20대, <br>사회생활을 시작하는 사회초년생!<br>첫 월급을 받기 시작하는 순간부터 재테크 습관을<br>
-                    생활화 해 보세요.<br>전세자금, 결혼자금 등 구체적인 금액과 기간을<br>목표로 정한 후 절약과 저축을 생활화하면<br>올바른 소비습관이 형성됩니다.</span>
+                    <strong class="tit_copy">안정성 위주로 자산을 운용하고 <br>본격적으로 은퇴준비를 하자!</strong>
+                    <span style="font-size: 10pt;">자녀가 성장하여 결혼과 취업으로 <br>목돈이 많이 소요되는 시기입니다. <br>안정성 중심으로 금융상품과 노후준비를 위한<br>은퇴자금을 반드시 준비하세요.<br>
+                    미래의 자신을 위해 꾸준히 투자하세요.</span>
                 </div>
             </div>
             <div class="fleft" style="position: relative; float: left; width: 33%; margin-bottom: 20px;">
                 <h4>자산배분비율</h4>
-                <div class="graph"><img src="${ pageContext.request.contextPath }/resources/plan/graph_f2030.gif" alt="비상금 10%, 노후자금 10% , 주택자금 30%, 결혼자금 50%"></div>
+                <div class="graph"><img src="${ pageContext.request.contextPath }/resources/plan/graph_f4050.gif" alt="비상금 10%, 노후자금 10% , 주택자금 30%, 결혼자금 50%"></div>
             </div>
         </div>
         <div class="owm-infobox mt40" style="clear: both; text-align: left; margin-bottom: 20px;">
             <dl>
                 <dt class="hidden" style="font-size: 12pt;">안내</dt>
-                <dd style="font-size: 12pt;">우선순위가 높은 단기목표에 집중하여 적금을 기본으로 저축하고 적립식 펀드는 중장기적인 목적자금 마련을 목표로 활용하세요. <br>내집마련 준비를 위한 청약통장, 위험대비를 위한 보장성보험, 소득공제 상품으로 절세와 균형을 맞춰보세요.</dd>
+                <dd style="font-size: 12pt;">자녀교육비, 자녀결혼자금은 예금, 적금 등으로 준비자금을 마련하시고 <br>노후생활 대비를 위하여 절세 효과와 안정성을 갖춘 상품을 중심으로 포트폴리오를 구성하세요.</dd>
             </dl>
         </div>
         <div class="owm-table2 mt50 pb80">
@@ -193,7 +191,7 @@
                     <tr>
                         <th class="txt-c" scope="row" style="text-align: center;">
                             <div class="img"><img src="${ pageContext.request.contextPath }/resources/plan/ico_f2030_1.gif" alt=""></div>
-                            용돈, 급여, 모임
+                            급여, 생활비
                         </th>
                         <td>
                             <ul class="product_list">
