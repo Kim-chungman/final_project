@@ -177,6 +177,7 @@
         	<form action="${ pageContext.request.contextPath }/testing" method="post">
         	<input type="hidden" id="investmentType" name="investmentType" value="${ investType }">
         	<input type="hidden" id="rrn" name="rrn" value="${ userVO.rrn }">
+        	<input type="hidden" id="member_id" name="member_id" value="${ userVO.id }">
         	<div class="container" style="text-align: center;">
         		<strong><span style="font-size: 14pt;"><분석지표 설정></span></strong>
         		<div class="row d-flex justify-content-center mt-100" style="border: none; margin-left: 110px; width: 500px; margin-bottom: 20px; margin-top: 20px;">

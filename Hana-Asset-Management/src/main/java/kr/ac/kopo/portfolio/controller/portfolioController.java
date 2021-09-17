@@ -14,6 +14,7 @@ public class portfolioController {
 		
 		request.setCharacterEncoding("utf-8");
 		
+		String member_id = request.getParameter("member_id");
 		String investmentPeriod = request.getParameter("slider");
 		int investmentMoney = Integer.parseInt(request.getParameter("slider2"))*10000;
 		String investmentRate = request.getParameter("slider3");
@@ -185,6 +186,7 @@ public class portfolioController {
 		deposit = Math.round(deposit*Math.pow(10, 2));
 		pension = Math.round(pension*Math.pow(10, 2));
 		
+		System.out.println(member_id);
 		System.out.println(investmentPeriod);
 		System.out.println(investmentMoney);
 		System.out.println(maxPer);
