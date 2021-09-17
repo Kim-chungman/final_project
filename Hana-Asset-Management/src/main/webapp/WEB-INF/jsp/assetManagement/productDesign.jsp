@@ -194,7 +194,7 @@
 		        <div class="slider-container" style="text-align: center;">
 		        	<strong><span style="font-size: 14pt;"><투자기간 설정></span></strong>
 		        	<p style="font-size: 11pt; margin-left: 440px; margin-bottom: 35px;"><strong>투자기간</strong></p>
-		            <input type="text" id="slider" name="slider" class="slider" />
+		            <input type="text" id="slider" name="slider" style="text-align: left;" class="slider" />
 		        </div>
 		        <div class="slider-container" style="text-align: center;">
 		        	<strong><span style="font-size: 14pt;"><투자금액 설정></span></strong>
@@ -249,7 +249,7 @@
 
                 var slider = new rSlider({
                 	target: '#slider',
-                    values: ['1개월', '3개월', '6개월', '1년', '2년', '3년', '5년'],
+                    values: ['1개월', '3개월', '6개월', '1년', '2년', '3년'],
                     range: false,
                     set: ['1년'],
                     tooltip: true,
