@@ -23,4 +23,14 @@ public class HomeController {
 		return "assetManagement/productDesign";
 	}
 	
+	@GetMapping("/goalDesign")
+	public String goalDesign() {
+		return "plan/goalDesign";
+	}
+	
+	@GetMapping("/design2030")
+	public String design2030() {
+		return "plan/plan2030";
+	}
+	
 }

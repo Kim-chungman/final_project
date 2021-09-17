@@ -183,8 +183,8 @@
                                     <a href="${ pageContext.request.contextPath }/transfer" style="color: #008B8B;">이체</a>
                                     <ul class="sub-menu">
                                         <li><a href="${ pageContext.request.contextPath }/assetManagement/fundPortfolio" style="color: #008B8B;">계좌이체</a></li>
-                                        <li><a href="slider-flexslider.jsp" style="color: #008B8B;">다른은행계좌 이체(오픈뱅킹)</a></li>
-                                        <li><a href="slider-elastic-slider.jsp" style="color: #008B8B;">예약이체</a></li>
+                                        <li><a href="${ pageContext.request.contextPath }/goalDesign" style="color: #008B8B;">다른은행계좌 이체(오픈뱅킹)</a></li>
+                                        <li><a href="${ pageContext.request.contextPath }/design2030" style="color: #008B8B;">예약이체</a></li>
                                         <li><a href="slider-thumbnails.jsp" style="color: #008B8B;">자동이체</a></li>
                                         <li><a href="slider-cycle.jsp" style="color: #008B8B;">계좌통합관리</a></li>
                                     </ul>

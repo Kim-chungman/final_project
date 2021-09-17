@@ -1,0 +1,37 @@
+﻿@charset "utf-8";
+
+
+#wrap {background:#fff;}
+.btn-pack {display:none;background:none;}
+.title-step-1, .title-step-1 * {display:none;background:none;}
+.ly-lnb, .ly-lnb * {display:none;background:none;}
+
+.print-out-area {display:none;}
+	
+.webkit .btn-pack, .webkit .btn-pack *, .webkit .btn-pack .add, .webkit .btn-pack .plus, .webkit .btn-pack .favor,
+.firefox .btn-pack, .firefox .btn-pack *, .firefox .btn-pack .add, .firefox .btn-pack .plus, .firefox .btn-pack .favor,
+.opera .btn-pack, .opera .btn-pack *, .opera .btn-pack .add, .opera .btn-pack .plus, .opera .btn-pack .favor {background:none !important;}
+	
+.webkit .tab1 ul li {background:none;}
+.webkit .tab1 ul li a {font-weight:normal;background:none;}
+.webkit .tab1 ul li.on a {font-weight:bold;color:black;}
+.webkit .tab3 ul li {background:none;}
+.webkit .tab3 ul li.on, .webkit .tab3 ul li.on a {background:none !important;}
+
+.webkit .title-step-1 ul li {background:none;}
+.webkit .title-step-1 ul li a {font-weight:normal;background:none;}
+.webkit .title-step-1 ul li.on a {font-weight:bold;color:black;}
+.webkit .title-step-1 ul li.on, .webkit .title-step-1 ul li.on a {background:none !important;}
+	
+.webkit table th
+, .webkit .seal-area
+, .webkit .pop-inner.summaryreport
+, .webkit .pop-inner h1.ly-header
+, .webkit .pop-inner .pop-woori
+, .webkit .pop-inner .close-layer {-webkit-print-color-adjust:exact;}
+
+.print .pop-inner .print-layer {display:none;}
+.print .no-bg-on-print h1.ly-header {background:none !important;margin:12px 20px 25px 20px !important;padding:0 0 13px !important;border-bottom:2px solid #636363;color:#333 !important}
+.print .pop-inner .close-layer {position:absolute;width:119px;height:29px;top:15px;right:26px;background:url(/img/common/etc/btn_close_pop_wrap1_woori.png) no-repeat 0 0;_background:url(/img/common/etc/btn_close_pop_wrap1_woori.gif) no-repeat 0 0;font-size:0;line-height:0;text-indent:-4000px}
+.print .no-bg-on-print .pop-woori {background:url(/img/common/etc/btn_close_pop_wrap1_woori_print.jpg) no-repeat 0 0 !important}
+.print .no-bg-on-print .close-layer {background-image:url(/img/common/etc/btn_close_pop_wrap1_woori_print.jpg) !important;_background-image:url(/img/common/etc/btn_close_pop_wrap1_woori_print.jpg) !important;}

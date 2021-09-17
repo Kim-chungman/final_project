@@ -1,0 +1,143 @@
+﻿@charset "utf-8";
+ 
+.list-common-footer{width:950px;margin:0 auto}
+.list-common-footer p,.list-common-footer li,.list-common-footer a{font-size:14px;color:#333 !important;}
+.list-common-footer .btn-pack.btn-type-1 *{padding:0 11px 0 6px;font-family:dotum;}
+.list-common-footer .btn-pack a{color:#333 !important;}
+.list-common-footer .btn-pack.btn-type-1, .btn-pack.btn-type-1 *{font-size:12px;}
+.list-common-footer h4{font-size:16px;color:#000;top:0;height:auto;margin:0 0 0 -2px;}
+.list-common-footer .first{float:left;width:316px;padding:15px 0 0 0;border-right:1px solid #e0e0e0;height:163px;}
+.list-common-footer .second{float:left;width:300px;padding:15px 0 0 16px;border-right:1px solid #e0e0e0;height:163px;}
+.list-common-footer .third{float:left;_float:right;width:296px;padding:15px 0 0 20px;_padding:15px 0 0 0;height:163px;}
+.list-cb-pm .first,.list-cb-pm .second,.list-cb-pm .third{height:120px;}
+/*.list-hb-pm .first{background:url(/img/section/hb/promotion04-bg.gif) 184px 52px no-repeat;}*/
+.list-hb-pm .first,.list-hb-pm .second,.list-hb-pm .third{height:160px;}
+/*.list-hb-pm .second .promotion03-txt{margin:18px 0 21px 0;}
+.list-hb-pm .third .promotion-btn-go{display:block;margin:2px 0 0 1px;}*/
+.list-cd-pm .first,.list-cd-pm .second,.list-cd-pm .third,.list-fn-pm .first,.list-fn-pm .second,.list-fn-pm .third{height:145px;}
+.list-tc-pm .first,.list-tc-pm .second,.list-tc-pm .third{height:150px;background:#ffffff;}
+.ib-use-guide{width:316px;overflow:hidden;}
+.ib-use-guide ul{width:330px;margin:11px 0 0;}
+.ib-use-guide li{float:left;width:157px;margin:0 0 3px;padding:0 0 0 8px;line-height:20px;letter-spacing:-1px;background:url(/img/common/etc/bu_notice2.gif) 0 8px no-repeat;}
+/*.ib-use-guide2 li{width:157px;margin:0 0 3px;padding:0 0 0 8px;line-height:20px;letter-spacing:-1px;background:url(/img/common/etc/bu_notice2.gif) 0 8px no-repeat;}*/
+/*.ib-use-guide2 li a:hover{text-decoration:underline !important;color:#0078d4 !important;}*/
+.list-cust-center ul{margin:11px 0 0;}
+.list-cust-center li{margin:0 0 3px;padding:0 0 0 8px;line-height:20px;letter-spacing:-1px;background:url(/img/common/etc/bu_notice2.gif) 0 8px no-repeat;}
+.list-cust-center .link{margin:0 0 0 -6px}
+.list-cust-center .link li{float:left;margin:0;padding:0 6px;line-height:23px;background:url(/img/common/etc/bg_link.gif) 0 6px no-repeat;}
+.list-cust-center .link li.in-first{background:none;}
+.list-cust-center li span{color:#666;}
+.list-cb-pm p,.list-cd-pm p,.list-rp-pm p{margin:12px 0 0;letter-spacing:-1px;}
+.list-ac-pm .third a{margin:12px 0 0;}
+.list-fn-pm .third a,.list-fx-pm .third a{vertical-align:top;}
+.list-mf-pm .second .list-cust-center li{background:none;padding-left:0;}
+.list-tc-pm p{margin:12px 0 0;height:70px;letter-spacing:-1px;}
+.list-wl-pm .second{position:relative;}
+.list-wl-pm .second .list-cust-center .wl-btn-more{position:absolute;top:20px;right:15px;font-size:12px;color:#8a8a8a}
+.list-cb-pm .third{background:url(/img/section/cd/img_card_biz.jpg) no-repeat 232px 49px}
+.list-cd-pm .third{background:url(/img/section/cd/bg_pro.gif) no-repeat 230px 36px}
+.list-es-pm .first{background:url(/img/section/es/promotion-bg.gif) no-repeat 205px 45px}
+.list-fn-pm .first{background:url(/img/section/fn/promotion-bg01.gif) no-repeat 211px 39px}
+.list-fx-pm .second{background:url(/img/section/fx/promotion-bg.gif) no-repeat 211px 72px}
+.list-ln-pm .second{background:url(/img/section/ln/promotion-bg02.gif) no-repeat 205px 50px}
+.list-mf-pm .second{background:url(/img/section/mf/promotion-02.gif) no-repeat 220px 50px}
+.list-ml .second{background:url(/img/section/po/bg_main.jpg) 220px 42px no-repeat}
+/****** 퇴직연금 재구축 수정및추가 css 2016-02-22 김형수 ******/
+
+/*.list-rp-pm .second{background:url(/img/section/rp/bg_end_2.gif) no-repeat 88% 50px}
+.list-rp-pm .third{background:url(/img/section/rp/bg_end_3.gif) no-repeat 231px 37px}*/
+
+.list-rp-pm .first{background:url(/img/section/rp//promotion-bg01.png) no-repeat 190px 60px}
+.list-rp-pm .second{background:url(/img/section/rp/promotion-bg02.png) no-repeat 205px 20px}
+.list-rp-pm .third{background:url(/img/section/rp/promotion-bg03.png) no-repeat 212px 55px}
+
+/****** 퇴직연금 재구축 수정및추가 css 2016-02-22 김형수 ******/
+
+/* carousel */
+#promotion .js-carousel.banner-area { width:300px;margin:-15px 0 0;}
+#promotion .js-carousel.banner-area .js-carousel-content-wrapper {overflow:hidden;width:300px;height:162px}
+#promotion .js-carousel.banner-area .js-carousel-content-wrapper ul li {float:left;width:300px;padding-top:20px;font-size:0;line-height:0}
+#promotion .js-carousel.banner-area .js-carousel-content-wrapper ul li a {display:block;width:300px;font-size:0;line-height:0}
+#promotion .js-carousel.banner-area .js-carousel-paging {position:absolute;top:20px;text-align:right;width:290px}
+#promotion .js-carousel.banner-area .js-carousel-paging ul {display:inline-block;width:60px}
+#promotion .js-carousel.banner-area .js-carousel-paging .ui-carousel-paging {float:left;display:inline-block;width:15px;height:10px;font-size:0;line-height:0;margin:0;padding:0;}
+#promotion .js-carousel.banner-area .js-carousel-paging .ui-carousel-paging a {display:block;width:10px;height:10px;font-size:0;line-height:0;padding:0;margin:0 0 0 5px;background:url(/img/section/ln/bg_carousel_paging.gif) no-repeat;text-indent:-200px}
+#promotion .js-carousel.banner-area .js-carousel-paging .ui-carousel-paging.on a {background-position:0 -15px}
+#promotion .js-carousel.banner-area .js-carousel-paging .ui-carousel-paging a span {position:absolute;top:-5000px}
+.ie9 #promotion .js-carousel.banner-area .js-carousel-paging,
+.lt-ie9 #promotion .js-carousel.banner-area .js-carousel-paging,
+.opera #promotion .js-carousel.banner-area .js-carousel-paging {top:20px;}
+.ie7 #promotion .js-carousel.banner-area .js-carousel-paging ul {display:inline;}
+
+
+/* 다국어 */
+.promotion-wrap {overflow:hidden;width:950px;margin:0 auto}
+.promotion-wrap h4.en {font-size:20px;font-weight:bold;margin-bottom:15px;height:24px}
+.promotion-wrap h4.jp {font-size:20px;font-weight:bold;margin-bottom:3px;height:24px}
+.promotion-wrap ul li {background:url(/img/common/etc/bu_list_txt_dep1.gif) no-repeat left 12px;padding-left:12px;font-size:14px !important;line-height:28px}
+.ie7 .promotion-wrap h4.en {font-size:20px;font-weight:bold;margin-bottom:15px;height:28px;line-height:28px}
+.promotion-wrap .promotion-banner02 {float:left;border-right:1px solid #e0e0e0;padding:40px 30px 0;height:250px;width:261px}
+.promotion-wrap .promotion-banner02 .tbl-top {width:254px;font-size:12px;margin-bottom:7px}
+.promotion-wrap .promotion-banner02 .tbl-top span{float:left}
+.promotion-wrap .promotion-banner03 {float:left;padding:40px 0 0 30px;width:280px;height:238px}
+.promotion-wrap .promotion-banner03.bg {background:url(/img/section/ml/ps/en_promotion_icon2.gif) 228px 140px no-repeat}
+.promotion-wrap .promotion-banner03.jp-bg {background:none}
+.promotion-wrap .promotion-banner03 span {color:#555}
+.promotion-wrap .promotion-banner03 .en-type02 {padding:29px 0 0 12px;font-size:12px !important;color:#555;line-height:20px;letter-spacing:-1px;word-spacing:-1px}
+.promotion-wrap .promotion-banner03 .en-type03 {padding:0 0 0 0px;font-size:12px !important;color:#555;line-height:20px;letter-spacing:-1px;word-spacing:-1px}
+.promotion-wrap .en-promotion-banner01.bg-type1 {background:url(/img/section/ml/ps/en_promotion_icon1.gif) 199px 123px no-repeat}
+.promotion-wrap .en-promotion-banner01 {background:url(/img/section/en/cm/en_promotion_video_bg.png) 13px 20px no-repeat; float:left;border-right:1px solid #e0e0e0;padding:40px 17px 0 0;height:238px;width:298px}
+.promotion-wrap .en-promotion-banner01 .en-type01 {padding-top:29px}
+.promotion-wrap .en-promotion-banner01 .video_icon {margin:110px 0 0 30px; width:100%; overflow:hidden;s}
+.promotion-wrap .en-promotion-banner01 .video_icon li {float:left; padding-left:10px; background:none; list-style:none;}
+.promotion-wrap .jp-promotion-banner01.bg {background:url(/img/section/ml/ps/bg_en-guide.gif) 173px 62px no-repeat}
+.promotion-wrap .jp-promotion-banner01 .js-type01 {margin-top:8px}
+.promotion-wrap .jp-promotion-banner01 {float:left;border-right:1px solid #e0e0e0;padding:40px 67px 0 0;height:250px;width:250px}
+.promotion-wrap .jp-promotion-banner02 {float:left;border-right:1px solid #e0e0e0;padding:40px 30px 0;height:250px;width:261px}
+.promotion-wrap .jp-promotion-banner02 .tbl-top {width:254px;font-size:12px;margin-bottom:7px}
+.promotion-wrap .jp-promotion-banner02 .tbl-top span{float:left}
+.promotion-wrap .jp-promotion-banner03 {float:left;padding:40px 0 0 30px;width:279px;height:250px}
+.promotion-wrap .jp-promotion-banner03.bg {background:url(/img/section/ml/ps/bg_en-guide.gif) 218px 153px no-repeat}
+.promotion-wrap .jp-promotion-banner03.jp-bg {background:none;width:275px}
+.promotion-wrap .jp-promotion-banner03 span {color:#555}
+.promotion-wrap .jp-promotion-banner03 .en-type02 {padding:29px 0 0 12px;font-size:12px !important;color:#555;line-height:20px;letter-spacing:-1px;word-spacing:-1px}
+.promotion-wrap .en-tab3 {clear:both;margin-bottom:18px;width:264px}
+.ie9 .promotion-wrap .en-tab3 {width:264px}
+.ie8 .promotion-wrap .en-tab3 {width:268px}
+.firefox .promotion-wrap .en-tab3 {width:264px}
+.opera .promotion-wrap .en-tab3 {width:264px}
+.promotion-wrap .en-tab3 ul {height:26px;border-bottom:1px solid #0078d4}
+.promotion-wrap .en-tab3 ul li {list-style:none;float:left;height:25px;line-height:26px;margin-right:2px;text-align:center;overflow:hidden;padding:0 19px; 
+background:url(/img/section/ml/ps/bg_tab.gif) bottom repeat-x;border-top:1px solid #c3c3c3;border-left:1px solid #c3c3c3;border-right:1px solid #c3c3c3}
+.promotion-wrap .en-tab3 ul li:last-child {margin-right:0}
+.promotion-wrap .en-tab3 ul li a {display:inline-block;font-size:12px !important; color:#555}
+.promotion-wrap .en-tab3 ul li.on {background:none;border-top:1px solid #0078d4;border-left:1px solid #0078d4;border-right:1px solid #0078d4;border-bottom:1px solid #fff}
+.promotion-wrap .en-tab3 ul li.on a {color:#0079d4}
+.promotion-wrap .en-tbl-type-1,.en-tbl-type-1 th,.en-tbl-type-1 td {border:none;text-align:center;font-size:12px}
+.promotion-wrap .en-tbl-type-1 {width: 100%; border-top: 1px solid #636363; border-bottom: 1px solid #ccc; border-collapse: separate; table-layout: fixed}
+.lt-ie9 .en-tbl-type-1 {border-collapse:collapse}
+.promotion-wrap .en-tbl-type-1 th {font-family:'Dotum';padding:5px 7px 6px;border-top:1px solid #e5e5e5;border-right:1px solid #e5e5e5;background:#f8f8f8;font-weight:bold;vertical-align:middle;letter-spacing:-0.85pt}
+.promotion-wrap .en-tbl-type-1 td {font-family:'Arial';padding:7px;border-top:none;border-right:1px solid #e5e5e5;color:#000;background:#fff;vertical-align:middle;line-height:12px;word-break:break-all}
+.promotion-wrap .en-tbl-type-1 thead th {border-bottom:1px solid #c7c7c7;border-top:none}
+.promotion-wrap .en-tbl-type-1 tbody {position:relative;top:-1px}
+.promotion-wrap .en-tbl-type-1 tr th:last-child, .en-tbl-type-1 tr td:last-child {border-right:none !important}
+.promotion-wrap .en-tbl-type-1 em {color:#0087e5}
+
+/* 카드 */
+#promotion .promotion-cd-box {width:950px; margin:0 auto; background:url(/img/section/cd/bg_pr_line.gif) repeat-y 50% 0;}
+#promotion .col1{float:left; width:317px; }
+#promotion .col2{float:left; width:317px;}
+#promotion .col3{float:left; width:306px; background:url(/img/section/cd/bg_pro.gif) no-repeat 225px 42px; padding-left:10px;}
+#promotion .inner{padding:17px 0 23px 15px; }
+#promotion .col1 .inner{padding-left:0;}
+#promotion .title-cd{ padding:0 0 10px 0 !important;  font-size:16px;color:#000;letter-spacing:-1px; font-weight:bold}
+#promotion .list-cd li{ line-height:1.6;padding-left:8px; background:url(/img/section/cd/bull_square2.gif) no-repeat 0 .9em; }
+#promotion .list-cd li a{font-size:14px;color:#666; }
+#promotion .inner p.txt-cd{color:#666; font-size:14px;line-height:1.4;letter-spacing:-1px; }
+
+/* 2020-04-23 접근성 관련 css 수정 */
+#promotion .js-carousel.banner-area .js-carousel-paging ul{width: 90px;}
+#promotion .js-carousel.banner-area .js-carousel-paging .ui-carousel-paging{width: 30px; height:12px;}
+#promotion .js-carousel.banner-area .js-carousel-paging .ui-carousel-paging a{background: transparent; width: 12px; height: 12px; background-color: #cfcfcf; border-radius: 50%; -ms-border-radius: 50%; -webkit-border-radius: 50%; -moz-border-radius: 50%;}
+#promotion .js-carousel.banner-area .js-carousel-paging .ui-carousel-paging.on a{background: transparent; width: 24px; height: 12px; background-color: #0099e8; border-radius: 12px; margin-left: -1px; -ms-border-radius: 12px; -webkit-border-radius: 12px; -moz-border-radius: 12px;}
+

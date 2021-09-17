@@ -1,0 +1,81 @@
+﻿@charset "utf-8";
+
+/* base.css */
+a:hover,a:focus,a:active {cursor:pointer !important;color:#0087e5}
+a:hover, a:focus, a:active
+, button:hover, button:focus, button:active, button:hover *, button:focus *, button:active *
+, input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover
+, input[type=button]:hover *, input[type=submit]:hover *, input[type=reset]:hover *
+, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus
+, input[type=button]:focus *, input[type=submit]:focus *, input[type=reset]:focus *
+, input[type=button]:active, input[type=submit]:active, input[type=reset]:active
+, input[type=button]:active *, input[type=submit]:active *, input[type=reset]:active *
+{text-decoration:underline}
+.lt-ie7 input:hover, .lt-ie7 input:focus, .lt-ie7 input:active {text-decoration:underline}
+/* base.css */
+
+/* layout.css */
+#gnb .my-svc .btn-certificate-center a.js-display-hover-trigger:hover {color:#858585}
+a.gnb-member-bt:hover {background:url(/img/common/etc/bg_btn/gnb_member.gif) left -30px no-repeat;_background:url(/img/common/etc/bg_btn/gnb_member.gif) left top no-repeat;color:#fff}
+.gnb-member-time:hover {cursor:pointer;}
+#gnb .rel-svc dd.all a.on, #gnb .rel-svc dd.all a:hover {color:#d90012}
+#gnb .rel-svc dd.all .all-svc-box a:hover {color:#333}
+#gnb .country-box ul li a:hover {color:#000}
+#util .linemap li a:hover {color:#6c6c6c}
+#footer .content .info .quick a:focus, #footer .footer-global .footer-content .content .info .quick a:hover {color:#000}
+#footer .links .more a:hover, #footer .footer-global .footer-content .content .links .more a:focus {color:#000}
+/* layout.css */
+
+/* common.css */
+.btn-pack a:hover, .btn-pack input:hover, .btn-pack button:hover,
+.btn-pack a:focus, .btn-pack input:focus, .btn-pack button:focus  {text-decoration:underline !important}
+.btn-pack.btn-type-2c:hover,
+.btn-pack.btn-type-2c:active,
+.btn-pack.btn-type-2c:focus,
+.btn-pack.btn-type-2c:hover *,
+.btn-pack.btn-type-2c:active *,
+.btn-pack.btn-type-2c:focus * {color:#ddd !important}
+.btn-pack :hover,.btn-pack :active,.btn-pack :focus, .btn-pack:hover,.btn-pack:active,.btn-pack:focus{color:#0087e5}
+.btn-pack.btn-type-2c :hover,.btn-pack.btn-type-2c :active,.btn-pack.btn-type-2c :focus,.btn-pack.btn-type-2c:hover,.btn-pack.btn-type-2c:active,.btn-pack.btn-type-2c:focus {color:#ddd !important}
+.btn-pack.btn-type-3c :hover,.btn-pack.btn-type-3c :active,.btn-pack.btn-type-3c :focus,.btn-pack.btn-type-3c:hover,.btn-pack.btn-type-3c:active,.btn-pack.btn-type-3c:focus {color:#f0f0f0 !important}
+.tbl-type-ly tr:hover tbody th, .tbl-type-ly tbody tr:hover td {background:#d9edfb}
+.js-accordion a.js-accordion-trigger:hover,.js-accordion a.js-accordion-trigger:active,.js-accordion a.js-accordion-trigger:focus{background:#f8f8f8;color:#000}
+.calendar a.btn_cal:hover {color:#000}
+.calendar table td:hover {background:#e5f2ff}
+.calendar table td .selectable a:hover {border:1px solid #fffcb2}
+.calendar table td .selected a:hover {border:1px solid #e5f2ff}
+.tbl-cal-ly td a:hover {background-color:#b9ecff}
+.tbl-cal-pop td a:hover {background-color:#e7e7e7; color:#0078d4 !important}
+.cm-search-top a:hover, .cm-search-top a:focus {color:#000}
+.cm-search-top .cm-search-box .cm-search-option .cm-ly-search-more label:hover {color:#000}
+.cm-search-result a:hover, .cm-search-result a:focus {color:#000}
+.cm-search-result .more:hover, .cm-search-result .more:focus {color:#0078d4}
+.btn-help:hover { text-decoration:underline}
+.tab-pack.tab-type-1 a:hover{color:#000;text-decoration:underline}
+.tab-pack.tab-type-1.on a:hover{color:#fff;text-decoration:underline}
+/* common.css */
+
+/* common_section */
+.btn-put-ico:hover, .btn-put-ico:hover span,
+.btn-compare-ico:hover,.btn-compare-ico:hover span,
+.btn-put-ico-1:hover, .btn-put-ico-1:hover span,
+.btn-compare-ico-1:hover, .btn-compare-ico-1:hover span {text-decoration:none}
+.product-etc.today-viewed .cont-list a.del:hover {background-position:0 -24px}
+.product-list .prd-btn-area .btn-prd-join-area .js-display-hover-trigger:hover {text-decoration:none !important;}
+.tbl-txt a, .tbl-txt a:hover, .bZtbl-txt a:hover {text-decoration:underline;color:#000;font-size:14px}
+/* common_section */
+
+
+/* common_popup */
+.pop-inner .btn-pack.btn-type-2c:hover,
+.pop-inner .btn-pack.btn-type-2c:active,
+.pop-inner .btn-pack.btn-type-2c:focus,
+.pop-inner .btn-pack.btn-type-2c:hover *,
+.pop-inner .btn-pack.btn-type-2c:active *,
+.pop-inner .btn-pack.btn-type-2c:focus * {color:#ddd !important}
+.pop-inner.mrsong .tab3 a:hover, .pop-inner.mrsong .tab3 a:focus {color:#0078d4}
+.pop-inner.mrsong .ly-body .search-result-wrap .search-result-left a:hover {background:#e4e4e4}
+.pop-inner.mrsong .digital-step ul li ul li a:hover {text-decoration:none;}
+.product-compare-list .clse a:hover {background-position:0 -24px}
+.promotion-wrap ul li a:hover {color:#0078d4}
+/* common_popup */
