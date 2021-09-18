@@ -2,15 +2,26 @@ package kr.ac.kopo.portfolio.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.ac.kopo.portfolio.service.PortfolioService;
+import kr.ac.kopo.portfolio.vo.PortfolioVO;
 
 @Controller
 public class portfolioController {
 
+	@Autowired
+	private PortfolioService service;
 	
 	@PostMapping("/testing")
-	public String test(HttpServletRequest request) throws Exception {
+	public ModelAndView test(HttpServletRequest request, Model model) throws Exception {
 		
 		request.setCharacterEncoding("utf-8");
 		
@@ -23,6 +34,7 @@ public class portfolioController {
 		String[] analysis = request.getParameterValues("analysis");
 	
 		String[] per = investmentRate.split(",");
+		int minPer = Integer.parseInt(per[0]);
 		int maxPer = Integer.parseInt(per[1]);
 		String[] ageNum = rrn.split("-");
 		int age = Integer.parseInt(ageNum[0])/10000;
@@ -80,6 +92,13 @@ public class portfolioController {
 			saving = 0.1;
 			deposit = 0.3;
 			pension = 0.5;
+		}
+		
+		if(investmentType.equals("안전형")) {
+			fund = 0.2;
+			saving = 0.3;
+			deposit = 0.3;
+			pension = 0.2;
 		}
 		
 		// 변수2. 투자금액
@@ -186,14 +205,82 @@ public class portfolioController {
 		deposit = Math.round(deposit*Math.pow(10, 2));
 		pension = Math.round(pension*Math.pow(10, 2));
 		
-		System.out.println(member_id);
-		System.out.println(investmentPeriod);
-		System.out.println(investmentMoney);
-		System.out.println(maxPer);
-		System.out.println(investmentType);
-		System.out.println(age + " : " + start + " ~ " + last);
-		System.out.println("fund : " + fund + ", deposit : " + deposit + ", saving : " + saving + ", pension : " + pension);
+		PortfolioVO portfolio = new PortfolioVO();
+		portfolio.setMember_id(member_id);
+		portfolio.setInvestmentPeriod(investmentPeriod);
+		portfolio.setInvestmentMoney(investmentMoney);
+		portfolio.setMaxPer(maxPer);
+		portfolio.setMinPer(minPer);
+		portfolio.setInvestmentType(investmentType);
+		portfolio.setBm(bm);
+		portfolio.setSd(sd);
+		portfolio.setSr(sr);
+		portfolio.setTe(te);
+		portfolio.setJa(ja);
+		portfolio.setIr(ir);
+		portfolio.setFund(fund);
+		portfolio.setDeposit(deposit);
+		portfolio.setSaving(saving);
+		portfolio.setPension(pension);
+		portfolio.setStart(start);
+		portfolio.setLast(last);
 		
-		return "index";
+		model.addAttribute("portfolio", portfolio);
+		
+		return new ModelAndView("portfolio/portfolio");
+	}
+	
+	@RequestMapping("/portfolioPlan")
+	@ResponseBody
+	public JSONObject protfolioPlan(HttpServletRequest request) throws Exception {
+		
+		request.setCharacterEncoding("utf-8");
+		String id = request.getParameter("member_id");
+		String name = request.getParameter("name");
+		String investmentPeriod = request.getParameter("investmentPeriod");
+		int investmentMoney = Integer.parseInt(request.getParameter("investmentMoney"));
+		int investmentRate = Integer.parseInt(request.getParameter("investmentRate"));
+		int minPer = Integer.parseInt(request.getParameter("minPer"));
+		int maxPer = Integer.parseInt(request.getParameter("maxPer"));
+		String investmentType = request.getParameter("investmentType");
+		String sd = request.getParameter("sd");
+		String bm = request.getParameter("bm");
+		String sr = request.getParameter("sr");
+		String te = request.getParameter("te");
+		String ja = request.getParameter("ja");
+		String ir = request.getParameter("ir");
+		double fund = Double.parseDouble(request.getParameter("fund"));
+		double deposit = Double.parseDouble(request.getParameter("deposit"));
+		double saving = Double.parseDouble(request.getParameter("saving"));
+		double pension = Double.parseDouble(request.getParameter("pension"));
+		String start = request.getParameter("start");
+		String last = request.getParameter("last");
+		
+		PortfolioVO portfolio = new PortfolioVO();
+		portfolio.setMember_id(id);
+		portfolio.setName(name);
+		portfolio.setInvestmentPeriod(investmentPeriod);
+		portfolio.setInvestmentMoney(investmentMoney);
+		portfolio.setInvestmentRate(investmentRate);
+		portfolio.setMaxPer(maxPer);
+		portfolio.setMinPer(minPer);
+		portfolio.setInvestmentType(investmentType);
+		portfolio.setBm(bm);
+		portfolio.setSd(sd);
+		portfolio.setSr(sr);
+		portfolio.setTe(te);
+		portfolio.setJa(ja);
+		portfolio.setIr(ir);
+		portfolio.setFund(fund);
+		portfolio.setDeposit(deposit);
+		portfolio.setSaving(saving);
+		portfolio.setPension(pension);
+		portfolio.setStart(start);
+		portfolio.setLast(last);
+		
+		System.out.println(portfolio.toString());
+		
+		return service.getChartData(portfolio);
+		
 	}
 }

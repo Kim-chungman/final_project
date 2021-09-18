@@ -12,6 +12,25 @@
 <script>
 	$(document).ready(function() {
 		
+		$('#idCheckBtn').click(function() {
+			
+			let idCheck = $('#id').val()
+			
+			$.ajax({
+				url: '${ pageContext.request.contextPath }/member/idCheck',
+				data: { id: idCheck},
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				success : function(data) {
+					console.log(data)
+					
+					$('#msg').text(data)
+				}, 
+				error : function() {
+					alert('실패')
+				}
+			})
+		})
+		
 	})
 	 
 </script>
@@ -105,7 +124,7 @@
 					<p style="font-size: 14pt; font-family: inherit; float: left; color: #008B8B;">ID</p>
 					<input type="text" id="id" name="id" placeholder="아이디" style="clear: both; width:300px; height: 40px; border-radius: 10px; border-width: 1px; border-color: #008B8B; margin-bottom: 5px;" required="required">
 					<button id="idCheckBtn" style="float:left; font-size:10pt; width: 70px; height: 20px; border-radius: 15px; color: white; background-color: #ca874b; border: none;">중복체크</button>
-					<div id="msg" style="color: red;"></div>
+					<div id="msg" style="color: red; width: 230px; font-size: 10pt; text-align: left;"></div>
 					<br>
 					<p style="font-size: 14pt; font-family: inherit; float: left; color: #008B8B;">PASSWORD</p>
 					<input type="password" id="password" name="password" placeholder="비밀번호" style="width:300px; height: 40px; border-radius: 10px; border-width: 1px; border-color: #008B8B;" required="required">

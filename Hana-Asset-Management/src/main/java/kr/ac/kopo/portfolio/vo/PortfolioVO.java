@@ -3,26 +3,37 @@ package kr.ac.kopo.portfolio.vo;
 public class PortfolioVO {
 
 	private String member_id;
+	private String name;
 	private String investmentPeriod;
 	private int investmentMoney;
 	private int investmentRate;
+	private int minPer;
+	private int maxPer;
 	private String investmentType;
 	private String sd;
 	private String bm;
 	private String sr;
 	private String te;
 	private String ja;
-	private String jr;
+	private String ir;
 	private double fund;
 	private double deposit;
 	private double saving;
 	private double pension;
+	private String start;
+	private String last;
 	
 	public String getMember_id() {
 		return member_id;
 	}
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getInvestmentPeriod() {
 		return investmentPeriod;
@@ -41,6 +52,18 @@ public class PortfolioVO {
 	}
 	public void setInvestmentRate(int investmentRate) {
 		this.investmentRate = investmentRate;
+	}
+	public int getMinPer() {
+		return minPer;
+	}
+	public void setMinPer(int minPer) {
+		this.minPer = minPer;
+	}
+	public int getMaxPer() {
+		return maxPer;
+	}
+	public void setMaxPer(int maxPer) {
+		this.maxPer = maxPer;
 	}
 	public String getInvestmentType() {
 		return investmentType;
@@ -78,11 +101,11 @@ public class PortfolioVO {
 	public void setJa(String ja) {
 		this.ja = ja;
 	}
-	public String getJr() {
-		return jr;
+	public String getIr() {
+		return ir;
 	}
-	public void setJr(String jr) {
-		this.jr = jr;
+	public void setIr(String ir) {
+		this.ir = ir;
 	}
 	public double getFund() {
 		return fund;
@@ -108,13 +131,26 @@ public class PortfolioVO {
 	public void setPension(double pension) {
 		this.pension = pension;
 	}
+	public String getStart() {
+		return start;
+	}
+	public void setStart(String start) {
+		this.start = start;
+	}
+	public String getLast() {
+		return last;
+	}
+	public void setLast(String last) {
+		this.last = last;
+	}
 	
 	@Override
 	public String toString() {
-		return "PortfolioVO [member_id=" + member_id + ", investmentPeriod=" + investmentPeriod + ", investmentMoney="
-				+ investmentMoney + ", investmentRate=" + investmentRate + ", investmentType=" + investmentType
-				+ ", sd=" + sd + ", bm=" + bm + ", sr=" + sr + ", te=" + te + ", ja=" + ja + ", jr=" + jr + ", fund="
-				+ fund + ", deposit=" + deposit + ", saving=" + saving + ", pension=" + pension + "]";
+		return "PortfolioVO [member_id=" + member_id + ", name=" + name + ", investmentPeriod=" + investmentPeriod
+				+ ", investmentMoney=" + investmentMoney + ", investmentRate=" + investmentRate + ", minPer=" + minPer
+				+ ", maxPer=" + maxPer + ", investmentType=" + investmentType + ", sd=" + sd + ", bm=" + bm + ", sr="
+				+ sr + ", te=" + te + ", ja=" + ja + ", ir=" + ir + ", fund=" + fund + ", deposit=" + deposit
+				+ ", saving=" + saving + ", pension=" + pension + ", start=" + start + ", last=" + last + "]";
 	}
-	
+
 }

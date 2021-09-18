@@ -1,10 +1,14 @@
 package kr.ac.kopo.member.controller;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,19 +88,26 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value="/idCheck", method=RequestMethod.GET)
+	@RequestMapping(value="/member/idCheck", method=RequestMethod.GET, produces = "application/text; charset=utf8")
 	@ResponseBody
-	public String idCheck(MemberVO member) {
+	public String idCheck(HttpServletRequest request) throws Exception {
 		
-		System.out.println(member.getId());
-		MemberVO memberVO = memberService.idCheck(member);
-		System.out.println(memberVO.getId());
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		
+		MemberVO memberVO = new MemberVO();
+		memberVO.setId(id);
+		MemberVO user = new MemberVO();
+		user = memberService.idCheck(memberVO);
 		
 		String msg = "사용가능한 아이디입니다.";
-		if(memberVO.getId() != null) {
+		    
+		if(user != null ) {
 			msg = "사용중인 아이디입니다.";
-		}
-		
+			return msg;
+		} 
+
 		return msg;
 	}
 	
@@ -115,7 +126,7 @@ public class MemberController {
 	@GetMapping("/member/joinIndiInfo")
 	public String joinIndiInfo() {
 		
-		return "/member/joinIndiInfo";
+		return "member/joinIndiInfo";
 	}
 	
 	@PostMapping("/member/joinIndiInfo")
@@ -153,14 +164,14 @@ public class MemberController {
 		//	memberService.sendAttach(member.getEmail(), member.getName(), session);
 			
 			model.addAttribute("userVO", memberVO);
-			return "/member/joinSuccess";
+			return "member/joinSuccess";
 		}
 		
-		return "/member/joinIndiInfo";
+		return "member/joinIndiInfo";
 	}
 	
-	@GetMapping("member/joinSuccess")
+	@GetMapping("/member/joinSuccess")
 	public String success() {
-		return "/member/joinSuccess";
+		return "member/joinSuccess";
 	}
 }

@@ -16,7 +16,7 @@
 	</select>
 	
 	<select id="idCheck" parameterType="memberVO" resultMap="memberMap">
-		select id
+		select *
 		 from cm_member
 		where id = #{id}
 	</select>
