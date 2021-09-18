@@ -193,7 +193,7 @@
 		</div>
 		<div style="margin-top: 20px; background-color: #F7F9FC; width: 900px;">
 			<h5 style="color: #008B8B; font-family: inherit; padding-top: 10px; padding-left: 10px; font-size: 13pt;">※금융 취약소비자 우선설명</h5>
-			<p style="font-size: 12pt; margin-left: 10px; margin-right: 20px;">!! 금융감독원의 금융소비자보호 모범규준에 따라 특정소비자(만 65세 이상 고령층,은퇴자,주부 등)에 대하여는 소비자의 불이익 사항을<br> 우선적으로 설명해드립니다.</p>
+			<p style="font-size: 12pt; margin-left: 10px; margin-right: 20px;">!! 금융감독원의 금융소비자보호 모범규준에 따라 특정소비자(만 65세 이상 고령층,은퇴자,주부 등)에 대하여는 소비자의 불이익 사항을 우선적으로 설명해드립니다.</p>
             <br>
 		</div>
 		<div>

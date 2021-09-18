@@ -99,7 +99,8 @@
 			<td>${ fundList.fund_code }</td>
 			<td>${ fundList.fund_name }</td>
 			<td>
-				<input type="button" onclick="open_in_frame('https://finance.naver.com/fund/fundDetail.nhn?fundCd=${ fundList.fund_code }')" value="자세히보기"/>
+				<%-- <input type="button" onclick="open_in_frame('https://finance.naver.com/fund/fundDetail.nhn?fundCd=${ fundList.fund_code }')" value="자세히보기"/> --%>
+				<input type="button" onclick="open_in_frame('https://dis.kofia.or.kr/websquare/popup.html?w2xPath=/wq/com/popup/DISComFundSmryInfo.xml&companyCd=&standardCd=${ fundList.fund_code }')" value="자세히보기"/>
 			</td>
 		</tr>
 		</c:forEach>
@@ -108,11 +109,11 @@
 	<button id="testName" value="55"></button>
 	
 	<div id="myModal" class="modal">
-	    <iframe id="fundDetail" src="" style="width: 700px; height: 600px; background-color: white;">
+	    <iframe id="fundDetail" src="" style="width: 800px; height: 700px; background-color: white;">
 	 
 	 		
 	    </iframe>
-	    <div style="margin-left: 570px; width: 130px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none;pointer; text-align: center;" id="columnClose" >
+	    <div style="margin-left: 620px; width: 130px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none;pointer; text-align: center;" id="columnClose" >
             <span style="font-size: 13pt; width: 130px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none;" >
                  닫기
             </span>
