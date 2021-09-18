@@ -84,8 +84,6 @@
 		</style>
 		<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/plan/ow.css" type="text/css">
 
-
-
 </head> 
 
 <body>
