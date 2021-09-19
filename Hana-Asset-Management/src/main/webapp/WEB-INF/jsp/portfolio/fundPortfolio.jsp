@@ -111,24 +111,35 @@
 	      
 	      var data = new google.visualization.DataTable(jsonData);
 	      
-	         var chart = new google.visualization.PieChart(document.getElementById('chart_div')); 
-	      /* var chart = new google.visualization.LineChart(document.getElementById('chart_div')); */
-	      /* var chart = new google.visualization.ColumnChart(document.getElementById('chart_div')); */
+	      var chart = new google.visualization.PieChart(document.getElementById('chart_div')); 
 	      
 	      chart.draw(data, {
 	    	 title : "<펀드 구성비>",
 	         curveType : "function",
-	         fontSize: 16,
-	         width : 1000,
-	         height : 500,
+	         fontSize: 15,
+	         width : 800,
+	         height : 400,
 	         pieHole: 0.7,
 	         chartArea: {
-	        	 'width': '70%',
+	        	 'width': '90%',
 	        	 'height' : '90%'
 	       	}
 	      });
 	      
 	}
+</script>
+
+<script type="text/javascript">
+	
+	var modal = {
+	  open : function(){
+	    $('#myModal').show();
+	  },
+	  close : function(){
+	    $('#myModal').hide();    
+	  }
+	};
+  
 </script>
 
 <style>
@@ -260,29 +271,54 @@
 		</div>
         
         <div>
-        	<table style="height: 700px;">
+        	<table style="height: 700px; width: 900px;">
         		<tr>
-        			<th>종목명</th>
-        			<th>1개월 수익률</th>
-        			<th>3개월 수익률</th>
-        			<th>6개월 수익률</th>
-        			<th>1년 수익률</th>
-        			<th>자세히보기</th>
+        			<th style=" font-size: 12pt;">종목명</th>
+        			<th style=" font-size: 12pt;">1개월 수익률</th>
+        			<th style=" font-size: 12pt;">3개월 수익률</th>
+        			<th style=" font-size: 12pt;">6개월 수익률</th>
+        			<th style=" font-size: 12pt;">1년 수익률</th>
+        			<th style=" font-size: 12pt;">자세히보기</th>
         		</tr>
-        		<c:forEach items="${planA}" var="planA" varStatus="Loop">
+        		<c:forEach items="${ planA }" var="planA" varStatus="Loop">
         		<tr>
-        			<td>${ planA.fund_name }</td>
-        			<td>${ planA.one_month_rate }</td>
-        			<td>${ planA.three_month_rate }</td>
-        			<td>${ planA.six_month_rate }</td>
-        			<td>${ planA.one_year_rate }</td>
-        			<td>버튼</td>
+        			<td style="text-align: left; font-size: 12pt;">${ planA.fund_name }</td>
+        			<td style="text-align: center; font-size: 12pt;">${ planA.one_month_rate }</td>
+        			<td style="text-align: center; font-size: 12pt;">${ planA.three_month_rate }</td>
+        			<td style="text-align: center; font-size: 12pt;">${ planA.six_month_rate }</td>
+        			<td style="text-align: center; font-size: 12pt;">${ planA.one_year_rate }</td>
+        			<td style="text-align: center; font-size: 12pt;">
+						<input type="button" onclick="open_in_frame('https://dis.kofia.or.kr/websquare/popup.html?w2xPath=/wq/com/popup/DISComFundSmryInfo.xml&companyCd=&standardCd=${ planA.fund_code }')" value="자세히보기"
+							style="font-size:13pt; width: 100px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none;"/>
+					</td>
         		</tr>
         		</c:forEach>
         	</table>
         </div>
+        
+        <div id="myModal" class="modal" style="text-align: center;">
+		    <iframe id="fundDetail" src="" style="width: 800px; height: 700px; background-color: white; margin-top: 50px;">
+		 
+		 		
+		    </iframe>
+		    <div style="margin-left:65.5%; width: 130px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none;pointer;" id="columnClose" >
+	            <span style="font-size: 13pt; width: 130px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none;" >
+	                 닫기
+	            </span>
+	        </div>
+	    </div>
+	    
+	    <script>
+		function open_in_frame(url) {
+			$('#fundDetail').attr('src', url);
+			modal.open();
+		}
+		$(document).on('click', '#columnClose', function(){
+			  modal.close();
+		});
+		</script>
 
-        <form action="${ pageContext.request.contextPath }/fundPortfolio" method="post" style="margin-bottom: 50px;">
+        <form action="${ pageContext.request.contextPath }/fundPortfolio" method="post" style="margin-bottom: 50px; margin-top: 30px;">
         	<input type="hidden" name="member_id" value="${ portfolio.member_id }">
         	<input type="hidden" name="name" value="${ userVO.name }">
         	<input type="hidden" name="investmentPeriod" value="${ portfolio.investmentPeriod }">

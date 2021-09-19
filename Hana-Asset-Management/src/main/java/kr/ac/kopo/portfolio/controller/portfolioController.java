@@ -52,10 +52,6 @@ public class portfolioController {
 		System.out.println(planA.get(0).getFund_name());
 		
 		HttpSession session = request.getSession();
-		
-		if(session.getAttribute("planA") != null) {
-			session.removeAttribute("planA");
-		}
 		session.setAttribute("planA", planA);
 		
 		return data;
