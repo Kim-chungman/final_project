@@ -1,6 +1,9 @@
 package kr.ac.kopo.portfolio.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.ac.kopo.portfolio.service.PortfolioService;
+import kr.ac.kopo.portfolio.vo.AnalysisVO;
 import kr.ac.kopo.portfolio.vo.PortfolioVO;
 
 @Controller
@@ -19,6 +23,14 @@ public class portfolioController {
 
 	@Autowired
 	private PortfolioService service;
+	
+	@PostMapping("/fundPortfolio")
+	public ModelAndView fundPortfolio(PortfolioVO portfolio, Model model) {
+		
+		System.out.println(portfolio.toString());
+		model.addAttribute("portfolio", portfolio);
+		return new ModelAndView("portfolio/fundPortfolio");
+	}
 	
 	@RequestMapping("/portfolioPlan")
 	@ResponseBody
@@ -32,10 +44,21 @@ public class portfolioController {
 	
 	@RequestMapping("/recommendPortfolio")
 	@ResponseBody
-	public JSONObject recommendPortfolio(PortfolioVO portfolio) throws Exception {
+	public JSONObject recommendPortfolio(PortfolioVO portfolio, Model model, HttpServletRequest request) throws Exception {
 		
-		return service.getPortfolioData(portfolio);
+		JSONObject data = service.getPortfolioData(portfolio, model);
 		
+		List<AnalysisVO> planA = (List<AnalysisVO>)model.getAttribute("planA");
+		System.out.println(planA.get(0).getFund_name());
+		
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("planA") != null) {
+			session.removeAttribute("planA");
+		}
+		session.setAttribute("planA", planA);
+		
+		return data;
 	}
 	
 	@PostMapping("/portfolio")

@@ -10,6 +10,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import kr.ac.kopo.portfolio.dao.PortfolioDAO;
 import kr.ac.kopo.portfolio.vo.AnalysisVO;
@@ -57,7 +58,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	        cell.put("c", row);
 	        body.add(cell);
 	    }
-	    if(portfolio.getFund() != 0) {
+	    if(portfolio.getDeposit() != 0) {
 	    	JSONObject category = new JSONObject();
 		    category.put("v", "예금");
 	    	JSONObject deposit = new JSONObject();
@@ -106,7 +107,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 
 	@Override
-	public JSONObject getPortfolioData(PortfolioVO portfolio) {
+	public JSONObject getPortfolioData(PortfolioVO portfolio, Model model) {
 		
 		List<AnalysisVO> analysis = portfolioDAO.getPortfolioData(portfolio);
 		List<AnalysisVO> plan = new ArrayList<AnalysisVO>();
@@ -330,14 +331,116 @@ public class PortfolioServiceImpl implements PortfolioService {
 				}
 			}
 			stats.addValue(recommend.getOne_year_rate()+deviation+0.5);
-			stats2.addValue(deviation+0.7);
+			stats2.addValue(deviation+0.3);
 		}
 		double rate = stats.getGeometricMean();
 		double totalDeviation = stats2.getGeometricMean();
 		System.out.println("1년 예상수익률 : " + rate + "% 입니다.");
 		System.out.println("변동성 : " + totalDeviation + "% 입니다.");
 		
-		return null;
+		JSONObject data = new JSONObject();
+	     
+	    JSONObject col1 = new JSONObject();
+	    JSONObject col2 = new JSONObject();
+		
+	    JSONArray title = new JSONArray();
+	      
+		col1.put("label", "종목");
+		col1.put("type", "string");
+		col2.put("label", "구성비");
+		col2.put("type", "number");
+	    
+		title.add(col1);
+	    title.add(col2);
+		
+	    data.put("cols", title);
+	    
+	    JSONArray body = new JSONArray();
+	    
+	    if(planA.get(0).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", planA.get(0).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 25);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(planA.get(1).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", planA.get(1).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 10);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(planA.get(2).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", planA.get(2).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 15);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(planA.get(3).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", planA.get(3).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 20);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(planA.get(4).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", planA.get(4).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 20);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(planA.get(5).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", planA.get(5).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 10);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+        
+        data.put("rows", body);
+        
+        model.addAttribute("planA", planA);
+		
+		return data;
 	}
 	
 }

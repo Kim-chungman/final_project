@@ -167,66 +167,8 @@
 	      
 	}
 
-   
-   <%-- 포트폴리오 원형그래프 --%>
-   google.load('visualization','1', {
-      'packages' : ['corechart']
-   })
-   
-   google.setOnLoadCallback(drawChart3);
-   
-   function drawChart3() {
-	   
-	   	  var jsonData = $.ajax({
-	         
-	         url : "${ pageContext.request.contextPath }/recommendPortfolio",
-	         data: { member_id : id, name : username, investmentPeriod : investP, investmentMoney : investM, investmentRate : investR,
-	  		   minPer : min, maxPer : max, investmentType : type, sd : stand, bm : beta, sr : sharpe, te : tracking, ja : jensen, ir : information,
-			   fund : fundRate, deposit : depositRate, saving : savingRate, pension : pensionRate, start : startDay, last : lastDay },
-	         dataType : "JSON",
-	         async : false
-	      }).responseText;
-	      console.log(jsonData);
-	      
-	      var data = new google.visualization.DataTable(jsonData);
-	      
-	         var chart = new google.visualization.PieChart(document.getElementById('recommend_div')); 
-	      /* var chart = new google.visualization.LineChart(document.getElementById('recommend_div')); */
-	      /* var chart = new google.visualization.ColumnChart(document.getElementById('recommend_div')); */
-	      
-	      chart.draw(data, {
-	    	 title : "<추천 포트폴리오 구성비>",
-	         curveType : "function",
-	         fontSize: 16,
-	         width : 560,
-	         height : 400,
-	         pieHole: 0.7,
-	         chartArea: {
-	        	 'width': '98%',
-	        	 'height' : '90%'
-	       	}
-	      });
-	      
-	}
 </script>
-<script>
-		var modal = {
-		  open : function(){
-		    $('#myModal').show();
-		  },
-		  close : function(){
-		    $('#myModal').hide();    
-		  }
-		};
-		     
-		$(document).on('click', '#recommendChart', function(){
-		  modal.open();
-		});
-		
-		$(document).on('click', '#recommendClose', function(){
-		  modal.close();
-		});
-</script>
+
 <style>
 	.manageMenu:hover {
     		color: #008B8B; 
@@ -348,11 +290,10 @@
 		<div class="menu-wrap">
 		<h3 style="font-family: 'inherit'; text-align: center;"><strong><${userVO.name}님을 위한 포트폴리오></strong></h3>
 		<hr style="border-color: #008B8B; margin-bottom: 20px; border-width: 1px; width: 23%; text-align: center;">
-        <button type="button" onclick="drawChart()" style="margin-left: 220px; text-align: center;">추천 포트폴리오 구성비</button>
-		<button type="button" id="recommendChart">추천 포트폴리오 보기</button>
-		<button type="button" >3개월간 지출액</button>
-        </div>
+        <button type="button" onclick="drawChart()" style="margin-left:385px; text-align: center;">추천 포트폴리오 구성비</button>
+		</div>
         
+        <div id="menu1">
         <div id="chart_div" style="margin-top: 50px; width: 600px; float: left;">
 
 		</div>
@@ -521,28 +462,31 @@
 			 	</div>
 		     </c:if>
         </div>
-        <!-- The Modal -->
-	    <div id="myModal" class="modal">
-	 
-	      <!-- Modal content -->
-	      <div class="modal-content" style="border-color: #008B8B; border-width: 3px; width: 1000px;">
-                
-            <h3 style="font-family: 'inherit'; text-align: center;"><strong>월별 지출액 한눈에 보기</strong></h3>
-			<hr style="border-color: #008B8B; margin-bottom: 20px; border-width: 1px; width: 23%;">
-	        <div id="recommend_div" align="center">
-	
-			</div>
-			<div align="center">
-				
-			</div>
-	        <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px; margin-top: 20px;" id="recommendClose">
-                <span class="pop_bt" style="font-size: 13pt;" >
-                     닫기
-                </span>
-            </div>           
-	      </div>
-	    </div>
-        <!--End Modal-->
+        </div>
+        <form action="${ pageContext.request.contextPath }/fundPortfolio" method="post" style="margin-bottom: 50px;">
+        	<input type="hidden" name="member_id" value="${ portfolio.member_id }">
+        	<input type="hidden" name="name" value="${ userVO.name }">
+        	<input type="hidden" name="investmentPeriod" value="${ portfolio.investmentPeriod }">
+        	<input type="hidden" name="investmentMoney" value="${ portfolio.investmentMoney }">
+        	<input type="hidden" name="investmentRate" value="${ portfolio.investmentRate }">
+        	<input type="hidden" name="minPer" value="${ portfolio.minPer }">
+        	<input type="hidden" name="maxPer" value="${ portfolio.maxPer }">
+        	<input type="hidden" name="investmentType" value="${ portfolio.investmentType }">
+        	<input type="hidden" name="sd" value="${ portfolio.sd }">
+        	<input type="hidden" name="bm" value="${ portfolio.bm }">
+        	<input type="hidden" name="sr" value="${ portfolio.sr }">
+        	<input type="hidden" name="te" value="${ portfolio.te }">
+        	<input type="hidden" name="ja" value="${ portfolio.ja }">
+        	<input type="hidden" name="ir" value="${ portfolio.ir }">
+        	<input type="hidden" name="fund" value="${ portfolio.fund }">
+        	<input type="hidden" name="deposit" value="${ portfolio.deposit }">
+        	<input type="hidden" name="saving" value="${ portfolio.saving }">
+        	<input type="hidden" name="pension" value="${ portfolio.pension }">
+        	<input type="hidden" name="start" value="${ portfolio.start }">
+        	<input type="hidden" name="last" value="${ portfolio.last }">
+   			<input type="submit" value="상품별 자세히보기" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 300px;">
+        </form>
+        
 	</section>
 	<footer style="clear: both;">
 		<jsp:include page="/WEB-INF/include/footer.jsp" />
