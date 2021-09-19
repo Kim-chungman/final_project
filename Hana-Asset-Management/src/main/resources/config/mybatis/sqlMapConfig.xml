@@ -9,5 +9,7 @@
 		<typeAlias type="kr.ac.kopo.expense.vo.ExpenseVO" alias="expenseVO" />
 		<typeAlias type="kr.ac.kopo.fund.vo.FundVO" alias="fundVO" />
 		<typeAlias type="kr.ac.kopo.fund.vo.RatioVO" alias="ratioVO" />
+		<typeAlias type="kr.ac.kopo.portfolio.vo.PortfolioVO" alias="portfolioVO" />
+		<typeAlias type="kr.ac.kopo.portfolio.vo.AnalysisVO" alias="analysisVO" />
 	</typeAliases>
 </configuration>

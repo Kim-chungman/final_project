@@ -29,4 +29,18 @@
 		   #{avg_three_month_rate}, #{avg_six_month_rate}, #{avg_one_year_rate}, #{avg_two_year_rate}, #{avg_three_year_rate}, #{avg_five_year_rate})
 	</insert>
 	
+	<select id="getPortfolioData" parameterType="PortfolioVO" resultType="AnalysisVO">
+		select DISTINCT r.fund_code, f.FUND_COMPANY, f.fund_name, f.type, f.total_asset, f.PRESENT_PRICE, f.ONE_MONTH_RATE, f.THREE_MONTH_RATE, f.SIX_MONTH_RATE, f.ONE_YEAR_RATE,
+		 r.type as investment_index, r.THREE_MONTH_RATE as index_THREE_MONTH_RATE, r.SIX_MONTH_RATE as index_SIX_MONTH_RATE, r.ONE_YEAR_RATE as index_ONE_YEAR_RATE, r.TWO_YEAR_RATE as index_TWO_YEAR_RATE, r.FIVE_YEAR_RATE as index_FIVE_YEAR_RATE,
+		  r.AVG_THREE_MONTH_RATE, r.AVG_SIX_MONTH_RATE, r.AVG_ONE_YEAR_RATE, r.AVG_TWO_YEAR_RATE, r.AVG_THREE_YEAR_RATE, r.AVG_FIVE_YEAR_RATE
+		  from CM_PRODUCT_FUND f, CM_FUND_RATIO r
+		   where (((select investment_type from cm_member where id=#{member_id})=1 and r.fund_name = f.fund_name and f.type in ('매우낮은위험')) or
+		    ((select investment_type from cm_member where id=#{member_id})=2 and r.fund_name = f.fund_name and f.type in ('매우낮은위험', '낮은위험')) or
+		     ((select investment_type from cm_member where id=#{member_id})=3 and r.fund_name = f.fund_name and f.type in ('매우낮은위험', '낮은위험', '보통위험')) or
+		      ((select investment_type from cm_member where id=#{member_id})=4 and r.fund_name = f.fund_name and f.type in ('매우낮은위험', '낮은위험', '보통위험', '다소높은위험')) or
+		       ((select investment_type from cm_member where id=#{member_id})=5 and r.fund_name = f.fund_name and f.type in ('매우낮은위험', '낮은위험', '보통위험', '다소높은위험', '높은위험', '매우높은위험')))
+		        and r.type in (#{sd}, #{sr}, #{bm}, #{te}, #{ja}, #{ir})
+		         order by ONE_MONTH_RATE desc
+	</select>
+	
 </mapper>

@@ -183,7 +183,7 @@
         		<div class="row d-flex justify-content-center mt-100" style="border: none; margin-left: 110px; width: 500px; margin-bottom: 20px; margin-top: 20px;">
 				    <div class="col-md-6" style="border: none;"> 
 				    	<select id="choices-multiple-remove-button" name="analysis" style="opacity: 60;" multiple>
-				            <option style="border: none;" value="표준편차(%)">표준편차(σ)</option>
+				            <option style="border: none;" value="표준편차(%)" selected="selected">표준편차(σ)</option>
 				            <option style="border: none;" value="BM민감도(B)">BM민감도(β)</option>
 				            <option style="border: none;" value="트래킹에러(TE,%)">트래킹에러(TE,%)</option>
 				            <option style="border: none;" value="Sharpe Ratio">Sharpe Ratio</option>
