@@ -20,7 +20,25 @@ public class portfolioController {
 	@Autowired
 	private PortfolioService service;
 	
-	@PostMapping("/testing")
+	@RequestMapping("/portfolioPlan")
+	@ResponseBody
+	public JSONObject protfolioPlan(PortfolioVO portfolio) throws Exception {
+		
+		System.out.println(portfolio.toString());
+		
+		return service.getChartData(portfolio);
+		
+	}
+	
+	@RequestMapping("/recommendPortfolio")
+	@ResponseBody
+	public JSONObject recommendPortfolio(PortfolioVO portfolio) throws Exception {
+		
+		return service.getPortfolioData(portfolio);
+		
+	}
+	
+	@PostMapping("/portfolio")
 	public ModelAndView test(HttpServletRequest request, Model model) throws Exception {
 		
 		request.setCharacterEncoding("utf-8");
@@ -230,57 +248,52 @@ public class portfolioController {
 		return new ModelAndView("portfolio/portfolio");
 	}
 	
-	@RequestMapping("/portfolioPlan")
-	@ResponseBody
-	public JSONObject protfolioPlan(HttpServletRequest request) throws Exception {
-		
-		request.setCharacterEncoding("utf-8");
-		String id = request.getParameter("member_id");
-		String name = request.getParameter("name");
-		String investmentPeriod = request.getParameter("investmentPeriod");
-		int investmentMoney = Integer.parseInt(request.getParameter("investmentMoney"));
-		int investmentRate = Integer.parseInt(request.getParameter("investmentRate"));
-		int minPer = Integer.parseInt(request.getParameter("minPer"));
-		int maxPer = Integer.parseInt(request.getParameter("maxPer"));
-		String investmentType = request.getParameter("investmentType");
-		String sd = request.getParameter("sd");
-		String bm = request.getParameter("bm");
-		String sr = request.getParameter("sr");
-		String te = request.getParameter("te");
-		String ja = request.getParameter("ja");
-		String ir = request.getParameter("ir");
-		double fund = Double.parseDouble(request.getParameter("fund"));
-		double deposit = Double.parseDouble(request.getParameter("deposit"));
-		double saving = Double.parseDouble(request.getParameter("saving"));
-		double pension = Double.parseDouble(request.getParameter("pension"));
-		String start = request.getParameter("start");
-		String last = request.getParameter("last");
-		
-		PortfolioVO portfolio = new PortfolioVO();
-		portfolio.setMember_id(id);
-		portfolio.setName(name);
-		portfolio.setInvestmentPeriod(investmentPeriod);
-		portfolio.setInvestmentMoney(investmentMoney);
-		portfolio.setInvestmentRate(investmentRate);
-		portfolio.setMaxPer(maxPer);
-		portfolio.setMinPer(minPer);
-		portfolio.setInvestmentType(investmentType);
-		portfolio.setBm(bm);
-		portfolio.setSd(sd);
-		portfolio.setSr(sr);
-		portfolio.setTe(te);
-		portfolio.setJa(ja);
-		portfolio.setIr(ir);
-		portfolio.setFund(fund);
-		portfolio.setDeposit(deposit);
-		portfolio.setSaving(saving);
-		portfolio.setPension(pension);
-		portfolio.setStart(start);
-		portfolio.setLast(last);
-		
-		System.out.println(portfolio.toString());
-		
-		return service.getChartData(portfolio);
-		
-	}
+	
+	
+
+	/*
+	request.setCharacterEncoding("utf-8");
+	String id = request.getParameter("member_id");
+	String name = request.getParameter("name");
+	String investmentPeriod = request.getParameter("investmentPeriod");
+	int investmentMoney = Integer.parseInt(request.getParameter("investmentMoney"));
+	int investmentRate = Integer.parseInt(request.getParameter("investmentRate"));
+	int minPer = Integer.parseInt(request.getParameter("minPer"));
+	int maxPer = Integer.parseInt(request.getParameter("maxPer"));
+	String investmentType = request.getParameter("investmentType");
+	String sd = request.getParameter("sd");
+	String bm = request.getParameter("bm");
+	String sr = request.getParameter("sr");
+	String te = request.getParameter("te");
+	String ja = request.getParameter("ja");
+	String ir = request.getParameter("ir");
+	double fund = Double.parseDouble(request.getParameter("fund"));
+	double deposit = Double.parseDouble(request.getParameter("deposit"));
+	double saving = Double.parseDouble(request.getParameter("saving"));
+	double pension = Double.parseDouble(request.getParameter("pension"));
+	String start = request.getParameter("start");
+	String last = request.getParameter("last");
+	
+	PortfolioVO portfolio = new PortfolioVO();
+	portfolio.setMember_id(id);
+	portfolio.setName(name);
+	portfolio.setInvestmentPeriod(investmentPeriod);
+	portfolio.setInvestmentMoney(investmentMoney);
+	portfolio.setInvestmentRate(investmentRate);
+	portfolio.setMaxPer(maxPer);
+	portfolio.setMinPer(minPer);
+	portfolio.setInvestmentType(investmentType);
+	portfolio.setBm(bm);
+	portfolio.setSd(sd);
+	portfolio.setSr(sr);
+	portfolio.setTe(te);
+	portfolio.setJa(ja);
+	portfolio.setIr(ir);
+	portfolio.setFund(fund);
+	portfolio.setDeposit(deposit);
+	portfolio.setSaving(saving);
+	portfolio.setPension(pension);
+	portfolio.setStart(start);
+	portfolio.setLast(last);
+	*/
 }

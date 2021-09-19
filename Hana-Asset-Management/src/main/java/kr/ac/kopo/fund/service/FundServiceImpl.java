@@ -42,11 +42,11 @@ public class FundServiceImpl implements FundService{
 		      
 		      Elements element = doc.select("div[id=content]");
 		      
-//		      Iterator<Element> le1 = element.select("div[class=spot fund_deatil]>div[class=rate_info]>div[class=today]>p[class=no_today no_today_v2]>em").iterator();
+		      Iterator<Element> le1 = element.select("div[class=spot fund_deatil]>div[class=rate_info]>div[class=today]>p[class=no_today no_today_v2]>em").iterator();
 //		      Iterator<Element> le3 = element.select("div[class=spot fund_deatil]>div[class=rate_info]>table[class=no_info]>tbody>tr>td").iterator();
-		      Iterator<Element> le4 = element.select("div[class=section_analysis]>table[class=tbl_fund]>tbody>tr>td").iterator();
+//		      Iterator<Element> le4 = element.select("div[class=section_analysis]>table[class=tbl_fund]>tbody>tr>td").iterator();
 		      
-		      /*
+		      
 		      String price = "";
 		      String three_month_rate ="";
 			  String[] three_mr = new String[5];
@@ -68,7 +68,7 @@ public class FundServiceImpl implements FundService{
 				  break;
 			  }
 			  
-			 
+			 /*
 			  while(le3.hasNext()) {
 				  
 				  three_month_rate = le3.next().text();

@@ -128,94 +128,12 @@
 	      
 	}
 
-   
-   <%--
-   	function drawChart2() {
-  	  	  var idCheck = '${ userVO.id }';
-	      var jsonData = $.ajax({
-	         
-	         url : "${ pageContext.request.contextPath }/customerList2",
-	         data: { id: idCheck},
-	         dataType : "JSON",
-	         async : false
-	      }).responseText;
-	      console.log(jsonData);
-	      
-	      var data = new google.visualization.DataTable(jsonData);
-	      
-	      /* var chart = new google.visualization.PieChart(document.getElementById('chart_div')); */
-	      /* var chart = new google.visualization.LineChart(document.getElementById('chart_div')); */
-	      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-	      
-	      chart.draw(data, {
-	         title : "<지난 6개월간 월별 지출액>",
-	         curveType : "function",
-	         fontSize: 16,
-	         width : 800,
-	         height : 400,
-	         colors: ['red','orange','yellow','green'],
-	         is3D: true
-	      });
-	      
-	}
-   	function drawChart3() {
-  	  	  var idCheck = '${ userVO.id }';
-	      var jsonData = $.ajax({
-	         
-	         url : "${ pageContext.request.contextPath }/customerList3",
-	         data: { id: idCheck},
-	         dataType : "JSON",
-	         async : false
-	      }).responseText;
-	      console.log(jsonData);
-	      
-	      var data = new google.visualization.DataTable(jsonData);
-	      
-	      /* var chart = new google.visualization.PieChart(document.getElementById('chart_div')); */
-	      /* var chart = new google.visualization.LineChart(document.getElementById('chart_div')); */
-	      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-	      
-	      chart.draw(data, {
-	         title : "<지난 3개월간 월별 지출액>",
-	         curveType : "function",
-	         fontSize: 16,
-	         width : 800,
-	         height : 400,
-	         colors: ['red','orange','yellow','green'],
-	         is3D: true
-	      });
-	      
-	}
-   	--%>
-</script>
-<script>
-
+   <%-- 작은 원형그래프 --%>
    google.load('visualization','1', {
       'packages' : ['corechart']
    })
    
    google.setOnLoadCallback(drawChart2);
-   
-   var id = '${ portfolio.member_id }';
-   var username = '${ userVO.name }';
-   var investP = '${ portfolio.investmentPeriod }';
-   var investM = '${ portfolio.investmentMoney }';
-   var investR = '${ portfolio.investmentRate }';
-   var min = '${ portfolio.minPer }';
-   var max = '${ portfolio.maxPer }';
-   var type = '${ portfolio.investmentType }';
-   var stand = '${ portfolio.sd }';   
-   var beta = '${ portfolio.bm }';     
-   var sharpe = '${ portfolio.sr }';     
-   var tracking = '${ portfolio.te }';     
-   var jensen = '${ portfolio.ja }';     
-   var information = '${ portfolio.ir }';     
-   var fundRate = '${ portfolio.fund }';   
-   var depositRate = '${ portfolio.deposit }';
-   var savingRate = '${ portfolio.saving }'; 
-   var pensionRate = '${ portfolio.pension }';
-   var startDay = '${ portfolio.start }';  
-   var lastDay = '${ portfolio.last }';
    
    function drawChart2() {
 	   
@@ -249,8 +167,66 @@
 	      
 	}
 
+   
+   <%-- 포트폴리오 원형그래프 --%>
+   google.load('visualization','1', {
+      'packages' : ['corechart']
+   })
+   
+   google.setOnLoadCallback(drawChart3);
+   
+   function drawChart3() {
+	   
+	   	  var jsonData = $.ajax({
+	         
+	         url : "${ pageContext.request.contextPath }/recommendPortfolio",
+	         data: { member_id : id, name : username, investmentPeriod : investP, investmentMoney : investM, investmentRate : investR,
+	  		   minPer : min, maxPer : max, investmentType : type, sd : stand, bm : beta, sr : sharpe, te : tracking, ja : jensen, ir : information,
+			   fund : fundRate, deposit : depositRate, saving : savingRate, pension : pensionRate, start : startDay, last : lastDay },
+	         dataType : "JSON",
+	         async : false
+	      }).responseText;
+	      console.log(jsonData);
+	      
+	      var data = new google.visualization.DataTable(jsonData);
+	      
+	         var chart = new google.visualization.PieChart(document.getElementById('recommend_div')); 
+	      /* var chart = new google.visualization.LineChart(document.getElementById('recommend_div')); */
+	      /* var chart = new google.visualization.ColumnChart(document.getElementById('recommend_div')); */
+	      
+	      chart.draw(data, {
+	    	 title : "<추천 포트폴리오 구성비>",
+	         curveType : "function",
+	         fontSize: 16,
+	         width : 560,
+	         height : 400,
+	         pieHole: 0.7,
+	         chartArea: {
+	        	 'width': '98%',
+	        	 'height' : '90%'
+	       	}
+	      });
+	      
+	}
 </script>
-
+<script>
+		var modal = {
+		  open : function(){
+		    $('#myModal').show();
+		  },
+		  close : function(){
+		    $('#myModal').hide();    
+		  }
+		};
+		     
+		$(document).on('click', '#recommendChart', function(){
+		  modal.open();
+		});
+		
+		$(document).on('click', '#recommendClose', function(){
+		  modal.close();
+		});
+</script>
 <style>
 	.manageMenu:hover {
     		color: #008B8B; 
@@ -373,7 +349,7 @@
 		<h3 style="font-family: 'inherit'; text-align: center;"><strong><${userVO.name}님을 위한 포트폴리오></strong></h3>
 		<hr style="border-color: #008B8B; margin-bottom: 20px; border-width: 1px; width: 23%; text-align: center;">
         <button type="button" onclick="drawChart()" style="margin-left: 220px; text-align: center;">추천 포트폴리오 구성비</button>
-		<button type="button" >추천 포트폴리오 보기</button>
+		<button type="button" id="recommendChart">추천 포트폴리오 보기</button>
 		<button type="button" >3개월간 지출액</button>
         </div>
         
@@ -545,6 +521,28 @@
 			 	</div>
 		     </c:if>
         </div>
+        <!-- The Modal -->
+	    <div id="myModal" class="modal">
+	 
+	      <!-- Modal content -->
+	      <div class="modal-content" style="border-color: #008B8B; border-width: 3px; width: 1000px;">
+                
+            <h3 style="font-family: 'inherit'; text-align: center;"><strong>월별 지출액 한눈에 보기</strong></h3>
+			<hr style="border-color: #008B8B; margin-bottom: 20px; border-width: 1px; width: 23%;">
+	        <div id="recommend_div" align="center">
+	
+			</div>
+			<div align="center">
+				
+			</div>
+	        <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px; margin-top: 20px;" id="recommendClose">
+                <span class="pop_bt" style="font-size: 13pt;" >
+                     닫기
+                </span>
+            </div>           
+	      </div>
+	    </div>
+        <!--End Modal-->
 	</section>
 	<footer style="clear: both;">
 		<jsp:include page="/WEB-INF/include/footer.jsp" />

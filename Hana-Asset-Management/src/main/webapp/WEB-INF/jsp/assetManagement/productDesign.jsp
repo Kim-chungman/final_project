@@ -174,7 +174,7 @@
         	</h2>
         </div>
         <div>
-        	<form action="${ pageContext.request.contextPath }/testing" method="post">
+        	<form action="${ pageContext.request.contextPath }/portfolio" method="post">
         	<input type="hidden" id="investmentType" name="investmentType" value="${ investType }">
         	<input type="hidden" id="rrn" name="rrn" value="${ userVO.rrn }">
         	<input type="hidden" id="member_id" name="member_id" value="${ userVO.id }">

@@ -99,5 +99,13 @@ public class PortfolioServiceImpl implements PortfolioService {
         
 		return data;
 	}
+
+	@Override
+	public JSONObject getPortfolioData(PortfolioVO portfolio) {
+		
+		
+		
+		return null;
+	}
 	
 }

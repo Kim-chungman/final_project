@@ -8,4 +8,6 @@ public interface PortfolioService {
 
 	JSONObject getChartData(PortfolioVO portfolio);
 
+	JSONObject getPortfolioData(PortfolioVO portfolio);
+
 }
