@@ -37,8 +37,8 @@
 		   where (((select investment_type from cm_member where id=#{member_id})=1 and r.fund_name = f.fund_name and f.type in ('매우낮은위험')) or
 		    ((select investment_type from cm_member where id=#{member_id})=2 and r.fund_name = f.fund_name and f.type in ('매우낮은위험', '낮은위험')) or
 		     ((select investment_type from cm_member where id=#{member_id})=3 and r.fund_name = f.fund_name and f.type in ('매우낮은위험', '낮은위험', '보통위험')) or
-		      ((select investment_type from cm_member where id=#{member_id})=4 and r.fund_name = f.fund_name and f.type in ('매우낮은위험', '낮은위험', '보통위험', '다소높은위험')) or
-		       ((select investment_type from cm_member where id=#{member_id})=5 and r.fund_name = f.fund_name and f.type in ('매우낮은위험', '낮은위험', '보통위험', '다소높은위험', '높은위험', '매우높은위험')))
+		      ((select investment_type from cm_member where id=#{member_id})=4 and r.fund_name = f.fund_name and f.type in ('낮은위험', '보통위험', '다소높은위험')) or
+		       ((select investment_type from cm_member where id=#{member_id})=5 and r.fund_name = f.fund_name and f.type in ('낮은위험', '다소높은위험', '높은위험', '매우높은위험')))
 		        and r.type in (#{sd}, #{sr}, #{bm}, #{te}, #{ja}, #{ir})
 		         order by ONE_MONTH_RATE desc
 	</select>

@@ -136,7 +136,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 				stats2.addValue(index.getAvg_five_year_rate()+1);
 				double avg_geometricMean = stats2.getGeometricMean();
 				
-				if(index_geometricMean>avg_geometricMean) {
+				if(index_geometricMean>=avg_geometricMean) {
 					plan.add(index);
 				}
 			}
@@ -161,7 +161,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 				stats2.addValue(index.getAvg_five_year_rate()+1);
 				double avg_geometricMean = stats2.getGeometricMean();
 				
-				if(index_geometricMean>avg_geometricMean) {
+				if(index_geometricMean>=avg_geometricMean) {
 					plan.add(index);
 				}
 			}
@@ -186,7 +186,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 				stats2.addValue(index.getAvg_five_year_rate()+1);
 				double avg_geometricMean = stats2.getGeometricMean();
 				
-				if(index_geometricMean>avg_geometricMean) {
+				if(index_geometricMean>=avg_geometricMean) {
 					plan.add(index);
 				}
 			}
@@ -211,7 +211,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 				stats2.addValue(index.getAvg_five_year_rate()+1);
 				double avg_geometricMean = stats2.getGeometricMean();
 				
-				if(index_geometricMean>avg_geometricMean) {
+				if(index_geometricMean<=avg_geometricMean) {
 					plan.add(index);
 				}
 			}
@@ -236,7 +236,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 				stats2.addValue(index.getAvg_five_year_rate()+1);
 				double avg_geometricMean = stats2.getGeometricMean();
 				
-				if(index_geometricMean>avg_geometricMean) {
+				if(index_geometricMean>=avg_geometricMean) {
 					plan.add(index);
 				}
 			}
@@ -261,7 +261,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 				stats2.addValue(index.getAvg_five_year_rate()+1);
 				double avg_geometricMean = stats2.getGeometricMean();
 				
-				if(index_geometricMean>avg_geometricMean) {
+				if(index_geometricMean<=avg_geometricMean) {
 					plan.add(index);
 				}
 			}
@@ -289,12 +289,16 @@ public class PortfolioServiceImpl implements PortfolioService {
 			double randomValue = Math.random();
 			num = (int)(randomValue * plan.size()) -1;
 			AnalysisVO product = plan.get(num);
-			planA.add(product);
+			if(product.getOne_year_rate()<=0) {
+				if(i!=0) i--;
+			} else {
+				planA.add(product);
+			}
 			for(int j=0; j<i; j++) {
 				if(planA.get(j).getFund_company().equals(product.getFund_company())) {
 					planA.remove(j);
 					i--;
-				}
+				} 
 			}
 		}
 		
@@ -307,14 +311,26 @@ public class PortfolioServiceImpl implements PortfolioService {
 			for(int i=0; i<stand.size(); i++) {
 				if(recommend.getFund_code().equals(stand.get(i).getFund_code())) {
 					deviation = stand.get(i).getIndex_one_year_rate();
-					if(deviation<0) {
-						deviation -= 1.2*deviation;
+					if(deviation < 0) {
+						if(recommend.getType().equals("매우낮은위험")) {
+							deviation = deviation - (1.1*deviation);
+						} else if(recommend.getType().equals("낮은위험")) {
+							deviation = deviation - (1.4*deviation);
+						} else if(recommend.getType().equals("보통위험")) {
+							deviation = deviation - (1.5*deviation);
+						} else if(recommend.getType().equals("다소높은위험")) {
+							deviation = deviation - (1.6*deviation);
+						} else if(recommend.getType().equals("높은위험")) {
+							deviation = deviation - (1.6*deviation);
+						} else if(recommend.getType().equals("매우높은위험")) {
+							deviation = deviation - (1.6*deviation);
+						}
 					}
 					break;
 				}
 			}
 			stats.addValue(recommend.getOne_year_rate()+deviation+0.5);
-			stats2.addValue(deviation);
+			stats2.addValue(deviation+0.7);
 		}
 		double rate = stats.getGeometricMean();
 		double totalDeviation = stats2.getGeometricMean();
