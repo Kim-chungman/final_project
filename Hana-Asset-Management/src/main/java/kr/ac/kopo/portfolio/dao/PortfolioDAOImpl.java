@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.portfolio.vo.AnalysisVO;
+import kr.ac.kopo.portfolio.vo.DecidePortfolioVO;
+import kr.ac.kopo.portfolio.vo.MemberPortfolioVO;
 import kr.ac.kopo.portfolio.vo.PortfolioVO;
 
 @Repository
@@ -21,6 +23,28 @@ public class PortfolioDAOImpl implements PortfolioDAO{
 		List<AnalysisVO> analysis = sqlSessionTemplate.selectList("fund.FundDAO.getPortfolioData", portfolio);
 		
 		return analysis;
+	}
+
+	@Override
+	public void planInsert(DecidePortfolioVO decide) {
+		
+		sqlSessionTemplate.insert("fund.FundDAO.planInsert", decide);
+		
+	}
+
+	@Override
+	public List<DecidePortfolioVO> planSelect(PortfolioVO portfolio) {
+		
+		List<DecidePortfolioVO> list = sqlSessionTemplate.selectList("fund.FundDAO.planSelect", portfolio);
+		
+		return list;
+	}
+
+	@Override
+	public void protfolioInsert(MemberPortfolioVO decide) {
+
+		sqlSessionTemplate.insert("fund.FundDAO.protfolioInsert", decide);
+		
 	}
 
 }

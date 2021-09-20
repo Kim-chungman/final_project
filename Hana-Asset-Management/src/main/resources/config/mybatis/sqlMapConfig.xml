@@ -11,5 +11,7 @@
 		<typeAlias type="kr.ac.kopo.fund.vo.RatioVO" alias="ratioVO" />
 		<typeAlias type="kr.ac.kopo.portfolio.vo.PortfolioVO" alias="portfolioVO" />
 		<typeAlias type="kr.ac.kopo.portfolio.vo.AnalysisVO" alias="analysisVO" />
+		<typeAlias type="kr.ac.kopo.portfolio.vo.DecidePortfolioVO" alias="decidePortfolioVO" />
+		<typeAlias type="kr.ac.kopo.portfolio.vo.MemberPortfolioVO" alias="memberPortfolioVO" />
 	</typeAliases>
 </configuration>

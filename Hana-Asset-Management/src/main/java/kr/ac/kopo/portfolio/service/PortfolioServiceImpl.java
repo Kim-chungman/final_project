@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 
 import kr.ac.kopo.portfolio.dao.PortfolioDAO;
 import kr.ac.kopo.portfolio.vo.AnalysisVO;
+import kr.ac.kopo.portfolio.vo.DecidePortfolioVO;
+import kr.ac.kopo.portfolio.vo.MemberPortfolioVO;
 import kr.ac.kopo.portfolio.vo.PortfolioVO;
 
 @Service
@@ -107,7 +109,115 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 
 	@Override
-	public JSONObject getPortfolioData(PortfolioVO portfolio, Model model) {
+	public JSONObject getPortfolioData(PortfolioVO portfolio) {
+		
+		List<DecidePortfolioVO> list = portfolioDAO.planSelect(portfolio);
+		
+		JSONObject data = new JSONObject();
+	     
+	    JSONObject col1 = new JSONObject();
+	    JSONObject col2 = new JSONObject();
+		
+	    JSONArray title = new JSONArray();
+	      
+		col1.put("label", "종목");
+		col1.put("type", "string");
+		col2.put("label", "구성비");
+		col2.put("type", "number");
+	    
+		title.add(col1);
+	    title.add(col2);
+		
+	    data.put("cols", title);
+	    
+	    JSONArray body = new JSONArray();
+	    
+	    if(list.get(0).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", list.get(0).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 25);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(list.get(1).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", list.get(1).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 10);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(list.get(2).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", list.get(2).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 15);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(list.get(3).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", list.get(3).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 20);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(list.get(4).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", list.get(4).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 20);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    if(list.get(5).getFund_name()!=null) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", list.get(5).getFund_name());
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", 10);
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+        
+        data.put("rows", body);
+		
+		return data;
+	}
+
+	@Override
+	public List<DecidePortfolioVO> getDecidePortfolio(PortfolioVO portfolio) {
 		
 		List<AnalysisVO> analysis = portfolioDAO.getPortfolioData(portfolio);
 		List<AnalysisVO> plan = new ArrayList<AnalysisVO>();
@@ -338,109 +448,57 @@ public class PortfolioServiceImpl implements PortfolioService {
 		System.out.println("1년 예상수익률 : " + rate + "% 입니다.");
 		System.out.println("변동성 : " + totalDeviation + "% 입니다.");
 		
-		JSONObject data = new JSONObject();
-	     
-	    JSONObject col1 = new JSONObject();
-	    JSONObject col2 = new JSONObject();
+		DecidePortfolioVO decide = new DecidePortfolioVO();
+		for(AnalysisVO recommend : planA) {
+			
+			decide.setFund_code(recommend.getFund_code());
+			decide.setFund_company(recommend.getFund_company());
+			decide.setFund_name(recommend.getFund_name());
+			decide.setType(recommend.getType());
+			decide.setTotal_asset(recommend.getTotal_asset());
+			decide.setPresent_price(recommend.getPresent_price());
+			decide.setOne_month_rate(recommend.getOne_month_rate());
+			decide.setThree_month_rate(recommend.getThree_month_rate());
+			decide.setSix_month_rate(recommend.getSix_month_rate());
+			decide.setOne_year_rate(recommend.getOne_year_rate());
+			decide.setRate(rate);
+			decide.setTotal_deviation(totalDeviation);
+			if(planA.get(0).getFund_code().equals(recommend.getFund_code())) {
+				decide.setRatio(25);
+			}
+			if(planA.get(1).getFund_code().equals(recommend.getFund_code())) {
+				decide.setRatio(10);
+			}
+			if(planA.get(2).getFund_code().equals(recommend.getFund_code())) {
+				decide.setRatio(15);
+			}
+			if(planA.get(3).getFund_code().equals(recommend.getFund_code())) {
+				decide.setRatio(20);
+			}
+			if(planA.get(4).getFund_code().equals(recommend.getFund_code())) {
+				decide.setRatio(20);
+			}
+			if(planA.get(5).getFund_code().equals(recommend.getFund_code())) {
+				decide.setRatio(10);
+			}
+			decide.setMember_id(portfolio.getMember_id());
+			portfolioDAO.planInsert(decide);
+			
+		}
 		
-	    JSONArray title = new JSONArray();
-	      
-		col1.put("label", "종목");
-		col1.put("type", "string");
-		col2.put("label", "구성비");
-		col2.put("type", "number");
-	    
-		title.add(col1);
-	    title.add(col2);
+		MemberPortfolioVO memberFile = new MemberPortfolioVO();
+		memberFile.setProduct1(planA.get(0).getFund_name());
+		memberFile.setProduct2(planA.get(1).getFund_name());
+		memberFile.setProduct3(planA.get(2).getFund_name());
+		memberFile.setProduct4(planA.get(3).getFund_name());
+		memberFile.setProduct5(planA.get(4).getFund_name());
+		memberFile.setProduct6(planA.get(5).getFund_name());
+		memberFile.setMember_id(portfolio.getMember_id());
+		portfolioDAO.protfolioInsert(memberFile);
 		
-	    data.put("cols", title);
-	    
-	    JSONArray body = new JSONArray();
-	    
-	    if(planA.get(0).getFund_name()!=null) {
-		    JSONObject category = new JSONObject();
-		    category.put("v", planA.get(0).getFund_name());
-		    JSONObject productRate = new JSONObject();
-		    productRate.put("v", 25);
-		    JSONArray row = new JSONArray();
-	        row.add(category);
-	        row.add(productRate);
-	        
-	        JSONObject cell = new JSONObject();
-	        cell.put("c", row);
-	        body.add(cell);
-	    }
-	    if(planA.get(1).getFund_name()!=null) {
-		    JSONObject category = new JSONObject();
-		    category.put("v", planA.get(1).getFund_name());
-		    JSONObject productRate = new JSONObject();
-		    productRate.put("v", 10);
-		    JSONArray row = new JSONArray();
-	        row.add(category);
-	        row.add(productRate);
-	        
-	        JSONObject cell = new JSONObject();
-	        cell.put("c", row);
-	        body.add(cell);
-	    }
-	    if(planA.get(2).getFund_name()!=null) {
-		    JSONObject category = new JSONObject();
-		    category.put("v", planA.get(2).getFund_name());
-		    JSONObject productRate = new JSONObject();
-		    productRate.put("v", 15);
-		    JSONArray row = new JSONArray();
-	        row.add(category);
-	        row.add(productRate);
-	        
-	        JSONObject cell = new JSONObject();
-	        cell.put("c", row);
-	        body.add(cell);
-	    }
-	    if(planA.get(3).getFund_name()!=null) {
-		    JSONObject category = new JSONObject();
-		    category.put("v", planA.get(3).getFund_name());
-		    JSONObject productRate = new JSONObject();
-		    productRate.put("v", 20);
-		    JSONArray row = new JSONArray();
-	        row.add(category);
-	        row.add(productRate);
-	        
-	        JSONObject cell = new JSONObject();
-	        cell.put("c", row);
-	        body.add(cell);
-	    }
-	    if(planA.get(4).getFund_name()!=null) {
-		    JSONObject category = new JSONObject();
-		    category.put("v", planA.get(4).getFund_name());
-		    JSONObject productRate = new JSONObject();
-		    productRate.put("v", 20);
-		    JSONArray row = new JSONArray();
-	        row.add(category);
-	        row.add(productRate);
-	        
-	        JSONObject cell = new JSONObject();
-	        cell.put("c", row);
-	        body.add(cell);
-	    }
-	    if(planA.get(5).getFund_name()!=null) {
-		    JSONObject category = new JSONObject();
-		    category.put("v", planA.get(5).getFund_name());
-		    JSONObject productRate = new JSONObject();
-		    productRate.put("v", 10);
-		    JSONArray row = new JSONArray();
-	        row.add(category);
-	        row.add(productRate);
-	        
-	        JSONObject cell = new JSONObject();
-	        cell.put("c", row);
-	        body.add(cell);
-	    }
-        
-        data.put("rows", body);
-        
-        model.addAttribute("planA", planA);
+		List<DecidePortfolioVO> list = portfolioDAO.planSelect(portfolio);
 		
-		return data;
+		return list;
 	}
 	
 }

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.ac.kopo.portfolio.service.PortfolioService;
 import kr.ac.kopo.portfolio.vo.AnalysisVO;
+import kr.ac.kopo.portfolio.vo.DecidePortfolioVO;
 import kr.ac.kopo.portfolio.vo.PortfolioVO;
 
 @Controller
@@ -29,6 +30,10 @@ public class portfolioController {
 		
 		System.out.println(portfolio.toString());
 		model.addAttribute("portfolio", portfolio);
+		
+		List<DecidePortfolioVO> list = service.getDecidePortfolio(portfolio);
+		model.addAttribute("planA", list);
+		
 		return new ModelAndView("portfolio/fundPortfolio");
 	}
 	
@@ -46,13 +51,7 @@ public class portfolioController {
 	@ResponseBody
 	public JSONObject recommendPortfolio(PortfolioVO portfolio, Model model, HttpServletRequest request) throws Exception {
 		
-		JSONObject data = service.getPortfolioData(portfolio, model);
-		
-		List<AnalysisVO> planA = (List<AnalysisVO>)model.getAttribute("planA");
-		System.out.println(planA.get(0).getFund_name());
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("planA", planA);
+		JSONObject data = service.getPortfolioData(portfolio);
 		
 		return data;
 	}

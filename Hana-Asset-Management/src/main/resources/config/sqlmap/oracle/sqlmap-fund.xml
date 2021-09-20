@@ -43,4 +43,21 @@
 		         order by ONE_MONTH_RATE desc
 	</select>
 	
+	<insert id="planInsert" parameterType="DecidePortfolioVO">
+		INSERT INTO CM_FUND_DECIDE 
+		 VALUES(FUND_DECIDE_SEQ.NEXTVAL, #{fund_code}, #{fund_company}, #{fund_name}, #{type}, #{total_asset}, #{present_price}, #{one_month_rate}, #{three_month_rate}, #{six_month_rate}, #{one_year_rate}, #{rate}, #{total_deviation}, #{ratio}, #{member_id})
+	</insert>
+	
+	<select id="planSelect" parameterType="PortfolioVO" resultType="DecidePortfolioVO">
+	 	SELECT *
+	 	 FROM CM_FUND_DECIDE
+	 	  where member_id = #{member_id}
+	 	   order by fund_ratio_no
+	</select>
+	
+	<insert id="protfolioInsert" parameterType="MemberPortfolioVO">
+		insert into CM_PORTFOLIO
+		 values(CM_PORTFOLIO_SEQ.nextval, #{product1}, #{product2}, #{product3}, #{product4}, #{product5}, #{product6}, #{member_id})
+	</insert>
+	
 </mapper>
