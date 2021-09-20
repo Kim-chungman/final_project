@@ -34,6 +34,11 @@ public class portfolioController {
 		List<DecidePortfolioVO> list = service.getDecidePortfolio(portfolio);
 		model.addAttribute("planA", list);
 		
+		double rate = list.get(0).getRate();
+		double deviation = list.get(0).getTotal_deviation();
+		model.addAttribute("rate", rate);
+		model.addAttribute("deviation", deviation);
+		
 		return new ModelAndView("portfolio/fundPortfolio");
 	}
 	

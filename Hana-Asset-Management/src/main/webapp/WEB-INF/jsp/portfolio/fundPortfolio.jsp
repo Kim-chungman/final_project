@@ -269,9 +269,23 @@
         <div id="chart_div" style="margin-top: 50px; width: 100%;">
 
 		</div>
+        <div>
+        	<hr style="border-color: #ADD8E6; border-width: 1px; width: 900px;">
+        	<p style="font-size: 16pt; text-align: center;">입력하신 펀드유형별 투자금액을 예상 투자기간 동안 투자한 결과,</p>
+        	<h3 style="text-align: center;">총 손익은 약 
+        	<strong style="color: #F08080; font-size: 20pt;"><fmt:formatNumber type="number" maxFractionDigits="0" value="${ (portfolio.investmentMoney * 12 * rate)/100 }" /></strong>
+        	<strong style="color: #F08080;">원</strong>
+        	이며 연간 평균 수익률은 약
+        	<strong style="color: #F08080; font-size: 20pt;"><fmt:formatNumber type="number" maxFractionDigits="2" value=" ${ rate }" />%</strong>
+        	이며, 변동성은 약
+        	<strong style="color: #F08080; font-size: 20pt;"><fmt:formatNumber type="number" maxFractionDigits="2" value=" ${ deviation }" />%</strong>
+        	입니다.
+        	</h3>
+        	<hr style="border-color: #ADD8E6; border-width: 1px; margin-top: 20px; width: 900px;">
+        </div>
         
         <div>
-        	<table style="height: 700px; width: 900px;">
+        	<table style="height: 700px; width: 900px; margin-left: 22px;">
         		<tr>
         			<th style=" font-size: 12pt;">종목명</th>
         			<th style=" font-size: 12pt;">1개월 수익률</th>
@@ -282,11 +296,31 @@
         		</tr>
         		<c:forEach items="${ planA }" var="planA" varStatus="Loop">
         		<tr>
-        			<td style="text-align: left; font-size: 12pt;">${ planA.fund_name }</td>
-        			<td style="text-align: center; font-size: 12pt;">${ planA.one_month_rate }</td>
-        			<td style="text-align: center; font-size: 12pt;">${ planA.three_month_rate }</td>
-        			<td style="text-align: center; font-size: 12pt;">${ planA.six_month_rate }</td>
-        			<td style="text-align: center; font-size: 12pt;">${ planA.one_year_rate }</td>
+        			<td style="text-align: left; font-size: 12pt;"><strong>${ planA.fund_name }</strong></td>
+        			<c:if test="${ planA.one_month_rate gt 0 }">
+        				<td style="text-align: center; font-size: 12pt; color: #F08080;"><strong>${ planA.one_month_rate }</strong></td>
+        			</c:if>
+        			<c:if test="${ planA.one_month_rate lt 0 }">
+        				<td style="text-align: center; font-size: 12pt; color: #48D1CC;"><strong>${ planA.one_month_rate }</strong></td>
+        			</c:if>
+        			<c:if test="${ planA.three_month_rate gt 0 }">
+        				<td style="text-align: center; font-size: 12pt; color: #F08080;"><strong>${ planA.three_month_rate }</strong></td>
+        			</c:if>
+        			<c:if test="${ planA.three_month_rate lt 0 }">
+        				<td style="text-align: center; font-size: 12pt; color: #48D1CC;"><strong>${ planA.three_month_rate }</strong></td>
+        			</c:if>
+        			<c:if test="${ planA.six_month_rate gt 0 }">
+        				<td style="text-align: center; font-size: 12pt; color: #F08080;"><strong>${ planA.six_month_rate }</strong></td>
+        			</c:if>
+        			<c:if test="${ planA.six_month_rate lt 0 }">
+        				<td style="text-align: center; font-size: 12pt; color: #48D1CC;"><strong>${ planA.six_month_rate }</strong></td>
+        			</c:if>
+        			<c:if test="${ planA.one_year_rate gt 0 }">
+        				<td style="text-align: center; font-size: 12pt; color: #F08080;"><strong>${ planA.one_year_rate }</strong></td>
+        			</c:if>
+        			<c:if test="${ planA.one_year_rate lt 0 }">
+        				<td style="text-align: center; font-size: 12pt; color: #48D1CC;"><strong>${ planA.one_year_rate }</strong></td>
+        			</c:if>
         			<td style="text-align: center; font-size: 12pt;">
 						<input type="button" onclick="open_in_frame('https://dis.kofia.or.kr/websquare/popup.html?w2xPath=/wq/com/popup/DISComFundSmryInfo.xml&companyCd=&standardCd=${ planA.fund_code }')" value="자세히보기"
 							style="font-size:13pt; width: 100px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none;"/>
@@ -339,7 +373,7 @@
         	<input type="hidden" name="pension" value="${ portfolio.pension }">
         	<input type="hidden" name="start" value="${ portfolio.start }">
         	<input type="hidden" name="last" value="${ portfolio.last }">
-   			<input type="submit" value="상품별 자세히보기" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 300px;">
+   			<input type="submit" value="예적금 및 연금보기" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 300px;">
         </form>
         
 	</section>
