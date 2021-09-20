@@ -22,6 +22,7 @@ public class PortfolioVO {
 	private double pension;
 	private String start;
 	private String last;
+	private String investMethod;
 	
 	public String getMember_id() {
 		return member_id;
@@ -142,6 +143,12 @@ public class PortfolioVO {
 	}
 	public void setLast(String last) {
 		this.last = last;
+	}
+	public String getInvestMethod() {
+		return investMethod;
+	}
+	public void setInvestMethod(String investMethod) {
+		this.investMethod = investMethod;
 	}
 	
 	@Override
