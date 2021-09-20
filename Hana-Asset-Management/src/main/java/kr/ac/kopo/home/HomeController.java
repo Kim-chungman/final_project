@@ -47,4 +47,9 @@ public class HomeController {
 	public String design5060() {
 		return "plan/plan5060";
 	}
+	
+	@GetMapping("/myPage")
+	public String myPage() {
+		return "myPage/myPage";
+	}
 }
