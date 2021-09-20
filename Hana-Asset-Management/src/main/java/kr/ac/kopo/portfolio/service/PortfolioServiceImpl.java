@@ -448,9 +448,8 @@ public class PortfolioServiceImpl implements PortfolioService {
 		System.out.println("1년 예상수익률 : " + rate + "% 입니다.");
 		System.out.println("변동성 : " + totalDeviation + "% 입니다.");
 		
-		DecidePortfolioVO decide = new DecidePortfolioVO();
 		for(AnalysisVO recommend : planA) {
-			
+			DecidePortfolioVO decide = new DecidePortfolioVO();
 			decide.setFund_code(recommend.getFund_code());
 			decide.setFund_company(recommend.getFund_company());
 			decide.setFund_name(recommend.getFund_name());
@@ -464,22 +463,22 @@ public class PortfolioServiceImpl implements PortfolioService {
 			decide.setRate(rate);
 			decide.setTotal_deviation(totalDeviation);
 			if(planA.get(0).getFund_code().equals(recommend.getFund_code())) {
-				decide.setRatio(25);
+				decide.setRatio(10);
 			}
 			if(planA.get(1).getFund_code().equals(recommend.getFund_code())) {
-				decide.setRatio(10);
+				decide.setRatio(20);
 			}
 			if(planA.get(2).getFund_code().equals(recommend.getFund_code())) {
-				decide.setRatio(15);
+				decide.setRatio(20);
 			}
 			if(planA.get(3).getFund_code().equals(recommend.getFund_code())) {
-				decide.setRatio(20);
+				decide.setRatio(15);
 			}
 			if(planA.get(4).getFund_code().equals(recommend.getFund_code())) {
-				decide.setRatio(20);
+				decide.setRatio(10);
 			}
 			if(planA.get(5).getFund_code().equals(recommend.getFund_code())) {
-				decide.setRatio(10);
+				decide.setRatio(25);
 			}
 			decide.setMember_id(portfolio.getMember_id());
 			portfolioDAO.planInsert(decide);

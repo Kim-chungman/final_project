@@ -43,6 +43,11 @@
 		         order by ONE_MONTH_RATE desc
 	</select>
 	
+	<delete id="planDelete" parameterType="DecidePortfolioVO">
+		DELETE FROM CM_FUND_DECIDE
+		 WHERE MEMBER_ID=#{member_id}
+	</delete>
+	
 	<insert id="planInsert" parameterType="DecidePortfolioVO">
 		INSERT INTO CM_FUND_DECIDE 
 		 VALUES(FUND_DECIDE_SEQ.NEXTVAL, #{fund_code}, #{fund_company}, #{fund_name}, #{type}, #{total_asset}, #{present_price}, #{one_month_rate}, #{three_month_rate}, #{six_month_rate}, #{one_year_rate}, #{rate}, #{total_deviation}, #{ratio}, #{member_id})
@@ -50,9 +55,8 @@
 	
 	<select id="planSelect" parameterType="PortfolioVO" resultType="DecidePortfolioVO">
 	 	SELECT *
-	 	 FROM CM_FUND_DECIDE
-	 	  where member_id = #{member_id}
-	 	   order by fund_ratio_no
+	 	 FROM (select * from CM_FUND_DECIDE where member_id=#{member_id} order by fund_ratio_no desc)
+	 	  where 6 >= rownum
 	</select>
 	
 	<insert id="protfolioInsert" parameterType="MemberPortfolioVO">
