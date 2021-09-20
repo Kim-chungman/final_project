@@ -52,4 +52,10 @@ public class HomeController {
 	public String myPage() {
 		return "myPage/myPage";
 	}
+	
+	@GetMapping("/myPage/portfolio")
+	public String myPortfolio() {
+		return "myPage/portfolio";
+	}
+	
 }
