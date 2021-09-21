@@ -87,7 +87,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
                                  </div>
                               </div>
                               <div id="wq_uuid_214" class="w2group bluebox tac fc333 mt0">
-                                 <div id="wq_uuid_215" class="w2textbox fontTy18">Hana Solution 은퇴설계 서비스</div>
+                                 <div id="wq_uuid_215" class="w2textbox fontTy18"><strong style="font-size: 17pt; color: #008B8B;">Hana Solution</strong> 은퇴설계 서비스</div>
                                  <div id="wq_uuid_216" class="w2textbox fontTy15 mt10 fwn">은퇴설계 서비스에
                                     오신 것을 환영합니다.</div>
                               </div>
@@ -117,7 +117,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
                               </div>
                               <div id="wq_uuid_228" class="w2group btnAreaBot btnFix item1" style="width: 50%; margin-left: 400px; margin-bottom: 100px;">
                                  <a id="btn_자가진단시작하기" class="w2anchor2 btnTyBlue02 big"
-                                    href="${ pageContext.request.contextPath }/retire/retireForm">자가진단 시작하기</a>
+                                    href="${ pageContext.request.contextPath }/retire/retireForm" style="background-color: #008B8B;">자가진단 시작하기</a>
                               </div>
                            </div>
                         </div>

@@ -86,39 +86,39 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													</ul>
 												</div>
 											</div>
-											<div id="wq_uuid_261" class="w2group contbox pt20 ">
-												<p id="wq_uuid_262" class="w2textbox fs15">은퇴설계의 유형을 선택해
-													주세요</p>
-												<div id="wq_uuid_263" class="w2group mt35">
-													<div id="rdo_planType" class="w2radio bg_disign item2">
+											<div id="wq_uuid_301" class="w2group contbox pt20 ">
+												<p id="wq_uuid_302" class="w2textbox fs15 ">본인과 배우자중에서
+													누구를 기준으로 은퇴설계를 진행하시겠습니까?</p>
+												<p id="wq_uuid_303" class="w2textbox fc3 fs13 mt15">* 기준이
+													된 사람의 은퇴나이를 기준으로 설계가 진행됩니다.</p>
+												<div id="wq_uuid_304" class="w2group mt35">
+													<div id="rdo_stabdardType" class="w2radio bg_myspouse item2">
 														<div class="w2radio_item w2radio_item_0" style="float: left;">
 															<input type="radio" class="w2radio_input"
-																name="rdo_planType_input" 
-																id="rdo_planType_input_0"><label
+																name="rdo_stabdardType_input" 
+																id="rdo_stabdardType_input_0"><label
 																class="w2radio_label " 
-																for="rdo_planType_input_0">부부설계</label>
+																for="rdo_stabdardType_input_0">본인</label>
 														</div>
 														<div class="w2radio_item w2radio_item_1">
 															<input type="radio" class="w2radio_input"
-																name="rdo_planType_input" 
-																id="rdo_planType_input_1"><label
-																class="w2radio_label " 
-																for="rdo_planType_input_1">단독설계</label>
+																name="rdo_stabdardType_input" 
+																id="rdo_stabdardType_input_1"><label
+																class="w2radio_label "
+																for="rdo_stabdardType_input_1">배우자</label>
 														</div>
 													</div>
 												</div>
-												<div id="wq_uuid_265" class="w2group boxTyWhite mt30">
-													<div id="wq_uuid_266" class="w2textbox tip fontTy13 fc555">은퇴
-														후에는 독신인 가정을 제외하고는 일반적으로 부부가 함께 은퇴 후 생활을 보내게 되므로, 부부가 함께
-														생활하는 기간과 배우자가 홀로 생활 하는 기간에 대한 고려와 준비가 필요합니다. 은퇴를 함께 고민하고
-														미래를 설계하기 위해 부부가 함께 설계하기를 추천드립니다.</div>
+												<div id="wq_uuid_306" class="w2group boxTyWhite mt30">
+													<div id="wq_uuid_307" class="w2textbox tip fontTy13 fc555">맞벌이
+														부부인 경우에는 소득이 더 크거나 직장을 더 오래 다니는 사람을 기준으로 은퇴설계를 진행하시면 됩니다.</div>
 												</div>
 											</div>
-											<div id="wq_uuid_267" class="w2group btnAreaBot btnFix item2" style="width: 50%; margin-left: 400px; margin-bottom: 100px;">
-												<a id="btn_F12이전" class="w2anchor2 btnTyGray02 big"
-													href="${ pageContext.request.contextPath }/retire/agree">이전</a><a id="btn_F12다음"
+											<div id="wq_uuid_308" class="w2group btnAreaBot btnFix item2" style="width: 50%; margin-left: 400px; margin-bottom: 100px;">
+												<a id="btn_F13이전" class="w2anchor2 btnTyGray02 big"
+													href="${ pageContext.request.contextPath }/retire/retireForm">이전</a><a id="btn_F13다음"
 													class="w2anchor2 btnTyBlue02 big"
-													href="${ pageContext.request.contextPath }/retire/retireForm2" style="background-color: #008B8B;">다음</a>
+													href="${ pageContext.request.contextPath }/retire/retireForm3" style="background-color: #008B8B;">다음</a>
 											</div>
 										</div>
 									</div>
