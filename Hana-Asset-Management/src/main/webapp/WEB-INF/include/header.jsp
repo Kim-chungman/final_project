@@ -206,15 +206,13 @@
                                         <li><a href="${ pageContext.request.contextPath }/assetManagement/investmentForm" style="color: #008B8B;">투자성향확인</a></li>
                                         <li><a href="${ pageContext.request.contextPath }/plan/expense" style="color: #008B8B;">소비지출분석</a></li>
                                         <li><a href="${ pageContext.request.contextPath }/financial/financialPosition" style="color: #008B8B;">재무상태분석</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="${ pageContext.request.contextPath }/plan" style="color: #008B8B;">맞춤설계</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-big-image.jsp" style="color: #008B8B;">연령별 재무설계</a></li>
+                                    	<li><a href="blog-big-image.jsp" style="color: #008B8B;">연령별 재무설계</a></li>
                                         <li><a href="blog-small-image.jsp" style="color: #008B8B;">목표 재무설계</a></li>
                                         <li><a href="error-404.jsp" style="color: #008B8B;">fun한 재무설계</a></li>
                                     </ul>
+                                </li>
+                                <li>
+                                    <a href="${ pageContext.request.contextPath }/retire" style="color: #008B8B;">은퇴설계</a>
                                 </li>
                                 <li>
                                     <a href="${ pageContext.request.contextPath }/report" style="color: #008B8B;">보고서</a>
