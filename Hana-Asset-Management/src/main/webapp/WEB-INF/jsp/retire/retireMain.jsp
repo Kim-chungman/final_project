@@ -31,19 +31,19 @@
 				</h2>
 				<ul>
 					<li class="" id="joinBtn"><a> <span>1편</span>
-							<p>연금? 그게 뭐야?</p>
+							연금? 그게 뭐야?
 					</a></li>
 					<li class=""><a> <span>2편</span>
-							<p>개인연금 상품편</p>
+							개인연금 상품편
 					</a></li>
 					<li class=""><a> <span>3편</span>
-							<p>세액공제 디테일편</p>
+							세액공제 디테일편
 					</a></li>
 				</ul>
 			</div>
 			<div class="img">
 				<img src="${ pageContext.request.contextPath }/resources/retire/irp06.png" alt="">
-				<a href="${ pageContext.request.contextPath }/">
+				<a href="${ pageContext.request.contextPath }/retire/agree">
 				<button type="button" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 200px; margin-top: 20px;">
 					가입하기
 				</button></a>

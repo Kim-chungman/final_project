@@ -52,6 +52,7 @@
 			<mvc:exclude-mapping path="/product" />
 			<mvc:exclude-mapping path="/assetManagement/explain" />
 			<mvc:exclude-mapping path="/counseling" />
+			<mvc:exclude-mapping path="/retire" />
 			<mvc:exclude-mapping path="/" />
 			<ref bean="LoginIntercepter"/>
 		</mvc:interceptor>
