@@ -25,7 +25,7 @@
        <div x-data="{ isActive: true, open: true}">
          <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
          <a
-           href="#"
+           href="${ pageContext.request.contextPath }/"
            @click="$event.preventDefault(); open = !open"
            class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
            :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
@@ -87,6 +87,13 @@
              class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
            >
              포트폴리오 수익률
+           </a>
+           <a
+             href="${ pageContext.request.contextPath }/"
+             role="menuitem"
+             class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+           >
+             Hana Solution 홈페이지로
            </a>
          </div>
        </div>

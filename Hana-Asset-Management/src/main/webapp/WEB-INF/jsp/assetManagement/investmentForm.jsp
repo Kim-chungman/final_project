@@ -94,6 +94,17 @@
 		
 		
 		</script>
+		<script type="text/javascript">
+      
+	        jQuery(document).ready(function() {
+	                $('#myModal').show();
+	        });
+	        //팝업 Close 기능
+	        function close_pop(flag) {
+	             $('#myModal').hide();
+	        };
+        
+    	</script>
         
     </head>
     <!-- END HEAD -->
@@ -126,6 +137,27 @@
 		background-color: white;
 		}
     	
+    	/* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+        }
+    
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%; /* Could be more or less, depending on screen size */                          
+        }
+
     </style>
 <body>
 	<header>
@@ -241,6 +273,28 @@
 		</div>
 		<button id="agreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 40%;">확인</button>
 		<button id="unagreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none;">취소</button>
+		
+		<!-- The Modal -->
+	    <div id="myModal" class="modal">
+	 
+	      <!-- Modal content -->
+	      <div class="modal-content">
+	      
+	      	<div style="cursor:pointer; text-align: center;padding-bottom: 10px;padding-top: 10px; margin-top: 20px;" onClick="close_pop();">
+                <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">투자성향확인</span></b></span></p>
+             
+                <p style="text-align: center; line-height: 1.5; font-size: 15pt; color: #008B8B;"><br />${ userVO.name }<span style="color: black;">님</span></p>
+                <p style="text-align: center; line-height: 1.5; font-size: 15pt;">재무설계 서비스를 받기위해<br> 투자성향확인이 필요합니다.</p>
+                <p><br /></p>
+               
+                <hr style="width: 1px;">
+                <span class="pop_bt" style="font-size: 13pt; color: #008B8B;" >
+                     확인
+                </span>
+            </div>           
+	      </div>
+	    </div>
+        <!--End Modal-->
 	</section>
 	<footer style="clear: both;">
 		<br><br>
