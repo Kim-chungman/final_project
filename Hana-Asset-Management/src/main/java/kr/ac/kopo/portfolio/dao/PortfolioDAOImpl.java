@@ -47,4 +47,11 @@ public class PortfolioDAOImpl implements PortfolioDAO{
 		
 	}
 
+	@Override
+	public void historyInsert(PortfolioVO portfolio) {
+
+		sqlSessionTemplate.insert("fund.FundDAO.historyInsert", portfolio);
+		
+	}
+
 }

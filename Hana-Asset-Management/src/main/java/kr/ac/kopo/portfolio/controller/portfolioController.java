@@ -3,7 +3,6 @@ package kr.ac.kopo.portfolio.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.ac.kopo.portfolio.service.PortfolioService;
-import kr.ac.kopo.portfolio.vo.AnalysisVO;
 import kr.ac.kopo.portfolio.vo.DecidePortfolioVO;
 import kr.ac.kopo.portfolio.vo.PortfolioVO;
 
@@ -67,6 +65,8 @@ public class portfolioController {
 		request.setCharacterEncoding("utf-8");
 		
 		String member_id = request.getParameter("member_id");
+		String name = request.getParameter("name");
+		String investMethod = request.getParameter("investMethod");
 		String investmentPeriod = request.getParameter("slider");
 		int investmentMoney = Integer.parseInt(request.getParameter("slider2"))*10000;
 		String investmentRate = request.getParameter("slider3");
@@ -248,6 +248,7 @@ public class portfolioController {
 		
 		PortfolioVO portfolio = new PortfolioVO();
 		portfolio.setMember_id(member_id);
+		portfolio.setName(name);
 		portfolio.setInvestmentPeriod(investmentPeriod);
 		portfolio.setInvestmentMoney(investmentMoney);
 		portfolio.setMaxPer(maxPer);
@@ -265,8 +266,11 @@ public class portfolioController {
 		portfolio.setPension(pension);
 		portfolio.setStart(start);
 		portfolio.setLast(last);
+		portfolio.setInvestMethod(investMethod);
 		
 		model.addAttribute("portfolio", portfolio);
+		
+		service.historyInsert(portfolio);
 		
 		return new ModelAndView("portfolio/portfolio");
 	}

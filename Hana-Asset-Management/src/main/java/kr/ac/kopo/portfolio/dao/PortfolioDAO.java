@@ -17,4 +17,6 @@ public interface PortfolioDAO {
 
 	public void protfolioInsert(MemberPortfolioVO memberFile);
 
+	public void historyInsert(PortfolioVO portfolio);
+
 }

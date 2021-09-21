@@ -48,14 +48,4 @@ public class HomeController {
 		return "plan/plan5060";
 	}
 	
-	@GetMapping("/myPage")
-	public String myPage() {
-		return "myPage/myPage";
-	}
-	
-	@GetMapping("/myPage/portfolio")
-	public String myPortfolio() {
-		return "myPage/portfolio";
-	}
-	
 }

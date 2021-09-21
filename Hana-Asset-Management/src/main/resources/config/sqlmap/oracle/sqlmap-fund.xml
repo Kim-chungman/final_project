@@ -4,6 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="fund.FundDAO">
 
+	<resultMap type="portfolioVO" id="portfolioMap">
+		<result column="investment_period" property="investmentPeriod"/>
+		<result column="investment_money" property="investmentMoney"/>
+		<result column="investment_rate" property="investmentRate"/>
+		<result column="min_per" property="minPer"/>
+		<result column="max_per" property="maxPer"/>
+		<result column="investment_type" property="investmentType"/>
+		<result column="start_day" property="start"/>
+		<result column="last_day" property="last"/>
+		<result column="invest_method" property="investMethod"/>
+	</resultMap>
+
 	<select id="fundList" resultType="FundVO">
 		select c.fund_code, c.fund_name, e.type, e.total_asset, e.stock_rate, e.bond_rate, e.money_rate, e.etc_rate, e.present_price, e.one_month_rate, e.three_month_rate, e.six_month_rate, e.one_year_rate, e.commission, e.reg_date
 		 from CM_FUND_CODE c, cm_product_fund e
@@ -63,5 +75,17 @@
 		insert into CM_PORTFOLIO
 		 values(CM_PORTFOLIO_SEQ.nextval, #{product1}, #{product2}, #{product3}, #{product4}, #{product5}, #{product6}, #{member_id})
 	</insert>
+	
+	<insert id="historyInsert" parameterType="PortfolioVO">
+		INSERT INTO CM_PORTFOLIO_HISTORY
+		 VALUES(FUND_PORTFOLIO_HISTORY_SEQ.NEXTVAL, #{member_id, jdbcType=VARCHAR}, #{name, jdbcType=VARCHAR}, #{investmentPeriod}, #{investmentMoney}, #{investmentRate}, #{minPer}, #{maxPer}, #{investmentType}, #{sd, jdbcType=VARCHAR}, #{bm, jdbcType=VARCHAR},
+		 		#{sr, jdbcType=VARCHAR}, #{te, jdbcType=VARCHAR}, #{ir, jdbcType=VARCHAR}, #{ja, jdbcType=VARCHAR}, #{fund}, #{deposit}, #{saving}, #{pension}, #{start}, #{last}, #{investMethod, jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="getPortfolio" parameterType="string" resultMap="portfolioMap">
+		SELECT * 
+		 FROM (select * from CM_PORTFOLIO_HISTORY where member_id=#{id} order by portfolio_history_no desc)
+		  where 1 >= rownum
+	</select>
 	
 </mapper>

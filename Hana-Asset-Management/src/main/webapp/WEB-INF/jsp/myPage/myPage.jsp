@@ -41,13 +41,104 @@
 		      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
 		      
 		      chart.draw(data, {
-		         title : "<지난 1년간 월별 지출액>",
 		         curveType : "function",
 		         fontSize: 16,
-		         width : 800,
+		         width : 900,
 		         height : 400,
-		         colors: ['red','orange','yellow','green','blue','navy','purple','black','LightBlue','PaleVioletRed','Olive','Thistle'],
+		         colors: ['#FAC8C8','#78EFAD','#46BEFF','#FFDAAB','#3CC8C8','navy','purple','black','LightBlue','PaleVioletRed','Olive','Thistle'],
 		         is3D: true
+		      });
+		      
+		}
+	   
+	   google.charts.load("current", {packages:["corechart"]});
+		/* 
+	   google.load('visualization','1', {
+	      'packages' : ['corechart']
+	   })
+	    */
+	   google.setOnLoadCallback(drawChart2);
+	   
+	   var id = '${ portfolio.member_id }';
+	   var username = '${ userVO.name }';
+	   var investP = '${ portfolio.investmentPeriod }';
+	   var investM = '${ portfolio.investmentMoney }';
+	   var investR = '${ portfolio.investmentRate }';
+	   var min = '${ portfolio.minPer }';
+	   var max = '${ portfolio.maxPer }';
+	   var type = '${ portfolio.investmentType }';
+	   var stand = '${ portfolio.sd }';   
+	   var beta = '${ portfolio.bm }';     
+	   var sharpe = '${ portfolio.sr }';     
+	   var tracking = '${ portfolio.te }';     
+	   var jensen = '${ portfolio.ja }';     
+	   var information = '${ portfolio.ir }';     
+	   var fundRate = '${ portfolio.fund }';   
+	   var depositRate = '${ portfolio.deposit }';
+	   var savingRate = '${ portfolio.saving }'; 
+	   var pensionRate = '${ portfolio.pension }';
+	   var startDay = '${ portfolio.start }';  
+	   var lastDay = '${ portfolio.last }';
+	   
+	   function drawChart2() {
+		   
+		   	  var jsonData = $.ajax({
+		         
+		         url : "${ pageContext.request.contextPath }/portfolioPlan",
+		         data: { member_id : id, name : username, investmentPeriod : investP, investmentMoney : investM, investmentRate : investR,
+		  		   minPer : min, maxPer : max, investmentType : type, sd : stand, bm : beta, sr : sharpe, te : tracking, ja : jensen, ir : information,
+				   fund : fundRate, deposit : depositRate, saving : savingRate, pension : pensionRate, start : startDay, last : lastDay },
+		         dataType : "JSON",
+		         async : false
+		      }).responseText;
+		      console.log(jsonData);
+		      
+		      var data = new google.visualization.DataTable(jsonData);
+		      
+		         var chart = new google.visualization.PieChart(document.getElementById('chart_div2')); 
+		      
+		      chart.draw(data, {
+		         curveType : "function",
+		         fontSize: 16,
+		         width : 440,
+		         height : 400,
+		         pieHole: 0.6,
+		         colors: ['#FAC8C8','LightBlue', '#FFDAAB', 'Thistle'],
+		         chartArea: {
+		        	 'width': '98%',
+		        	 'height' : '90%'
+		       	}
+		      });
+		      
+		}
+	   
+	   google.load('visualization','1', {
+		      'packages' : ['corechart']
+		   })
+		   
+	   google.setOnLoadCallback(drawPieChart3);
+	   function drawPieChart3() {
+			  var idCheck = '${ userVO.id }'; 
+		      var jsonData = $.ajax({
+		         
+		         url : "${ pageContext.request.contextPath }/pieChart4",
+		         data: { id: idCheck},
+		         dataType : "JSON",
+		         async : false
+		      }).responseText;
+		      console.log(jsonData);
+		      
+		      var data = new google.visualization.DataTable(jsonData);
+
+		      	 var chart = new google.visualization.LineChart(document.getElementById('chart_div3'));
+		      
+		      chart.draw(data, {
+		         curveType : "function",
+		         fontSize: 16,
+		         width : 920,
+		         height : 400,
+		         colors: ['#FAC8C8','#3CC8C8']
+		         
 		      });
 		      
 		}
@@ -120,7 +211,7 @@
                     >
                       목표달성률
                     </h6>
-                    <span class="text-xl font-semibold">50,021</span>
+                    <span class="text-xl font-semibold">47.2%</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +2.6%
                     </span>
@@ -153,7 +244,7 @@
                     >
                       투자수익률
                     </h6>
-                    <span class="text-xl font-semibold">45,021</span>
+                    <span class="text-xl font-semibold">25,021원</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +3.1%
                     </span>
@@ -215,11 +306,11 @@
                 <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">월별 소비내역</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">또래와의 비교</h4>
                    
                   </div>
                   <!-- Chart -->
-                  <div class="chart_div" align="center">
+                  <div id="chart_div3" align="center">
                     
                   </div>
                 </div>
@@ -246,7 +337,7 @@
                     </div>
                   </div>
                   <!-- Chart -->
-                  <div class="relative p-4 h-72">
+                  <div id="chart_div2" align="center">
                   
                   </div>
                 </div>
@@ -258,7 +349,7 @@
                 <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }" style="width: 98%; margin-left: 15px;">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">또래와의 비교</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">월별 소비내역</h4>
                     <div class="flex items-center">
                         <div
                           class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
@@ -268,7 +359,7 @@
                     </div>
                   </div>
                   <!-- Chart -->
-                  <div class="relative p-4 h-72">
+                  <div id="chart_div" align="center">
                   
                   </div>
                 </div>

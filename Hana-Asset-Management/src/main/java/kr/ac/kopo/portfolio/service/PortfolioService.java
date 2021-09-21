@@ -16,4 +16,6 @@ public interface PortfolioService {
 
 	public List<DecidePortfolioVO> getDecidePortfolio(PortfolioVO portfolio);
 
+	public void historyInsert(PortfolioVO portfolio);
+
 }

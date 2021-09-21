@@ -180,6 +180,7 @@
         <div>
         	<form action="${ pageContext.request.contextPath }/portfolio" method="post">
         	<input type="hidden" id="investmentType" name="investmentType" value="${ investType }">
+        	<input type="hidden" id="name" name="name" value="${ userVO.name }">
         	<input type="hidden" id="rrn" name="rrn" value="${ userVO.rrn }">
         	<input type="hidden" id="member_id" name="member_id" value="${ userVO.id }">
         	<fieldset class="proposal-form mgt20" style="width: 850px; padding: 0px;">
@@ -187,16 +188,16 @@
 					<dt>투자성향</dt>
 					<dd>
 						<div class="button-radio">
-							<c:if test="${ investType eq '안전형'}">
+							<c:if test="${ investType eq '안정형'}">
 								<span class="my"><span>나의<br>투자 성향</span><input type="radio" name="propensity" id="propensity1" value="1" disabled="disabled"><label for="propensity1">안정</label></span>														
 							</c:if>
-							<c:if test="${ investType ne '안전형'}">
+							<c:if test="${ investType ne '안정형'}">
 								<span><input type="radio" name="propensity" id="propensity1" value="1" disabled="disabled"><label for="propensity1">안정</label></span>														
 							</c:if>
-							<c:if test="${ investType eq '안전추구형'}">
+							<c:if test="${ investType eq '안정추구형'}">
 								<span class="my"><span>나의<br>투자 성향</span><input type="radio" name="propensity" id="propensity2" value="2" disabled="disabled"><label for="propensity2">안정추구</label></span>														
 							</c:if>
-							<c:if test="${ investType ne '안전추구형'}">
+							<c:if test="${ investType ne '안정추구형'}">
 								<span><input type="radio" name="propensity" id="propensity2" value="2" disabled="disabled"><label for="propensity2">안정추구</label></span>														
 							</c:if>
 							<c:if test="${ investType eq '위험중립형'}">

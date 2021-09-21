@@ -499,5 +499,12 @@ public class PortfolioServiceImpl implements PortfolioService {
 		
 		return list;
 	}
+
+	@Override
+	public void historyInsert(PortfolioVO portfolio) {
+		
+		portfolioDAO.historyInsert(portfolio);
+		
+	}
 	
 }
