@@ -282,12 +282,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 												</ul>
 											</ol>
 										</div>
-										<div id="wq_uuid_382" class="w2group btnAreaBot btnFix item2" style="width: 50%; margin-left: 400px;">
-											<a id="btn_F14이전" class="w2anchor2 btnTyGray02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm7">이전</a><a id="btn_F14다음"
-												class="w2anchor2 btnTyBlue02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm9" style="background-color: #008B8B;">다음</a>
-										</div>
+										
 										</div>
 									</div>
 								</div>
@@ -296,7 +291,11 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 					</div>
 				</div>
 			</div>
-		</div>
+		<div align="center">
+			<a id="btn_F14다음" class="w2anchor2 btnTyBlue02 big"
+				href="${ pageContext.request.contextPath }/" style="background-color: #008B8B;">메인으로</a>
+		</div>	
    </section>
+   
 </body>
 </html>

@@ -88,6 +88,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													</ul>
 												</div>
 											</div>
+										<form action="${ pageContext.request.contextPath }/retire/retireForm8" method="post">
 											<div id="wq_uuid_1138" class="w2group contbox pt20 ">
 											<p id="wq_uuid_1139" class="w2textbox fs15 mb15">은퇴생활을 위해
 												준비하고 있는 ‘개인연금’을 입력해주세요 (연금저축/IRP. 연금보험 등)</p>
@@ -100,7 +101,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													</div>
 													<div id="wq_uuid_1144" class="w2group cell pl10 pr10">
 														<div id="wq_uuid_1145" class="w2group pr">
-															<input id="ipt_개인연금" class="w2input tar pr40" type="tel"
+															<input id="ipt_개인연금" class="w2input tar pr40" type="tel" name="ipt_개인연금"
 																title="개인연금" maxlength="6"><span
 																id="wq_uuid_1147" style="right: 5PX; top: 7px;"
 																class="w2span pa">만원</span>
@@ -113,7 +114,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													</div>
 													<div id="wq_uuid_1151" class="w2group cell pl10 pr10">
 														<div id="wq_uuid_1152" class="w2group pr">
-															<input id="ipt_매월적립금액2" class="w2input tar pr40"
+															<input id="ipt_매월적립금액2" class="w2input tar pr40" name="ipt_매월적립금액2"
 																type="tel" maxlength="6"><span id="wq_uuid_1154"
 																style="top: 7px; right: 5px;" class="w2span pa">만원</span>
 														</div>
@@ -222,7 +223,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													</div>
 													<div id="wq_uuid_1227" class="w2group cell pl10 pr10">
 														<div id="wq_uuid_1228" class="w2group pr">
-															<input id="ipt_은퇴준비예금" class="w2input tar pr40"
+															<input id="ipt_은퇴준비예금" class="w2input tar pr40" name="ipt_은퇴준비예금"
 																type="tel" maxlength="6"><span id="wq_uuid_1230"
 																style="right: 5PX; top: 7px;" class="w2span pa">만원</span>
 														</div>
@@ -234,7 +235,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													</div>
 													<div id="wq_uuid_1234" class="w2group cell pl10 pr10">
 														<div id="wq_uuid_1235" class="w2group pr">
-															<input id="ipt_매월적립금액" class="w2input tar pr40"
+															<input id="ipt_매월적립금액" class="w2input tar pr40" name="ipt_매월적립금액"
 																type="tel" maxlength="6"><span id="wq_uuid_1237"
 																style="top: 7px; right: 5px;" class="w2span pa">만원</span>
 														</div>
@@ -427,11 +428,12 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 										</div>
 										<div id="wq_uuid_382" class="w2group btnAreaBot btnFix item2" style="width: 50%; margin-left: 400px;">
 											<a id="btn_F14이전" class="w2anchor2 btnTyGray02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm6">이전</a><a id="btn_F14다음"
+												href="${ pageContext.request.contextPath }/retire/retireForm6">이전</a>
+											<input type="submit" id="btn_F14다음"
 												class="w2anchor2 btnTyBlue02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm8" style="background-color: #008B8B;">다음</a>
+												style="background-color: #008B8B; float: right;" value="다음">
 										</div>
-										
+									</form>
 									</div>
 								</div>
 							</div>

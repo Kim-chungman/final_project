@@ -88,6 +88,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													</ul>
 												</div>
 											</div>
+										<form action="${ pageContext.request.contextPath }/retire/retireForm6" method="post">
 											<div id="wq_uuid_534" class="w2group contbox pt20 ">
 											<p id="wq_uuid_535" class="w2textbox fs15">은퇴 후 월 생활비는
 												얼마로 예상하십니까?</p>
@@ -98,7 +99,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													<div id="wq_uuid_540" class="w2group cell">
 														<div id="wq_uuid_541" class="w2group pr">
 															<span id="wq_uuid_542" style="left: 5px; top: 6px;"
-																class="w2span pa">월</span><input id="input_mprice"
+																class="w2span pa">월</span><input id="input_mprice" name="input_mprice"
 																class="w2input pl20 pr35 tar" type="tel"><span
 																id="wq_uuid_544" style="right: 5px; top: 7px;"
 																class="w2span pa">만원</span>
@@ -119,7 +120,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 											</div>
 											<table id="wq_uuid_550"
 												class="w2group w2tb tableTyOutput aC slim mt20 inph30">
-												<caption captiontitle="연령별 생활비 감소비율 정보 입력"
+												<caption
 													class="setcaption">연령별 생활비 감소비율 정보 입력은(는)
 													구분,69세&nbsp;이하,70세&nbsp;~&nbsp;79세,80세&nbsp;이후,생활비,비율 을(를)
 													나타낸 표</caption>
@@ -157,14 +158,14 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 																class="w2textbox ">100%</div></td>
 														<td id="wq_uuid_575" class="w2group w2tb_td w2tb_noTH"><div
 																id="wq_uuid_576" class="w2group pr">
-																<input id="input_live1" class="w2input tar pr20"
+																<input id="input_live1" class="w2input tar pr20" name="input_live1"
 																	type="tel" title="70~79세 생활비 감소 비율" maxlength="3"><span
 																	id="wq_uuid_578" style="right: 5px; top: 7px;"
 																	class="w2textbox unit pa">%</span>
 															</div></td>
 														<td id="wq_uuid_579" class="w2group w2tb_td w2tb_noTH"><div
 																id="wq_uuid_580" class="w2group pr">
-																<input id="input_live2" class="w2input tar pr20"
+																<input id="input_live2" class="w2input tar pr20" name="input_live2"
 																	type="tel" title="80세 이후 생활비 감소 비율" maxlength="3"><span
 																	id="wq_uuid_582" style="right: 5px; top: 7px;"
 																	class="w2textbox unit pa">%</span>
@@ -179,11 +180,12 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 										</div>
 										<div id="wq_uuid_382" class="w2group btnAreaBot btnFix item2" style="width: 50%; margin-left: 400px;">
 											<a id="btn_F14이전" class="w2anchor2 btnTyGray02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm4">이전</a><a id="btn_F14다음"
+												href="${ pageContext.request.contextPath }/retire/retireForm4">이전</a>
+											<input type="submit" id="btn_F14다음"
 												class="w2anchor2 btnTyBlue02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm6" style="background-color: #008B8B;">다음</a>
+												style="background-color: #008B8B; float: right;" value="다음">
 										</div>
-										
+									</form>	
 										</div>
 									</div>
 								</div>

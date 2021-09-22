@@ -69,7 +69,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 														</span></a></li>
 												</ul>
 											</div>
-											
+										<form action="${ pageContext.request.contextPath }/retire/retireForm5" method="post">	
 											<div id="wq_uuid_416" class="w2group contbox pt20 ">
 											<div id="wq_uuid_417" class="w2group contbox pd0">
 												<p id="wq_uuid_418" class="w2textbox fs15 fl pt10">기대수명을
@@ -86,7 +86,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													<div id="wq_uuid_425" class="w2group cell tal">
 														<div id="wq_uuid_426" class="w2group pr">
 															<span id="wq_uuid_427" style="left: 5px; top: 6px;"
-																class="w2span pa">만</span><input id="ipt_본인기대수명"
+																class="w2span pa">만</span><input id="ipt_본인기대수명" name="ipt_본인기대수명"
 																class="w2input pl20 pr20 tar" type="tel"><span
 																id="wq_uuid_429" style="right: 5px; top: 7px;"
 																class="w2span pa">세</span>
@@ -100,7 +100,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													<div id="wq_uuid_433" class="w2group cell tal">
 														<div id="wq_uuid_434" class="w2group pr">
 															<span id="wq_uuid_435" style="left: 5px; top: 6px;"
-																class="w2span pa">만</span><input id="ipt_배우자기대수명"
+																class="w2span pa">만</span><input id="ipt_배우자기대수명" name="ipt_배우자기대수명"
 																class="w2input pl20 pr20 tar" type="tel"><span
 																id="wq_uuid_437" style="right: 5px; top: 7px;"
 																class="w2span pa">세</span>
@@ -125,7 +125,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													<div id="wq_uuid_445" class="w2group cell tal">
 														<div id="wq_uuid_446" class="w2group pr">
 															<span id="wq_uuid_447" style="left: 5px; top: 6px;"
-																class="w2span pa">만</span><input id="ipt_본인은퇴예상나이"
+																class="w2span pa">만</span><input id="ipt_본인은퇴예상나이" name="ipt_본인은퇴예상나이"
 																class="w2input pl20 pr20 tar" type="tel"><span
 																id="wq_uuid_449" style="right: 5px; top: 7px;"
 																class="w2span pa">세</span>
@@ -139,7 +139,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													<div id="wq_uuid_453" class="w2group cell tal">
 														<div id="wq_uuid_454" class="w2group pr">
 															<span id="wq_uuid_455" style="left: 5px; top: 6px;"
-																class="w2span pa">만</span><input id="ipt_배우자은퇴예상나이"
+																class="w2span pa">만</span><input id="ipt_배우자은퇴예상나이" name="ipt_배우자은퇴예상나이"
 																class="w2input pl20 pr20 tar" type="tel"><span
 																id="wq_uuid_457" style="right: 5px; top: 7px;"
 																class="w2span pa">세</span>
@@ -154,11 +154,12 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 										</div>
 										<div id="wq_uuid_382" class="w2group btnAreaBot btnFix item2" style="width: 50%; margin-left: 400px; margin-bottom: 20px;">
 											<a id="btn_F14이전" class="w2anchor2 btnTyGray02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm3">이전</a><a id="btn_F14다음"
+												href="${ pageContext.request.contextPath }/retire/retireForm3">이전</a>
+											<input type="submit" id="btn_F14다음"
 												class="w2anchor2 btnTyBlue02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm5" style="background-color: #008B8B;">다음</a>
+												style="background-color: #008B8B; float: right;" value="다음">
 										</div>
-										
+									</form>	
 										</div>
 									</div>
 								</div>

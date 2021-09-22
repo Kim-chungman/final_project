@@ -88,6 +88,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													</ul>
 												</div>
 											</div>
+										<form action="${ pageContext.request.contextPath }/retire/retireForm7" method="post">
 											<div id="wq_uuid_858" class="w2group contbox pt20 ">
 											<input id="본인공적연금일련번호" style="display: none;"
 												class="w2input " type="text"><input id="배우자공적연금일련번호"
@@ -103,81 +104,46 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 														<div id="sbx_본인공적연금유형" class="w2radio right_align">
 															<div class="w2radio_item w2radio_item_0">
 																<input type="radio" class="w2radio_input"
-																	name="sbx_본인공적연금유형_input" index="0"
+																	name="sbx_본인공적연금유형_input" value="국민연금"
 																	id="sbx_본인공적연금유형_input_0"><label
-																	class="w2radio_label " index="0"
+																	class="w2radio_label " 
 																	for="sbx_본인공적연금유형_input_0">국민연금</label>
 															</div>
 															<div class="w2radio_item w2radio_item_1">
 																<input type="radio" class="w2radio_input"
-																	name="sbx_본인공적연금유형_input" index="1"
+																	name="sbx_본인공적연금유형_input" value="공무원연금"
 																	id="sbx_본인공적연금유형_input_1"><label
-																	class="w2radio_label " index="1"
+																	class="w2radio_label " 
 																	for="sbx_본인공적연금유형_input_1">공무원연금</label>
 															</div>
 															<div class="w2radio_item w2radio_item_2">
 																<input type="radio" class="w2radio_input"
-																	name="sbx_본인공적연금유형_input" index="2"
+																	name="sbx_본인공적연금유형_input" value="사학연금"
 																	id="sbx_본인공적연금유형_input_2"><label
-																	class="w2radio_label " index="2"
+																	class="w2radio_label "
 																	for="sbx_본인공적연금유형_input_2">사학연금</label>
 															</div>
 															<div class="w2radio_item w2radio_item_3">
 																<input type="radio" class="w2radio_input"
-																	name="sbx_본인공적연금유형_input" index="3"
+																	name="sbx_본인공적연금유형_input" value="군인연금"
 																	id="sbx_본인공적연금유형_input_3"><label
-																	class="w2radio_label " index="3"
+																	class="w2radio_label "
 																	for="sbx_본인공적연금유형_input_3">군인연금</label>
 															</div>
 															<div class="w2radio_item w2radio_item_4">
 																<input type="radio" class="w2radio_input"
-																	name="sbx_본인공적연금유형_input" index="4"
+																	name="sbx_본인공적연금유형_input" value="미가입"
 																	id="sbx_본인공적연금유형_input_4"><label
-																	class="w2radio_label " index="4"
+																	class="w2radio_label " 
 																	for="sbx_본인공적연금유형_input_4">미가입</label>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-											<div id="본인공적연금유형_cont1" style="display: none;"
-												class="w2group tac mb15">
-												<a id="btn_연금정보바로가기"
-													class="w2anchor2 btnTyGray01 medium fs15 w100_"
-													href="javascript:void(null);">연금정보 바로가기</a>
-											</div>
+											
 										</div>
-										<table id="본인공적연금유형_cont2" style="display: none;"
-											class="w2group w2tb tableTyInput mt0 mb20">
-											<caption id="wq_uuid_871" class="w2group setcaption">본인의&nbsp;(예상)&nbsp;월&nbsp;수령액을&nbsp;입력해주세요.
-												을(를) 나타낸 표</caption>
-											<colgroup id="wq_uuid_872" class="w2group ">
-												<col id="wq_uuid_873" style="width: 18%;" class="w2group ">
-												<col id="wq_uuid_874" class="w2group ">
-											</colgroup>
-											<tbody>
-												<tr id="wq_uuid_875" class="w2group ">
-													<th id="wq_uuid_876" class="w2group w2tb_th b tal">
-														본인의&nbsp;(예상)&nbsp;월&nbsp;수령액을&nbsp;입력해주세요.</th>
-													<td id="wq_uuid_877" class="w2group w2tb_td"
-														data-title="본인의 (예상) 월 수령액을 입력해주세요.">
-														<div id="wq_uuid_878" class="w2group boxTyGray  inph30 mt0">
-															<div id="wq_uuid_879" class="w2group tformper formWrap">
-																<div id="wq_uuid_880" class="w2group cell">
-																	<div id="wq_uuid_881" class="w2group pr">
-																		<span id="wq_uuid_882" style="top: 6px; left: 5px;"
-																			class="w2span pa">월</span><input id="본인예상수령액"
-																			class="w2input pl20 pr40 tar" type="tel"
-																			title="전화번호 앞자리" maxlength="7"><span
-																			id="wq_uuid_884" style="top: 7px; right: 5px;"
-																			class="w2span pa">만원</span>
-																	</div>
-																</div>
-															</div>
-														</div></td>
-												</tr>
-											</tbody>
-										</table>
+										
 										<div id="wq_uuid_885" class="w2group contbox">
 											<div id="spouse05" class="w2group ">
 												<p id="wq_uuid_887" class="w2textbox fs15">배우자의 공적연금 유형은
@@ -188,80 +154,44 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 															<div id="sbx_배우자공적연금유형" class="w2radio right_align">
 																<div class="w2radio_item w2radio_item_0">
 																	<input type="radio" class="w2radio_input"
-																		name="sbx_배우자공적연금유형_input" index="0"
+																		name="sbx_배우자공적연금유형_input" value="국민연금"
 																		id="sbx_배우자공적연금유형_input_0"><label
-																		class="w2radio_label " index="0"
+																		class="w2radio_label " 
 																		for="sbx_배우자공적연금유형_input_0">국민연금</label>
 																</div>
 																<div class="w2radio_item w2radio_item_1">
 																	<input type="radio" class="w2radio_input"
-																		name="sbx_배우자공적연금유형_input" index="1"
+																		name="sbx_배우자공적연금유형_input" value="공무원연금"
 																		id="sbx_배우자공적연금유형_input_1"><label
-																		class="w2radio_label " index="1"
+																		class="w2radio_label " 
 																		for="sbx_배우자공적연금유형_input_1">공무원연금</label>
 																</div>
 																<div class="w2radio_item w2radio_item_2">
 																	<input type="radio" class="w2radio_input"
-																		name="sbx_배우자공적연금유형_input" index="2"
+																		name="sbx_배우자공적연금유형_input" value="사학연금"
 																		id="sbx_배우자공적연금유형_input_2"><label
-																		class="w2radio_label " index="2"
+																		class="w2radio_label " 
 																		for="sbx_배우자공적연금유형_input_2">사학연금</label>
 																</div>
 																<div class="w2radio_item w2radio_item_3">
 																	<input type="radio" class="w2radio_input"
-																		name="sbx_배우자공적연금유형_input" index="3"
+																		name="sbx_배우자공적연금유형_input" value="군인연금"
 																		id="sbx_배우자공적연금유형_input_3"><label
-																		class="w2radio_label " index="3"
+																		class="w2radio_label "
 																		for="sbx_배우자공적연금유형_input_3">군인연금</label>
 																</div>
 																<div class="w2radio_item w2radio_item_4">
 																	<input type="radio" class="w2radio_input"
-																		name="sbx_배우자공적연금유형_input" index="4"
+																		name="sbx_배우자공적연금유형_input" value="미가입"
 																		id="sbx_배우자공적연금유형_input_4"><label
-																		class="w2radio_label " index="4"
+																		class="w2radio_label "
 																		for="sbx_배우자공적연금유형_input_4">미가입</label>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
-												<div id="배우자공적연금유형_cont1" style="display: none;"
-													class="w2group tac mb15">
-													<a id="btn_연금정보바로가기1"
-														class="w2anchor2 btnTyGray01 medium fs15 w100_"
-														href="javascript:void(null);">연금정보 바로가기</a>
-												</div>
-												<table id="배우자공적연금유형_cont2" style="display: none;"
-													class="w2group w2tb tableTyInput mt0">
-													<caption id="wq_uuid_895" class="w2group setcaption">배우자의&nbsp;(예상)&nbsp;월&nbsp;수령액을&nbsp;입력해주세요.
-														을(를) 나타낸 표</caption>
-													<colgroup id="wq_uuid_896" class="w2group ">
-														<col id="wq_uuid_897" style="width: 18%;" class="w2group ">
-														<col id="wq_uuid_898" class="w2group ">
-													</colgroup>
-													<tbody>
-														<tr id="wq_uuid_899" class="w2group ">
-															<th id="wq_uuid_900" class="w2group w2tb_th b tal">
-																배우자의&nbsp;(예상)&nbsp;월&nbsp;수령액을&nbsp;입력해주세요.</th>
-															<td id="wq_uuid_901" class="w2group w2tb_td"
-																data-title="배우자의 (예상) 월 수령액을 입력해주세요.">
-																<div id="wq_uuid_902" class="w2group boxTyGray inph30 mt0">
-																	<div id="wq_uuid_903" class="w2group tformper formWrap">
-																		<div id="wq_uuid_904" class="w2group cell">
-																			<div id="wq_uuid_905" class="w2group pr">
-																				<span id="wq_uuid_906" style="top: 6px; left: 5px;"
-																					class="w2span pa">월</span><input id="배우자예상수령액"
-																					class="w2input pl20 pr40 tar" type="tel"
-																					title="전화번호 앞자리" maxlength="7"><span
-																					id="wq_uuid_908" style="top: 6px; right: 5px;"
-																					class="w2span pa">만원</span>
-																			</div>
-																		</div>
-																	</div>
-																</div></td>
-														</tr>
-													</tbody>
-												</table>
+												
 											</div>
 										</div>
 											<div id="wq_uuid_943" style="left: -1px; top: 52px;"
@@ -280,108 +210,25 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													<div id="wq_uuid_951" class="w2group cell tal">
 														<div id="본인퇴직연금유형" class="w2radio right_align pb0">
 															<div class="w2radio_item w2radio_item_0">
-																<input type="radio" class="w2radio_input"
-																	name="본인퇴직연금유형_input" index="0" id="본인퇴직연금유형_input_0"><label
-																	class="w2radio_label " index="0" for="본인퇴직연금유형_input_0">납입중</label>
+																<input type="radio" class="w2radio_input" value="납입중"
+																	name="본인퇴직연금유형_input" id="본인퇴직연금유형_input_0"><label
+																	class="w2radio_label " for="본인퇴직연금유형_input_0">납입중</label>
 															</div>
 															<div class="w2radio_item w2radio_item_1">
-																<input type="radio" class="w2radio_input"
-																	name="본인퇴직연금유형_input" index="1" id="본인퇴직연금유형_input_1"><label
-																	class="w2radio_label " index="1" for="본인퇴직연금유형_input_1">수령중</label>
+																<input type="radio" class="w2radio_input" value="수령중"
+																	name="본인퇴직연금유형_input" id="본인퇴직연금유형_input_1"><label
+																	class="w2radio_label "  for="본인퇴직연금유형_input_1">수령중</label>
 															</div>
 															<div class="w2radio_item w2radio_item_2">
-																<input type="radio" class="w2radio_input"
-																	name="본인퇴직연금유형_input" index="2" id="본인퇴직연금유형_input_2"><label
-																	class="w2radio_label " index="2" for="본인퇴직연금유형_input_2">미가입</label>
+																<input type="radio" class="w2radio_input" value="미가입"
+																	name="본인퇴직연금유형_input" id="본인퇴직연금유형_input_2"><label
+																	class="w2radio_label " for="본인퇴직연금유형_input_2">미가입</label>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-											<table id="본인퇴직연금유형_cont1" style="display: none;"
-												class="w2group w2tb tableTyInput mt0 nopd mb20">
-												<caption id="wq_uuid_954" class="w2group setcaption">은퇴시점
-													본인의 퇴직금(연금)은 얼마입니까? 을(를) 나타낸 표</caption>
-												<colgroup id="wq_uuid_955" class="w2group ">
-													<col id="wq_uuid_956" style="width: 18%;" class="w2group ">
-													<col id="wq_uuid_957" class="w2group ">
-												</colgroup>
-												<tbody>
-													<tr id="wq_uuid_958" class="w2group ">
-														<th id="wq_uuid_959" class="w2group w2tb_th b tal">은퇴시점
-															본인의 퇴직금(연금)은 얼마입니까?</th>
-														<td id="wq_uuid_960" class="w2group w2tb_td"
-															data-title="은퇴시점 본인의 퇴직금(연금)은 얼마입니까?"><div
-																id="wq_uuid_961" class="w2group boxTyGray  inph30 mt0">
-																<div id="wq_uuid_962" class="w2group tformper formWrap">
-																	<div id="wq_uuid_963" class="w2group cell">
-																		<div id="wq_uuid_964" class="w2group pr">
-																			<span id="wq_uuid_965" style="top: 6px; left: 5px;"
-																				class="w2span pa">연</span><input id="본인예상퇴직금"
-																				class="w2input pl20 pr40 tar" type="tel"
-																				title="금액 입력" maxlength="6"><span
-																				id="wq_uuid_967" style="top: 6px; right: 5px;"
-																				class="w2span pa">만원</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<div id="wq_uuid_968" class="w2group tac mt10">
-																<a id="btn_본인퇴직금계산하기"
-																	class="w2anchor2 btnTyGray01 medium fs15 w100_"
-																	href="javascript:void(null);">계산하기</a>
-															</div></td>
-													</tr>
-												</tbody>
-											</table>
-											<table id="본인퇴직연금유형_cont2" style="display: none;"
-												class="w2group w2tb tableTyInput mt0 nopd mb20">
-												<caption id="wq_uuid_971" class="w2group setcaption">본인의&nbsp;(예상)&nbsp;월&nbsp;수령액은&nbsp;얼마입니까?,본인의&nbsp;퇴직연금&nbsp;수령종료&nbsp;연령은&nbsp;몇&nbsp;세입니까?
-													을(를) 나타낸 표</caption>
-												<colgroup id="wq_uuid_972" class="w2group ">
-													<col id="wq_uuid_973" style="width: 18%;" class="w2group ">
-													<col id="wq_uuid_974" class="w2group ">
-												</colgroup>
-												<tbody>
-													<tr id="wq_uuid_975" class="w2group ">
-														<th id="wq_uuid_976" class="w2group w2tb_th b tal">본인의&nbsp;(예상)&nbsp;월&nbsp;수령액은&nbsp;얼마입니까?</th>
-														<td id="wq_uuid_977" class="w2group w2tb_td"
-															data-title="본인의 (예상) 월 수령액은 얼마입니까?"><div
-																id="wq_uuid_978" class="w2group boxTyGray  inph30 mt0">
-																<div id="wq_uuid_979" class="w2group tformper formWrap">
-																	<div id="wq_uuid_980" class="w2group cell">
-																		<div id="wq_uuid_981" class="w2group pr">
-																			<span id="wq_uuid_982" style="top: 6px; left: 5px;"
-																				class="w2span pa">월</span><input id="본인월수령액"
-																				class="w2input pl20 pr40 tar" type="tel"
-																				title="전화번호 앞자리" maxlength="7"><span
-																				id="wq_uuid_984" style="top: 6px; right: 5px;"
-																				class="w2span pa">만원</span>
-																		</div>
-																	</div>
-																</div>
-															</div></td>
-													</tr>
-													<tr id="wq_uuid_985" class="w2group ">
-														<th id="wq_uuid_986" class="w2group w2tb_th b tal">
-															본인의&nbsp;퇴직연금&nbsp;수령종료&nbsp;연령은&nbsp;몇&nbsp;세입니까?</th>
-														<td id="wq_uuid_987" class="w2group w2tb_td"
-															data-title="본인의 퇴직연금 수령종료 연령은 몇 세입니까?">
-															<div id="wq_uuid_988" class="w2group boxTyGray  inph30 mt0">
-																<div id="wq_uuid_989" class="w2group tformper formWrap">
-																	<div id="wq_uuid_990" class="w2group cell">
-																		<div id="wq_uuid_991" class="w2group pr">
-																			<input id="본인종료나이" class="w2input pr20 tar"
-																				type="tel" title="전화번호 앞자리" maxlength="3"><span
-																				id="wq_uuid_993" style="top: 6px; right: 5px;"
-																				class="w2span pa">세</span>
-																		</div>
-																	</div>
-																</div>
-															</div></td>
-													</tr>
-												</tbody>
-											</table>
+											
 											<div id="spouse06" class="w2group ">
 												<p id="wq_uuid_995" class="w2textbox fs15 ">배우자의 퇴직연금
 													유형은 무엇입니까?</p>
@@ -391,124 +238,40 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 															<div id="배우자퇴직연금유형" class="w2radio right_align pb0">
 																<div class="w2radio_item w2radio_item_0">
 																	<input type="radio" class="w2radio_input"
-																		name="배우자퇴직연금유형_input" index="0"
+																		name="배우자퇴직연금유형_input" value="납입중"
 																		id="배우자퇴직연금유형_input_0"><label
-																		class="w2radio_label " index="0"
+																		class="w2radio_label " 
 																		for="배우자퇴직연금유형_input_0">납입중</label>
 																</div>
 																<div class="w2radio_item w2radio_item_1">
 																	<input type="radio" class="w2radio_input"
-																		name="배우자퇴직연금유형_input" index="1"
+																		name="배우자퇴직연금유형_input" value="수령중"
 																		id="배우자퇴직연금유형_input_1"><label
-																		class="w2radio_label " index="1"
+																		class="w2radio_label " 
 																		for="배우자퇴직연금유형_input_1">수령중</label>
 																</div>
 																<div class="w2radio_item w2radio_item_2">
 																	<input type="radio" class="w2radio_input"
-																		name="배우자퇴직연금유형_input" index="2"
+																		name="배우자퇴직연금유형_input" value="미가입"
 																		id="배우자퇴직연금유형_input_2"><label
-																		class="w2radio_label " index="2"
+																		class="w2radio_label " 
 																		for="배우자퇴직연금유형_input_2">미가입</label>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
-												<table id="배우자퇴직연금유형_cont1" style="display: none;"
-													class="w2group w2tb tableTyInput mt0 nopd">
-													<caption id="wq_uuid_1001" class="w2group setcaption">배우자의&nbsp;퇴직금(연금)은&nbsp;얼마입니까?
-														을(를) 나타낸 표</caption>
-													<colgroup id="wq_uuid_1002" class="w2group ">
-														<col id="wq_uuid_1003" style="width: 18%;"
-															class="w2group ">
-														<col id="wq_uuid_1004" class="w2group ">
-													</colgroup>
-													<tbody>
-														<tr id="wq_uuid_1005" class="w2group ">
-															<th id="wq_uuid_1006" class="w2group w2tb_th b tac">배우자의&nbsp;퇴직금(연금)은&nbsp;얼마입니까?</th>
-															<td id="wq_uuid_1007" class="w2group w2tb_td"
-																data-title="배우자의 퇴직금(연금)은 얼마입니까?"><div
-																	id="wq_uuid_1008" class="w2group boxTyGray  inph30 mt0">
-																	<div id="wq_uuid_1009"
-																		class="w2group tformper formWrap">
-																		<div id="wq_uuid_1010" class="w2group cell">
-																			<div id="wq_uuid_1011" class="w2group pr">
-																				<span id="wq_uuid_1012" style="top: 6px; left: 5px;"
-																					class="w2span pa">연</span><input id="배우자예상퇴직금"
-																					class="w2input pl20 pr40 tar" type="tel"
-																					title="금액 입력" maxlength="6"><span
-																					id="wq_uuid_1014" style="top: 6px; right: 5px;"
-																					class="w2span pa">만원</span>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-																<div id="wq_uuid_1015" class="w2group tac mt10">
-																	<a id="btn_배우자퇴직금계산하기"
-																		class="w2anchor2 btnTyGray01 medium fs15 w100_"
-																		href="javascript:void(null);">계산하기</a>
-																</div></td>
-														</tr>
-													</tbody>
-												</table>
-												<table id="배우자퇴직연금유형_cont2" style="display: none;"
-													class="w2group w2tb tableTyInput mt0 nopd">
-													<caption id="wq_uuid_1018" class="w2group setcaption">배우자의&nbsp;(예상)&nbsp;월&nbsp;수령액은&nbsp;얼마입니까?,배우자의&nbsp;퇴직연금&nbsp;수령종료&nbsp;연령은&nbsp;몇&nbsp;세입니까?
-														을(를) 나타낸 표</caption>
-													<colgroup id="wq_uuid_1019" class="w2group ">
-														<col id="wq_uuid_1020" style="width: 18%;"
-															class="w2group ">
-														<col id="wq_uuid_1021" class="w2group ">
-													</colgroup>
-													<tbody>
-														<tr id="wq_uuid_1022" class="w2group ">
-															<th id="wq_uuid_1023" class="w2group w2tb_th b tac">배우자의&nbsp;(예상)&nbsp;월&nbsp;수령액은&nbsp;얼마입니까?</th>
-															<td id="wq_uuid_1024" class="w2group w2tb_td"
-																data-title="배우자의 (예상) 월 수령액은 얼마입니까?"><div
-																	id="wq_uuid_1025" class="w2group boxTyGray  inph30 mt0">
-																	<div id="wq_uuid_1026"
-																		class="w2group tformper formWrap">
-																		<div id="wq_uuid_1027" class="w2group cell">
-																			<div id="wq_uuid_1028" class="w2group pr">
-																				<span id="wq_uuid_1029" style="top: 6px; left: 5px;"
-																					class="w2span pa">월</span><input id="배우자월수령액"
-																					class="w2input " type="tel" title="전화번호 앞자리"
-																					maxlength="7"><span id="wq_uuid_1031"
-																					style="right: 5px; top: 7px;" class="w2span pa">만원</span>
-																			</div>
-																		</div>
-																	</div>
-																</div></td>
-														</tr>
-														<tr id="wq_uuid_1032" class="w2group ">
-															<th id="wq_uuid_1033" class="w2group w2tb_th b tac">
-																배우자의&nbsp;퇴직연금&nbsp;수령종료&nbsp;연령은&nbsp;몇&nbsp;세입니까?</th>
-															<td id="wq_uuid_1034" class="w2group w2tb_td"
-																data-title="배우자의 퇴직연금 수령종료 연령은 몇 세입니까?"><div
-																	id="wq_uuid_1035" class="w2group boxTyGray  inph30 mt0">
-																	<div id="wq_uuid_1036"
-																		class="w2group tformper formWrap">
-																		<div id="wq_uuid_1037" class="w2group cell">
-																			<div id="wq_uuid_1038" class="w2group pr">
-																				<input id="배우자종료나이" class="w2input " type="tel"
-																					title="전화번호 앞자리" maxlength="3"><span
-																					id="wq_uuid_1040" style="right: 5px; top: 7px;"
-																					class="w2span pa">세</span>
-																			</div>
-																		</div>
-																	</div>
-																</div></td>
-														</tr>
-													</tbody>
-												</table>
+												
 											</div>
 										</div>
 										<div id="wq_uuid_382" class="w2group btnAreaBot btnFix item2" style="width: 50%; margin-left: 400px;">
 											<a id="btn_F14이전" class="w2anchor2 btnTyGray02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm5">이전</a><a id="btn_F14다음"
+												href="${ pageContext.request.contextPath }/retire/retireForm5">이전</a>
+											<input type="submit" id="btn_F14다음"
 												class="w2anchor2 btnTyBlue02 big"
-												href="${ pageContext.request.contextPath }/retire/retireForm7" style="background-color: #008B8B;">다음</a>
+												style="background-color: #008B8B; float: right;" value="다음">
 										</div>
+									</form>
 									</div>
 								</div>
 							</div>

@@ -94,9 +94,12 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													</ul>
 												</div>
 											</div>
+										<form action="${ pageContext.request.contextPath }/retire/retireForm4" method="post">
 											<div id="wq_uuid_342" class="w2group contbox pt20 ">
+										
 											<p id="wq_uuid_343" class="w2textbox fs15">현재 나이(태어난 연도와
 												월)을 입력해주세요</p>
+										
 											<div id="wq_uuid_344"
 												class="w2group excompcont mt10 boxTyGray inph30">
 												<p id="wq_uuid_345" class="w2textbox mb10">본인</p>
@@ -104,10 +107,10 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													<div id="wq_uuid_347" class="w2group cell tal">
 														<div id="wq_uuid_348" style="width: 70%;"
 															class="w2group dib ">
-															<input id="ipt_본인생년" style="width: 60px;"
+															<input id="ipt_본인생년" name="ipt_본인생년" style="width: 60px;"
 																class="w2input " type="tel" maxlength="4"><span
 																id="wq_uuid_350" class="w2span ml5 mr10">년</span><input
-																id="ipt_본인생월" style="width: 40px;" class="w2input "
+																id="ipt_본인생월" name="ipt_본인생월" style="width: 40px;" class="w2input "
 																type="tel" maxlength="2"><span id="wq_uuid_352"
 																class="w2span ml5">월</span>
 														</div>
@@ -125,10 +128,10 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 														<div id="wq_uuid_360" class="w2group cell tal">
 															<div id="wq_uuid_361" style="width: 70%;"
 																class="w2group dib ">
-																<input id="ipt_배우자생년" style="width: 60px;"
+																<input id="ipt_배우자생년" name="ipt_배우자생년" style="width: 60px;"
 																	class="w2input " type="tel" maxlength="4"><span
 																	id="wq_uuid_363" class="w2span ml5 mr10">년</span><input
-																	id="ipt_배우자생월" style="width: 40px;" class="w2input "
+																	id="ipt_배우자생월" name="ipt_배우자생월" style="width: 40px;" class="w2input "
 																	type="tel" maxlength="2"><span id="wq_uuid_365"
 																	class="w2span ml5">월</span>
 															</div>
@@ -196,10 +199,12 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 											</div>
 											<div id="wq_uuid_382" class="w2group btnAreaBot btnFix item2" style="width: 50%; margin-left: 400px; margin-bottom: 50px;">
 												<a id="btn_F14이전" class="w2anchor2 btnTyGray02 big"
-													href="${ pageContext.request.contextPath }/retire/retireForm2">이전</a><a id="btn_F14다음"
+													href="${ pageContext.request.contextPath }/retire/retireForm2">이전</a>
+												<input type="submit" id="btn_F14다음"
 													class="w2anchor2 btnTyBlue02 big"
-													href="${ pageContext.request.contextPath }/retire/retireForm4" style="background-color: #008B8B;">다음</a>
+												    style="background-color: #008B8B; float: right;" value="다음">
 											</div>
+										</form>
 										</div>
 									</div>
 								</div>
