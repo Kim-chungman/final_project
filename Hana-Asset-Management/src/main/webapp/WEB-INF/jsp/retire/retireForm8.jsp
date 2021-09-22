@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +16,54 @@
 <link href="${ pageContext.request.contextPath }/resources/retire/any_mnew.css" type="text/css" rel="stylesheet">
 <link href="${ pageContext.request.contextPath }/resources/retire/contents.css" type="text/css" rel="stylesheet">
 
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+
+<script>
+
+   google.charts.load("current", {packages:["corechart"]});
+
+   google.setOnLoadCallback(drawChart);
+   
+   var future = '${ retire.fv }';
+   var present = '${ retire.pv }';
+   var prepare = '${ retire.prepareMoney }';
+   var need = '${ retire.needMoney }';
+   var lackfv = '${ retire.fv - retire.prepareMoney }';
+   var lackpv = '${ retire.pv - retire.needMoney }';
+   
+   google.setOnLoadCallback(drawChart);
+   
+   function drawChart() {
+	   
+	   	  var jsonData = $.ajax({
+	         
+	         url : "${ pageContext.request.contextPath }/retireAnalysis",
+	         data: { fv : future, pv : present, prepareMoney : prepare, needMoney : need, monthSaving : lackfv, monthSaving2 : lackpv },
+	         dataType : "JSON",
+	         async : false
+	      }).responseText;
+	      console.log(jsonData);
+	      
+	      var data = new google.visualization.DataTable(jsonData);
+	      
+	      var chart = new google.visualization.PieChart(document.getElementById('chart_div')); 
+	      
+	      chart.draw(data, {
+	         curveType : "function",
+	         fontSize: 15,
+	         width : 600,
+	         height : 400,
+	         pieHole: 0.7,
+	         colors: ['#FAC8C8','LightBlue'],
+	         chartArea: {
+	        	 'width': '90%',
+	        	 'height' : '90%'
+	       	}
+	      });
+	      
+	}
+</script>
 
 <style type="text/css">
 .w2grid.gridTyDefault .gridBodyDefault.inP_cellTit {
@@ -94,19 +143,19 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													<li id="wq_uuid_1520" class="w2group on"><a
 														id="wq_uuid_1521" class="w2group "
 														href="javascript:void(null);"><span id="wq_uuid_1522"
-															class="w2span ">설계<br>결과
+															class="w2span ">진단<br>결과
 														</span></a></li>
 												</ul>
 											</div>
 											<h2 id="wq_uuid_1535"
 												class="w2textbox titH02 fs15 b mb10 mt5">필요/준비자금</h2>
 											<div id="wq_uuid_1536" class="w2group mb15 ba1_gray bl0 br0">
-												<div id="id_준비자금메인도넛그래프" style="height: 220px;"
+												<div id="id_준비자금메인도넛그래프"
 													type="Doughnut2D" drawtype="javascript"></div>
-													<div id="div_chart">
+													<div id="chart_div" align="center" style="margin-left: 200px;">
 													
 													</div>
-													<p id="wq_uuid_1540" class="w2textbox tac">은퇴자금 준비율</p>
+													<p id="wq_uuid_1540" class="w2textbox tac" style="font-size: 12pt;"><strong>은퇴자금 준비율</strong></p>
 												</div>
 											</div>
 											<div id="wq_uuid_1541" class="w2textbox tar fs12">(단위:만원)</div>
@@ -136,22 +185,42 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 																id="wq_uuid_1560" class="w2textbox ">현재가치</div></th>
 														<td id="wq_uuid_1561" class="w2group w2tb_td"
 															data-title="현재가치"><div id="현재_필요자금"
-																class="w2textbox "></div></td>
+																class="w2textbox " style="text-align: center;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ retire.pv }" /></div></td>
 														<td id="wq_uuid_1563" class="w2group w2tb_td w2tb_noTH"><div
-																id="현재_준비자금" class="w2textbox "></div></td>
-														<td id="wq_uuid_1565" class="w2group w2tb_td w2tb_noTH"><div
-																id="현재_과부족" class="w2textbox "></div></td>
+																id="현재_준비자금" class="w2textbox " style="text-align: center;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ retire.needMoney }" /></div></td>
+														<td id="wq_uuid_1565" class="w2group w2tb_td w2tb_noTH">
+															<c:if test="${ (retire.pv - retire.needMoney) gt 0 }">
+															<div id="현재_과부족" class="w2textbox " style="color: red; text-align: center;">
+																-<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ retire.pv - retire.needMoney }" />
+															</div>
+															</c:if>
+															<c:if test="${ (retire.pv - retire.needMoney) lt 0 }">
+															<div id="현재_과부족" class="w2textbox " style="color: blue; text-align: center;">
+																<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ retire.pv - retire.needMoney }" />
+															</div>
+															</c:if>
+														</td>
 													</tr>
 													<tr id="wq_uuid_1567" class="w2group ">
 														<th id="wq_uuid_1568" class="w2group w2tb_th"><div
 																id="wq_uuid_1569" class="w2textbox ">미래가치</div></th>
 														<td id="wq_uuid_1570" class="w2group w2tb_td"
 															data-title="미래가치"><div id="미래_필요자금"
-																class="w2textbox "></div></td>
+																class="w2textbox " style="text-align: center;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ retire.fv }" /></div></td>
 														<td id="wq_uuid_1572" class="w2group w2tb_td w2tb_noTH"><div
-																id="미래_준비자금" class="w2textbox "></div></td>
-														<td id="wq_uuid_1574" class="w2group w2tb_td w2tb_noTH"><div
-																id="미래_과부족" class="w2textbox "></div></td>
+																id="미래_준비자금" class="w2textbox " style="text-align: center;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ retire.prepareMoney }" /></div></td>
+														<td id="wq_uuid_1574" class="w2group w2tb_td w2tb_noTH">
+															<c:if test="${ (retire.fv - retire.prepareMoney) gt 0 }">
+															<div id="미래_과부족" class="w2textbox " style="color: red; text-align: center;">
+																-<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ retire.fv - retire.prepareMoney}" />			
+															</div>
+															</c:if>
+															<c:if test="${ (retire.fv - retire.prepareMoney) lt 0 }">
+															<div id="미래_과부족" class="w2textbox " style="color: blue; text-align: center;">
+																<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ retire.fv - retire.prepareMoney}" />
+															</div>
+															</c:if>
+														</td>
 													</tr>
 												</tbody>
 											</table>

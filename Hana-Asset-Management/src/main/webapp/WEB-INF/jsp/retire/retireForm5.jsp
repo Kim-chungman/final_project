@@ -15,6 +15,14 @@
 <link href="${ pageContext.request.contextPath }/resources/retire/contents.css" type="text/css" rel="stylesheet">
 
 <script src="${ pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		searchajax();
+		searchajax2();
+		searchajax3();
+	})
+</script>
+
 
 <style type="text/css">
 .w2grid.gridTyDefault .gridBodyDefault.inP_cellTit {
@@ -145,11 +153,11 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 														<th id="wq_uuid_564" class="w2group w2tb_th">생활비</th>
 														<td id="wq_uuid_565" class="w2group w2tb_td"
 															data-title="생활비"><div id="input_live_val0"
-																class="w2textbox ">165</div></td>
+																class="w2textbox "></div></td>
 														<td id="wq_uuid_567" class="w2group w2tb_td w2tb_noTH"><div
-																id="input_live_val1" class="w2textbox ">127</div></td>
+																id="input_live_val1" class="w2textbox "></div></td>
 														<td id="wq_uuid_569" class="w2group w2tb_td w2tb_noTH"><div
-																id="input_live_val2" class="w2textbox ">117</div></td>
+																id="input_live_val2" class="w2textbox "></div></td>
 													</tr>
 													<tr id="wq_uuid_571" class="w2group ">
 														<th id="wq_uuid_572" class="w2group w2tb_th">비율</th>
@@ -196,5 +204,69 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 			</div>
 		</div>
    </section>
+   <script type="text/javascript">
+   		function searchajax(){
+   			$("#wq_uuid_541").keyup(function() {
+   				var words = $("#input_mprice").val();
+   				if( words != ''){
+   					$.ajax({
+   						type : 'POST',
+   						url : '${ pageContext.request.contextPath }/retire/expectCheck',
+   						data : { word : words},
+   						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+   						success : function(data){
+   							console.log(data)
+   							$('#input_live_val0').text(data)
+   							
+   						},
+   						error : function(e) { console.log('error : ' + e.status); }
+   					});
+   				}
+   			});
+   		}
+   		
+   		function searchajax2(){
+   			$("#wq_uuid_231").keyup(function() {
+   				var words = $("#input_mprice").val();
+   				var months = $("#input_live1").val();
+   				if( words != '' && months != ''){
+   					$.ajax({
+   						type : 'POST',
+   						url : '${ pageContext.request.contextPath }/retire/expectCheck2',
+   						data : { word : words, month : months},
+   						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+   						success : function(data){
+   							console.log(data)
+   							$('#input_live_val1').text(data)
+   							
+   						},
+   						error : function(e) { console.log('error : ' + e.status); }
+   					});
+   				}
+   			});
+   		}
+   		
+   		function searchajax3(){
+   			$("#wq_uuid_231").keyup(function() {
+   				var words = $("#input_mprice").val();
+   				var months = $("#input_live2").val();
+   				if( words != '' && months != ''){
+   					$.ajax({
+   						type : 'POST',
+   						url : '${ pageContext.request.contextPath }/retire/expectCheck2',
+   						data : { word : words, month : months},
+   						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+   						success : function(data){
+   							console.log(data)
+   							$('#input_live_val2').text(data)
+   							
+   						},
+   						error : function(e) { console.log('error : ' + e.status); }
+   					});
+   				}
+   			});
+   		}
+   		
+   </script>
 </body>
 </html>

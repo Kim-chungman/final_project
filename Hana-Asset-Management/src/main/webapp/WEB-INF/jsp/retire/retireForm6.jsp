@@ -194,7 +194,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 												
 											</div>
 										</div>
-											<div id="wq_uuid_943" style="left: -1px; top: 52px;"
+										<div id="wq_uuid_943" style="left: -1px; top: 52px;"
 											class="w2group contbox pt20 ">
 											<input id="본인_전문퇴직연금유형" style="display: none;"
 												class="w2input " type="text"><input
@@ -256,6 +256,52 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 																		id="배우자퇴직연금유형_input_2"><label
 																		class="w2radio_label " 
 																		for="배우자퇴직연금유형_input_2">미가입</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+										<div id="wq_uuid_943" style="left: -1px; top: 52px;"
+											class="w2group contbox pt20 ">
+											<input id="본인_전문퇴직연금유형" style="display: none;"
+												class="w2input " type="text"><input
+												id="배우자_전문퇴직연금유형" style="display: none;" class="w2input "
+												type="text"><input id="본인퇴직연금일련번호"
+												style="display: none;" class="w2input " type="text"><input
+												id="배우자퇴직연금일련번호" style="display: none;" class="w2input "
+												type="text">
+											<p id="wq_uuid_948" class="w2textbox fs15">본인의 (예상) 월 수령액을 입력해주세요.</p>
+											<div id="wq_uuid_949" class="w2group boxTyGray mb25 mt10">
+												<div id="wq_uuid_950" class="w2group tformper">
+													<div id="wq_uuid_951" class="w2group cell tal">
+														<div id="본인퇴직연금유형" class="w2radio right_align pb0">
+															<div id="wq_uuid_541" class="w2group pr">
+																<span id="wq_uuid_542" style="left: 5px; top: 8px; margin-top: 4px;"
+																	class="w2span pa">월</span><input id="input_price" name="input_price"
+																	class="w2input pl20 pr35 tar" type="tel"><span
+																	id="wq_uuid_544" style="right: 5px; top: 8px; margin-top: 4px;"
+																	class="w2span pa">만원</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div id="spouse06" class="w2group ">
+												<p id="wq_uuid_995" class="w2textbox fs15 ">배우자의 (예상) 월 수령액을 입력해주세요.</p>
+												<div id="wq_uuid_996" class="w2group boxTyGray mb15 mt10">
+													<div id="wq_uuid_997" class="w2group tformper">
+														<div id="wq_uuid_998" class="w2group cell tal">
+															<div id="배우자퇴직연금유형" class="w2radio right_align pb0">
+																<div id="wq_uuid_541" class="w2group pr">
+																	<span id="wq_uuid_542" style="left: 5px; top: 8px; margin-top: 4px;"
+																		class="w2span pa">월</span><input id="input_price2" name="input_price2"
+																		class="w2input pl20 pr35 tar" type="tel"><span
+																		id="wq_uuid_544" style="right: 5px; top: 8px; margin-top: 4px;"
+																		class="w2span pa">만원</span>
 																</div>
 															</div>
 														</div>

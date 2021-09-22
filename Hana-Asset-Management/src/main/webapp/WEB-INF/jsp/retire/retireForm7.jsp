@@ -243,6 +243,24 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 												</div>
 											</div>
 										</div>
+										<div id="wq_uuid_1221" class="w2group contbox pt20 ">
+											<p id="wq_uuid_1222" class="w2textbox fs15">기대되는 예상수익률을 입력해주세요</p>
+											<div id="wq_uuid_1223"
+												class="w2group excompcont line tbltype inph30">
+												<div id="wq_uuid_1224" class="w2group tformper toplineb">
+													<div id="wq_uuid_1225" class="w2group cell tal w120">
+														<span id="wq_uuid_1226" class="w2span fc3">예상 기대수익률</span>
+													</div>
+													<div id="wq_uuid_1227" class="w2group cell pl10 pr10">
+														<div id="wq_uuid_1228" class="w2group pr">
+															<input id="ipt_기대수익률" class="w2input tar pr40" name="ipt_기대수익률"
+																type="tel" maxlength="6"><span id="wq_uuid_1230"
+																style="right: 5PX; top: 7px;" class="w2span pa">%</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 										<div id="wq_uuid_1238" style="display: none;"
 											class="w2group mb15">
 											<table id="wq_uuid_1239"
