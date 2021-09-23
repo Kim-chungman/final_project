@@ -28,124 +28,203 @@ public class ExpenseServiceImpl implements ExpenseService{
      
       JSONObject col1 = new JSONObject();
       JSONObject col2 = new JSONObject();
-      JSONObject col3 = new JSONObject();
-      JSONObject col4 = new JSONObject();
-      JSONObject col5 = new JSONObject();
-      JSONObject col6 = new JSONObject();
-      JSONObject col7 = new JSONObject();
-      JSONObject col8 = new JSONObject();
-      JSONObject col9 = new JSONObject();
-      JSONObject col10 = new JSONObject();
-      JSONObject col11 = new JSONObject();
-      JSONObject col12 = new JSONObject();
-      JSONObject col13 = new JSONObject();
       
       JSONArray title = new JSONArray();
       
-      col1.put("label", "회원아이디");
+      col1.put("label", "월");
       col1.put("type", "string");
-      col2.put("label", "9월");
+      col2.put("label", "지출액");
       col2.put("type", "number");
-      col3.put("label", "10월");
-      col3.put("type", "number");
-      col4.put("label", "11월");
-      col4.put("type", "number");
-      col5.put("label", "12월");
-      col5.put("type", "number");
-      col6.put("label", "1월");
-      col6.put("type", "number");
-      col7.put("label", "2월");
-      col7.put("type", "number");
-      col8.put("label", "3월");
-      col8.put("type", "number");
-      col9.put("label", "4월");
-      col9.put("type", "number");
-      col10.put("label", "5월");
-      col10.put("type", "number");
-      col11.put("label", "6월");
-      col11.put("type", "number");
-      col12.put("label", "7월");
-      col12.put("type", "number");
-      col13.put("label", "8월");
-      col13.put("type", "number");
+      
       
       title.add(col1);
       title.add(col2);
-      title.add(col3);
-      title.add(col4);
-      title.add(col5);
-      title.add(col6);
-      title.add(col7);
-      title.add(col8);
-      title.add(col9);
-      title.add(col10);
-      title.add(col11);
-      title.add(col12);
-      title.add(col13);
       
       data.put("cols", title);
       
       JSONArray body = new JSONArray();
       for(ExpenseVO list : items) {
          
-         JSONObject memberId = new JSONObject();
-         memberId.put("v", list.getMember_id()+"님의 최근 1년간 월간 지출액");
-         
-         JSONObject sep = new JSONObject();
-         sep.put("v", list.getSep());
-         
-         JSONObject oct = new JSONObject();
-         oct.put("v", list.getOct());
-         
-         JSONObject nov = new JSONObject();
-         nov.put("v", list.getNov());
-         
-         JSONObject dec = new JSONObject();
-         dec.put("v", list.getDec());
-         
-         JSONObject jan = new JSONObject();
-         jan.put("v", list.getJan());
-         
-         JSONObject feb = new JSONObject();
-         feb.put("v", list.getFeb());
-         
-         JSONObject mar = new JSONObject();
-         mar.put("v", list.getMar());
-         
-         JSONObject apr = new JSONObject();
-         apr.put("v", list.getApr());
-         
-         JSONObject may = new JSONObject();
-         may.put("v", list.getMay());
-         
-         JSONObject jun = new JSONObject();
-         jun.put("v", list.getJun());
-         
-         JSONObject jul = new JSONObject();
-         jul.put("v", list.getJul());
-         
-         JSONObject aug = new JSONObject();
-         aug.put("v", list.getAug());
-         
-         JSONArray row = new JSONArray();
-         row.add(memberId);
-         row.add(sep);
-         row.add(oct);
-         row.add(nov);
-         row.add(dec);
-         row.add(jan);
-         row.add(feb);
-         row.add(mar);
-         row.add(apr);
-         row.add(may);
-         row.add(jun);
-         row.add(jul);
-         row.add(aug);
-         
-         JSONObject cell = new JSONObject();
-         cell.put("c", row);
-         body.add(cell);
-         
+    	  if(list.getOct()!=0) {
+     		 JSONObject month = new JSONObject();
+     		 month.put("v", "10월");
+     		 JSONObject oct = new JSONObject();
+     		 oct.put("v", list.getOct());
+              
+              JSONArray row = new JSONArray();
+              row.add(month);
+              row.add(oct);
+              
+              JSONObject cell = new JSONObject();
+              cell.put("c", row);
+              body.add(cell);
+     	 }
+     	 
+     	 if(list.getNov()!=0) {
+     		 JSONObject month = new JSONObject();
+     		 month.put("v", "11월");
+     		 JSONObject nov = new JSONObject();
+     		 nov.put("v", list.getNov());
+              
+              JSONArray row = new JSONArray();
+              row.add(month);
+              row.add(nov);
+              
+              JSONObject cell = new JSONObject();
+              cell.put("c", row);
+              body.add(cell);
+     	 }
+     	 
+     	 if(list.getDec()!=0) {
+     		 JSONObject month = new JSONObject();
+     		 month.put("v", "12월");
+     		 JSONObject dec = new JSONObject();
+     		 dec.put("v", list.getDec());
+              
+              JSONArray row = new JSONArray();
+              row.add(month);
+              row.add(dec);
+              
+              JSONObject cell = new JSONObject();
+              cell.put("c", row);
+              body.add(cell);
+     	 } 
+    	  
+    	 if(list.getJan()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "1월");
+    		 JSONObject jan = new JSONObject();
+             jan.put("v", list.getJan());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(jan);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getFeb()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "2월");
+    		 JSONObject feb = new JSONObject();
+    		 feb.put("v", list.getFeb());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(feb);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getMar()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "3월");
+    		 JSONObject mar = new JSONObject();
+    		 mar.put("v", list.getMar());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(mar);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getApr()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "4월");
+    		 JSONObject apr = new JSONObject();
+    		 apr.put("v", list.getApr());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(apr);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getMay()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "5월");
+    		 JSONObject may = new JSONObject();
+    		 may.put("v", list.getMay());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(may);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getJun()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "6월");
+    		 JSONObject jun = new JSONObject();
+    		 jun.put("v", list.getJun());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(jun);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getJul()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "7월");
+    		 JSONObject jul = new JSONObject();
+    		 jul.put("v", list.getJul());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(jul);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getAug()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "8월");
+    		 JSONObject aug = new JSONObject();
+    		 aug.put("v", list.getAug());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(aug);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getSep()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "9월");
+    		 JSONObject sep = new JSONObject();
+    		 sep.put("v", list.getSep());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(sep);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
       }
       data.put("rows", body);
       
@@ -158,79 +237,117 @@ public class ExpenseServiceImpl implements ExpenseService{
       List<ExpenseVO> items = chartDAO.customerList2(expense);
       
       JSONObject data = new JSONObject();
-     
+      
       JSONObject col1 = new JSONObject();
       JSONObject col2 = new JSONObject();
-      JSONObject col3 = new JSONObject();
-      JSONObject col4 = new JSONObject();
-      JSONObject col5 = new JSONObject();
-      JSONObject col6 = new JSONObject();
-      JSONObject col7 = new JSONObject();
       
       JSONArray title = new JSONArray();
       
-      col1.put("label", "회원아이디");
+      col1.put("label", "월");
       col1.put("type", "string");
-      col2.put("label", "3월");
+      col2.put("label", "지출액");
       col2.put("type", "number");
-      col3.put("label", "4월");
-      col3.put("type", "number");
-      col4.put("label", "5월");
-      col4.put("type", "number");
-      col5.put("label", "6월");
-      col5.put("type", "number");
-      col6.put("label", "7월");
-      col6.put("type", "number");
-      col7.put("label", "8월");
-      col7.put("type", "number");
+      
       
       title.add(col1);
       title.add(col2);
-      title.add(col3);
-      title.add(col4);
-      title.add(col5);
-      title.add(col6);
-      title.add(col7);
       
       data.put("cols", title);
       
       JSONArray body = new JSONArray();
       for(ExpenseVO list : items) {
-         
-         JSONObject memberId = new JSONObject();
-         memberId.put("v", list.getMember_id()+"님의 최근 6개월간 월간 지출액");
-         
-         JSONObject mar = new JSONObject();
-         mar.put("v", list.getMar());
-         
-         JSONObject apr = new JSONObject();
-         apr.put("v", list.getApr());
-         
-         JSONObject may = new JSONObject();
-         may.put("v", list.getMay());
-         
-         JSONObject jun = new JSONObject();
-         jun.put("v", list.getJun());
-         
-         JSONObject jul = new JSONObject();
-         jul.put("v", list.getJul());
-         
-         JSONObject aug = new JSONObject();
-         aug.put("v", list.getAug());
-         
-         JSONArray row = new JSONArray();
-         row.add(memberId);
-         row.add(mar);
-         row.add(apr);
-         row.add(may);
-         row.add(jun);
-         row.add(jul);
-         row.add(aug);
-         
-         JSONObject cell = new JSONObject();
-         cell.put("c", row);
-         body.add(cell);
-         
+    	 
+
+     	 if(list.getMar()!=0) {
+     		 JSONObject month = new JSONObject();
+     		 month.put("v", "3월");
+     		 JSONObject mar = new JSONObject();
+     		 mar.put("v", list.getMar());
+              
+              JSONArray row = new JSONArray();
+              row.add(month);
+              row.add(mar);
+              
+              JSONObject cell = new JSONObject();
+              cell.put("c", row);
+              body.add(cell);
+     	 } 
+    	  
+    	 if(list.getApr()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "4월");
+    		 JSONObject apr = new JSONObject();
+    		 apr.put("v", list.getApr());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(apr);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getMay()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "5월");
+    		 JSONObject may = new JSONObject();
+    		 may.put("v", list.getMay());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(may);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getJun()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "6월");
+    		 JSONObject jun = new JSONObject();
+    		 jun.put("v", list.getJun());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(jun);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getJul()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "7월");
+    		 JSONObject jul = new JSONObject();
+    		 jul.put("v", list.getJul());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(jul);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getAug()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "8월");
+    		 JSONObject aug = new JSONObject();
+    		 aug.put("v", list.getAug());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(aug);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
       }
       data.put("rows", body);
       
@@ -245,55 +362,71 @@ public class ExpenseServiceImpl implements ExpenseService{
       List<ExpenseVO> items = chartDAO.customerList3(expense);
       
       JSONObject data = new JSONObject();
-     
+      
       JSONObject col1 = new JSONObject();
       JSONObject col2 = new JSONObject();
-      JSONObject col3 = new JSONObject();
-      JSONObject col4 = new JSONObject();
       
       JSONArray title = new JSONArray();
       
-      col1.put("label", "회원아이디");
+      col1.put("label", "월");
       col1.put("type", "string");
-      col2.put("label", "6월");
+      col2.put("label", "지출액");
       col2.put("type", "number");
-      col3.put("label", "7월");
-      col3.put("type", "number");
-      col4.put("label", "8월");
-      col4.put("type", "number");
+      
       
       title.add(col1);
       title.add(col2);
-      title.add(col3);
-      title.add(col4);
       
       data.put("cols", title);
       
       JSONArray body = new JSONArray();
       for(ExpenseVO list : items) {
-         
-         JSONObject memberId = new JSONObject();
-         memberId.put("v", list.getMember_id()+"님의 최근 3개월간 월간 지출액");
-         
-         JSONObject jun = new JSONObject();
-         jun.put("v", list.getJun());
-         
-         JSONObject jul = new JSONObject();
-         jul.put("v", list.getJul());
-         
-         JSONObject aug = new JSONObject();
-         aug.put("v", list.getAug());
-         
-         JSONArray row = new JSONArray();
-         row.add(memberId);
-         row.add(jun);
-         row.add(jul);
-         row.add(aug);
-         
-         JSONObject cell = new JSONObject();
-         cell.put("c", row);
-         body.add(cell);
-         
+    	 
+    	 if(list.getJun()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "6월");
+    		 JSONObject jun = new JSONObject();
+    		 jun.put("v", list.getJun());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(jun);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getJul()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "7월");
+    		 JSONObject jul = new JSONObject();
+    		 jul.put("v", list.getJul());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(jul);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
+    	 if(list.getAug()!=0) {
+    		 JSONObject month = new JSONObject();
+    		 month.put("v", "8월");
+    		 JSONObject aug = new JSONObject();
+    		 aug.put("v", list.getAug());
+             
+             JSONArray row = new JSONArray();
+             row.add(month);
+             row.add(aug);
+             
+             JSONObject cell = new JSONObject();
+             cell.put("c", row);
+             body.add(cell);
+    	 }
+    	 
       }
       data.put("rows", body);
       
@@ -446,8 +579,389 @@ public class ExpenseServiceImpl implements ExpenseService{
 			break;
 		}
 		
-		JSONObject data = new JSONObject();
+		 
+		
+		  String[] type = new String[9];
+		  int[] myage = new int[9];
+		  int[] group = new int[9];
+		  
+		  for(int i=0; i<9; i++) {
+			  
+			  type[i] = items.get(i).getCategory();
+			  myage[i] = items.get(i).getExpense();
+			  group[i] = items.get(i).getJan();
+			  
+			  System.out.println(type[i] + " : 나 " + myage[i] +", 20대 " + group[i]);
+		  }
+		  
+		  JSONObject data = new JSONObject();
 	     
+		  JSONObject col1 = new JSONObject();
+	      JSONObject col2 = new JSONObject();
+	      JSONObject col3 = new JSONObject();
+	      
+	      JSONArray title = new JSONArray();
+	      
+	      col1.put("label", "또래와의 비교");
+	      col1.put("type", "string");
+	      col2.put("label", "김하나님");
+	      col2.put("type", "number");
+	      col3.put("label", num);
+	      col3.put("type", "number");
+	      
+	      title.add(col1);
+	      title.add(col2);
+	      title.add(col3);
+	      
+	      data.put("cols", title);
+		  JSONArray body = new JSONArray();
+		  
+		  for(ExpenseVO list : items) {
+	    	  
+		    	 JSONObject category = new JSONObject();
+		    	 JSONObject expensed = new JSONObject();
+		    	 JSONObject jan = new JSONObject();
+		    	 
+		         switch(list.getCategory()) {
+		         
+		         case "ENTERTAINMENT_COST" :
+		        	 list.setCategory("문화/오락");
+		        	 category.put("v", list.getCategory());
+			         
+			         expensed.put("v", list.getExpense());
+			         
+			         jan.put("v", list.getJan());
+			         
+		        	 break;
+		         case "TRANSPORTATION_COST" :
+		        	 list.setCategory("교통비");
+		        	 category.put("v", list.getCategory());
+			         
+			         expensed.put("v", list.getExpense());
+			         
+			         jan.put("v", list.getJan());
+			         
+		        	 break;
+		         case "EDUCATIONAL_COST" :
+		        	 list.setCategory("교육비");
+		        	 category.put("v", list.getCategory());
+			         
+			         expensed.put("v", list.getExpense());
+			         
+			         jan.put("v", list.getJan());
+			         
+		        	 break;
+		         case "COMMUNICATION_COST" :
+		        	 list.setCategory("통신비");
+		        	 category.put("v", list.getCategory());
+			         
+			         expensed.put("v", list.getExpense());
+			         
+			         jan.put("v", list.getJan());
+			         
+		        	 break;
+		         case "FOOD_COST" :
+		        	 list.setCategory("식비");
+		        	 category.put("v", list.getCategory());
+			         
+			         expensed.put("v", list.getExpense());
+			         
+			         jan.put("v", list.getJan());
+			         
+		        	 break;
+		         case "HEALTH_CARE_COST" :
+		        	 list.setCategory("의료비");
+		        	 category.put("v", list.getCategory());
+			         
+			         expensed.put("v", list.getExpense());
+			         
+			         jan.put("v", list.getJan());
+			         
+		        	 break;
+		         case "INSURANCE_PREMIUM" :
+		        	 list.setCategory("보험료");
+		        	 category.put("v", list.getCategory());
+			         
+			         expensed.put("v", list.getExpense());
+			         
+			         jan.put("v", list.getJan());
+			         
+		        	 break;
+		         case "APPAREL_COST" :
+		        	 list.setCategory("쇼핑/의류");
+		        	 category.put("v", list.getCategory());
+			         
+			         expensed.put("v", list.getExpense());
+			         
+			         jan.put("v", list.getJan());
+			         
+		        	 break;
+		         case "HOUSING_COST" :
+		        	 list.setCategory("주거비");
+		        	 category.put("v", list.getCategory());
+			         
+			         expensed.put("v", list.getExpense());
+			         
+			         jan.put("v", list.getJan());
+			         
+		        	 break;
+		        	 
+		         }
+		         
+		         JSONArray row = new JSONArray();
+		         row.add(category);
+		         row.add(expensed);
+		         row.add(jan);
+		         
+		         JSONObject cell = new JSONObject();
+		         cell.put("c", row);
+		         body.add(cell);
+	    	  
+		      }
+		  data.put("rows", body);
+	 	     
+	      return data;
+		  /*
+		  JSONObject col1 = new JSONObject();
+	      JSONObject col2 = new JSONObject();
+	      JSONObject col3 = new JSONObject();
+	      JSONObject col4 = new JSONObject();
+	      JSONObject col5 = new JSONObject();
+	      JSONObject col6 = new JSONObject();
+	      JSONObject col7 = new JSONObject();
+	      JSONObject col8 = new JSONObject();
+	      JSONObject col9 = new JSONObject();
+	      JSONObject col10 = new JSONObject();
+	      
+	      JSONArray title = new JSONArray();
+	      
+	      col1.put("label", "또래와의 비교");
+	      col1.put("type", "string");
+	      col2.put("label", type[0]);
+	      col2.put("type", "number");
+	      col3.put("label", type[1]);
+	      col3.put("type", "number");
+	      col4.put("label", type[2]);
+	      col4.put("type", "number");
+	      col5.put("label", type[3]);
+	      col5.put("type", "number");
+	      col6.put("label", type[4]);
+	      col6.put("type", "number");
+	      col7.put("label", type[5]);
+	      col7.put("type", "number");
+	      col8.put("label", type[6]);
+	      col8.put("type", "number");
+	      col9.put("label", type[7]);
+	      col9.put("type", "number");
+	      col10.put("label", type[8]);
+	      col10.put("type", "number");
+	      
+	      title.add(col1);
+	      title.add(col2);
+	      title.add(col3);
+	      title.add(col4);
+	      title.add(col5);
+	      title.add(col6);
+	      title.add(col7);
+	      title.add(col8);
+	      title.add(col9);
+	      title.add(col10);
+	      
+	      data.put("cols", title);
+	      
+	      JSONArray body = new JSONArray();
+	      
+	      if(myage[0]!=0) {
+	    	  JSONObject category = new JSONObject();
+		      JSONObject expense1 = new JSONObject();
+		      JSONObject expense2 = new JSONObject();
+		      JSONObject expense3 = new JSONObject();
+		      JSONObject expense4 = new JSONObject();
+		      JSONObject expense5 = new JSONObject();
+		      JSONObject expense6 = new JSONObject();
+		      JSONObject expense7 = new JSONObject();
+		      JSONObject expense8 = new JSONObject();
+		      JSONObject expense9 = new JSONObject();
+	    	  
+		      category.put("v", "김하나님");
+		      expense1.put("v", myage[0]); 
+		      expense2.put("v", myage[1]);
+		      expense3.put("v", myage[2]);
+		      expense4.put("v", myage[3]);
+		      expense5.put("v", myage[4]);
+		      expense6.put("v", myage[5]);
+		      expense7.put("v", myage[6]);
+		      expense8.put("v", myage[7]);
+		      expense9.put("v", myage[8]);
+		      
+		      JSONArray row = new JSONArray();
+	          row.add(category);
+	          row.add(expense1);
+	          row.add(expense2);
+	          row.add(expense3);
+	          row.add(expense4);
+	          row.add(expense5);
+	          row.add(expense6);
+	          row.add(expense7);
+	          row.add(expense8);
+	          row.add(expense9);
+	         
+	          JSONObject cell = new JSONObject();
+	          cell.put("c", row);
+	          body.add(cell);
+	      }
+
+	      if(group[0] != 0) {
+	    	  JSONObject category = new JSONObject();
+		      JSONObject expense1 = new JSONObject();
+		      JSONObject expense2 = new JSONObject();
+		      JSONObject expense3 = new JSONObject();
+		      JSONObject expense4 = new JSONObject();
+		      JSONObject expense5 = new JSONObject();
+		      JSONObject expense6 = new JSONObject();
+		      JSONObject expense7 = new JSONObject();
+		      JSONObject expense8 = new JSONObject();
+		      JSONObject expense9 = new JSONObject();
+	    	  
+		      category.put("v", num);
+		      expense1.put("v", group[0]);
+		      expense2.put("v", group[1]);
+		      expense3.put("v", group[2]);
+		      expense4.put("v", group[3]);
+		      expense5.put("v", group[4]);
+		      expense6.put("v", group[5]);
+		      expense7.put("v", group[6]);
+		      expense8.put("v", group[7]);
+		      expense9.put("v", group[8]);
+		      
+		      JSONArray row2 = new JSONArray();
+	          row2.add(category);
+	          row2.add(expense1);
+	          row2.add(expense2);
+	          row2.add(expense3);
+	          row2.add(expense4);
+	          row2.add(expense5);
+	          row2.add(expense6);
+	          row2.add(expense7);
+	          row2.add(expense8);
+	          row2.add(expense9);
+	         
+	          JSONObject cell2 = new JSONObject();
+	          cell2.put("c", row2);
+	          body.add(cell2);
+	      }
+	      */
+	      
+	      /*
+	      for(ExpenseVO list : items) {
+	    	  
+	    	 JSONObject category = new JSONObject();
+	    	 JSONObject expensed = new JSONObject();
+	    	 JSONObject jan = new JSONObject();
+	    	 
+	         switch(list.getCategory()) {
+	         
+	         case "ENTERTAINMENT_COST" :
+	        	 list.setCategory("문화/오락");
+	        	 category.put("v", list.getCategory());
+		         
+		         expensed.put("v", list.getExpense());
+		         
+		         jan.put("v", list.getJan());
+		         
+	        	 break;
+	         case "TRANSPORTATION_COST" :
+	        	 list.setCategory("교통비");
+	        	 category.put("v", list.getCategory());
+		         
+		         expensed.put("v", list.getExpense());
+		         
+		         jan.put("v", list.getJan());
+		         
+	        	 break;
+	         case "EDUCATIONAL_COST" :
+	        	 list.setCategory("교육비");
+	        	 category.put("v", list.getCategory());
+		         
+		         expensed.put("v", list.getExpense());
+		         
+		         jan.put("v", list.getJan());
+		         
+	        	 break;
+	         case "COMMUNICATION_COST" :
+	        	 list.setCategory("통신비");
+	        	 category.put("v", list.getCategory());
+		         
+		         expensed.put("v", list.getExpense());
+		         
+		         jan.put("v", list.getJan());
+		         
+	        	 break;
+	         case "FOOD_COST" :
+	        	 list.setCategory("식비");
+	        	 category.put("v", list.getCategory());
+		         
+		         expensed.put("v", list.getExpense());
+		         
+		         jan.put("v", list.getJan());
+		         
+	        	 break;
+	         case "HEALTH_CARE_COST" :
+	        	 list.setCategory("의료비");
+	        	 category.put("v", list.getCategory());
+		         
+		         expensed.put("v", list.getExpense());
+		         
+		         jan.put("v", list.getJan());
+		         
+	        	 break;
+	         case "INSURANCE_PREMIUM" :
+	        	 list.setCategory("보험료");
+	        	 category.put("v", list.getCategory());
+		         
+		         expensed.put("v", list.getExpense());
+		         
+		         jan.put("v", list.getJan());
+		         
+	        	 break;
+	         case "APPAREL_COST" :
+	        	 list.setCategory("쇼핑/의류");
+	        	 category.put("v", list.getCategory());
+		         
+		         expensed.put("v", list.getExpense());
+		         
+		         jan.put("v", list.getJan());
+		         
+	        	 break;
+	         case "HOUSING_COST" :
+	        	 list.setCategory("주거비");
+	        	 category.put("v", list.getCategory());
+		         
+		         expensed.put("v", list.getExpense());
+		         
+		         jan.put("v", list.getJan());
+		         
+	        	 break;
+	        	 
+	         }
+	         
+	         JSONArray row = new JSONArray();
+	         row.add(category);
+	         row.add(expensed);
+	         row.add(jan);
+	         
+	         JSONObject cell = new JSONObject();
+	         cell.put("c", row);
+	         body.add(cell);
+    	  
+	      }
+	      */
+	      
+//	      data.put("rows", body);
+		     
+//	      return data;
+	      
+		  /*
 	      JSONObject col1 = new JSONObject();
 	      JSONObject col2 = new JSONObject();
 	      JSONObject col3 = new JSONObject();
@@ -524,9 +1038,7 @@ public class ExpenseServiceImpl implements ExpenseService{
 	         body.add(cell);
 	         
 	      }
-	      data.put("rows", body);
-	     
-	      return data;
+	      */
 		
 		/*
 		List<ExpenseVO> items = null;

@@ -91,7 +91,7 @@
 				</div>
 				
 				<br>
-				<input type="submit" id="login" value="로그인" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-right: 90px;">
+				<input type="submit" id="login" value="로그인" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-right: 80px;">
 			</form>
 			<div style="margin-right: 90px;">
 				<input type="checkbox">아이디저장

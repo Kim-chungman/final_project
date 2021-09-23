@@ -171,9 +171,9 @@
 	      
 	      var data = new google.visualization.DataTable(jsonData);
 	      
-	      /*var chart = new google.visualization.PieChart(document.getElementById('Piechart_div')); */
-	        var chart = new google.visualization.LineChart(document.getElementById('Piechart_div'));
-	      /* var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); */
+	      /* var chart = new google.visualization.PieChart(document.getElementById('Piechart_div')); */
+	      /* var chart = new google.visualization.LineChart(document.getElementById('Piechart_div')); */
+	       var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); 
 	      
 	      chart.draw(data, {
 	         title : "<지난 1달간 지출구성비>",
@@ -200,8 +200,8 @@
 	      var data = new google.visualization.DataTable(jsonData);
 	      
 	      /* var chart = new google.visualization.PieChart(document.getElementById('Piechart_div')); */
-	       	 var chart = new google.visualization.LineChart(document.getElementById('Piechart_div'));
-	      /* var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); */
+	      /* var chart = new google.visualization.LineChart(document.getElementById('Piechart_div')); */
+	       var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); 
 	      
 	      chart.draw(data, {
 	         title : "<지난 3달간 지출구성비>",
@@ -228,8 +228,8 @@
 	      var data = new google.visualization.DataTable(jsonData);
 	      
 	      /* var chart = new google.visualization.PieChart(document.getElementById('Piechart_div')); */
-	      	 var chart = new google.visualization.LineChart(document.getElementById('Piechart_div'));
-	      /* var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); */
+	      /* var chart = new google.visualization.LineChart(document.getElementById('Piechart_div')); */
+	       var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); 
 	      
 	      chart.draw(data, {
 	         title : "<지난 6달간 지출구성비>",
@@ -256,8 +256,8 @@
 	      var data = new google.visualization.DataTable(jsonData);
 	      
 	      /* var chart = new google.visualization.PieChart(document.getElementById('Piechart_div')); */
-	      	 var chart = new google.visualization.LineChart(document.getElementById('Piechart_div'));
-	      /* var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); */
+	      /* var chart = new google.visualization.LineChart(document.getElementById('Piechart_div')); */
+	         var chart = new google.visualization.ColumnChart(document.getElementById('Piechart_div')); 
 	      
 	      chart.draw(data, {
 	         title : "<지난 1년간 지출구성비>",

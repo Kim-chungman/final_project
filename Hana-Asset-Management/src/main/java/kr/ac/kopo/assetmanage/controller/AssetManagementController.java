@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.kopo.assetmanage.vo.InvestmentTypeVO;
+import kr.ac.kopo.expense.dao.ExpenseDAO;
+import kr.ac.kopo.expense.vo.ExpenseVO;
 import kr.ac.kopo.member.service.MemberService;
 import kr.ac.kopo.member.vo.MemberVO;
 
@@ -20,6 +22,9 @@ public class AssetManagementController {
 
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private ExpenseDAO expenseDAO;
 	
 	@RequestMapping("/assetManagement/explain")
 	public String explain() {
@@ -34,7 +39,30 @@ public class AssetManagementController {
 	}
 	
 	@RequestMapping("/assetManagement/investmentTest")
-	public String investmentTest() {
+	public String investmentTest(HttpServletRequest request, Model model) {
+		
+		HttpSession session = request.getSession();
+		MemberVO userVO = (MemberVO)session.getAttribute("userVO");
+		ExpenseVO expense = new ExpenseVO();
+		expense.setMember_id(userVO.getId());
+		
+		String num = expenseDAO.ageData(expense);
+		int age = Integer.parseInt(num);
+		String msg = "";
+		
+		if(age >= 93) {
+			msg = "20대";
+		} else if(age >= 83 && age < 93) {
+			msg = "30대";
+		} else if(age >= 73 && age < 83) {
+			msg = "40대";
+		} else if(age >= 63 && age < 73) {
+			msg = "50대";
+		} else if(age >= 53 && age < 63) {
+			msg = "60대";
+		}
+		
+		model.addAttribute("msg", msg);
 		
 		return "assetManagement/investmentTest";
 	}

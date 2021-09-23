@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -265,12 +266,42 @@
 					</tr>
 					<tr style="background-color: #F7F9FC;">
 						<td style="font-size: 12pt; font-family: inherit; padding-left: 10px;">
-							<input type="checkbox" name="q2" value="2.5" onclick='checkOnlyOne2(this)'>19세 이하<br>
-							<input type="checkbox" name="q2" value="2.5" onclick='checkOnlyOne2(this)'>20대<br>
-							<input type="checkbox" name="q2" value="2" onclick='checkOnlyOne2(this)'>30대<br>
-							<input type="checkbox" name="q2" value="1.5" onclick='checkOnlyOne2(this)'>40대<br>
-							<input type="checkbox" name="q2" value="1" onclick='checkOnlyOne2(this)'>50대<br>
-							<input type="checkbox" name="q2" value="0.5" onclick='checkOnlyOne2(this)'>60대 이상<br><br>
+							<c:if test="${ msg eq '10대' }">
+								<input type="checkbox" name="q2" value="2.5" onclick='checkOnlyOne2(this)' checked="checked">19세 이하<br>
+							</c:if>
+							<c:if test="${ msg ne '10대' }">
+								<input type="checkbox" name="q2" value="2.5" onclick='checkOnlyOne2(this)' disabled="disabled">19세 이하<br>
+							</c:if>
+							<c:if test="${ msg eq '20대' }">
+								<input type="checkbox" name="q2" value="2.5" onclick='checkOnlyOne2(this)' checked="checked">20대<br>
+							</c:if>
+							<c:if test="${ msg ne '20대' }">
+								<input type="checkbox" name="q2" value="2.5" onclick='checkOnlyOne2(this)' disabled="disabled">20대<br>
+							</c:if>
+							<c:if test="${ msg eq '30대' }">
+								<input type="checkbox" name="q2" value="2" onclick='checkOnlyOne2(this)' checked="checked">30대<br>
+							</c:if>
+							<c:if test="${ msg ne '30대' }">
+								<input type="checkbox" name="q2" value="2" onclick='checkOnlyOne2(this)' disabled="disabled">30대<br>
+							</c:if>
+							<c:if test="${ msg eq '40대' }">
+								<input type="checkbox" name="q2" value="1.5" onclick='checkOnlyOne2(this)' checked="checked">40대<br>
+							</c:if>
+							<c:if test="${ msg ne '40대' }">
+								<input type="checkbox" name="q2" value="1.5" onclick='checkOnlyOne2(this)' disabled="disabled">40대<br>
+							</c:if>
+							<c:if test="${ msg eq '50대' }">
+								<input type="checkbox" name="q2" value="1" onclick='checkOnlyOne2(this)' checked="checked">50대<br>
+							</c:if>
+							<c:if test="${ msg ne '50대' }">
+								<input type="checkbox" name="q2" value="1" onclick='checkOnlyOne2(this)' disabled="disabled">50대<br>
+							</c:if>
+							<c:if test="${ msg eq '60대' }">
+								<input type="checkbox" name="q2" value="0.5" onclick='checkOnlyOne2(this)' checked="checked">60대 이상<br><br>
+							</c:if>
+							<c:if test="${ msg ne '60대' }">
+								<input type="checkbox" name="q2" value="0.5" onclick='checkOnlyOne2(this)' disabled="disabled">60대 이상<br><br>
+							</c:if>
 						</td>
 					</tr>
 					<tr style="background-color: #F7F9FC;">

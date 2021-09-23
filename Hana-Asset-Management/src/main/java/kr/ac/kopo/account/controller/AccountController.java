@@ -39,7 +39,7 @@ public class AccountController {
 	
 	@PostMapping("/account/accountInfo")
 	public String accountJoin(AccountVO account, Model model, HttpServletRequest request, HttpSession session) {
-		/*
+		
 		// 암호 확인
 		System.out.println(account.toString());
 	    System.out.println("첫번째:" + account.getPassword());
@@ -79,7 +79,7 @@ public class AccountController {
 			
 			return "account/accountOpen";
 		}
-		*/
+		
 		return "account/accountOpen";
 	}
 }

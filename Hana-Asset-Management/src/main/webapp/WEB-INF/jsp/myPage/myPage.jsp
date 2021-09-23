@@ -37,15 +37,15 @@
 		      var data = new google.visualization.DataTable(jsonData);
 		      
 		      /* var chart = new google.visualization.PieChart(document.getElementById('chart_div')); */
-		      /* var chart = new google.visualization.LineChart(document.getElementById('chart_div')); */
-		      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+		         var chart = new google.visualization.LineChart(document.getElementById('chart_div')); 
+		      /* var chart = new google.visualization.ColumnChart(document.getElementById('chart_div')); */
 		      
 		      chart.draw(data, {
 		         curveType : "function",
 		         fontSize: 16,
 		         width : 900,
 		         height : 400,
-		         colors: ['#FAC8C8','#78EFAD','#46BEFF','#FFDAAB','#3CC8C8','navy','purple','black','LightBlue','PaleVioletRed','Olive','Thistle'],
+		         colors: ['#3CC8C8','#78EFAD','#46BEFF','#FFDAAB','#3CC8C8','navy','purple','black','LightBlue','PaleVioletRed','Olive','Thistle'],
 		         is3D: true
 		      });
 		      
@@ -95,7 +95,7 @@
 		      
 		      var data = new google.visualization.DataTable(jsonData);
 		      
-		         var chart = new google.visualization.PieChart(document.getElementById('chart_div2')); 
+		      var chart = new google.visualization.PieChart(document.getElementById('chart_div2')); 
 		      
 		      chart.draw(data, {
 		         curveType : "function",
@@ -130,14 +130,24 @@
 		      
 		      var data = new google.visualization.DataTable(jsonData);
 
-		      	 var chart = new google.visualization.LineChart(document.getElementById('chart_div3'));
+		      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div3'));
 		      
 		      chart.draw(data, {
 		         curveType : "function",
 		         fontSize: 16,
-		         width : 920,
+		         width : 1200,
 		         height : 400,
-		         colors: ['#FAC8C8','#3CC8C8']
+		         colors: ['#FAC8C8','#3CC8C8'],
+		         chartArea: {
+		        	 'width': '75%',
+		        	 'height' : '90%'
+		       	},
+		       	/* 
+		       	legend: {
+		            position: 'none'
+		        },
+		        */
+		       	bar: {groupWidth: '70%'}
 		         
 		      });
 		      
@@ -306,11 +316,11 @@
                 <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">또래와의 비교</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">최근 1년간 월별 소비지출액</h4>
                    
                   </div>
                   <!-- Chart -->
-                  <div id="chart_div3" align="center">
+                  <div id="chart_div" align="center">
                     
                   </div>
                 </div>
@@ -349,7 +359,7 @@
                 <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }" style="width: 98%; margin-left: 15px;">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">월별 소비내역</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">또래와의 비교</h4>
                     <div class="flex items-center">
                         <div
                           class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
@@ -359,7 +369,7 @@
                     </div>
                   </div>
                   <!-- Chart -->
-                  <div id="chart_div" align="center">
+                  <div id="chart_div3" align="center">
                   
                   </div>
                 </div>
