@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,12 @@
      <!-- Sidebar links -->
      <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
        <!-- Dashboards links -->
-       <div x-data="{ isActive: true, open: true}">
+       <c:if test="${ msg eq 'home' }">
+       	<div x-data="{ isActive: true, open: true}">
+       </c:if>
+       <c:if test="${ msg ne 'home' }">
+       	<div x-data="{ isActive: false, open: false}">
+       </c:if>
          <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
          <a
            href="${ pageContext.request.contextPath }/"
@@ -99,7 +105,12 @@
        </div>
 
        <!-- Components links -->
-       <div x-data="{ isActive: false, open: false }">
+       <c:if test="${ msg eq 'expense' }">
+       	<div x-data="{ isActive: true, open: true}">
+       </c:if>
+       <c:if test="${ msg ne 'expense' }">
+       	<div x-data="{ isActive: false, open: false}">
+       </c:if>
          <!-- active classes 'bg-primary-100 dark:bg-primary' -->
          <a
            href="#"
@@ -126,7 +137,7 @@
                />
              </svg>
            </span>
-           <span class="ml-2 text-sm"> 소비관리 </span>
+           	<span class="ml-2 text-sm"> 소비관리 </span>
            <span aria-hidden="true" class="ml-auto">
              <!-- active class 'rotate-180' -->
              <svg
@@ -144,13 +155,25 @@
          <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
            <!-- active & hover classes 'text-gray-700 dark:text-light' -->
            <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+          <c:if test="${ myExpense eq 'myExpense' }">
            <a
-             href="#"
+             href="${ pageContext.request.contextPath }/myPage/expense"
+             role="menuitem"
+             class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+           	 style="color: #3CC8C8"
+           >
+             내 소비내역
+           </a>
+          </c:if>
+          <c:if test="${ myExpense ne 'myExpense' }">
+          	<a
+             href="${ pageContext.request.contextPath }/myPage/expense"
              role="menuitem"
              class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
            >
              내 소비내역
            </a>
+          </c:if>
            <a
              href="#"
              role="menuitem"

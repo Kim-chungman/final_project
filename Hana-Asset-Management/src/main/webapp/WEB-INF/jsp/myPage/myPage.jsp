@@ -22,6 +22,7 @@
 	   })
 	   
 	   google.setOnLoadCallback(drawChart);
+	   
 	   function drawChart() {
 		   
 		   	  var idCheck = '${ userVO.id }';
@@ -46,7 +47,10 @@
 		         width : 900,
 		         height : 400,
 		         colors: ['#3CC8C8','#78EFAD','#46BEFF','#FFDAAB','#3CC8C8','navy','purple','black','LightBlue','PaleVioletRed','Olive','Thistle'],
-		         is3D: true
+                 lineWidth: 4,
+                  gridlines: {
+                    count: 4
+                  }
 		      });
 		      
 		}
@@ -142,11 +146,11 @@
 		        	 'width': '75%',
 		        	 'height' : '90%'
 		       	},
-		       	/* 
-		       	legend: {
-		            position: 'none'
-		        },
-		        */
+		       	animation: { //차트가 뿌려질때 실행될 애니메이션 효과
+	                 startup: true,
+	                 duration: 1000,
+	                 easing: 'linear' 
+	            },
 		       	bar: {groupWidth: '70%'}
 		         
 		      });
