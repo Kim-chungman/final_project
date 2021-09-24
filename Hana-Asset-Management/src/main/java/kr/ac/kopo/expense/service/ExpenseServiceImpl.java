@@ -1577,5 +1577,13 @@ public class ExpenseServiceImpl implements ExpenseService{
 		
 		return items;
 	}
+
+	@Override
+	public List<ExpenseVO> getExpenseSelect(ExpenseVO expense) {
+		
+		List<ExpenseVO> list = chartDAO.getExpenseSelect(expense);
+		
+		return list;
+	}
    
 }

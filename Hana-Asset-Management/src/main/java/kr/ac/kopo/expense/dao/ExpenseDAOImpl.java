@@ -221,6 +221,14 @@ public class ExpenseDAOImpl implements ExpenseDAO{
 	      
 	    return items;
 	}
+
+	@Override
+	public List<ExpenseVO> getExpenseSelect(ExpenseVO expense) {
+
+		List<ExpenseVO> list = sqlSessionTemplate.selectList("expense.ExpenseDAO.getExpenseSelect", expense);
+		
+		return list;
+	}
 		
 	
 }

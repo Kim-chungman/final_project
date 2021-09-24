@@ -58,4 +58,6 @@ public interface ExpenseDAO {
 
 	public List<ExpenseVO> decList(ExpenseVO expense);
 
+	public List<ExpenseVO> getExpenseSelect(ExpenseVO expense);
+
 }

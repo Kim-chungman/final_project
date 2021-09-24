@@ -144,4 +144,10 @@
 		  where 5 >= ROWNUM
 	</select>
 	
+	<select id="getExpenseSelect" parameterType="expenseVO" resultType="ExpenseVO" >
+		select category, cost as expense, reg_date
+		 from CM_DETAIL_EXPENDITURE
+		  where member_id = #{member_id} and REG_DATE between #{start} and #{last} order by reg_date
+	</select>
+	
 </mapper>

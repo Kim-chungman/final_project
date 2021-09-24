@@ -1,5 +1,7 @@
 package kr.ac.kopo.mypage.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.ac.kopo.expense.service.ExpenseService;
 import kr.ac.kopo.expense.vo.ExpenseVO;
@@ -117,6 +123,165 @@ public class MypageController {
 		model.addAttribute("portfolio", portfolio);
 		
 		return "myPage/myExpense";
+	}
+	
+	@RequestMapping("/myPage/daySelect")
+	@ResponseBody
+	public ModelAndView selectExpense(HttpServletRequest request, Model model) throws Exception{
+		
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		String select = "";
+		String startDay = "";
+		String lastDay = "";
+		
+		if(request.getParameter("select")!=null) {
+			select = request.getParameter("select");
+		}
+		
+		Date day = new Date();
+		int year = day.getYear()+1900;
+		int month = day.getMonth()+1;
+		int date = day.getDate();
+		
+		String last = year + "/" + month + "/" + date;
+		String start = "";
+		ExpenseVO expense = new ExpenseVO();
+		expense.setMember_id(id);
+		
+		if(request.getParameter("startDay") != null) {
+			startDay = request.getParameter("startDay");
+			expense.setStart(startDay);
+		}
+		System.out.println(expense.getStart());
+		
+		if(request.getParameter("lastDay") != null) {
+			lastDay = request.getParameter("lastDay");
+			expense.setLast(lastDay);
+			
+		}
+		System.out.println(expense.getLast());
+		
+		List<ExpenseVO> list = null;
+		
+		if(select != null && startDay.equals("") && lastDay.equals("")) {
+			int num = Integer.parseInt(select);
+			switch(num) {
+			case 1 :
+				year -= 1;
+				start = year + "/" + month + "/" + date;
+				System.out.println(start);
+				
+				expense.setStart(start);
+				expense.setLast(last);
+				
+				list = expenseService.getExpenseSelect(expense);
+				break;
+			case 2 :
+				if(month > 6) {
+					month -= 6;
+					start = year + "/" + month + "/" + date;
+					expense.setStart(start);
+					expense.setLast(last);
+					
+					list = expenseService.getExpenseSelect(expense);
+				} else {
+					year -=1;
+					month += 6;
+					start = year + "/" + month + "/" + date;
+					expense.setStart(start);
+					expense.setLast(last);
+					
+					list = expenseService.getExpenseSelect(expense);
+				}
+				break;
+			case 3 :
+				if(month > 3) {
+					month -= 3;
+					start = year + "/" + month + "/" + date;
+					expense.setStart(start);
+					expense.setLast(last);
+					
+					list = expenseService.getExpenseSelect(expense);
+				} else {
+					year -=1;
+					month += 3;
+					start = year + "/" + month + "/" + date;
+					expense.setStart(start);
+					expense.setLast(last);
+					
+					list = expenseService.getExpenseSelect(expense);
+				}
+				break;
+			}
+		}
+		
+		
+		if(request.getParameter("startDay") != null && select.equals("")) {
+		
+			list = expenseService.getExpenseSelect(expense);
+		}
+		
+		
+		if(list != null) {
+		
+			List<ExpenseVO> selectList = new ArrayList<ExpenseVO>();
+			
+			for(ExpenseVO ex : list) {
+				switch(ex.getCategory()) {
+		         
+		         case "ENTERTAINMENT_COST" :
+		        	 ex.setCategory("문화/오락");
+		        	 break;
+		         case "TRANSPORTATION_COST" :
+		        	 ex.setCategory("교통비");
+		        	 break;
+		         case "EDUCATIONAL_COST" :
+		        	 ex.setCategory("교육비");
+		        	 break;
+		         case "COMMUNICATION_COST" :
+		        	 ex.setCategory("통신비");
+		        	 break;
+		         case "FOOD_COST" :
+		        	 ex.setCategory("식비");
+		        	 break;
+		         case "HEALTH_CARE_COST" :
+		        	 ex.setCategory("의료비");
+		        	 break;
+		         case "INSURANCE_PREMIUM" :
+		        	 ex.setCategory("보험료");
+		        	 break;
+		         case "APPAREL_COST" :
+		        	 ex.setCategory("쇼핑/의류");
+		        	 break;
+		         case "HOUSING_COST" :
+		        	 ex.setCategory("주거비");
+		        	 break;
+		         case "INSTALLMENT_SAVING" :
+		        	 ex.setCategory("적금");
+		        	 break;
+		        	 
+		         }
+				System.out.println(ex.getCategory());
+				System.out.println(ex.getExpense());
+				String[] time = ex.getReg_date().split(" ");
+				ex.setReg_date(time[0]);
+			}
+			
+			for(int i = 0; i < 20; i++) {
+				ExpenseVO vo = new ExpenseVO();
+				vo.setCategory(list.get(i).getCategory());
+				vo.setExpense(list.get(i).getExpense());
+				vo.setReg_date(list.get(i).getReg_date());
+				
+				selectList.add(vo);
+			}
+			
+			model.addAttribute("list", selectList);
+		}
+		
+		return new ModelAndView("myPage/expenseSelect");
 	}
 	
 	@GetMapping("/myPage/portfolio")

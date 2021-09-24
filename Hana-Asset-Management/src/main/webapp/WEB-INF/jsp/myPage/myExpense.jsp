@@ -122,6 +122,145 @@
 		}
 	</script>
   
+  	<!-- modal -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+     
+    <script type="text/javascript">
+
+    var modal = {
+	  open : function(){
+	    $('#myModal').show();
+	  },
+	  close : function(){
+	    $('#myModal').hide();    
+	  }
+	};
+	     
+	$(document).on('click', '#columnChart', function(){
+	  modal.open();
+	});
+	
+	$(document).on('click', '#columnClose', function(){
+	  modal.close();
+	});
+	
+	
+	</script>
+	
+	<script>
+	
+	$(document).ready(function() {
+		
+		$('#oneYear').click(function() {
+			
+			let member_id = '${ userVO.id }'
+			let oneYear = $('#oneYear').val()
+			
+			$.ajax({
+				url: '${ pageContext.request.contextPath }/myPage/daySelect',
+				data: { id: member_id, select: oneYear },
+				success : function(msg) {
+					console.log(msg)
+					data = msg.trim()
+					
+					$('#result').html(msg.trim())
+				}, 
+				error : function() {
+					alert('실패')
+				}
+			})
+		})
+		
+		$('#sixMonth').click(function() {
+			
+			let member_id = '${ userVO.id }'
+			let oneYear = $('#sixMonth').val()
+			
+			$.ajax({
+				url: '${ pageContext.request.contextPath }/myPage/daySelect',
+				data: { id: member_id, select: oneYear },
+				success : function(msg) {
+					console.log(msg)
+					data = msg.trim()
+					
+					$('#result').html(msg.trim())
+				}, 
+				error : function() {
+					alert('실패')
+				}
+			})
+		})
+		
+		$('#threeMonth').click(function() {
+			
+			let member_id = '${ userVO.id }'
+			let oneYear = $('#threeMonth').val()
+			
+			$.ajax({
+				url: '${ pageContext.request.contextPath }/myPage/daySelect',
+				data: { id: member_id, select: oneYear },
+				success : function(msg) {
+					console.log(msg)
+					data = msg.trim()
+					
+					$('#result').html(msg.trim())
+				}, 
+				error : function() {
+					alert('실패')
+				}
+			})
+		})
+		
+		$('#selectMonth').click(function() {
+			
+			let member_id = '${ userVO.id }'
+			let start = $('#startDay').val()
+			let last = $('#lastDay').val()
+			
+			$.ajax({
+				url: '${ pageContext.request.contextPath }/myPage/daySelect',
+				data: { id: member_id, startDay: start, lastDay: last },
+				success : function(msg) {
+					console.log(msg)
+					data = msg.trim()
+					
+					$('#result').html(msg.trim())
+				}, 
+				error : function() {
+					alert('실패')
+				}
+			})
+		})
+		
+	})
+	
+	</script>
+	
+	<style>
+	    
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;                         
+    }
+    
+	</style>
   </head>
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -257,7 +396,57 @@
 	                    </span>
 	                  </div>
 	                </div>
+	                <!-- Value card -->
+	                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+	                  <div>
+	                    <h6
+	                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+	                      style="font-size: 12pt; margin-bottom: 5px;"
+	                    >
+	                      소비내역 엑셀 다운로드
+	                    </h6>
+	                    <span id="columnChart">
+	                    		<a style="cursor: pointer;"><strong style="color: #F08080;">다운로드 받기</strong></a>
+	                    </span>
+	                  </div>
+	                </div>
 	              </div>
+				<!-- The Modal -->
+	    		<div id="myModal" class="modal">
+	 
+				 <!-- Modal content -->
+			      <div class="modal-content" style="border-color: #008B8B; border-width: 3px; width: 1100px; height: 1100px;">
+		                
+		            <span style="margin-left: 35%;"><strong style="text-align: center; font-size: 20pt;">지출내역 다운로드받기</strong></span>
+					<hr style="border-color: #008B8B; margin-bottom: 20px; border-width: 1px; width: 98%;">
+			        
+			        <input type="hidden" name="id" value="${ userVO.id }">
+			        
+			        <button type="button" id="oneYear" name="select" value="1" style="margin-left:26.5%; width: 150px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none; margin-top: 20px; outline: 0px;">1년간 지출내액</button>
+					<button type="button" id="sixMonth" name="select" value="2" style="width: 150px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none; outline: 0px;">6개월간 지출내액</button>
+					<button type="button" id="threeMonth" name="select" value="3" style="width: 150px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none; outline: 0px;">3개월간 지출내액</button>
+					
+					<p style="font-size: 16pt; text-align: center; margin-top: 20px; margin-bottom: 20px;">직접 기간 입력</p>
+					<span style="font-size: 13pt; margin-left: 23%; margin-right: 10px;">시작일 : </span>
+					<input type="date" id="startDay">
+					<span style="font-size: 13pt; margin-left: 10px; margin-right: 10px;"> ~ </span>
+					<span style="font-size: 13pt; margin-right: 10px;"> 종료일 : </span>
+					<input type="date" id="lastDay">
+					<button type="button" id="selectMonth" style="margin-left: 50px; width: 150px; line-height: 28px; border-radius: 80px; color: #008B8B; border-color: #008B8B; background-color: white; border-width: 1px; outline: 0px; font-size: 13pt;">
+						검색
+					</button>
+					
+					<div align="center">
+						<span id="result"></span>
+					</div>
+			        <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px; margin-top: 20px;" id="columnClose">
+		                <span class="pop_bt" style="font-size: 13pt;" >
+		                     닫기
+		                </span>
+		            </div>           
+			      </div>
+			    </div>
+		        <!--End Modal-->
 	
 	              <!-- Two grid columns -->
 	             
