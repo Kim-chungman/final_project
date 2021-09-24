@@ -132,6 +132,8 @@ public class MypageController {
 		request.setCharacterEncoding("utf-8");
 		
 		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		System.out.println(name);
 		String select = "";
 		String startDay = "";
 		String lastDay = "";
@@ -154,14 +156,12 @@ public class MypageController {
 			startDay = request.getParameter("startDay");
 			expense.setStart(startDay);
 		}
-		System.out.println(expense.getStart());
 		
 		if(request.getParameter("lastDay") != null) {
 			lastDay = request.getParameter("lastDay");
 			expense.setLast(lastDay);
 			
 		}
-		System.out.println(expense.getLast());
 		
 		List<ExpenseVO> list = null;
 		
@@ -171,7 +171,6 @@ public class MypageController {
 			case 1 :
 				year -= 1;
 				start = year + "/" + month + "/" + date;
-				System.out.println(start);
 				
 				expense.setStart(start);
 				expense.setLast(last);
@@ -263,11 +262,25 @@ public class MypageController {
 		        	 break;
 		        	 
 		         }
-				System.out.println(ex.getCategory());
-				System.out.println(ex.getExpense());
 				String[] time = ex.getReg_date().split(" ");
 				ex.setReg_date(time[0]);
+				
+				if(ex.getExpense()<=0) {
+					ex.setExpense(1000);
+				}
 			}
+			
+			// 엑셀 파일생성
+			if(expense.getStart().contains("/")) {
+				start = expense.getStart().replaceAll("/", ".");
+				last = expense.getLast().replaceAll("/", ".");
+			} else if(expense.getStart().contains("-")) {
+				start = expense.getStart().replaceAll("-", ".");
+				last = expense.getLast().replaceAll("-", ".");
+			}
+			
+			
+			service.excelConverter(list, name, start, last);
 			
 			for(int i = 0; i < 20; i++) {
 				ExpenseVO vo = new ExpenseVO();
@@ -279,6 +292,8 @@ public class MypageController {
 			}
 			
 			model.addAttribute("list", selectList);
+			model.addAttribute("start", start);
+			model.addAttribute("last", last);
 		}
 		
 		return new ModelAndView("myPage/expenseSelect");

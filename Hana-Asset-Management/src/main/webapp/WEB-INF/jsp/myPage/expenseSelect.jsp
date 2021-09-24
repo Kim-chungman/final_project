@@ -8,7 +8,8 @@
 
 <div align="center">
 	<hr width="80%">
-	<h2 style="font-size: 16pt; color: #008B8B;">지출 목록(미리보기)</h2>
+	<span style="font-size: 16pt; color: #008B8B; margin-left: 30%;">지출 목록(미리보기)</span>
+	<a href="${ pageContext.request.contextPath }/resources/excel/${ userVO.name }(${start}~${last}).xlsx" style="margin-left: 24%; color: #F08080;"><strong>다운로드</strong></a>
 	<hr width="80%">
 	<br>
 	<table border="1" style="width: 80%" id="list">

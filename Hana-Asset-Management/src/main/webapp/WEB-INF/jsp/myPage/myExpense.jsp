@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/board.css"></link>
     <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/dashboard/public/build/css/tailwind.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
@@ -154,11 +155,12 @@
 		$('#oneYear').click(function() {
 			
 			let member_id = '${ userVO.id }'
+			let userName = '${ userVO.name }'
 			let oneYear = $('#oneYear').val()
 			
 			$.ajax({
 				url: '${ pageContext.request.contextPath }/myPage/daySelect',
-				data: { id: member_id, select: oneYear },
+				data: { id: member_id, select: oneYear, name: userName },
 				success : function(msg) {
 					console.log(msg)
 					data = msg.trim()
@@ -174,11 +176,12 @@
 		$('#sixMonth').click(function() {
 			
 			let member_id = '${ userVO.id }'
+			let userName = '${ userVO.name }'
 			let oneYear = $('#sixMonth').val()
 			
 			$.ajax({
 				url: '${ pageContext.request.contextPath }/myPage/daySelect',
-				data: { id: member_id, select: oneYear },
+				data: { id: member_id, select: oneYear, name: userName },
 				success : function(msg) {
 					console.log(msg)
 					data = msg.trim()
@@ -194,11 +197,12 @@
 		$('#threeMonth').click(function() {
 			
 			let member_id = '${ userVO.id }'
+			let userName = '${ userVO.name }'
 			let oneYear = $('#threeMonth').val()
 			
 			$.ajax({
 				url: '${ pageContext.request.contextPath }/myPage/daySelect',
-				data: { id: member_id, select: oneYear },
+				data: { id: member_id, select: oneYear, name: userName },
 				success : function(msg) {
 					console.log(msg)
 					data = msg.trim()
@@ -214,12 +218,13 @@
 		$('#selectMonth').click(function() {
 			
 			let member_id = '${ userVO.id }'
+			let userName = '${ userVO.name }'
 			let start = $('#startDay').val()
 			let last = $('#lastDay').val()
 			
 			$.ajax({
 				url: '${ pageContext.request.contextPath }/myPage/daySelect',
-				data: { id: member_id, startDay: start, lastDay: last },
+				data: { id: member_id, startDay: start, lastDay: last, name: userName },
 				success : function(msg) {
 					console.log(msg)
 					data = msg.trim()
@@ -528,13 +533,13 @@
 							</tr>
 							<c:forEach items="${ expenseList }" var="expenseList" varStatus="Loop">
 							<tr>
-								<td style="text-align: center; font-size: 16pt; color: red;">
-								TOP ${ Loop.index+1 } :
+								<td style="text-align: center; font-size: 14pt; color: red;">
+								TOP ${ Loop.index+1 } 
 								</td>
-								<td style="text-align: center; font-size: 16pt;">
+								<td style="text-align: center; font-size: 14pt;">
 								${ expenseList.category } (<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ expenseList.expense }" />원)
 								</td>
-								<td style="text-align: center; font-size: 16pt;">
+								<td style="text-align: center; font-size: 14pt;">
 								${ expenseList.reg_date }
 								</td>
 							</tr>
