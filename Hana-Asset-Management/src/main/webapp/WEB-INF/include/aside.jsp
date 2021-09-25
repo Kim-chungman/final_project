@@ -192,7 +192,12 @@
        </div>
 
        <!-- Pages links -->
-       <div x-data="{ isActive: false, open: false }">
+       <c:if test="${ msg eq 'report' }">
+       	<div x-data="{ isActive: true, open: true}">
+       </c:if>
+       <c:if test="${ msg ne 'report' }">
+       	<div x-data="{ isActive: false, open: false}">
+       </c:if>
          <!-- active classes 'bg-primary-100 dark:bg-primary' -->
          <a
            href="#"
@@ -237,13 +242,25 @@
          <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Pages">
            <!-- active & hover classes 'text-gray-700 dark:text-light' -->
            <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+           <c:if test="${ myReport eq 'assetReport' }">
            <a
-             href="${ pageContext.request.contextPath }/resources/dashboard/public/pages/blank.html"
+             href="${ pageContext.request.contextPath }/myPage/assetReport"
+             role="menuitem"
+             class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+           	 style="color: #3CC8C8"
+           >
+             자산운용보고서
+           </a>
+           </c:if>
+           <c:if test="${ myReport ne 'assetReport' }">
+           <a
+             href="${ pageContext.request.contextPath }/myPage/assetReport"
              role="menuitem"
              class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
            >
              자산운용보고서
            </a>
+           </c:if>
            <a
              href="${ pageContext.request.contextPath }/resources/dashboard/public/pages/404.html"
              role="menuitem"

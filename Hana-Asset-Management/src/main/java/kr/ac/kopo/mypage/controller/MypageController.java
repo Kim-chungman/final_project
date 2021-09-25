@@ -125,6 +125,15 @@ public class MypageController {
 		return "myPage/myExpense";
 	}
 	
+	@RequestMapping("/myPage/assetReport")
+	public String assetReport(Model model) {
+		
+		model.addAttribute("msg", "report");
+		model.addAttribute("myReport", "assetReport");
+		
+		return "myPage/assetReport";
+	}
+	
 	@RequestMapping("/myPage/daySelect")
 	@ResponseBody
 	public ModelAndView selectExpense(HttpServletRequest request, Model model) throws Exception{
