@@ -128,6 +128,8 @@ public class MypageController {
 	@RequestMapping("/myPage/assetReport")
 	public String assetReport(Model model) {
 		
+		
+		
 		model.addAttribute("msg", "report");
 		model.addAttribute("myReport", "assetReport");
 		

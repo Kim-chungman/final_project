@@ -18,4 +18,6 @@ public interface PortfolioService {
 
 	public void historyInsert(PortfolioVO portfolio);
 
+	public List<DecidePortfolioVO> getPlanSelect(PortfolioVO portfolio);
+
 }

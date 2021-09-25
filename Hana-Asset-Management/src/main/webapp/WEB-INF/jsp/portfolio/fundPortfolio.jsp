@@ -352,7 +352,7 @@
 		});
 		</script>
 
-        <form action="${ pageContext.request.contextPath }/fundPortfolio" method="post" style="margin-bottom: 50px; margin-top: 30px;">
+        <form action="${ pageContext.request.contextPath }/fundJoin" method="post" style="margin-bottom: 50px; margin-top: 30px;">
         	<input type="hidden" name="member_id" value="${ portfolio.member_id }">
         	<input type="hidden" name="name" value="${ userVO.name }">
         	<input type="hidden" name="investmentPeriod" value="${ portfolio.investmentPeriod }">
@@ -373,7 +373,7 @@
         	<input type="hidden" name="pension" value="${ portfolio.pension }">
         	<input type="hidden" name="start" value="${ portfolio.start }">
         	<input type="hidden" name="last" value="${ portfolio.last }">
-   			<input type="submit" value="예적금 및 연금보기" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 300px;">
+   			<input type="submit" value="상품가입하기" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 300px;">
         </form>
         
 	</section>

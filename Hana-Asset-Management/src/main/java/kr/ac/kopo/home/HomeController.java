@@ -12,6 +12,11 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping("/fundtest")
+	public String fundtest() {
+		return "portfolio/fundJoin";
+	}
+	
 	@GetMapping("/map")
 	public String viewMap() {
 		

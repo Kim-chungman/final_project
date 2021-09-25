@@ -40,6 +40,40 @@ public class portfolioController {
 		return new ModelAndView("portfolio/fundPortfolio");
 	}
 	
+	@PostMapping("/fundJoin")
+	public ModelAndView fundJoin(PortfolioVO portfolio, Model model) {
+		
+		System.out.println(portfolio.toString());
+		model.addAttribute("portfolio", portfolio);
+		
+		List<DecidePortfolioVO> list = service.getPlanSelect(portfolio);
+		model.addAttribute("planA", list);
+		
+		double rate = list.get(0).getRate();
+		double deviation = list.get(0).getTotal_deviation();
+		model.addAttribute("rate", rate);
+		model.addAttribute("deviation", deviation);
+		
+		return new ModelAndView("portfolio/fundJoin");
+	}
+	
+	@RequestMapping("/fundInfo")
+	public ModelAndView fundInfo(PortfolioVO portfolio, Model model) {
+		
+		System.out.println(portfolio.toString());
+		model.addAttribute("portfolio", portfolio);
+		
+		List<DecidePortfolioVO> list = service.getPlanSelect(portfolio);
+		model.addAttribute("planA", list);
+		
+		double rate = list.get(0).getRate();
+		double deviation = list.get(0).getTotal_deviation();
+		model.addAttribute("rate", rate);
+		model.addAttribute("deviation", deviation);
+		
+		return new ModelAndView("portfolio/fundInfo");
+	}
+	
 	@RequestMapping("/portfolioPlan")
 	@ResponseBody
 	public JSONObject protfolioPlan(PortfolioVO portfolio) throws Exception {

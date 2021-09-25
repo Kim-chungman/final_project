@@ -506,5 +506,13 @@ public class PortfolioServiceImpl implements PortfolioService {
 		portfolioDAO.historyInsert(portfolio);
 		
 	}
+
+	@Override
+	public List<DecidePortfolioVO> getPlanSelect(PortfolioVO portfolio) {
+		
+		List<DecidePortfolioVO> list = portfolioDAO.planSelect(portfolio);
+		
+		return list;
+	}
 	
 }
