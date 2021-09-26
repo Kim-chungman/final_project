@@ -220,6 +220,15 @@
 	                    <div class="hentry-post group">
 	                        <a href="#" title="재무설계" class="manageMenu" style="font-size: 11pt;">재무상태분석</a>
 	                    </div>
+	                    <div class="hentry-post group">
+	                        <a href="#" title="재무설계" class="manageMenu" style="font-size: 11pt;">연령별재무설계</a>
+	                    </div>
+	                    <div class="hentry-post group">
+	                        <a href="#" title="재무설계" class="manageMenu" style="font-size: 11pt;">목표재무설계</a>
+	                    </div>
+	                    <div class="hentry-post group">
+	                        <a href="#" title="재무설계" class="manageMenu" style="font-size: 11pt;">fun한재무설계</a>
+	                    </div>
 	                </div>
 	            </div>
 	            

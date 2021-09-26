@@ -1,5 +1,6 @@
 package kr.ac.kopo.portfolio.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -72,6 +73,30 @@ public class portfolioController {
 		model.addAttribute("deviation", deviation);
 		
 		return new ModelAndView("portfolio/fundInfo");
+	}
+	
+	@PostMapping("/fundSuccess")
+	public ModelAndView fundSuccess(PortfolioVO portfolio, Model model) {
+		
+		System.out.println(portfolio.toString());
+		model.addAttribute("portfolio", portfolio);
+		
+		List<DecidePortfolioVO> list = service.getPlanSelect(portfolio);
+		model.addAttribute("planA", list);
+		
+		double rate = list.get(0).getRate();
+		double deviation = list.get(0).getTotal_deviation();
+		model.addAttribute("rate", rate);
+		model.addAttribute("deviation", deviation);
+		
+		Date day = new Date();
+		int year = day.getYear()+1900;
+		int month = day.getMonth()+1;
+		int date = day.getDate();
+		
+		System.out.println(year + "년 " + month + "월 " + date + "일");
+		
+		return new ModelAndView("portfolio/fundSuccess");
 	}
 	
 	@RequestMapping("/portfolioPlan")
