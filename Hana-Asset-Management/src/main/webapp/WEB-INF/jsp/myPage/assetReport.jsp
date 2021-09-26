@@ -23,6 +23,130 @@
  	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+	<script>
+	
+	 var total = '${ totalAsset }';
+	 var depositAsset = '${ deposit }';
+	 var savingAsset = '${ saving }';
+	 var pensionAsset = '${ pension }';
+	
+	 google.load('visualization','1', {
+		      'packages' : ['corechart']
+	 })
+		   
+	 google.setOnLoadCallback(drawPieChart);
+	 function drawPieChart() {
+		 
+		      var jsonData = $.ajax({
+		         
+		         url : "${ pageContext.request.contextPath }/myPage/depositRatio",
+		         data: { totalAsset: total, deposit: depositAsset, saving: savingAsset, pension: pensionAsset},
+		         dataType : "JSON",
+		         async : false
+		      }).responseText;
+		      console.log(jsonData);
+		      
+		      var data = new google.visualization.DataTable(jsonData);
+	
+		      var chart = new google.visualization.PieChart(document.getElementById('depositChart'));
+		      
+		      chart.draw(data, {
+		         curveType : "function",
+		         fontSize: 16,
+		         width : 400,
+		         height : 200,
+		         colors: ['#FAC8C8','PaleVioletRed'],
+		         backgroundColor: '#3CC8C8',
+		         borderColor: '#3CC8C8',
+		         is3D: true,
+		         chartArea: {
+		        	 'width': '90%',
+		        	 'height' : '90%'
+		       	},
+		       	animation: { //차트가 뿌려질때 실행될 애니메이션 효과
+	               startup: true,
+	               duration: 1000,
+	               easing: 'linear' 
+	          },
+		       	bar: {groupWidth: '70%'}
+		         
+		      });
+		      
+		}
+	
+		 google.load('visualization','1', {
+		      'packages' : ['corechart']
+		})
+			   
+		google.setOnLoadCallback(drawPieChart2);
+		function drawPieChart2() {
+			 	  
+				  var fundAsset = '${ fundValue }';
+			      var jsonData = $.ajax({
+			         
+			         url : "${ pageContext.request.contextPath }/myPage/fundRatio",
+			         data: { totalAsset: total, fund: fundAsset },
+			         dataType : "JSON",
+			         async : false
+			      }).responseText;
+			      console.log(jsonData);
+			      
+			      var data = new google.visualization.DataTable(jsonData);
+		
+			      var chart = new google.visualization.PieChart(document.getElementById('fundChart'));
+			      
+			      chart.draw(data, {
+			         curveType : "function",
+			         fontSize: 16,
+			         width : 400,
+			         height : 200,
+			         colors: ['#F0B6B6','#3CC8C8'],
+			         backgroundColor: '#FFDCFF',
+			         borderColor: '#FFDCFF',
+			         is3D: true,
+			         chartArea: {
+			        	 'width': '90%',
+			        	 'height' : '90%'
+			       	},
+			       	animation: { //차트가 뿌려질때 실행될 애니메이션 효과
+		              startup: true,
+		              duration: 1000,
+		              easing: 'linear' 
+		         },
+			       	bar: {groupWidth: '70%'}
+			         
+			      });
+			      
+			}
+	</script>
+
+	<script type="text/javascript">
+		function slideChk(){
+			$("#my_asset_detail_body").slideDown();
+		}
+		function slideChk2(){
+			$("#my_asset_detail_body").slideUp();
+		}
+		function slideChk3(){
+			$("#my_asset_detail_body2").slideDown();
+		}
+		function slideChk4(){
+			$("#my_asset_detail_body2").slideUp();
+		}
+		function slideChk5(){
+			$("#my_asset_detail_body3").slideDown();
+		}
+		function slideChk6(){
+			$("#my_asset_detail_body3").slideUp();
+		}
+		function slideChk7(){
+			$("#my_asset_detail_body4").slideDown();
+		}
+		function slideChk8(){
+			$("#my_asset_detail_body4").slideUp();
+		}
+	</script>
+	
   </head>
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -169,47 +293,43 @@
 								<div class="txt-c">
 									<p class="psw_head">
 										${ userVO.name }님의 Hana Solution 자산 총합은<br>
-										<strong style="color: #008B8B;">0원</strong>입니다.
+										<strong style="color: #008B8B;">
+										<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ totalAsset }" />원
+										</strong>입니다.
 									</p>
 									<p class="mt20 font-c-6" style="margin-top: 10px; font-size: 11pt;">
 										자산의 총합에 골드, 대출은 제외됩니다.<br>펀드는 평가금액 기준, 보험은 납입금액 기준입니다.<br>※
 										펀드 평가금액이 금일미평가상태일 경우 합산에 포함되지 않을 수 있습니다.
 									</p>
 								</div>
-
+								<div id="depositChart" style="float: right; width: 25%; margin-top: 80px; margin-right: 95px;">
+											
+								</div>
 								<div class="my_asset_state_wrap">
-									<div class="my_asset_summary type2" style="height: 200px; background-color: #3CC8C8;">
+									<div class="my_asset_summary type2" style="height: 200px; background-color: #3CC8C8; width: 70%;">
 										<div class="description_area">
 											<h4 class="psw_asset_tit_sub2">
 												<strong>투자비중 관점</strong>
 											</h4>
-											<p class="psw_asset_tit_sub3">
-												총 자산대비 <strong class="color_blue1">투자자산</strong>은 <strong
-													class="color_blue1">0.00%</strong>의 비중으로<br> 보유하고
+											<p class="psw_asset_tit_sub3" style="font-size: 12pt;">
+												총 자산대비 <strong class="color_blue1" style="font-size: 14pt;">투자자산</strong>은 
+												<strong	class="color_blue1" style="font-size: 15pt;">
+												<fmt:formatNumber type="number" maxFractionDigits="0" value="${ ((saving + pension - deposit)*100) div (saving + pension) }" />%	
+												</strong>의 비중으로<br> 보유하고
 												계시네요.
 											</p>
 										</div>
 										<div class="graph_area">
 											<div class="graph" id="investChartDiv"
 												style="display: none;">투자비중 관점 그래프</div>
-											<div class="graph_area_nodata type1" id="noDataType1"
-												style="">
-											</div>
-											<div class="legend_group">
-												<span class="legend_item"> <span
-													class="legend_color l_color1"></span> <span
-													class="legend_text">투자자산</span>
-												</span> <span class="legend_item"> <span
-													class="legend_color l_color2"></span> <span
-													class="legend_text">안전자산</span>
-												</span>
-											</div>
+											
 										</div>
 									</div>
+									
 									<div class="owm-tgl-list">
 
 										<div class="my_asset_detail">
-											<div class="my_asset_detail_head">
+											<div class="my_asset_detail_head" onclick="slideChk3()">
 												<table>
 													<colgroup>
 														<col style="width: 340px">
@@ -219,23 +339,75 @@
 														<tr>
 															<td>
 																<div class="title_area">
-																	<strong class="psw_asset_tit_sub">투자자산 (0)</strong>
+																	<strong class="psw_asset_tit_sub">투자자산 (2)</strong>
 																	<p class="font-c-6 mt8">안전자산을 제외한 자산입니다.</p>
 																</div>
 															</td>
 															<td>
 																<div class="values_area">
-																	<p class="txt_no_data">보유하신 투자자산이 없습니다.</p>
+																	<span class="value"> <span class="hidden">투자자산
+																			비율</span> 
+																	</span> 
+																	<span class="value"> <span class="hidden">투자자산
+																			총 평가금액</span> <strong style="font-size: 20pt;">
+																			<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ saving + pension }" />원
+																			</strong>
+																	</span>
 																</div>
 															</td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
+											<div class="my_asset_detail_body box-con" id="my_asset_detail_body2" onclick="slideChk4()">
+
+												<div class="my_asset_detail_cont">
+													<h4 class="con-tit1">
+														금융상품(2) <span class="small">총잔액 
+														<strong	class="color_blue1" style="font-size: 14pt;">
+															<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ saving + pension }" />
+															원</strong>
+														</span>
+													</h4>
+													<div class="owm-table1">
+														<table border="1">
+															<caption><strong style="font-size: 15pt;">투자자산 상세</strong></caption>
+															<colgroup>
+																<col width="*">
+																<col width="32%">
+																<col width="15%">
+																<col width="19%">
+															</colgroup>
+															<thead>
+																<tr>
+																	<th scope="col" style="font-size: 14pt;">투자상품명</th>
+																	<th scope="col" style="font-size: 14pt;">계좌번호</th>
+																	<th scope="col" style="font-size: 14pt;">최종거래일</th>
+																	<th scope="col" style="font-size: 14pt;">잔액</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td class="txt-l" style="font-size: 12pt;">급여하나 월복리적금</td>
+																	<td style="font-size: 12pt;"><strong>802353020921</strong></td>
+																	<td style="font-size: 12pt;">2021.09.10</td>
+																	<td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ saving }" />원</td>
+																</tr>
+																<tr>
+																	<td class="txt-l" style="font-size: 12pt;">하나UBS 인BEST연금 증권자투자신탁(제1호)(채권)</td>
+																	<td style="font-size: 12pt;"><strong>140354896541</strong></td>
+																	<td style="font-size: 12pt;">2021.09.10</td>
+																	<td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ pension }" />원</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
 										</div>
 
 										<div class="my_asset_detail js-owm-toggleTarget">
-											<div class="my_asset_detail_head">
+											<div class="my_asset_detail_head" onclick="slideChk()">
 												<table>
 													<colgroup>
 														<col style="width: 340px">
@@ -245,7 +417,7 @@
 														<tr>
 															<td>
 																<div class="title_area">
-																	<strong class="psw_asset_tit_sub">안전자산 (1)</strong>
+																	<strong class="psw_asset_tit_sub">안전자산(${ depositNum })</strong>
 																	<p class="font-c-6 mt8">예금, 유동성, 방카슈랑스로 분류된
 																		자산입니다.</p>
 																</div>
@@ -253,9 +425,12 @@
 															<td>
 																<div class="values_area">
 																	<span class="value"> <span class="hidden">안전자산
-																			비율</span> <em class="color_blue1" id="safeAcctRate">0.00%</em>
-																	</span> <span class="value"> <span class="hidden">안전자산
-																			총 평가금액</span> <strong>0원</strong>
+																			비율</span> 
+																	</span> 
+																	<span class="value"> <span class="hidden">안전자산
+																			총 평가금액</span> <strong style="font-size: 20pt;">
+																			<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ deposit }" />원
+																			</strong>
 																	</span>
 																</div>
 															</td>
@@ -266,17 +441,19 @@
 													<span class="hidden">상세보기</span>
 												</button>
 											</div>
-											<div class="my_asset_detail_body box-con">
+											<div class="my_asset_detail_body box-con" id="my_asset_detail_body" onclick="slideChk2()">
 
 												<div class="my_asset_detail_cont">
 													<h4 class="con-tit1">
-														입출금(1) <span class="small">총잔액 <strong
-															class="color_blue1">0원</strong>
+														입출금(${ depositNum }) <span class="small">총잔액 <strong
+															class="color_blue1" style="font-size: 14pt;">
+															<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ deposit }" />
+															원</strong>
 														</span>
 													</h4>
 													<div class="owm-table1">
 														<table border="1">
-															<caption>입출금자산 상세</caption>
+															<caption><strong style="font-size: 15pt;">입출금자산 상세</strong></caption>
 															<colgroup>
 																<col width="*">
 																<col width="32%">
@@ -285,23 +462,21 @@
 															</colgroup>
 															<thead>
 																<tr>
-																	<th scope="col">예금명</th>
-																	<th scope="col">계좌번호</th>
-																	<th scope="col">최종거래일</th>
-																	<th scope="col">잔액</th>
+																	<th scope="col" style="font-size: 14pt;">예금명</th>
+																	<th scope="col" style="font-size: 14pt;">계좌번호</th>
+																	<th scope="col" style="font-size: 14pt;">최종거래일</th>
+																	<th scope="col" style="font-size: 14pt;">잔액</th>
 																</tr>
 															</thead>
 															<tbody>
+																<c:forEach items="${ list }" var="list" varStatus="Loop">
 																<tr>
-																	<td class="txt-l">우리 SUPER주거래 통장</td>
-																	<td><strong><a
-																			href="https://spot.wooribank.com/pot/Dream?withyou=WAASM0012#"
-																			class="font-c-6"
-																			onclick="detailView(&#39;1002862557893&#39;,&#39;A04&#39;,&#39;우리 SUPER주거래 통장&#39;,&#39;0&#39;,&#39;002&#39;,&#39;0&#39;,&#39;KRW&#39;,&#39;0021870000000&#39;)">1002-862-557893
-																		</a></strong></td>
-																	<td>2021.09.18</td>
-																	<td class="txt-r">0원</td>
+																	<td class="txt-l" style="font-size: 12pt;">${ list.accName }</td>
+																	<td style="font-size: 12pt;"><strong>${ list.accNo }</strong></td>
+																	<td style="font-size: 12pt;">2021.09.27</td>
+																	<td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ deposit }" />원</td>
 																</tr>
+																</c:forEach>
 															</tbody>
 														</table>
 													</div>
@@ -310,16 +485,21 @@
 										</div>
 									</div>
 								</div>
-
+								
+								<div id="fundChart" style="float: right; width: 25%; margin-top: 60px; margin-right: 95px;">
+											
+								</div>
 								<div class="my_asset_state_wrap">
-									<div class="my_asset_summary type1" style="height: 200px;">
+									<div class="my_asset_summary type1" style="height: 200px; width: 70%; background-color: #FFDCFF;">
 										<div class="description_area">
 											<h4 class="psw_asset_tit_sub2">
 												<strong>포트폴리오 관점</strong>
 											</h4>
-											<p class="psw_asset_tit_sub3">
-												총 자산대비 <strong class="color_blue1">0.00%</strong>가 <strong
-													class="color_blue1">포트폴리오</strong>로<br>구성되어 있습니다.
+											<p class="psw_asset_tit_sub3" style="font-size: 12pt;">
+												총 자산대비 <strong class="color_blue1" style="font-size: 14pt;">포트폴리오</strong>는 
+												<strong	class="color_blue1" style="font-size: 15pt;">
+												<fmt:formatNumber type="number" maxFractionDigits="0" value="${ (fundValue*100) div totalAsset }" />%	
+												</strong>의 비중으로<br> 구성되어 있습니다.
 											</p>
 										</div>
 										<div class="graph_area">
@@ -329,22 +509,15 @@
 												<div class="graph_area_nodata type2" id="noDataType2"
 													style="">
 												</div>
-												<div class="legend_group">
-													<span class="legend_item"> <span
-														class="legend_color l_color1"></span> <span
-														class="legend_text">포트폴리오</span>
-													</span> <span class="legend_item"> <span
-														class="legend_color l_color2"></span> <span
-														class="legend_text">포트폴리오 외 자산</span>
-													</span>
-												</div>
+												
 											</div>
 										</div>
 									</div>
+									
 									<div class="owm-tgl-list">
 
 										<div class="my_asset_detail">
-											<div class="my_asset_detail_head">
+											<div class="my_asset_detail_head" onclick="slideChk5()">
 												<table>
 													<colgroup>
 														<col style="width: 340px">
@@ -354,21 +527,21 @@
 														<tr>
 															<td>
 																<div class="title_area">
-																	<strong class="psw_asset_tit_sub">포트폴리오 (0)</strong>
+																	<strong class="psw_asset_tit_sub">포트폴리오 (1)</strong>
 																	<p class="font-c-6 mt8">포트폴리오로 가입된 자산(포트폴리오에 속한
 																		펀드)입니다.</p>
 																</div>
 															</td>
 															<td>
 																<div class="values_area">
-																	<p class="txt_no_data">보유하신 포트폴리오가 없습니다.</p>
-																	<div class="mt10">
-																		<a
-																			href="https://spot.wooribank.com/pot/Dream?withyou=WAASM0012#"
-																			class="btn_link_underline"
-																			onclick="wbUI.showLoading(); location.href=&#39;/pot/Dream?withyou=WAFND0014&#39;">포트폴리오
-																			가입하기</a>
-																	</div>
+																	<span class="value"> <span class="hidden">포트폴리오
+																			비율</span> 
+																	</span> 
+																	<span class="value"> <span class="hidden">포트폴리오
+																			총 평가금액</span> <strong style="font-size: 20pt;">
+																			<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ fundValue }" />원
+																			</strong>
+																	</span>
 																</div>
 															</td>
 														</tr>
@@ -376,9 +549,70 @@
 												</table>
 											</div>
 										</div>
+										<div class="my_asset_detail_body box-con" id="my_asset_detail_body3" onclick="slideChk6()">
 
+											<div class="my_asset_detail_cont">
+												<h4 class="con-tit1">
+													포트폴리오(1) <span class="small">총잔액 <strong
+														class="color_blue1" style="font-size: 14pt;">
+														<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ fundValue }" />
+														원</strong>
+													</span>
+												</h4>
+												<div class="owm-table1">
+													<table border="1">
+														<caption><strong style="font-size: 15pt;">포트폴리오 자산 상세</strong></caption>
+														<colgroup>
+															<col width="*">
+															<col width="22%">
+															<col width="15%">
+															<col width="19%">
+															<col width="10%">
+														</colgroup>
+														<thead>
+															<tr>
+																<th scope="col" style="font-size: 14pt;">펀드명</th>
+																<th scope="col" style="font-size: 14pt;">분류</th>
+																<th scope="col" style="font-size: 14pt;">원금</th>
+																<th scope="col" style="font-size: 14pt;">평가액</th>
+																<th scope="col" style="font-size: 14pt;">손익</th>
+															</tr>
+														</thead>
+														<tbody>
+															<c:forEach items="${ fundList }" var="list" varStatus="Loop">
+															<tr>
+																<td class="txt-l" style="font-size: 12pt;">${ list.fund_name }</td>
+																<td style="font-size: 12pt;"><strong>${ list.type }</strong></td>
+																<td style="font-size: 12pt;">
+																	<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ (fund * list.ratio)/100 }" />원
+																</td>
+																<td class="txt-r" style="font-size: 12pt;">
+																	<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ ((fund * list.ratio)/100) * ((rate/200)+1) }" />원
+																</td>
+																<td class="txt-r" style="font-size: 12pt; color: red;">
+																	+<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ ((fund * list.ratio)/100) * (rate/200) }" />원
+																</td>
+															</tr>
+															</c:forEach>
+															<tr>
+																<td colspan="2" style="text-align: center; font-size: 14pt;"><strong>총합</strong></td>
+																<td class="txt-r" style="font-size: 12pt;">
+																	<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ fund }" />원
+																</td>
+																<td class="txt-r" style="font-size: 12pt;">
+																	<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ fundValue }" />원
+																</td>
+																<td class="txt-r" style="font-size: 12pt; color: red;">
+																	+<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ fundValue - fund }" />원
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
 										<div class="my_asset_detail js-owm-toggleTarget">
-											<div class="my_asset_detail_head">
+											<div class="my_asset_detail_head" onclick="slideChk7()">
 												<table>
 													<colgroup>
 														<col style="width: 340px">
@@ -389,16 +623,16 @@
 															<td>
 																<div class="title_area">
 																	<strong class="psw_asset_tit_sub">포트폴리오 외 자산
-																		(1)</strong>
+																		(3)</strong>
 																</div>
 															</td>
 															<td>
 																<div class="values_area">
 																	<span class="value"> <span class="hidden">포트폴리오
-																			외 자산 비율</span> <em class="color_blue1"
-																		id="nonPrtfAcctRate">0.00%</em>
+																			외 자산 비율</span>
 																	</span> <span class="value"> <span class="hidden">포트폴리오
-																			외 자산 총 평가금액</span> <strong>0원</strong>
+																			외 자산 총 평가금액</span> <strong style="font-size: 20pt;">
+																			<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ totalAsset-fundValue }" />원</strong>
 																	</span>
 																</div>
 															</td>
@@ -409,47 +643,71 @@
 													<span class="hidden">상세보기</span>
 												</button>
 											</div>
-											<div class="my_asset_detail_body box-con">
-
-												<div class="my_asset_detail_cont">
+											<div class="my_asset_detail_body box-con" id="my_asset_detail_body4" onclick="slideChk8()">
+	
+												<div class="my_asset_detail_cont">			
 													<h4 class="con-tit1">
-														입출금(1) <span class="small">총잔액 <strong
-															class="color_blue1">0원</strong>
+														포트폴리오 외 자산(3) <span class="small">총잔액 <strong
+															class="color_blue1" style="font-size: 14pt;">
+															<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ totalAsset - fundValue }" />
+															원</strong>
 														</span>
 													</h4>
 													<div class="owm-table1">
 														<table border="1">
-															<caption>입출금자산 상세</caption>
+															<caption><strong style="font-size: 15pt;">포트폴리오 외 자산 상세</strong></caption>
 															<colgroup>
 																<col width="*">
-																<col width="32%">
+																<col width="22%">
 																<col width="15%">
 																<col width="19%">
+																<col width="10%">
 															</colgroup>
 															<thead>
 																<tr>
-																	<th scope="col">예금명</th>
-																	<th scope="col">계좌번호</th>
-																	<th scope="col">최종거래일</th>
-																	<th scope="col">잔액</th>
+																	<th scope="col" style="font-size: 14pt;">상품명</th>
+																	<th scope="col" style="font-size: 14pt;">계좌번호</th>
+																	<th scope="col" style="font-size: 14pt;">분류</th>
+																	<th scope="col" style="font-size: 14pt;">최종거래일</th>
+																	<th scope="col" style="font-size: 14pt;">잔액</th>	
 																</tr>
 															</thead>
 															<tbody>
 																<tr>
-																	<td class="txt-l">우리 SUPER주거래 통장</td>
-																	<td><strong><a
-																			href="https://spot.wooribank.com/pot/Dream?withyou=WAASM0012#"
-																			class="font-c-6"
-																			onclick="detailView(&#39;1002862557893&#39;,&#39;A04&#39;,&#39;우리 SUPER주거래 통장&#39;,&#39;0&#39;,&#39;002&#39;,&#39;0&#39;,&#39;KRW&#39;,&#39;0021870000000&#39;)">1002-862-557893
-																		</a></strong></td>
-																	<td>2021.09.18</td>
-																	<td class="txt-r">0원</td>
+																	<td class="txt-l" style="font-size: 12pt;">급여하나 월복리적금</td>
+																	<td style="font-size: 12pt;"><strong>802353020921</strong></td>
+																	<td style="font-size: 12pt;">적금</td>
+																	<td style="font-size: 12pt;">2021.09.10</td>
+																	<td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ saving }" />원</td>
+																</tr>
+																<tr>
+																	<td class="txt-l" style="font-size: 12pt;">하나UBS 인BEST연금 증권자투자신탁(제1호)(채권)</td>
+																	<td style="font-size: 12pt;"><strong>140354896541</strong></td>
+																	<td style="font-size: 12pt;">연금</td>
+																	<td style="font-size: 12pt;">2021.09.10</td>
+																	<td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ pension }" />원</td>
+																</tr>
+																<c:forEach items="${ list }" var="list" varStatus="Loop">
+																<tr>
+																	<td class="txt-l" style="font-size: 12pt;">${ list.accName }</td>
+																	<td style="font-size: 12pt;"><strong>${ list.accNo }</strong></td>
+																	<td style="font-size: 12pt;">수시입출금</td>
+																	<td style="font-size: 12pt;">2021.09.27</td>
+																	<td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ deposit }" />원</td>
+																</tr>
+																</c:forEach>
+																<tr>
+																	<td colspan="4" style="text-align: center; font-size: 14pt;"><strong>총합</strong></td>
+																	<td class="txt-r" style="font-size: 12pt; color: red;">
+																		<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ deposit + pension + saving }" />원
+																	</td>
 																</tr>
 															</tbody>
 														</table>
 													</div>
 												</div>
 											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -460,27 +718,13 @@
 											<h4 class="psw_asset_tit_sub2">
 												<strong>통화분산 관점</strong>
 											</h4>
-											<p class="psw_asset_tit_sub3">
-												외화자산은 <strong class="color_blue1">총 0개의 통화</strong>에 투자되고
+											<p class="psw_asset_tit_sub3" style="font-size: 12pt;">
+												외화자산은 <strong class="color_blue1" style="font-size: 14pt;">총 0개의 통화</strong>에 투자되고
 												있습니다.
 											</p>
 										</div>
 										<div class="graph_area">
-											<div class="graph" id="currencyChartDiv"
-												style="display: none;">통화분산 관점 그래프</div>
-											<div class="graph_area_nodata type3" id="noDataType3"
-												style="">
-												<span>자산미보유</span>
-											</div>
-											<div class="legend_group">
-												<span class="legend_item"> <span
-													class="legend_color l_color1"></span> <span
-													class="legend_text">원화자산</span>
-												</span> <span class="legend_item"> <span
-													class="legend_color l_color2"></span> <span
-													class="legend_text">외화자산</span>
-												</span>
-											</div>
+											
 										</div>
 									</div>
 									<div class="owm-tgl-list">
@@ -495,15 +739,16 @@
 														<tr>
 															<td>
 																<div class="title_area">
-																	<strong class="psw_asset_tit_sub">원화자산 (1)</strong>
+																	<strong class="psw_asset_tit_sub">원화자산 (4)</strong>
 																</div>
 															</td>
 															<td>
 																<div class="values_area">
 																	<span class="value"> <span class="hidden">원화자산
-																			비율</span> <em class="color_blue1" id="krCuAcctRate">0.00%</em>
+																			비율</span> 
 																	</span> <span class="value"> <span class="hidden">원화자산
-																			총 평가금액</span> <strong>0원</strong>
+																			총 평가금액</span> <strong style="font-size: 20pt;">
+																			<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ totalAsset }" />원</strong>
 																	</span>
 																</div>
 															</td>

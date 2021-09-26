@@ -19,12 +19,15 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.expense.vo.ExpenseVO;
 import kr.ac.kopo.member.vo.MemberVO;
 import kr.ac.kopo.mypage.dao.MypageDAO;
+import kr.ac.kopo.portfolio.vo.DecidePortfolioVO;
 import kr.ac.kopo.portfolio.vo.PortfolioVO;
 
 @Service
@@ -122,6 +125,131 @@ public class MypageServiceImpl implements MypageService{
 		}
 		
 		return cellStyle;
+		
+	}
+
+	@Override
+	public List<DecidePortfolioVO> getPlanSelect(String id) {
+		
+		List<DecidePortfolioVO> list = mypageDAO.getPlanSelect(id);
+		
+		return list;
+	}
+
+	@Override
+	public JSONObject getDepositData(int deposit, int invest) {
+		
+		JSONObject data = new JSONObject();
+	     
+	    JSONObject col1 = new JSONObject();
+	    JSONObject col2 = new JSONObject();
+		
+	    JSONArray title = new JSONArray();
+	      
+		col1.put("label", "자산");
+		col1.put("type", "string");
+		col2.put("label", "금액");
+		col2.put("type", "number");
+	    
+		title.add(col1);
+	    title.add(col2);
+		
+	    data.put("cols", title);
+	    
+	    JSONArray body = new JSONArray();
+	    
+	    if(deposit != 0) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", "안전자산");
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", deposit);
+		    
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    
+	    if(invest != 0) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", "투자자산");
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", invest);
+		    
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    
+        data.put("rows", body);
+		
+		return data;
+		
+	}
+
+	@Override
+	public JSONObject getFundData(int totalAsset, int fund) {
+
+		JSONObject data = new JSONObject();
+	     
+	    JSONObject col1 = new JSONObject();
+	    JSONObject col2 = new JSONObject();
+		
+	    JSONArray title = new JSONArray();
+	      
+		col1.put("label", "자산");
+		col1.put("type", "string");
+		col2.put("label", "금액");
+		col2.put("type", "number");
+	    
+		title.add(col1);
+	    title.add(col2);
+		
+	    data.put("cols", title);
+	    
+	    JSONArray body = new JSONArray();
+	    
+	    if(totalAsset != 0) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", "포트폴리오 외 자산");
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", totalAsset);
+		    
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    
+	    if(fund != 0) {
+		    JSONObject category = new JSONObject();
+		    category.put("v", "포트폴리오 자산");
+		    JSONObject productRate = new JSONObject();
+		    productRate.put("v", fund);
+		    
+		    JSONArray row = new JSONArray();
+	        row.add(category);
+	        row.add(productRate);
+	        
+	        JSONObject cell = new JSONObject();
+	        cell.put("c", row);
+	        body.add(cell);
+	    }
+	    
+        data.put("rows", body);
+		
+		return data;
+		
 		
 	}
 

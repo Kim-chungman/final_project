@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.ac.kopo.account.service.AccountService;
+import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.expense.service.ExpenseService;
 import kr.ac.kopo.expense.vo.ExpenseVO;
 import kr.ac.kopo.member.vo.MemberVO;
 import kr.ac.kopo.mypage.service.MypageService;
+import kr.ac.kopo.portfolio.vo.DecidePortfolioVO;
 import kr.ac.kopo.portfolio.vo.PortfolioVO;
 
 @Controller
@@ -30,6 +34,9 @@ public class MypageController {
 	
 	@Autowired(required=true)
 	private ExpenseService expenseService;
+	
+	@Autowired
+	private AccountService accountService;
 	
 	@GetMapping("/myPage")
 	public String myPage(HttpServletRequest request, Model model) {
@@ -126,12 +133,55 @@ public class MypageController {
 	}
 	
 	@RequestMapping("/myPage/assetReport")
-	public String assetReport(Model model) {
+	public String assetReport(HttpServletRequest request, Model model) {
 		
+		HttpSession session = request.getSession();
+		MemberVO userVO = (MemberVO)session.getAttribute("userVO");
+
+		AccountVO account = new AccountVO();
+		account.setMemberId(userVO.getId());
+		List<AccountVO> list = accountService.getAccountList(account);
 		
+		int totalAsset = 0;
+		int saving = 1200000;
+		for(AccountVO acc : list) {
+			
+			totalAsset += acc.getBalance();
+			System.out.println(acc.toString());
+		}
 		
+		List<DecidePortfolioVO> fundList = service.getPlanSelect(userVO.getId());
+		double rate = fundList.get(0).getRate();
+		double deviation = fundList.get(0).getTotal_deviation();
+		int fund = 1200000;
+		int pension = 600000;
+		int fundValue = (int)(fund * ((rate/200)+1));
+		System.out.println("예금 : " + totalAsset);
+		
+		// 예금
+		model.addAttribute("deposit", totalAsset);
+		model.addAttribute("list", list);
+		// 예금계좌수
+		model.addAttribute("depositNum",list.size());
+		
+		// 적금
+		model.addAttribute("saving", saving);
+		
+		model.addAttribute("fund", fund);
+		model.addAttribute("fundValue", fundValue);
+		model.addAttribute("fundList", fundList);
+		System.out.println("이자율 : " +rate);
+		System.out.println("원금 : " + fund + ", 이자합산 : " + fundValue);
+		model.addAttribute("pension", pension);
+		model.addAttribute("rate", rate);
+		model.addAttribute("deviation", deviation);
 		model.addAttribute("msg", "report");
 		model.addAttribute("myReport", "assetReport");
+		
+		totalAsset += (saving+fundValue+pension);
+		System.out.println("종합 자산 : " + totalAsset);
+		
+		model.addAttribute("totalAsset", totalAsset);
 		
 		return "myPage/assetReport";
 	}
@@ -309,6 +359,35 @@ public class MypageController {
 		
 		return new ModelAndView("myPage/expenseSelect");
 	}
+	
+	@RequestMapping("/myPage/depositRatio")
+	@ResponseBody
+	public JSONObject depositRate(HttpServletRequest request) throws Exception {
+	     
+		request.setCharacterEncoding("utf-8");
+		
+		int deposit = Integer.parseInt(request.getParameter("deposit"));
+		int saving = Integer.parseInt(request.getParameter("saving"));
+		int pension = Integer.parseInt(request.getParameter("pension"));
+		
+		int invest = saving + pension;
+		
+		return service.getDepositData(deposit, invest);
+    }
+	
+	@RequestMapping("/myPage/fundRatio")
+	@ResponseBody
+	public JSONObject fundRate(HttpServletRequest request) throws Exception {
+	     
+		request.setCharacterEncoding("utf-8");
+		
+		int totalAsset = Integer.parseInt(request.getParameter("totalAsset"));
+		int fund = Integer.parseInt(request.getParameter("fund"));
+		
+		totalAsset -= fund;
+		
+		return service.getFundData(totalAsset, fund);
+    }
 	
 	@GetMapping("/myPage/portfolio")
 	public String myPortfolio() {

@@ -25,4 +25,10 @@
 		WHERE MEMBER_ID = #{memberId} and password = #{password}
 	</select>
 	
+	<select id="getAccountList" parameterType="accountVO" resultMap="accountMap">
+		SELECT ACC_NO, MEMBER_ID, CORPORATION_CODE, BALANCE, ACC_TYPE, ACC_NAME, MGR, REG_DATE, HOLDER
+		 FROM CM_ACCOUNT
+		  WHERE MEMBER_ID = #{memberId}
+	</select>
+	
 </mapper>

@@ -71,6 +71,12 @@
 	 	  where 6 >= rownum
 	</select>
 	
+	<select id="getFundList" parameterType="string" resultType="DecidePortfolioVO">
+		SELECT *
+	 	 FROM (select * from CM_FUND_DECIDE where member_id=#{id} order by fund_ratio_no desc)
+	 	  where 6 >= rownum
+	</select>
+	
 	<insert id="protfolioInsert" parameterType="MemberPortfolioVO">
 		insert into CM_PORTFOLIO
 		 values(CM_PORTFOLIO_SEQ.nextval, #{product1}, #{product2}, #{product3}, #{product4}, #{product5}, #{product6}, #{member_id})

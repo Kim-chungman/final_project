@@ -1,5 +1,7 @@
 package kr.ac.kopo.account.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,14 @@ public class AccountServiceImpl implements AccountService{
 		AccountVO newAccount = accountDAO.join(account);
 		
 		return newAccount;
+	}
+
+	@Override
+	public List<AccountVO> getAccountList(AccountVO account) {
+		
+		List<AccountVO> list = accountDAO.getAccountList(account);
+		
+		return list;
 	}
 	
 }

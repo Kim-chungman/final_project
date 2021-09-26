@@ -1,5 +1,7 @@
 package kr.ac.kopo.account.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,6 +26,14 @@ public class AccountDAOImpl implements AccountDAO{
 		}
 		
 		return accountVO;
+	}
+
+	@Override
+	public List<AccountVO> getAccountList(AccountVO account) {
+		
+		List<AccountVO> list = sqlSessionTemplate.selectList("account.AccountDAO.getAccountList", account);
+		
+		return list;
 	}
 	
 }
