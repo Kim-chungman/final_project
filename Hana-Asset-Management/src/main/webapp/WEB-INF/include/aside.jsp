@@ -242,7 +242,7 @@
          <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Pages">
            <!-- active & hover classes 'text-gray-700 dark:text-light' -->
            <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-           <c:if test="${ myReport eq 'assetReport' }">
+           <c:if test="${ myReport eq 'assetReport' or  myReport eq 'investStyle' }">
            <a
              href="${ pageContext.request.contextPath }/myPage/assetReport"
              role="menuitem"
@@ -252,7 +252,7 @@
              자산운용보고서
            </a>
            </c:if>
-           <c:if test="${ myReport ne 'assetReport' }">
+           <c:if test="${ myReport ne 'assetReport' and  myReport ne 'investStyle' }">
            <a
              href="${ pageContext.request.contextPath }/myPage/assetReport"
              role="menuitem"

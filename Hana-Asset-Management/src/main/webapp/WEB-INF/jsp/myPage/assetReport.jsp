@@ -241,12 +241,13 @@
 	                <!-- Orders card -->
 	                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
 	                  <div>
-	                    <h6
+	                    <a
 	                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
 	                      style="font-size: 12pt;"
+	                      href="${ pageContext.request.contextPath }/myPage/investStyle"
 	                    >
 	                      투자스타일
-	                    </h6>
+	                    </a>
 	                    
 	                  </div>
 	                  <div>

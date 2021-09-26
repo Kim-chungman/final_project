@@ -186,6 +186,15 @@ public class MypageController {
 		return "myPage/assetReport";
 	}
 	
+	@RequestMapping("/myPage/investStyle")
+	public ModelAndView investStyle(Model model) {
+		
+		model.addAttribute("msg", "report");
+		model.addAttribute("myReport", "investStyle");
+		
+		return new ModelAndView("myPage/investStyle");
+	}
+	
 	@RequestMapping("/myPage/daySelect")
 	@ResponseBody
 	public ModelAndView selectExpense(HttpServletRequest request, Model model) throws Exception{
