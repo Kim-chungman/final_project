@@ -268,13 +268,25 @@
            >
              재무상태분석보고서
            </a>
+           <c:if test="${ myReport eq 'expenseReport' }">
            <a
-             href="${ pageContext.request.contextPath }/resources/dashboard/public/pages/500.html"
+             href="${ pageContext.request.contextPath }/myPage/expenseReport"
+             role="menuitem"
+             class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+           	 style="color: #3CC8C8"
+           >
+             소비지출분석보고서
+           </a>
+           </c:if>
+           <c:if test="${ myReport ne 'expenseReport' }">
+           <a
+             href="${ pageContext.request.contextPath }/myPage/expenseReport"
              role="menuitem"
              class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
            >
              소비지출분석보고서
            </a>
+           </c:if>
          </div>
        </div>
 

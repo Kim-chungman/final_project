@@ -150,4 +150,35 @@
 		  where member_id = #{member_id} and REG_DATE between #{start} and #{last} order by reg_date
 	</select>
 	
+	<select id="getOneMonth" parameterType="expenseVO" resultType="ExpenseVO">
+		select category, cost as expense, to_char(reg_date, 'yyyy/mm/dd') as reg_date
+		 from (
+		  select *
+    	  from CM_DETAIL_EXPENDITURE
+		  where member_id = #{member_id} and REG_DATE between #{start} and #{last} order by cost desc
+		 )
+		  where 5 >= rownum
+	</select>
+	
+	<select id="getDetailCategory" parameterType="expenseVO" resultType="ExpenseVO">
+		select category, cost as expense, to_char(reg_date, 'yyyy/mm/dd') as reg_date
+		 from (
+		  select *
+    	  from CM_DETAIL_EXPENDITURE
+		  where member_id = #{member_id} and REG_DATE between #{start} and #{last}
+		 )
+		  where category = #{category}
+		   order by reg_date
+	</select>
+	
+	<select id="getTotalOneMonth" parameterType="expenseVO" resultType="ExpenseVO">
+		select category, cost as expense, to_char(reg_date, 'yyyy/mm/dd') as reg_date
+		 from (
+		  select *
+    	  from CM_DETAIL_EXPENDITURE
+		  where member_id = #{member_id} and REG_DATE between #{start} and #{last}
+		 )
+		  order by reg_date
+	</select>
+	
 </mapper>

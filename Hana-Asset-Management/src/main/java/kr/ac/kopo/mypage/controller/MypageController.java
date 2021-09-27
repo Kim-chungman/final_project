@@ -195,6 +195,197 @@ public class MypageController {
 		return new ModelAndView("myPage/investStyle");
 	}
 	
+	@RequestMapping("/myPage/expenseReport")
+	public ModelAndView expenseReport(HttpServletRequest request, Model model) {
+		
+		HttpSession session = request.getSession();
+		MemberVO userVO = (MemberVO)session.getAttribute("userVO");
+
+		// 계좌정보 불러오기
+		AccountVO account = new AccountVO();
+		account.setMemberId(userVO.getId());
+		List<AccountVO> list = accountService.getAccountList(account);
+		
+		// 한달간 지출내역
+		ExpenseVO expense = new ExpenseVO();
+		expense.setMember_id(userVO.getId());
+		expense.setStart("2021/08/20");
+		expense.setLast("2021/09/19");
+		
+		int total = 0;
+		List<ExpenseVO> expenseList = expenseService.getOneMonth(expense);
+		List<ExpenseVO> totalList = expenseService.getTotalOneMonth(expense);
+		List<ExpenseVO> entertainment = null;
+		List<ExpenseVO> transportation = null;
+		List<ExpenseVO> communication = null;
+		List<ExpenseVO> food_cost = null;
+		List<ExpenseVO> health_care = null;
+		List<ExpenseVO> insurance = null;
+		List<ExpenseVO> apparel = null;
+		List<ExpenseVO> housing = null;
+		
+		for(ExpenseVO ex : expenseList) {
+			
+			switch(ex.getCategory()) {
+	         
+	         case "ENTERTAINMENT_COST" :
+	        	 
+	        	 ex.setCategory("문화/오락");
+	        	 break;
+	         case "TRANSPORTATION_COST" :
+	        	 
+	        	 ex.setCategory("교통비");
+	        	 break;
+	         case "EDUCATIONAL_COST" :
+	        	 
+	        	 ex.setCategory("교육비");
+	        	 break;
+	         case "COMMUNICATION_COST" :
+	        	 
+	        	 ex.setCategory("통신비");
+	        	 break;
+	         case "FOOD_COST" :
+	        	 
+	        	 ex.setCategory("식비");
+	        	 break;
+	         case "HEALTH_CARE_COST" :
+	        	 
+	        	 ex.setCategory("의료비");
+	        	 break;
+	         case "INSURANCE_PREMIUM" :
+	        	 
+	        	 ex.setCategory("보험료");
+	        	 break;
+	         case "APPAREL_COST" :
+	        	 
+	        	 ex.setCategory("쇼핑/의류");
+	        	 break;
+	         case "HOUSING_COST" :
+	        	 
+	        	 ex.setCategory("주거비");
+	        	 break;
+	         case "INSTALLMENT_SAVING" :
+	        	 
+	        	 ex.setCategory("적금");
+	        	 break;
+	         }
+			
+		}
+		
+		for(ExpenseVO ex : totalList) {
+			expense.setCategory(ex.getCategory());
+			
+			switch(ex.getCategory()) {
+	         
+	         case "ENTERTAINMENT_COST" :
+	        	 
+	        	 entertainment = expenseService.getDetailCategory(expense);
+	        	 for(ExpenseVO vo : entertainment) {
+	        		 vo.setCategory("문화/오락");
+	        	 }
+	        	 ex.setCategory("문화/오락");
+	        	 expense.setApr(entertainment.size());
+	        	 break;
+	         case "TRANSPORTATION_COST" :
+	        	 
+	        	 transportation = expenseService.getDetailCategory(expense);
+	        	 for(ExpenseVO vo : transportation) {
+	        		 vo.setCategory("교통비");
+	        	 }
+	        	 ex.setCategory("교통비");
+	        	 expense.setMar(transportation.size());
+	        	 break;
+	         case "EDUCATIONAL_COST" :
+	        	 
+	        	 ex.setCategory("교육비");
+	        	 break;
+	         case "COMMUNICATION_COST" :
+	        	 
+	        	 communication = expenseService.getDetailCategory(expense);
+	        	 for(ExpenseVO vo : communication) {
+	        		 vo.setCategory("통신비");
+	        	 }
+	        	 ex.setCategory("통신비");
+	        	 expense.setJul(communication.size());
+	        	 break;
+	         case "FOOD_COST" :
+	        	 
+	        	 food_cost = expenseService.getDetailCategory(expense);
+	        	 for(ExpenseVO vo : food_cost) {
+	        		 vo.setCategory("식비");
+	        	 }
+	        	 ex.setCategory("식비");
+	        	 expense.setJan(food_cost.size());
+	        	 break;
+	         case "HEALTH_CARE_COST" :
+	        	 
+	        	 health_care = expenseService.getDetailCategory(expense);
+	        	 for(ExpenseVO vo : health_care) {
+	        		 vo.setCategory("의료비");
+	        	 }
+	        	 ex.setCategory("의료비");
+	        	 expense.setJun(health_care.size());
+	        	 break;
+	         case "INSURANCE_PREMIUM" :
+	        	 
+	        	 insurance = expenseService.getDetailCategory(expense);
+	        	 for(ExpenseVO vo : insurance) {
+	        		 vo.setCategory("보험료");
+	        	 }
+	        	 ex.setCategory("보험료");
+	        	 expense.setMay(insurance.size());
+	        	 break;
+	         case "APPAREL_COST" :
+	        	 
+	        	 apparel = expenseService.getDetailCategory(expense);
+	        	 for(ExpenseVO vo : apparel) {
+	        		 vo.setCategory("쇼핑/의류");
+	        	 }
+	        	 ex.setCategory("쇼핑/의류");
+	        	 expense.setFeb(apparel.size());
+	        	 break;
+	         case "HOUSING_COST" :
+	        	 
+	        	 housing = expenseService.getDetailCategory(expense);
+	        	 for(ExpenseVO vo : housing) {
+	        		 vo.setCategory("주거비");
+	        	 }
+	        	 ex.setCategory("주거비");
+	        	 expense.setAug(housing.size());
+	        	 break;
+	         case "INSTALLMENT_SAVING" :
+	        	 ex.setCategory("적금");
+	        	 break;
+	         }
+			
+			total += ex.getExpense();
+		}
+		
+		
+		// 지출 TOP5
+		model.addAttribute("expenseList", expenseList);
+		// 지출 총액
+		model.addAttribute("total", total);
+		// 내 계좌정보
+		model.addAttribute("list", list);
+		model.addAttribute("msg", "report");
+		model.addAttribute("myReport", "expenseReport");
+		
+		// 세부지출내역
+		model.addAttribute("entertainment", entertainment);
+		model.addAttribute("transportation", transportation);
+		model.addAttribute("communication", communication);
+		model.addAttribute("food_cost", food_cost);
+		model.addAttribute("health_care", health_care);
+		model.addAttribute("insurance", insurance);
+		model.addAttribute("apparel", apparel);
+		model.addAttribute("housing", housing);
+		model.addAttribute("expense", expense);
+		
+		return new ModelAndView("myPage/expenseReport");
+		
+	}
+	
 	@RequestMapping("/myPage/daySelect")
 	@ResponseBody
 	public ModelAndView selectExpense(HttpServletRequest request, Model model) throws Exception{

@@ -1585,5 +1585,29 @@ public class ExpenseServiceImpl implements ExpenseService{
 		
 		return list;
 	}
+
+	@Override
+	public List<ExpenseVO> getOneMonth(ExpenseVO expense) {
+		
+		List<ExpenseVO> list = chartDAO.getOneMonth(expense);
+		
+		return list;
+	}
+
+	@Override
+	public List<ExpenseVO> getDetailCategory(ExpenseVO expense) {
+
+		List<ExpenseVO> list = chartDAO.getDetailCategory(expense);
+		
+		return list;
+	}
+
+	@Override
+	public List<ExpenseVO> getTotalOneMonth(ExpenseVO expense) {
+
+		List<ExpenseVO> list = chartDAO.getTotalOneMonth(expense);
+		
+		return list;
+	}
    
 }

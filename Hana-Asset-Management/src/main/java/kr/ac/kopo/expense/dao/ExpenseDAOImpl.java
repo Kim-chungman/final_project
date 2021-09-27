@@ -229,6 +229,30 @@ public class ExpenseDAOImpl implements ExpenseDAO{
 		
 		return list;
 	}
+
+	@Override
+	public List<ExpenseVO> getOneMonth(ExpenseVO expense) {
+		
+		List<ExpenseVO> list = sqlSessionTemplate.selectList("expense.ExpenseDAO.getOneMonth", expense);
+		
+		return list;
+	}
+
+	@Override
+	public List<ExpenseVO> getDetailCategory(ExpenseVO expense) {
+
+		List<ExpenseVO> list = sqlSessionTemplate.selectList("expense.ExpenseDAO.getDetailCategory", expense);
+		
+		return list;
+	}
+
+	@Override
+	public List<ExpenseVO> getTotalOneMonth(ExpenseVO expense) {
+
+		List<ExpenseVO> list = sqlSessionTemplate.selectList("expense.ExpenseDAO.getTotalOneMonth", expense);
+		
+		return list;
+	}
 		
 	
 }

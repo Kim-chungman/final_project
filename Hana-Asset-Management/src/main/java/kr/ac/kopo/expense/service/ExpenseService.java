@@ -44,4 +44,10 @@ public interface ExpenseService {
 
 	public List<ExpenseVO> getExpenseSelect(ExpenseVO expense);
 
+	public List<ExpenseVO> getOneMonth(ExpenseVO expense);
+
+	public List<ExpenseVO> getDetailCategory(ExpenseVO expense);
+
+	public List<ExpenseVO> getTotalOneMonth(ExpenseVO expense);
+
 }
