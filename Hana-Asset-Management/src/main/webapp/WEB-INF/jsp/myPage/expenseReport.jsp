@@ -48,6 +48,30 @@
 		function slideChk8(){
 			$("#my_asset_detail_body4").slideUp();
 		}
+		function slideChk9(){
+			$("#my_asset_detail_body5").slideDown();
+		}
+		function slideChk10(){
+			$("#my_asset_detail_body5").slideUp();
+		}
+		function slideChk11(){
+			$("#my_asset_detail_body6").slideDown();
+		}
+		function slideChk12(){
+			$("#my_asset_detail_body6").slideUp();
+		}
+		function slideChk13(){
+			$("#my_asset_detail_body7").slideDown();
+		}
+		function slideChk14(){
+			$("#my_asset_detail_body7").slideUp();
+		}
+		function slideChk15(){
+			$("#my_asset_detail_body8").slideDown();
+		}
+		function slideChk16(){
+			$("#my_asset_detail_body8").slideUp();
+		}
 	</script>
 	
   </head>
@@ -200,7 +224,7 @@
 						         <div class="my_deposit_detail_wrap">
 								     <p class="psw_asset_tit_sub">하나은행 소비내역을 분석해 드립니다.</p>
 								     <h3 class="psw_head" style="margin-top: 40px;">
-								     	<strong><em class="color_blue1">한달 전(2021.08.20)부터</em> 어제까지 가장 큰 거래</strong>
+								     	<strong><em class="color_blue1">한달 전(2021.08.01) </em> 가장 큰 거래</strong>
 								     </h3>`
 								     <div class="my_deposit_detail">
 								         <div class="my_deposit_detail_item">
@@ -227,7 +251,7 @@
 									                         	 <td style="font-size: 12pt; color: red;">1</td>
 									                             <td style="font-size: 12pt;">급여</td>
 									                             <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="3000000" />원</td>
-									                             <td style="font-size: 12pt;">2021/09/10</td>
+									                             <td style="font-size: 12pt;">2021/08/10</td>
 									                         </tr>
 									                         <tr id="totlaBankTr">
 									                         	 <td style="font-size: 12pt; color: red;">2</td>
@@ -245,13 +269,13 @@
 									                         	 <td style="font-size: 12pt; color: red;">4</td>
 									                             <td style="font-size: 12pt;">박**</td>
 									                             <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="5200" />원</td>
-									                             <td style="font-size: 12pt;">2021/09/01</td>
+									                             <td style="font-size: 12pt;">2021/08/01</td>
 									                         </tr>
 									                         <tr id="totlaBankTr">
 									                         	 <td style="font-size: 12pt; color: red;">5</td>
 									                             <td style="font-size: 12pt;">예금이자</td>
 									                             <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="452" />원</td>
-									                             <td style="font-size: 12pt;">2021/09/18</td>
+									                             <td style="font-size: 12pt;">2021/08/18</td>
 									                         </tr>
 									                     </tbody>
 									                 </table>
@@ -328,7 +352,11 @@
 																			</td>
 																			<td>
 																				<div class="values_area">
-																					<strong class="value font-16">0원</strong>
+																					<span class="value"> 
+																						<strong style="font-size: 20pt;">
+																							<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ expenseNum.jan }" />원
+																						</strong>
+																					</span>
 																				</div>
 																			</td>
 																		</tr>
@@ -339,11 +367,12 @@
 																<div class="my_asset_detail_cont">
 																	<div class="owm-table1">
 																		<table border="1">
-																			<caption>카드대금 상세</caption>
+																			<caption><strong style="font-size: 15pt;">카드대금 상세</strong></caption>
 																			<colgroup>
 																				<col width="21%">
-																				<col width="*">
+																				<col width="15%">
 																				<col width="22%">
+																				<col width="23%">
 																				<col width="19%">
 																			</colgroup>
 																			<thead>
@@ -372,7 +401,7 @@
 															</div>
 														</div>
 														<div class="my_asset_detail js-owm-toggleTarget">
-															<div class="my_asset_detail_head">
+															<div class="my_asset_detail_head" onclick="slideChk3()">
 																<table>
 																	<colgroup>
 																		<col style="width: 340px">
@@ -388,33 +417,48 @@
 																			</td>
 																			<td>
 																				<div class="values_area">
-																					<strong class="value font-16">0원</strong>
+																					<span class="value"> 
+																						<strong style="font-size: 20pt;">
+																							<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ expenseNum.feb }" />원
+																						</strong>
+																					</span>
 																				</div>
 																			</td>
 																		</tr>
 																	</tbody>
 																</table>
 															</div>
-															<div class="my_asset_detail_body box-con">
+															<div class="my_asset_detail_body box-con" id="my_asset_detail_body2" onclick="slideChk4()">
 																<div class="my_asset_detail_cont">
 																	<div class="owm-table1">
 																		<table border="1">
-																			<caption>대출이자/상환 상세</caption>
+																			<caption><strong style="font-size: 15pt;">카드대금 상세</strong></caption>
 																			<colgroup>
 																				<col width="21%">
-																				<col width="*">
+																				<col width="15%">
 																				<col width="22%">
+																				<col width="23%">
 																				<col width="19%">
 																			</colgroup>
 																			<thead>
 																				<tr>
 																					<th scope="col">거래일시</th>
-																					<th scope="col">내용</th>
+																					<th scope="col">항목</th>
+																					<th scope="col">통장</th>
 																					<th scope="col">출금계좌번호</th>
 																					<th scope="col">금액</th>
 																				</tr>
 																			</thead>
 																			<tbody>
+																				<c:forEach items="${ apparel }" var="list" varStatus="Loop">
+																					<tr>
+																						<td style="font-size: 12pt; color: blue;">${ list.reg_date }</td>
+															                            <td style="font-size: 12pt;">${ list.category }</td>
+															                            <td style="font-size: 12pt;">영하나플러스 통장</td>				                       
+															                            <td style="font-size: 12pt;">101013020036</td>
+															                            <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ list.expense }" />원</td>		             
+																					</tr>
+																				</c:forEach>
 																			</tbody>
 																		</table>
 																	</div>
@@ -422,7 +466,7 @@
 															</div>
 														</div>
 														<div class="my_asset_detail js-owm-toggleTarget">
-															<div class="my_asset_detail_head">
+															<div class="my_asset_detail_head" onclick="slideChk5()">
 																<table>
 																	<colgroup>
 																		<col style="width: 340px">
@@ -437,33 +481,48 @@
 																			</td>
 																			<td>
 																				<div class="values_area">
-																					<strong class="value font-16">0원</strong>
+																					<span class="value"> 
+																						<strong style="font-size: 20pt;">
+																							<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ expenseNum.mar }" />원
+																						</strong>
+																					</span>
 																				</div>
 																			</td>
 																		</tr>
 																	</tbody>
 																</table>
 															</div>
-															<div class="my_asset_detail_body box-con">
+															<div class="my_asset_detail_body box-con" id="my_asset_detail_body3" onclick="slideChk6()">
 																<div class="my_asset_detail_cont">
 																	<div class="owm-table1">
 																		<table border="1">
-																			<caption>저축 상세</caption>
+																			<caption><strong style="font-size: 15pt;">카드대금 상세</strong></caption>
 																			<colgroup>
 																				<col width="21%">
-																				<col width="*">
+																				<col width="15%">
 																				<col width="22%">
+																				<col width="23%">
 																				<col width="19%">
 																			</colgroup>
 																			<thead>
 																				<tr>
 																					<th scope="col">거래일시</th>
-																					<th scope="col">내용</th>
+																					<th scope="col">항목</th>
+																					<th scope="col">통장</th>
 																					<th scope="col">출금계좌번호</th>
 																					<th scope="col">금액</th>
 																				</tr>
 																			</thead>
 																			<tbody>
+																				<c:forEach items="${ transportation }" var="list" varStatus="Loop">
+																					<tr>
+																						<td style="font-size: 12pt; color: blue;">${ list.reg_date }</td>
+															                            <td style="font-size: 12pt;">${ list.category }</td>
+															                            <td style="font-size: 12pt;">영하나플러스 통장</td>				                       
+															                            <td style="font-size: 12pt;">101013020036</td>
+															                            <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ list.expense }" />원</td>		             
+																					</tr>
+																				</c:forEach>
 																			</tbody>
 																		</table>
 																	</div>
@@ -471,7 +530,7 @@
 															</div>
 														</div>
 														<div class="my_asset_detail js-owm-toggleTarget">
-															<div class="my_asset_detail_head">
+															<div class="my_asset_detail_head" onclick="slideChk7()">
 																<table>
 																	<colgroup>
 																		<col style="width: 340px">
@@ -486,33 +545,48 @@
 																			</td>
 																			<td>
 																				<div class="values_area">
-																					<strong class="value font-16">0원</strong>
+																					<span class="value"> 
+																						<strong style="font-size: 20pt;">
+																							<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ expenseNum.apr }" />원
+																						</strong>
+																					</span>
 																				</div>
 																			</td>
 																		</tr>
 																	</tbody>
 																</table>
 															</div>
-															<div class="my_asset_detail_body box-con">
+															<div class="my_asset_detail_body box-con" id="my_asset_detail_body4" onclick="slideChk8()">
 																<div class="my_asset_detail_cont">
 																	<div class="owm-table1">
 																		<table border="1">
-																			<caption>투자 상세</caption>
+																			<caption><strong style="font-size: 15pt;">카드대금 상세</strong></caption>
 																			<colgroup>
 																				<col width="21%">
-																				<col width="*">
+																				<col width="15%">
 																				<col width="22%">
+																				<col width="23%">
 																				<col width="19%">
 																			</colgroup>
 																			<thead>
 																				<tr>
 																					<th scope="col">거래일시</th>
-																					<th scope="col">내용</th>
+																					<th scope="col">항목</th>
+																					<th scope="col">통장</th>
 																					<th scope="col">출금계좌번호</th>
 																					<th scope="col">금액</th>
 																				</tr>
 																			</thead>
 																			<tbody>
+																				<c:forEach items="${ entertainment }" var="list" varStatus="Loop">
+																					<tr>
+																						<td style="font-size: 12pt; color: blue;">${ list.reg_date }</td>
+															                            <td style="font-size: 12pt;">${ list.category }</td>
+															                            <td style="font-size: 12pt;">영하나플러스 통장</td>				                       
+															                            <td style="font-size: 12pt;">101013020036</td>
+															                            <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ list.expense }" />원</td>		             
+																					</tr>
+																				</c:forEach>
 																			</tbody>
 																		</table>
 																	</div>
@@ -520,7 +594,7 @@
 															</div>
 														</div>
 														<div class="my_asset_detail js-owm-toggleTarget">
-															<div class="my_asset_detail_head">
+															<div class="my_asset_detail_head" onclick="slideChk9()">
 																<table>
 																	<colgroup>
 																		<col style="width: 340px">
@@ -535,33 +609,48 @@
 																			</td>
 																			<td>
 																				<div class="values_area">
-																					<strong class="value font-16">0원</strong>
+																					<span class="value"> 
+																						<strong style="font-size: 20pt;">
+																							<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ expenseNum.may }" />원
+																						</strong>
+																					</span>
 																				</div>
 																			</td>
 																		</tr>
 																	</tbody>
 																</table>
 															</div>
-															<div class="my_asset_detail_body box-con">
+															<div class="my_asset_detail_body box-con" id="my_asset_detail_body5" onclick="slideChk10()">
 																<div class="my_asset_detail_cont">
 																	<div class="owm-table1">
 																		<table border="1">
-																			<caption>공과금 상세</caption>
+																			<caption><strong style="font-size: 15pt;">카드대금 상세</strong></caption>
 																			<colgroup>
 																				<col width="21%">
-																				<col width="*">
+																				<col width="15%">
 																				<col width="22%">
+																				<col width="23%">
 																				<col width="19%">
 																			</colgroup>
 																			<thead>
 																				<tr>
 																					<th scope="col">거래일시</th>
-																					<th scope="col">내용</th>
+																					<th scope="col">항목</th>
+																					<th scope="col">통장</th>
 																					<th scope="col">출금계좌번호</th>
 																					<th scope="col">금액</th>
 																				</tr>
 																			</thead>
 																			<tbody>
+																				<c:forEach items="${ insurance }" var="list" varStatus="Loop">
+																					<tr>
+																						<td style="font-size: 12pt; color: blue;">${ list.reg_date }</td>
+															                            <td style="font-size: 12pt;">${ list.category }</td>
+															                            <td style="font-size: 12pt;">영하나플러스 통장</td>				                       
+															                            <td style="font-size: 12pt;">101013020036</td>
+															                            <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ list.expense }" />원</td>		             
+																					</tr>
+																				</c:forEach>
 																			</tbody>
 																		</table>
 																	</div>
@@ -569,7 +658,7 @@
 															</div>
 														</div>
 														<div class="my_asset_detail js-owm-toggleTarget">
-															<div class="my_asset_detail_head">
+															<div class="my_asset_detail_head" onclick="slideChk11()">
 																<table>
 																	<colgroup>
 																		<col style="width: 340px">
@@ -584,33 +673,48 @@
 																			</td>
 																			<td>
 																				<div class="values_area">
-																					<strong class="value font-16">0원</strong>
+																					<span class="value"> 
+																						<strong style="font-size: 20pt;">
+																							<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ expenseNum.jun }" />원
+																						</strong>
+																					</span>
 																				</div>
 																			</td>
 																		</tr>
 																	</tbody>
 																</table>
 															</div>
-															<div class="my_asset_detail_body box-con">
+															<div class="my_asset_detail_body box-con" id="my_asset_detail_body6" onclick="slideChk12()">
 																<div class="my_asset_detail_cont">
 																	<div class="owm-table1">
 																		<table border="1">
-																			<caption>관리비 상세</caption>
+																			<caption><strong style="font-size: 15pt;">카드대금 상세</strong></caption>
 																			<colgroup>
 																				<col width="21%">
-																				<col width="*">
+																				<col width="15%">
 																				<col width="22%">
+																				<col width="23%">
 																				<col width="19%">
 																			</colgroup>
 																			<thead>
 																				<tr>
 																					<th scope="col">거래일시</th>
-																					<th scope="col">내용</th>
+																					<th scope="col">항목</th>
+																					<th scope="col">통장</th>
 																					<th scope="col">출금계좌번호</th>
 																					<th scope="col">금액</th>
 																				</tr>
 																			</thead>
 																			<tbody>
+																				<c:forEach items="${ health_care }" var="list" varStatus="Loop">
+																					<tr>
+																						<td style="font-size: 12pt; color: blue;">${ list.reg_date }</td>
+															                            <td style="font-size: 12pt;">${ list.category }</td>
+															                            <td style="font-size: 12pt;">영하나플러스 통장</td>				                       
+															                            <td style="font-size: 12pt;">101013020036</td>
+															                            <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ list.expense }" />원</td>		             
+																					</tr>
+																				</c:forEach>
 																			</tbody>
 																		</table>
 																	</div>
@@ -618,7 +722,7 @@
 															</div>
 														</div>
 														<div class="my_asset_detail js-owm-toggleTarget">
-															<div class="my_asset_detail_head">
+															<div class="my_asset_detail_head" onclick="slideChk13()">
 																<table>
 																	<colgroup>
 																		<col style="width: 340px">
@@ -633,33 +737,48 @@
 																			</td>
 																			<td>
 																				<div class="values_area">
-																					<strong class="value font-16">0원</strong>
+																					<span class="value"> 
+																						<strong style="font-size: 20pt;">
+																							<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ expenseNum.jul }" />원
+																						</strong>
+																					</span>
 																				</div>
 																			</td>
 																		</tr>
 																	</tbody>
 																</table>
 															</div>
-															<div class="my_asset_detail_body box-con">
+															<div class="my_asset_detail_body box-con" id="my_asset_detail_body7" onclick="slideChk14()">
 																<div class="my_asset_detail_cont">
 																	<div class="owm-table1">
 																		<table border="1">
-																			<caption>관리비 상세</caption>
+																			<caption><strong style="font-size: 15pt;">카드대금 상세</strong></caption>
 																			<colgroup>
 																				<col width="21%">
-																				<col width="*">
+																				<col width="15%">
 																				<col width="22%">
+																				<col width="23%">
 																				<col width="19%">
 																			</colgroup>
 																			<thead>
 																				<tr>
 																					<th scope="col">거래일시</th>
-																					<th scope="col">내용</th>
+																					<th scope="col">항목</th>
+																					<th scope="col">통장</th>
 																					<th scope="col">출금계좌번호</th>
 																					<th scope="col">금액</th>
 																				</tr>
 																			</thead>
 																			<tbody>
+																				<c:forEach items="${ communication }" var="list" varStatus="Loop">
+																					<tr>
+																						<td style="font-size: 12pt; color: blue;">${ list.reg_date }</td>
+															                            <td style="font-size: 12pt;">${ list.category }</td>
+															                            <td style="font-size: 12pt;">영하나플러스 통장</td>				                       
+															                            <td style="font-size: 12pt;">101013020036</td>
+															                            <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ list.expense }" />원</td>		             
+																					</tr>
+																				</c:forEach>
 																			</tbody>
 																		</table>
 																	</div>
@@ -667,7 +786,7 @@
 															</div>
 														</div>
 														<div class="my_asset_detail js-owm-toggleTarget">
-															<div class="my_asset_detail_head">
+															<div class="my_asset_detail_head" onclick="slideChk15()">
 																<table>
 																	<colgroup>
 																		<col style="width: 340px">
@@ -682,33 +801,48 @@
 																			</td>
 																			<td>
 																				<div class="values_area">
-																					<strong class="value font-16">0원</strong>
+																					<span class="value"> 
+																						<strong style="font-size: 20pt;">
+																							<fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ expenseNum.aug }" />원
+																						</strong>
+																					</span>
 																				</div>
 																			</td>
 																		</tr>
 																	</tbody>
 																</table>
 															</div>
-															<div class="my_asset_detail_body box-con">
+															<div class="my_asset_detail_body box-con" id="my_asset_detail_body8" onclick="slideChk16()">
 																<div class="my_asset_detail_cont">
 																	<div class="owm-table1">
 																		<table border="1">
-																			<caption>관리비 상세</caption>
+																			<caption><strong style="font-size: 15pt;">카드대금 상세</strong></caption>
 																			<colgroup>
 																				<col width="21%">
-																				<col width="*">
+																				<col width="15%">
 																				<col width="22%">
+																				<col width="23%">
 																				<col width="19%">
 																			</colgroup>
 																			<thead>
 																				<tr>
 																					<th scope="col">거래일시</th>
-																					<th scope="col">내용</th>
+																					<th scope="col">항목</th>
+																					<th scope="col">통장</th>
 																					<th scope="col">출금계좌번호</th>
 																					<th scope="col">금액</th>
 																				</tr>
 																			</thead>
 																			<tbody>
+																				<c:forEach items="${ housing }" var="list" varStatus="Loop">
+																					<tr>
+																						<td style="font-size: 12pt; color: blue;">${ list.reg_date }</td>
+															                            <td style="font-size: 12pt;">${ list.category }</td>
+															                            <td style="font-size: 12pt;">영하나플러스 통장</td>				                       
+															                            <td style="font-size: 12pt;">101013020036</td>
+															                            <td class="txt-r" style="font-size: 12pt;"><fmt:formatNumber type="number" pattern="###,###,###,###,###,###" value="${ list.expense }" />원</td>		             
+																					</tr>
+																				</c:forEach>
 																			</tbody>
 																		</table>
 																	</div>
@@ -716,20 +850,12 @@
 															</div>
 														</div>
 														<ul class="list-type">
-															<li class="font-c-6">고객님의 거래 확인을 도와드리기 위한 자료로, 실제 이용
+															<li class="font-c-6" style="color: red;">고객님의 거래 확인을 도와드리기 위한 자료로, 실제 이용
 																내역과 100% 일치하지 않을 수 있습니다.</li>
-															<li class="font-c-6">분석결과는 최근 600건에 한해 조회됩니다.</li>
+															<li class="font-c-6" style="color: red;">분석결과는 최근 300건에 한해 조회됩니다.</li>
 														</ul>
 													</div>
-													<div class="border_box clearfix mt60 mb65">
-														<p class="fleft font-16 font-c-0">자세한 입출금 내역은 전계좌조회를
-															이용해주세요.</p>
-														<div class="fright">
-															<a
-																href="https://spot.wooribank.com/pot/Dream?withyou=PSINQ0013"
-																class="btn_link_underline font-16">전계좌조회</a>
-														</div>
-													</div>
+													
 												</div>
 											</div>
 										</div>

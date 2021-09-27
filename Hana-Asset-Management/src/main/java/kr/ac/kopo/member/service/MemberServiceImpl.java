@@ -107,12 +107,14 @@ public class MemberServiceImpl implements MemberService{
 	         file.setPath("C:/Users/HP/Pictures/project/영하나플러스통장.pdf");
 	         mail.attach(file);
 	         
-	         /*
+	         
 	         //② 프로젝트 내의 파일 첨부
 	         file = new EmailAttachment();
-	         file.setPath(session.getServletContext().getRealPath("resources/images/logo.png"));
+//	         file.setPath(session.getServletContext().getRealPath("resources/images/logo.png"));
+	         file.setPath(session.getServletContext().getRealPath("WEB-INF/jsp/myPage/assetReport.html"));
 	         mail.attach(file);
 	         
+	         /*
 	         //③ URL을 통해 파일 첨부
 	         file = new EmailAttachment();
 	         file.setURL(new URL("https://mvnrepository.com/assets/images/392dffac024b9632664e6f2c0cac6fe5-logo.png"));

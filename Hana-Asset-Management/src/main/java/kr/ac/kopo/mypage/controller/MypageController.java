@@ -209,9 +209,9 @@ public class MypageController {
 		// 한달간 지출내역
 		ExpenseVO expense = new ExpenseVO();
 		expense.setMember_id(userVO.getId());
-		expense.setStart("2021/08/20");
-		expense.setLast("2021/09/19");
-		
+		expense.setStart("2021/08/01");
+		expense.setLast("2021/08/31");
+		ExpenseVO expenseNum = new ExpenseVO();
 		int total = 0;
 		List<ExpenseVO> expenseList = expenseService.getOneMonth(expense);
 		List<ExpenseVO> totalList = expenseService.getTotalOneMonth(expense);
@@ -223,6 +223,7 @@ public class MypageController {
 		List<ExpenseVO> insurance = null;
 		List<ExpenseVO> apparel = null;
 		List<ExpenseVO> housing = null;
+		List<ExpenseVO> education = null;
 		
 		for(ExpenseVO ex : expenseList) {
 			
@@ -278,78 +279,101 @@ public class MypageController {
 			switch(ex.getCategory()) {
 	         
 	         case "ENTERTAINMENT_COST" :
-	        	 
+	        	 int no = 0;
 	        	 entertainment = expenseService.getDetailCategory(expense);
 	        	 for(ExpenseVO vo : entertainment) {
 	        		 vo.setCategory("문화/오락");
+	        		 no += vo.getExpense(); 
 	        	 }
+	        	 expenseNum.setApr(no);
 	        	 ex.setCategory("문화/오락");
 	        	 expense.setApr(entertainment.size());
 	        	 break;
 	         case "TRANSPORTATION_COST" :
-	        	 
+	        	 int no2 = 0;
 	        	 transportation = expenseService.getDetailCategory(expense);
 	        	 for(ExpenseVO vo : transportation) {
 	        		 vo.setCategory("교통비");
+	        		 no2 += vo.getExpense();
 	        	 }
+	        	 expenseNum.setMar(no2);
 	        	 ex.setCategory("교통비");
 	        	 expense.setMar(transportation.size());
 	        	 break;
 	         case "EDUCATIONAL_COST" :
-	        	 
+	        	 int no3 = 0;
+	        	 education = expenseService.getDetailCategory(expense);
+	        	 for(ExpenseVO vo : education) {
+	        		 vo.setCategory("교육비");
+	        		 no3 += vo.getExpense();
+	        	 }
+	        	 expenseNum.setSep(no3);
 	        	 ex.setCategory("교육비");
+	        	 expense.setSep(education.size());
 	        	 break;
 	         case "COMMUNICATION_COST" :
-	        	 
+	        	 int no4 = 0;
 	        	 communication = expenseService.getDetailCategory(expense);
 	        	 for(ExpenseVO vo : communication) {
 	        		 vo.setCategory("통신비");
+	        		 no4 += vo.getExpense();
 	        	 }
+	        	 expenseNum.setJul(no4);
 	        	 ex.setCategory("통신비");
 	        	 expense.setJul(communication.size());
 	        	 break;
 	         case "FOOD_COST" :
-	        	 
+	        	 int no5 = 0;
 	        	 food_cost = expenseService.getDetailCategory(expense);
 	        	 for(ExpenseVO vo : food_cost) {
-	        		 vo.setCategory("식비");
+	        		 vo.setCategory("음식/간식");
+	        		 no5 += vo.getExpense();
 	        	 }
-	        	 ex.setCategory("식비");
+	        	 expenseNum.setJan(no5);
+	        	 ex.setCategory("음식/간식");
 	        	 expense.setJan(food_cost.size());
 	        	 break;
 	         case "HEALTH_CARE_COST" :
-	        	 
+	        	 int no6 = 0;
 	        	 health_care = expenseService.getDetailCategory(expense);
 	        	 for(ExpenseVO vo : health_care) {
 	        		 vo.setCategory("의료비");
+	        		 no6 += vo.getExpense();
 	        	 }
+	        	 expenseNum.setJun(no6);
 	        	 ex.setCategory("의료비");
 	        	 expense.setJun(health_care.size());
 	        	 break;
 	         case "INSURANCE_PREMIUM" :
-	        	 
+	        	 int no7 = 0;
 	        	 insurance = expenseService.getDetailCategory(expense);
 	        	 for(ExpenseVO vo : insurance) {
 	        		 vo.setCategory("보험료");
+	        		 no7 += vo.getExpense();
 	        	 }
+	        	 expenseNum.setMay(no7);
 	        	 ex.setCategory("보험료");
 	        	 expense.setMay(insurance.size());
 	        	 break;
 	         case "APPAREL_COST" :
-	        	 
+	        	 int no8 = 0;
 	        	 apparel = expenseService.getDetailCategory(expense);
 	        	 for(ExpenseVO vo : apparel) {
 	        		 vo.setCategory("쇼핑/의류");
+	        		 no8 += vo.getExpense();
 	        	 }
+	        	 expenseNum.setFeb(no8);
 	        	 ex.setCategory("쇼핑/의류");
 	        	 expense.setFeb(apparel.size());
 	        	 break;
 	         case "HOUSING_COST" :
-	        	 
+	        	 int no9 = 0;
 	        	 housing = expenseService.getDetailCategory(expense);
 	        	 for(ExpenseVO vo : housing) {
 	        		 vo.setCategory("주거비");
+	        		 no9 += vo.getExpense();
 	        	 }
+	        	 expenseNum.setAug(no9);
 	        	 ex.setCategory("주거비");
 	        	 expense.setAug(housing.size());
 	        	 break;
@@ -370,6 +394,8 @@ public class MypageController {
 		model.addAttribute("list", list);
 		model.addAttribute("msg", "report");
 		model.addAttribute("myReport", "expenseReport");
+		// 각 세부지출 총액
+		model.addAttribute("expenseNum", expenseNum);
 		
 		// 세부지출내역
 		model.addAttribute("entertainment", entertainment);
