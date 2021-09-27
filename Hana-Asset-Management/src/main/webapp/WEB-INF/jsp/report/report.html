@@ -1,0 +1,196 @@
+
+<!-- saved from url=(0052)file:///C:/Users/HP/Downloads/hanacard_20200413.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width ,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+ 
+<title>보안메일입니다.</title>
+<style type="text/css">
+@-ms-viewport { width: device-width; } 
+@-o-viewport { width: device-width; } 
+@viewport { width: device-width; } 
+* { -webkit-text-size-adjust:none; max-width:100%; }
+
+.btn {
+width:70px; 
+background: #0eb1b7; 
+text-decoration:none;padding:2px;
+font-size:11px;
+font-weight:bold;
+color:white;
+text-align:center;
+border:solid 1px #0eb1b7;
+border-top-left-radius: 2em;
+border-top-right-radius: 2em;
+border-bottom-right-radius: 2em;
+border-bottom-left-radius: 2em;
+cursor:pointer;
+}
+span {padding-left:6px;}
+.noticeDetail {padding-left:12px;}
+
+.notice
+{
+border-top:1px solid #0eb1b7; 
+width:95%; 
+margin-top:20px;
+color:#537674; 
+font-size:12px; 
+line-height:18px;
+font-family:Arial, Helvetica, sans-serif; 
+}
+</style>
+
+<script type="text/javascript">
+	function check_value(){
+    	var pass = document.getElementById('password').value;
+    	if (pass.length < 1) {
+    		alert("비밀번호를 입력하세요.");
+    		return;
+    	}
+    	new UniSafeMail().unisafe_smail_process(pass);
+    }
+	
+</script></head>
+
+<body style="margin-left: 35%; margin-top: 10%;">
+<table cellpadding="0" cellspacing="0">
+ <tbody>
+ <tr>
+  <td id="coporationTd" height="20" bgcolor="#0eb1b7" width="540" style="border-left: 1px none rgb(14, 177, 183); border-right: 1px none rgb(14, 177, 183); border-top: 1px none rgb(14, 177, 183); font-family: Arial, Helvetica, sans-serif; border-bottom-style: none;">
+   <p id="coporationText" style="color: white; text-align: center; font-size: 15px; line-height: 18px; padding: 10px 0px; display: none;">
+    <b>Hana Solution 보안메일 인증창</b>  <br>Secured email of Hana Solution
+   </p>
+   
+	</td>
+ </tr>
+ <tr>
+  <td style="border-left:1px solid #0eb1b7; border-right:1px solid #0eb1b7; padding:10px 0 15px 0;" width="540" align="center">
+	<div id="enableDiv" style="display: block;">
+	   <div style="color:#00797d; font-size:13px; line-height:18px;">
+	   본 메일은 회원님의 정보보호를 위해 메일내용이 암호화 되어있습니다.<br>
+	   메일 내용을 확인하시려면 개인회원은 생년월일 6자리 , <br>
+	   기업회원은 사업자등록번호 10자리를 입력 후 확인 버튼을 클릭해주시기 바랍니다.
+	   </div>
+	   <div style="margin-top:30px;color:#00797d; font-size:13px; line-height:18px;font-family:Arial, Helvetica, sans-serif">
+	   This email is secured to protect your personal information.<br>
+	   To confirm the contents, please input 6 digits of your legal date of birth or <br>
+	   10 digits of Business Registration Number. 
+	   </div>
+	   <div id="passwordDiv" style="margin-top:35px;">
+
+			<input type="password" name="enter" value="" class="enter" id="password" onkeydown="if(event.keyCode==13)javascript:check_value();" style="background:#f0f0f0; border:1px solid #0eb1b7; color:#555; padding:5px 7px 6px 5px;font-size:12px; width:130px;">
+			
+				<a href="http://localhost:9999/Hana-Asset-Management/myPage/assetReport" onclick="javascript:check_value();" style=" width:130px; background: #0eb1b7; text-decoration:none;padding:5px 20px 5px 20px;font-size:12px;
+				font-weight:bold;color:white;text-align:center;border:solid 1px #0eb1b7;
+				border-top-left-radius: 5em;
+				border-top-right-radius: 5em;
+				border-bottom-right-radius: 5em;	
+				">확인(Confirm)</a>
+			
+			
+	   </div>
+	    
+   
+           <div id="navigationText" style="border-top:1px solid #0eb1b7; width:80%; padding-top:15px; margin-top:35px; text-align:right;color:#537674; font-size:12px; line-height:18px;font-family:Arial, Helvetica, sans-serif;">
+		 <div>
+		 <strong>모바일 기기이용시,</strong> 웹브라우저(인터넷, Safari 등)를 이용해주셔야 하며<br>
+		  내용이 안보이거나, 메일 앱 이용 및 파일 다운로드시에는<br>   
+		   전용뷰어(Unisafemail)를 통해서 확인가능 합니다.(단, PDF파일은 지원안됨) <br>
+		 </div>
+		 <div>When using mobile devices,<br>
+			 you should open the attached file through mobile web browser.<br>
+		    If you can't confirm the contents, Please use the viewer App(Unisafemail). <br>
+		   (PDF file is not available in mobile devices.) 
+		 </div>
+		<br>
+		 <div> - unisafemail  App. &nbsp;&nbsp; 
+		  <a href="https://play.google.com/store/apps/details?id=kr.unisecure.android.unisafemail" target="_blank" style="text-decoration:none;color:#537674;"> Android 
+		  	<button id="androidBtn" class="btn" style="display: none;">App 설치</button>
+		  </a> 
+		  <a href="https://itunes.apple.com/kr/app/unisafemail-te/id1412611455?mt=8" style="text-decoration:none;color:#537674;margin-left:10px;">iOS 
+			<button id="iosBtn" class="btn" style="display: none;">App 설치</button>
+		  </a> 
+		 </div> 
+      	     </div>
+      </div>
+
+
+      <div id="disableDiv" style="text-align: left; padding-left: 20px; display: none;">
+	 <div style="color:#00797d; font-size:13px; line-height:18px;">
+	   본 메일은 회원님의 정보보호를 위해 메일내용이 암호화 되어있습니다.<br>
+	   다음의 안내를 확인하시고 이용을 부탁 드립니다. <br>	   
+	 </div>
+	 <div style="margin-top:20px;color:#00797d; font-size:13px; line-height:18px;font-family:Arial, Helvetica, sans-serif">
+	   This e-mail is secured to protect your personal information.<br>
+	   Please, check the following notice. <br>	   
+	 </div>
+	 <div class="notice">
+		<p><b>1. PC 이용 (IE 7 이상, Chrome, FireFox, Safari, Opera 등)</b></p>
+	
+		<span><b>■ [차단된 콘텐츠 허용 안내 창]이 브라우저에 표시되는 경우</b></span>
+		<br>		
+		
+		<div class="noticeDetail">
+			- [차단된 콘텐츠 허용(A)] 버튼 클릭
+			<br>
+			<span style="padding-left:10px;">Click "Allow(A)" button to allow blocked contents.</span>
+		</div>			
+
+	 </div>
+	 <div class="notice">
+		<p><b>2. 모바일 (Mobile device) 이용</b></p>
+		<!--
+		웹브라우저(인터넷, Safari 등) 이용 시, 별도의 App 설치 없이 확인 가능합니다. PDF파일은 지원되지 않습니다.
+		</br>
+		If you use mobile web browser, there is no need to download viewer App. PDF file is not available in mobile devices.
+
+		</br></br>	
+		-->
+
+		<span><b>■ 안드로이드폰 (Android)</b></span>
+		<br>		
+		<div class="noticeDetail">
+			- [Unisafemail] 전용 App 설치 &nbsp;&nbsp;
+			<a href="https://play.google.com/store/apps/details?id=com.unisecure.android.unisafemail" target="_blank" style="text-decoration:none;color:#537674;">
+		  		<button class="btn">App 설치</button>
+		  	</a> 	
+			<br>	
+			- 보안메일을 [Unisafemail] App 또는 [Chrome]으로 열기<br>
+			<span style="padding-left:10px;">Confirm the contents through [Unisafemail] App or [Chrome]</span>
+		</div>
+		<br>
+		<span><b>■ 아이폰 (iPhone)</b></span><br>		
+		<div class="noticeDetail">
+			- [Unisafemail] 전용 App 설치 &nbsp;&nbsp;
+			<a href="https://itunes.apple.com/kr/app/unisafemail-te/id1412611455?mt=8" style="text-decoration:none;color:#537674;">
+		  		<button class="btn">App 설치</button>
+		  	</a> 
+			<br>
+			- 보안메일을 [Unisafemail] App으로 열기
+			<br>
+			<span style="padding-left:10px;">Confirm the contents through [Unisafemail] App</span>
+		</div>
+
+	 </div>
+      <div>
+   
+   </div></div></td>
+  </tr>
+  <tr>
+    <td id="bottomTd" bgcolor="#0eb1b7" height="20" style="border-style: none;">
+ 
+   </td>
+  </tr>
+</tbody></table>
+<map name="Map">
+  <area shape="rect" coords="194,50,256,69" href="https://play.google.com/store/apps/details?id=com.unisecure.android.unisafemail">
+  <area shape="rect" coords="265,49,302,69" href="https://itunes.apple.com/kr/app/unisafemail-te/id1412611455?mt=8">
+</map>
+
+
+</body>
+</html>

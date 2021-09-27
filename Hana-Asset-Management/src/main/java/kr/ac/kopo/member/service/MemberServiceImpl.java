@@ -111,7 +111,7 @@ public class MemberServiceImpl implements MemberService{
 	         //② 프로젝트 내의 파일 첨부
 	         file = new EmailAttachment();
 //	         file.setPath(session.getServletContext().getRealPath("resources/images/logo.png"));
-	         file.setPath(session.getServletContext().getRealPath("WEB-INF/jsp/myPage/assetReport.html"));
+	         file.setPath(session.getServletContext().getRealPath("WEB-INF/jsp/report/report.html"));
 	         mail.attach(file);
 	         
 	         /*

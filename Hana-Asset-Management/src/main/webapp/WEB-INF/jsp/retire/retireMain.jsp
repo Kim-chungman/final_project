@@ -16,6 +16,16 @@
 <script src="${ pageContext.request.contextPath }/resources/retire/jquery.min.js"></script>
 <script src="${ pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script>
+
+
+	
+</script>
+
 </head>
 <body>
 	<header>
@@ -44,9 +54,12 @@
 			<div class="img">
 				<img src="${ pageContext.request.contextPath }/resources/retire/irp06.png" alt="">
 				<a href="${ pageContext.request.contextPath }/retire/agree">
-				<button type="button" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 200px; margin-top: 20px;">
+				<button type="button" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; font-size: 16pt; border: none; margin-left: 200px; margin-top: 20px; cursor: pointer;">
 					가입하기
-				</button></a>
+				</button></a><br>
+				<a href="javascript:;" id="kakao-link-btn"> 
+					<img src="${ pageContext.request.contextPath }/resources/kakao.jpg" style=" width: 300px; height: 50px; border-radius: 15px; margin-left: 200px;" />
+				</a>
 			</div>
 		</div>
 		<div class="popup_wrap">
@@ -196,6 +209,45 @@
 			</div>
 		</div>
 	</section>
+		<script>
+			Kakao.init('b03a9903b4ea2f43d7f68026174e2d84');
+		    
+		    Kakao.Link.createDefaultButton({
+		      container: '#kakao-link-btn',  // 컨테이너는 아까 위에 버튼이 쓰여진 부분 id 
+		      objectType: 'feed',
+		      content: {  
+		        title: 'Hana Solution 은퇴설계', // 본문 제목
+		        description: '#은퇴설계 #자산관리 #연금 \n연금자가진단 지금 시작하세요!!', 
+		        imageUrl: 'https://postfiles.pstatic.net/MjAyMTA5MjdfMjA0/MDAxNjMyNzQ5MjUzNzQ4.Ntv-Ep9KQI62nDBBFQ03hbayyEqEkhNTjF_wEAci6vkg.R0NsOsr-GZAXGrCV563gbrCuhumpOPYBZILkoBWnlKsg.JPEG.cndaksrla/main.jpg?type=w773', // 이미지
+		        link: {
+		          mobileWebUrl: 'http://localhost:9999/Hana-Asset-Management/retire',
+		          webUrl: 'http://localhost:9999/Hana-Asset-Management/retire'
+		        }
+		      },
+		      social: {  /* 공유하면 소셜 정보도 같이 줄 수 있는데, 이 부분은 기반 서비스마다 적용이 쉬울수도 어려울 수도 있을듯 합니다. 전 연구해보고 안되면 제거할 예정 (망할 google  blogger...) */
+		        likeCount: 999,
+		        commentCount: 84,
+		        sharedCount: 982
+		      },
+		      buttons: [
+		        {
+		          title: '웹으로 보기',
+		          link: {
+		            mobileWebUrl: 'http://localhost:9999/Hana-Asset-Management/retire',
+		            webUrl: 'http://localhost:9999/Hana-Asset-Management/retire'
+		          }
+		        },
+		        {
+		          title: '앱으로 보기',
+		          link: {
+		            mobileWebUrl: 'http://localhost:9999/Hana-Asset-Management/retire',
+		            webUrl: 'http://localhost:9999/Hana-Asset-Management/retire'
+		          }
+		        }
+		      ]
+		    });
+		</script>
+		
 		<script>
 	        var i = 1;
 	        var Rotate;

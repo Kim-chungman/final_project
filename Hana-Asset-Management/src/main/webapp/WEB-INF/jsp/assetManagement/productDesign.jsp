@@ -118,6 +118,58 @@
         }
 		
     </style>
+    
+    <style type="text/css">
+		.modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+    
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;                         
+        }
+	</style>
+    
+    <script src="https://code.jquery.com/jquery-latest.js"></script>   
+    
+    <script type="text/javascript">
+		
+        var modal = {
+ 		  open : function(){
+ 		    $('#myModal').show();
+ 		  },
+ 		  close : function(){
+ 		    $('#myModal').hide();    
+ 		  }
+ 		};
+        
+        $(document).on('click', '.modal-content', function(){
+   		  window.history.back();   
+   		}).on('click', '#joinBtn', function(){
+   		  window.history.pushState({}, 'modal', '/modal');
+   		  modal.open();
+   		});
+
+   		window.onpopstate = history.onpushstate = function(e) {
+   		    if(window.location.href.split('/').pop().indexOf('modal')===-1){ // 마지막 segment가 cards라면 모달이 아닌 리스트인 상태이어야한다.
+   		    	modal.close(); // 현재의 모달을 닫는다.
+   		    }
+   		}
+
+	</script>
 <body>
 	<header>
 		<jsp:include page="/WEB-INF/include/header.jsp" />
@@ -270,7 +322,11 @@
 				<dl class="container" style="width: 900px;">
 					<dt style="font-size: 14pt;">분석지표 설정</dt>
 					<dd class="row d-flex justify-content-center mt-100" style="border: none;">
-						<div class="col-md-6" style="border: none;"> 
+						<div class="col-md-6" style="border: none;">
+						<div id="joinBtn" style="text-align: right; cursor: pointer;"> 
+							<img alt="도와주세요!" src="${ pageContext.request.contextPath }/resources/help.png" style="width: 30px; height: 30px; cursor: pointer;">
+							<span style="font-size: 12pt;"><strong>분석지표가 궁금해요</strong></span>
+				    	</div>
 				    	<select id="choices-multiple-remove-button" name="analysis" style="opacity: 60;" multiple>
 				            <option style="border: none;" value="표준편차(%)" selected="selected">표준편차(σ)</option>
 				            <option style="border: none;" value="BM민감도(B)">BM민감도(β)</option>
@@ -279,7 +335,7 @@
 				            <option style="border: none;" value="젠센의 알파(%)">젠센의 알파(%)</option>
 				            <option style="border: none;" value="정보비율(IR)">정보비율(IR)</option>
 				        </select> 
-				    </div>
+				   		</div>
 					</dd>
 				</dl>
 				<dl class="container" style="width: 900px;">
@@ -295,6 +351,73 @@
 		        </div>
 			</fieldset>
 			</form>
+			
+			<!-- The Modal -->
+		    <div id="myModal" class="modal">
+		 
+		      <!-- Modal content -->
+		      <div class="modal-content" style="border-color: #008B8B; border-width: 3px; width: 700px;">
+	                <p style="text-align: center;">
+	                	<span style="font-size: 15pt; color: #008B8B;"><strong>분석지표</strong></span>
+	                </p>
+	                <hr style="border-color: #008B8B; border-width: 1px;">
+	                <p style="text-align: left; font-size: 23pt;">좋은 포트폴리오 고르기</p>
+	                <p style="text-align: left; font-size: 15pt;">궁금함을 한번에!</p>
+		            <br><br>
+		            <table style="width: 97%;">
+		            	<tr style="background-color: white; ">
+		            		<th style="vertical-align: middle; font-size: 13pt; width: 20%; background-color: #F7F9FC;"><strong>표준편차(%)</strong></th>
+		            		<td style="font-size: 13pt; padding-top: 20px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;">투자기간 동안 펀드수익률이 평균수익률과 대비하여 변동한 범위를 측정하기 위한 통계량으로써, 펀드의 위험 정도를 나타내는 지표로 이용되고 있습니다. 
+		            			<span style="color: red;">값이 클수록 변동성이 심하므로 위험이 크고, 값이 작을수록 위험이 작다고 할 수 있습니다.</span></td>
+		            	</tr>
+		            	<tr style="background-color: white;">
+		            		<th style="vertical-align: middle; font-size: 13pt; background-color: #F7F9FC;"><strong>BM민감도(β)</strong></th>
+		            		<td style="font-size: 13pt; padding: 10px;">시장변화에 대한 펀드수익률의 민감도를 나태내기 위해서 베타를 사용하며, KOSPI200지수를 시장으로 간주하고 있습니다.<br> 베타의 크기에 따른 의미는 다음과 같습니다.<br>
+														<span style="color: red;"> β=1 </span> : 시장 수익률과 <span style="color: red;">동일한 민감도</span>를 가짐<br>
+														<span style="color: red;"> β>1 </span> : 시장 수익률보다 <span style="color: red;">민감하게 움직임</span>(위험이 큼)<br>
+														<span style="color: red;"> β<1 </span> : 시장 수익률보다 <span style="color: red;">둔감하게 움직임</span>(안정적인 포트폴리오)
+													</td>
+		            	</tr>
+		            	<tr style="background-color: white;">
+		            		<th style="vertical-align: middle; font-size: 13pt; background-color: #F7F9FC;"><strong>트래킹에러(TE,%)</strong></th>
+		            		<td style="font-size: 13pt; padding: 10px;">트래킹 에러는 <span style="color: red;">일반적으로 일정기간 투자한 펀드의 수익률이 이에 대응하는 지수 수익률에 비해 어느 정도의 차이를 보이는가를 측정</span>하는 지표로 (지수)추적오차라고도 합니다.<br> 
+		            			펀드평가에서는 펀드의 기간수익률과 이에 대응하는 벤치마크 지표 수익률과의 차이에 대한 변동성을 의미합니다.</td>
+		            	</tr>
+		            	<tr style="background-color: white;">
+		            		<th style="vertical-align: middle; font-size: 13pt; background-color: #F7F9FC;"><strong>Sharpe Ratio</strong></th>
+		            		<td style="font-size: 13pt; padding: 10px;">
+		            			<span style="color: red;">펀드의 위험 1단위에 대한 초과수익의 정도를 나타내는 지표입니다.</span> 
+		            			다시 말해서, 1이라는 위험을 부담하는 대신 얻은 대가, 즉 초과수익이 얼마인가를 측정하는 지표입니다. 따라서 샤프지수가 높을수록 투자성과가 성공적이라고 할 수 있습니다. 
+		            		</td>
+		            	</tr>
+		            	<tr style="background-color: white;">
+		            		<th style="vertical-align: middle; font-size: 13pt; background-color: #F7F9FC;"><strong>젠센의 알파(%)</strong></th>
+		            		<td style="font-size: 13pt; padding: 10px;">
+		            			<span style="color: red;">펀드의 수익률이 균형상태에서의 수익률보다 얼마나 높은지를 나타내는 지표입니다.</span>
+		            			 다시 말해, 펀드 수익률에서 적정(or 기대)수익률을 뺀 값을 의미합니다. 따라서, Jensen's Alpha가 클수록 성공적인 투자 성과를 나타내는 것입니다.
+		            		</td>
+		            	</tr>
+		            	<tr style="background-color: white; border: none;">
+		            		<th style="vertical-align: middle; font-size: 13pt; background-color: #F7F9FC;"><strong>정보비율(IR)</strong></th>
+		            		<td style="font-size: 13pt; padding: 10px;">
+		            			<span style="color: red;">적극적인 투자활동의 결과 나타나는 초과수익률과 적극적인 활동에 따른 수익률의 표준편차의 비율</span>을 말하는데, 
+		            			Reward-to-Variability Ratio(RVR)라고 부르기도 합니다. <span style="color: red;">이 비율이 높을수록 더 좋은 투자활동으로 판단합니다.</span>
+		            		</td>
+		            	</tr>
+		            	
+		            </table>
+		            <br>
+		            <div style="background-color:white;text-align: center;padding-bottom: 30px;padding-top: 10px; width: 200px; margin-left: 500px;">
+		            	<span class="pop_bt" style="font-size: 13pt; border-color: #008B8B; background-color: white; line-height: 25px; color: red; float: right; cursor: pointer;" onClick="close_pop();">
+		                     <button style="font-size: 13pt; border: none; width: 150px; background-color: #008B8B; line-height: 35px; border-radius: 80px; color: white;">
+		            			확인
+		            		</button>
+		                </span> 
+		            </div>
+		                      
+		      </div>
+		    </div>
+	        <!--End Modal-->
        		<!--
         	<div class="container" style="text-align: center;">
         		

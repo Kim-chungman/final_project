@@ -1,8 +1,14 @@
 package kr.ac.kopo.home;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import kr.ac.kopo.member.service.MemberService;
+import kr.ac.kopo.member.service.MemberServiceImpl;
 
 @Controller
 public class HomeController {
@@ -15,6 +21,18 @@ public class HomeController {
 	@RequestMapping("/fundtest")
 	public String fundtest() {
 		return "portfolio/fundJoin";
+	}
+	
+	@RequestMapping("/mailTest")
+	public String mailTest(HttpServletRequest request) {
+		
+		MemberServiceImpl service = new MemberServiceImpl();
+		HttpSession session = request.getSession();
+		
+		
+		service.sendAttach("cndaksrla@naver.com", "김충만", session);
+		
+		return "map/kakaoMap";
 	}
 	
 	@GetMapping("/map")

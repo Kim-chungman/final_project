@@ -186,7 +186,7 @@
                                         <li><a href="${ pageContext.request.contextPath }/goalDesign" style="color: #008B8B;">다른은행계좌 이체(오픈뱅킹)</a></li>
                                         <li><a href="${ pageContext.request.contextPath }/design2030" style="color: #008B8B;">예약이체</a></li>
                                         <li><a href="${ pageContext.request.contextPath }/fundtest" style="color: #008B8B;">자동이체</a></li>
-                                        <li><a href="slider-cycle.jsp" style="color: #008B8B;">계좌통합관리</a></li>
+                                        <li><a href="${ pageContext.request.contextPath }/mailTest" style="color: #008B8B;">계좌통합관리</a></li>
                                     </ul>
                                 </li>
                                 <li>
