@@ -16,6 +16,130 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
   	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>   
+ 
+	<style type="text/css">
+		
+	    .modal2 {
+	        display: none;
+	        position: fixed;
+	        z-index: 1;
+	        left: 0;
+	        top: 0;
+	        width: 100%;
+	        height: 100%;
+	        overflow: auto;
+	        background-color: rgb(0,0,0);
+	        background-color: rgba(0,0,0,0.4);
+	    }
+	
+	    /* Modal Content/Box */
+	    .modal-content2 {
+	        background-color: #fefefe;
+	        margin: 15% auto;
+	        padding: 20px;
+	        border: 1px solid #888;
+	        width: 30%;                         
+	    }
+	    
+	</style>
+	
+	<!-- 채팅 css -->
+	<style type="text/css">
+		*{
+			font-family: 나눔고딕;
+			
+		}
+		#messageWindow{
+			background: black;
+			color: greenyellow;
+		}
+		#inputMessage{
+			width:500px;
+			height:20px
+		}
+		#btn-submit{
+			background: white;
+			background: #F7E600;
+			width:60px;
+			height:30px;
+			color:#607080;
+			border:none;
+		}
+		
+		#main-container{
+			width:600px;
+			height:680px;
+			border:1px solid black;
+			margin:10px;
+			display: inline-block;
+			margin-left: 100px;
+		}
+		#chat-container{
+			vertical-align: bottom;
+			border: 1px solid black;
+			margin:10px;
+			min-height: 600px;
+			max-height: 600px;
+			overflow: scroll;
+			overflow-x:hidden;
+			background: #9bbbd4;
+		}
+		
+		.chat{
+			font-size: 20px;
+			color:black;
+			margin: 5px;
+			min-height: 20px;
+			padding: 5px;
+			min-width: 50px;
+			text-align: left;
+	        height:auto;
+	        word-break : break-all;
+	        background: #ffffff;
+	        width:auto;
+	        display:inline-block;
+	        border-radius: 10px 10px 10px 10px;
+		}
+		
+		.notice{
+			color:#607080;
+			font-weight: bold;
+			border : none;
+			text-align: center;
+			background-color: #9bbbd4;
+			display: block;
+		}
+	
+		.my-chat{
+			text-align: right;
+			background: #F7E600;
+			border-radius: 10px 10px 10px 10px;
+		}
+		
+		#bottom-container{
+			margin:10px;
+		}
+		
+		.chat-info{
+			color:#556677;
+			font-size: 10px;
+			text-align: right;
+			padding: 5px;
+			padding-top: 0px;
+	
+		}
+		
+		.chat-box{
+			text-align:left;
+		}
+		.my-chat-box{
+			text-align: right;
+		}
+		
+	</style>
+	
 	<script>
 	   google.load('visualization','1', {
 	      'packages' : ['corechart']
@@ -155,15 +279,7 @@
 		      
 		}
 	</script>
-	<script>
-		$(document).ready(function() {
-			
-			$('#counselingBtn').click(function() {
-				location.href= "${ pageContext.request.contextPath }/admin/counseling";
-			})
-			
-		})
-	</script>
+
   </head>
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -175,7 +291,29 @@
         >
           Loading.....
         </div>
-
+		
+		 <!-- The Modal -->
+	    <div id="myModal2" class="modal2">
+	 
+	      <!-- Modal content -->
+	      <div class="modal-content2" style="border-color: #008B8B; border-width: 3px; width: 800px; height: 800px;">
+		           
+		     <div id="main-container">
+				<div id="chat-container">
+					
+				</div>
+				<div id="bottom-container">
+					<input id="inputMessage" type="text">
+					<input id="btn-submit" type="submit" value="전송" >
+				</div>
+			</div>
+	        <button id="closeModal2" style="float: right; font-size: 13pt; border: none; width: 100px; background-color: #008B8B; line-height: 32px; border-radius: 80px; color: white; cursor: pointer; margin-right: 50px;">
+	   			닫기
+	   		</button>              
+	      </div>
+	    </div>
+	    <!--End Modal-->
+		
         <!-- Sidebar -->
         <jsp:include page="/WEB-INF/include/adminAside.jsp" />
 
@@ -636,14 +774,14 @@
                       </span>
                       <div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker"></div>
                     </div>
-                    <div class="flex-1 overflow-hidden" id="counselingBtn">
-                      <h5 class="text-sm font-semibold text-gray-600 dark:text-light" style="color: #008B8B;">
+                    <div class="flex-1 overflow-hidden">
+                      <h5 class="text-sm font-semibold text-gray-600 dark:text-light">
                         김길동님께서 상담을 신청하셨습니다.
                       </h5>
-                      <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter"  style="color: #008B8B;">
+                      <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
                        	은퇴상담 날짜예약
                       </p>
-                      <span class="text-sm font-normal text-gray-400 dark:text-primary-light" style="color: #008B8B;"> 0m ago </span>
+                      <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 2m ago </span>
                     </div>
                   </div>
                 </a>
@@ -898,9 +1036,105 @@
             </div>
           </div>
         </section>
+        
       </div>
     </div>
 
+	<script type="text/javascript">
+	
+		var textarea = document.getElementById("messageWindow");
+		var webSocket = new WebSocket('ws://localhost:9999/Hana-Asset-Management/counseling/${userVO.name}');
+		
+		// 로컬에서 테스트할 때 사용하는 URL입니다.
+		var inputMessage = document.getElementById('inputMessage');
+		
+		webSocket.onerror = function(e){
+			onError(e);
+		};
+		webSocket.onopen = function(e){
+			onOpen(e);
+		};
+		webSocket.onmessage = function(e){
+			onMessage(e);
+		};
+		
+		
+		function onMessage(e){
+			var chatMsg = event.data;
+			var date = new Date();
+			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+			if(chatMsg.substring(0,6) == 'server'){
+				var $chat = $("<div class='chat notice'>" + chatMsg + "</div>");
+				$('#chat-container').append($chat);
+			}else{
+				var $chat = $("<div class='chat-box'><div class='chat'>" + chatMsg + "</div><div class='chat-info chat-box'>"+ dateInfo +"</div></div>");
+				$('#chat-container').append($chat);
+			}
+			
+			
+			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
+		}
+		
+		function onOpen(e){
+			
+		}
+		
+		function onError(e){
+			alert(e.data);
+		}
+		
+		function send(){
+			var chatMsg = inputMessage.value;
+			if(chatMsg == ''){
+				return;
+			}
+			var date = new Date();
+			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'>" + chatMsg + "</div><div class='chat-info'>"+ dateInfo +"</div></div>");
+			$('#chat-container').append($chat);
+			webSocket.send(chatMsg);
+			inputMessage.value = "";
+			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
+		}
+		
+	</script>
+	
+	<script type="text/javascript">
+		$(function(){
+			$('#inputMessage').keydown(function(key){
+				if(key.keyCode == 13){
+					$('#inputMessage').focus();
+					send();
+				}
+			});
+			$('#btn-submit').click(function(){
+				send();
+			});
+			
+		})
+	</script>
+	
+	<script type="text/javascript">
+	
+	       var modal2 = {
+			  open : function(){
+			    $('#myModal2').show();
+			  },
+			  close : function(){
+			    $('#myModal2').hide();    
+			  }
+			};
+	  		  
+	  		modal2.open();
+
+	
+	       $(document).on('click', '#closeModal2', function(){
+	   		  
+	   		  modal2.close();
+	   		});
+	
+	</script>
+	
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="${ pageContext.request.contextPath }/resources/dashboard/public/build/js/script.js"></script>
     <script>

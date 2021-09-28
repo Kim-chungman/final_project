@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,6 +129,9 @@
               viewBox="0 0 24 24"
               stroke="currentColor"
               aria-hidden="true"
+              <c:if test="${ userVO.name eq '김길동' }">
+              	style="color: white;"
+              </c:if>
             >
               <path
                 stroke-linecap="round"

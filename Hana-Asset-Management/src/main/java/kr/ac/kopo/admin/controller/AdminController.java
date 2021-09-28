@@ -22,7 +22,13 @@ public class AdminController {
 	@GetMapping("/adminPage")
 	public ModelAndView adminPage() {
 		
-		return new ModelAndView("/admin/adminPage");
+		return new ModelAndView("admin/adminPage");
+	}
+	
+	@GetMapping("/admin/counseling")
+	public ModelAndView counseling() {
+		
+		return new ModelAndView("admin/counseling");
 	}
 	
 	@RequestMapping("/adminPage/customerExpense")

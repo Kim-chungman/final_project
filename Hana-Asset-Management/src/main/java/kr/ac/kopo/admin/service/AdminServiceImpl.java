@@ -457,7 +457,7 @@ public JSONObject dataGet(int no, ExpenseVO expense) {
 		}
 		
 		 
-		
+		  /*
 		  String[] type = new String[9];
 		  int[] myage = new int[9];
 		  int[] group = new int[9];
@@ -470,7 +470,7 @@ public JSONObject dataGet(int no, ExpenseVO expense) {
 			  
 			  System.out.println(type[i] + " : 나 " + myage[i] +", 20대 " + group[i]);
 		  }
-		  
+		  */
 		  JSONObject data = new JSONObject();
 	     
 		  JSONObject col1 = new JSONObject();
