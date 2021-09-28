@@ -178,7 +178,7 @@ public class ExpenseController {
 		
 		ExpenseVO expense = new ExpenseVO();
 		
-		expense.setMember_id(id);;
+		expense.setMember_id(id);
 		
 		return service.getpieChartData4(expense);
     }
