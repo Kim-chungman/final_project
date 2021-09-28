@@ -38,4 +38,10 @@
 		  where id = #{id}
 	</update>
 	
+	<select id="getUserInfo" parameterType="memberVO" resultMap="memberMap">
+		select ID, NAME, PASSWORD, RRN, PHONENUMBER, ADDRESS, GENDER, EMAIL, INVESTMENT_TYPE, NOTICE, REG_DATE
+		 from cm_member
+		   where id = #{id}
+	</select>
+	
 </mapper>

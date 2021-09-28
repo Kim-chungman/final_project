@@ -59,4 +59,12 @@ public class MemberDAOImpl implements MemberDAO{
 		
 	}
 
+	@Override
+	public MemberVO getUserInfo(MemberVO client) {
+		
+		MemberVO user = sqlSessionTemplate.selectOne("member.MemberDAO.getUserInfo", client);
+		
+		return user;
+	}
+
 }

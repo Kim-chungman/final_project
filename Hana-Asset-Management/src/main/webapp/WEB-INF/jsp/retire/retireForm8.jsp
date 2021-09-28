@@ -65,6 +65,191 @@
 	}
 </script>
 
+<script src="https://code.jquery.com/jquery-latest.js"></script>   
+    
+<script type="text/javascript">
+	
+       var modal = {
+		  open : function(){
+		    $('#myModal').show();
+		  },
+		  close : function(){
+		    $('#myModal').hide();    
+		  }
+		};
+       
+       $(document).on('click', '#joinBtn', function(){
+  		  
+  		  modal.open();
+  		});
+
+       $(document).on('click', '#closeModal', function(){
+   		  
+   		  modal.close();
+   		});
+       
+       var modal2 = {
+		  open : function(){
+		    $('#myModal2').show();
+		  },
+		  close : function(){
+		    $('#myModal2').hide();    
+		  }
+		};
+ 	       
+       $(document).on('click', '#joinBtn2', function(){
+  		  
+  		  modal2.open();
+  		});
+
+       $(document).on('click', '#closeModal2', function(){
+   		  
+   		  modal2.close();
+   		  modal.close();
+   		});
+
+</script>
+
+<style type="text/css">
+	.modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;                         
+    }
+    .modal2 {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    /* Modal Content/Box */
+    .modal-content2 {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;                         
+    }
+</style>
+
+<!-- 채팅 css -->
+<style type="text/css">
+	*{
+		font-family: 나눔고딕;
+		
+	}
+	#messageWindow{
+		background: black;
+		color: greenyellow;
+	}
+	#inputMessage{
+		width:500px;
+		height:20px
+	}
+	#btn-submit{
+		background: white;
+		background: #F7E600;
+		width:60px;
+		height:30px;
+		color:#607080;
+		border:none;
+	}
+	
+	#main-container{
+		width:600px;
+		height:680px;
+		border:1px solid black;
+		margin:10px;
+		display: inline-block;
+		margin-left: 100px;
+	}
+	#chat-container{
+		vertical-align: bottom;
+		border: 1px solid black;
+		margin:10px;
+		min-height: 600px;
+		max-height: 600px;
+		overflow: scroll;
+		overflow-x:hidden;
+		background: #9bbbd4;
+	}
+	
+	.chat{
+		font-size: 20px;
+		color:black;
+		margin: 5px;
+		min-height: 20px;
+		padding: 5px;
+		min-width: 50px;
+		text-align: left;
+        height:auto;
+        word-break : break-all;
+        background: #ffffff;
+        width:auto;
+        display:inline-block;
+        border-radius: 10px 10px 10px 10px;
+	}
+	
+	.notice{
+		color:#607080;
+		font-weight: bold;
+		border : none;
+		text-align: center;
+		background-color: #9bbbd4;
+		display: block;
+	}
+
+	.my-chat{
+		text-align: right;
+		background: #F7E600;
+		border-radius: 10px 10px 10px 10px;
+	}
+	
+	#bottom-container{
+		margin:10px;
+	}
+	
+	.chat-info{
+		color:#556677;
+		font-size: 10px;
+		text-align: right;
+		padding: 5px;
+		padding-top: 0px;
+
+	}
+	
+	.chat-box{
+		text-align:left;
+	}
+	.my-chat-box{
+		text-align: right;
+	}
+	
+</style>
+
 <style type="text/css">
 .w2grid.gridTyDefault .gridBodyDefault.inP_cellTit {
    text-align: left !important;
@@ -112,9 +297,8 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 														title=""><span id="wq_uuid_241" class="w2span ">미래설계<br>상품
 														</span></a></li>
 													<li id="wq_uuid_242" class="w2group " data-load="load"><a
-														id="wq_uuid_243" class="w2group "
-														href=""
-														title=""><span id="wq_uuid_244" class="w2span ">은퇴상담<br>신청
+														id="wq_uuid_243" class="w2group " style="cursor: pointer;">
+														<span id="joinBtn" class="w2span ">은퇴상담<br>신청
 														</span></a></li>
 												</ul>
 											</div>
@@ -155,7 +339,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 													<div id="chart_div" align="center" style="margin-left: 200px;">
 													
 													</div>
-													<p id="wq_uuid_1540" class="w2textbox tac" style="font-size: 12pt;"><strong>은퇴자금 준비율</strong></p>
+													<p id="wq_uuid_1540" class="w2textbox tac"><strong>은퇴자금 준비율</strong></p>
 												</div>
 											</div>
 											<div id="wq_uuid_1541" class="w2textbox tar fs12">(단위:만원)</div>
@@ -232,124 +416,7 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 														가치이며, 기 은퇴자는 현재가치와 같습니다.</li>
 												</ul>
 											</div>
-											<div id="wq_uuid_1580" style="display: none;"
-												class="w2group pr mt20">
-												<h2 id="wq_uuid_1581"
-													class="w2textbox titH02 fs15 b mb10 pr70">신한미래설계지수</h2>
-												<div id="wq_uuid_1582"
-													style="width: 100%; overflow-y: hidden; overflow-x: auto;"
-													class="w2group ">
-													<div id="wq_uuid_1583" style="min-width: 300px;"
-														class="w2group ">
-														<div id="wq_uuid_1584" class="w2group tformper">
-															<div id="wq_uuid_1585" class="w2group cell">
-																<div id="wq_uuid_1586" style="min-width: 300px;"
-																	class="w2group cb">
-																	<div id="wq_uuid_1587"
-																		style="min-width: 100px; width: 33%;"
-																		class="w2group fl">
-																		<div id="id_준비자금도넛그래프"
-																			style="height: 108px; marginheight: 0px; width: 100%; marginwidth: 0px;"
-																			type="Doughnut2D" drawtype="javascript"></div>
-																		<div id="wq_uuid_1589" class="w2group chartTit">
-																			<strong id="ipt_준비자금"
-																				class="w2textbox txtPercent txtColor01"></strong>
-																			<p id="wq_uuid_1591" class="w2textbox ">준비자금 달성률</p>
-																		</div>
-																	</div>
-																	<div id="wq_uuid_1592"
-																		style="min-width: 100px; width: 33%;"
-																		class="w2group fl">
-																		<div id="id_현금흐름도넛그래프"
-																			style="height: 108px; width: 100%;" type="Doughnut2D"
-																			drawtype="javascript"></div>
-																		<div id="wq_uuid_1594" class="w2group chartTit">
-																			<strong id="ipt_현금흐름"
-																				class="w2textbox txtPercent txtColor02"></strong>
-																			<p id="wq_uuid_1596" class="w2textbox ">현금흐름 달성률</p>
-																		</div>
-																	</div>
-																	<div id="wq_uuid_1597"
-																		style="min-width: 100px; width: 33%;"
-																		class="w2group fl">
-																		<div id="id_금융자산도넛그래프"
-																			style="height: 108px; width: 100%;" type="Doughnut2D"
-																			drawtype="javascript"></div>
-																		<div id="wq_uuid_1599" class="w2group chartTit">
-																			<strong id="ipt_금융자산"
-																				class="w2textbox txtPercent txtColor03"></strong>
-																			<p id="wq_uuid_1601" class="w2textbox ">금융자산 안정성</p>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div id="wq_uuid_1602" style="top: 0; right: 0;"
-													class="w2group pa">
-													<span id="ipt_신한미래설계지수" class="w2span fs35 fc3 b">65</span><span
-														id="wq_uuid_1604" class="w2span ml5 fs15 fc333 mbm10">점</span>
-												</div>
-											</div>
-											<table id="wq_uuid_1605" style="display: none;"
-												class="w2group w2tb tableTyInfo mb15" summary="준비자금 달성률 테이블">
-												<caption id="wq_uuid_1606" class="w2group setcaption">지표,가중치,준비자금
-													달성률,현금흐름달성률,금융 자산 안정성 을(를) 나타낸 표</caption>
-												<colgroup id="wq_uuid_1607" class="w2group ">
-													<col id="wq_uuid_1608" style="width: 60%;" class="w2group ">
-													<col id="wq_uuid_1609" class="w2group ">
-												</colgroup>
-												<tbody>
-													<tr id="wq_uuid_1610" class="w2group ">
-														<th id="wq_uuid_1611" class="w2group w2tb_th"><div
-																id="wq_uuid_1612" class="w2textbox ">지표</div></th>
-														<th id="wq_uuid_1613" class="w2group w2tb_th"><div
-																id="wq_uuid_1614" class="w2textbox ">가중치</div></th>
-													</tr>
-													<tr id="wq_uuid_1615" class="w2group ">
-														<th id="wq_uuid_1616" class="w2group w2tb_th"><div
-																id="wq_uuid_1617" class="w2textbox ">준비자금 달성률</div></th>
-														<td id="wq_uuid_1618" class="w2group w2tb_td"
-															data-title="준비자금 달성률"><div id="id_준비자금달성률"
-																class="w2textbox "></div></td>
-													</tr>
-													<tr id="wq_uuid_1620" class="w2group ">
-														<th id="wq_uuid_1621" class="w2group w2tb_th"><div
-																id="wq_uuid_1622" class="w2textbox ">현금흐름달성률</div></th>
-														<td id="wq_uuid_1623" class="w2group w2tb_td"
-															data-title="현금흐름달성률"><div id="id_현금흐름달성률"
-																class="w2textbox "></div></td>
-													</tr>
-													<tr id="wq_uuid_1625" class="w2group ">
-														<th id="wq_uuid_1626" class="w2group w2tb_th"><div
-																id="wq_uuid_1627" class="w2textbox ">금융 자산 안정성</div></th>
-														<td id="wq_uuid_1628" class="w2group w2tb_td"
-															data-title="금융 자산 안정성"><div id="id_금융자산안정성"
-																class="w2textbox "></div></td>
-													</tr>
-												</tbody>
-											</table>
-											<div id="wq_uuid_1630" style="display: none;"
-												class="w2group listDot">
-												<ul id="wq_uuid_1631" class="w2group ">
-													<li id="wq_uuid_1632" class="w2textbox ">신한미래설계지수<br>=(준비자금*50%)
-														+ (현금흐름*30%)<br> &nbsp;+(금융 자산 안정성*20%)
-													</li>
-												</ul>
-											</div>
-											<div id="wq_uuid_1633" style="display: none;"
-												class="w2group pr mt20">
-												<h2 id="wq_uuid_1634" class="w2textbox titH02 fs15 b mb10">은퇴생활기간의중요시기</h2>
-											</div>
-											<ol id="wq_uuid_1635" style="display: none;"
-												class="w2group legend mb15">
-												<div id="generatorT1_항목명"></div>
-												<div id="wq_uuid_1637" class="w2group pt10 bb1_gray"></div>
-												<ul id="wq_uuid_1638" class="w2group agebar mt20">
-													<div id="generatorT1" class="on dib"></div>
-												</ul>
-											</ol>
+											
 										</div>
 										
 										</div>
@@ -365,6 +432,127 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 				href="${ pageContext.request.contextPath }/" style="background-color: #008B8B;">메인으로</a>
 		</div>	
    </section>
-   
+   <!-- The Modal -->
+    <div id="myModal" class="modal">
+ 
+      <!-- Modal content -->
+      <div class="modal-content" style="border-color: #008B8B; border-width: 3px; width: 700px;">
+            <p style="text-align: center;">
+            	<span style="font-size: 15pt; color: #008B8B;"><strong style="font-size: 25px;">은퇴상담신청</strong></span>
+            </p>
+            <hr style="border-color: #008B8B; border-width: 1px;">
+            <p style="text-align: left; font-size: 23pt;">은퇴설계가 어려우시다면</p>
+            <p style="text-align: left; font-size: 15pt;">전문가의 도움을 받으세요!</p>
+            <br><br>
+            
+            <div style="background-color:white;text-align: center;padding-bottom: 30px;padding-top: 10px; width: 200px; margin-left: 500px;">
+            	<a>
+            		<button id="joinBtn2" style="font-size: 13pt; border: none; width: 100px; background-color: #008B8B; line-height: 32px; border-radius: 80px; color: white; cursor: pointer;">
+            			신청하기
+            		</button>
+            	</a>
+            	<button class="pop_bt" style="border-width: 1px; width: 100px;  font-size: 13pt; border-color: #008B8B; line-height: 32px; color: #008B8B; float: right; cursor: pointer;"  id="closeModal">
+                     닫기
+                </button>
+            </div>
+                      
+      </div>
+    </div>
+    <!--End Modal-->
+    <!-- The Modal -->
+    <div id="myModal2" class="modal2">
+ 
+      <!-- Modal content -->
+      <div class="modal-content2" style="border-color: #008B8B; border-width: 3px; width: 800px; height: 750px;">
+	           
+	     <div id="main-container">
+			<div id="chat-container">
+				
+			</div>
+			<div id="bottom-container">
+				<input id="inputMessage" type="text">
+				<input id="btn-submit" type="submit" value="전송" >
+			</div>
+		</div>
+        <button id="closeModal2" style="float: right; font-size: 13pt; border: none; width: 100px; background-color: #008B8B; line-height: 32px; border-radius: 80px; color: white; cursor: pointer; margin-right: 100px;">
+   			닫기
+   		</button>              
+      </div>
+    </div>
+    <!--End Modal-->
 </body>
+<script type="text/javascript">
+	
+
+	var textarea = document.getElementById("messageWindow");
+	var webSocket = new WebSocket('ws://localhost:9999/Hana-Asset-Management/counseling/${userVO.name}');
+	
+	// 로컬에서 테스트할 때 사용하는 URL입니다.
+	var inputMessage = document.getElementById('inputMessage');
+	
+	webSocket.onerror = function(e){
+		onError(e);
+	};
+	webSocket.onopen = function(e){
+		onOpen(e);
+	};
+	webSocket.onmessage = function(e){
+		onMessage(e);
+	};
+	
+	
+	function onMessage(e){
+		var chatMsg = event.data;
+		var date = new Date();
+		var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+		if(chatMsg.substring(0,6) == 'server'){
+			var $chat = $("<div class='chat notice'>" + chatMsg + "</div>");
+			$('#chat-container').append($chat);
+		}else{
+			var $chat = $("<div class='chat-box'><div class='chat'>" + chatMsg + "</div><div class='chat-info chat-box'>"+ dateInfo +"</div></div>");
+			$('#chat-container').append($chat);
+		}
+		
+		
+		$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
+	}
+	
+	function onOpen(e){
+		
+	}
+	
+	function onError(e){
+		alert(e.data);
+	}
+	
+	function send(){
+		var chatMsg = inputMessage.value;
+		if(chatMsg == ''){
+			return;
+		}
+		var date = new Date();
+		var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+		var $chat = $("<div class='my-chat-box'><div class='chat my-chat'>" + chatMsg + "</div><div class='chat-info'>"+ dateInfo +"</div></div>");
+		$('#chat-container').append($chat);
+		webSocket.send(chatMsg);
+		inputMessage.value = "";
+		$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
+	}
+	
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		$('#inputMessage').keydown(function(key){
+			if(key.keyCode == 13){
+				$('#inputMessage').focus();
+				send();
+			}
+		});
+		$('#btn-submit').click(function(){
+			send();
+		});
+		
+	})
+</script>
 </html>

@@ -22,5 +22,7 @@ public interface MemberService {
 	public List<MemberVO> memberSelectAll();
 
 	public void investTypeUpdate(MemberVO userVO);
+
+	public MemberVO getUserInfo(MemberVO client);
 	
 }

@@ -15,5 +15,7 @@ public interface MemberDAO {
 	public List<MemberVO> memberSelectAll();
 
 	public void investTypeUpdate(MemberVO userVO);
+
+	public MemberVO getUserInfo(MemberVO client);
 	
 }

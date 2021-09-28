@@ -173,4 +173,12 @@ public class MemberServiceImpl implements MemberService{
 		
 	}
 
+	@Override
+	public MemberVO getUserInfo(MemberVO client) {
+		
+		MemberVO user = memberDAO.getUserInfo(client);
+		
+		return user;
+	}
+
 }

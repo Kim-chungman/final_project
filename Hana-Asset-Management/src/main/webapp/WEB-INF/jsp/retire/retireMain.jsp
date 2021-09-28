@@ -58,7 +58,7 @@
 					가입하기
 				</button></a><br>
 				<a href="javascript:;" id="kakao-link-btn"> 
-					<img src="${ pageContext.request.contextPath }/resources/kakao.jpg" style=" width: 300px; height: 50px; border-radius: 15px; margin-left: 200px;" />
+					<img src="${ pageContext.request.contextPath }/resources/kakao.jpg" style=" width: 300px; height: 45px; border-radius: 15px; margin-left: 200px;" />
 				</a>
 			</div>
 		</div>

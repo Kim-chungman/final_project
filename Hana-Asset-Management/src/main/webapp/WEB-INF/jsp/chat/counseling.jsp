@@ -132,7 +132,7 @@
 	
 
 	var textarea = document.getElementById("messageWindow");
-	var webSocket = new WebSocket('ws://localhost:9999/Hana-Asset-Management/counseling');
+	var webSocket = new WebSocket('ws://localhost:9999/Hana-Asset-Management/counseling/${userVO.name}');
 	
 	// 로컬에서 테스트할 때 사용하는 URL입니다.
 	var inputMessage = document.getElementById('inputMessage');
@@ -165,7 +165,11 @@
 	}
 	
 	function onOpen(e){
-		
+		setTimeout(startClock, 5000);
+	}
+	
+	function startClock(){
+		alert("${userVO.name}님께서 상담을 신청하셨습니다.");
 	}
 	
 	function onError(e){

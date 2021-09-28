@@ -19,6 +19,22 @@
 	$(document).ready(function() {
 		searchajax();
 		searchajax2();
+		
+		$('#rdo_sexType_input_0').click(function(){
+			if(this.checked){
+				$('input.w2radio_input:radio[name="rdo_sexWifeType_input"][value="w"]').prop("checked", true);
+			} else {
+				$('input.w2radio_input:radio[name="rdo_sexWifeType_input"][value="m"]').prop("checked", false);
+			}
+		});
+		
+		$('#rdo_sexType_input_1').click(function(){
+			if(this.checked){
+				$('input.w2radio_input:radio[name="rdo_sexWifeType_input"][value="m"]').prop("checked", true);
+			} else {
+				$('input.w2radio_input:radio[name="rdo_sexWifeType_input"][value="w"]').prop("checked", false);
+			}
+		});
 	})
 </script>
 
@@ -180,14 +196,14 @@ object.FusionCharts:focus, embed.FusionCharts:focus {
 															<div id="rdo_sexWifeType" class="w2radio ">
 																<div class="w2radio_item w2radio_item_0">
 																	<input type="radio" class="w2radio_input"
-																		name="rdo_sexWifeType_input" index="0"
+																		name="rdo_sexWifeType_input" value="m"
 																		id="rdo_sexWifeType_input_0"><label
 																		class="w2radio_label " index="0"
 																		for="rdo_sexWifeType_input_0">남</label>
 																</div>
 																<div class="w2radio_item w2radio_item_1">
 																	<input type="radio" class="w2radio_input"
-																		name="rdo_sexWifeType_input" index="1"
+																		name="rdo_sexWifeType_input" value="w"
 																		id="rdo_sexWifeType_input_1"><label
 																		class="w2radio_label " index="1"
 																		for="rdo_sexWifeType_input_1">여</label>

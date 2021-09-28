@@ -10,13 +10,17 @@ import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
+import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import kr.ac.kopo.member.vo.MemberVO;
 
-@ServerEndpoint("/counseling")
+@ServerEndpoint("/counseling/{userName}")
 public class CounselingSocket {
 	
+	@Autowired
 	private static Map<Session,MemberVO> users = Collections.synchronizedMap(new HashMap<Session, MemberVO>());
 	
 	@OnMessage
@@ -37,30 +41,33 @@ public class CounselingSocket {
 	}
 	
 	@OnOpen
-	public void onOpen(Session session){
+	public void onOpen(Session session, @PathParam("userName") String userName){
 		
-		String userName = "상담자";
-		int rand_num = (int)(Math.random()*1000);
+//		String userName = "상담자";
+		System.out.println(userName);
 		
 		MemberVO client = new MemberVO();
+		client.setName(userName);
+		
 		System.out.println(session);
-		client.setName(userName+rand_num);
 		
 		System.out.println(session + " connect");
 		
 		users.put(session, client);
 		
 		if(users.size()==1) {
-			sendNotice(client.getName() + "님이 입장하셨습니다. 잠시 기다려주시면 상담이 진행됩니다.");
+			sendNotice(client.getName() + "님이 입장하셨습니다.");
+			sendNotice("잠시 기다려주시면 상담이 진행됩니다.");
 		}
 		
 		if(users.size()==2) {
 			client.setName("관리자");
-			sendNotice(client.getName() + "님이 입장하셨습니다. 유익한 시간되시기 바랍니다.");
+			sendNotice(client.getName() + "님이 입장하셨습니다.");
+			sendNotice("유익한 시간되시기 바랍니다.");
 		}
 		
 	}
-	
+
 	public void sendNotice(String message){
 		String userName = "server";
 		System.out.println(userName + " : " + message);
@@ -112,4 +119,5 @@ public class CounselingSocket {
         clients.remove(session);
     }
     */
+	
 }
