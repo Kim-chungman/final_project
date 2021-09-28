@@ -276,7 +276,7 @@
 	                         			<span style="color: #008B8B; font-family: inherit; margin-right: 15px; font-size:16pt; float: right;">${ deposit.rate }</span><br>
 	                         			<span style="clear: both; color: #008B8B; margin-left: 35px; font-size: 13pt;">${ deposit.name }</span><br>
 	                         			<span style="margin-left: 35px;">${ deposit.desc }</span>
-	                         			<button style="width: 100px; line-height: 30px; border-radius: 80px; color: white; background-color: #008B8B; border: none; font-size: 12pt; float: right;">가입하기</button>
+	                         			<button style="width: 100px; line-height: 30px; border-radius: 80px; color: white; background-color: #008B8B; border: none; font-size: 12pt; float: right; cursor: pointer;" id="joinBtn">가입하기</button>
                          			</p>
                          		</div>
                          	</c:forEach>
@@ -423,11 +423,11 @@
 		            <br>
 		            <div style="background-color:white;text-align: center;padding-bottom: 10px;padding-top: 10px; width: 200px; margin-left: 500px;">
 		            	<a href="${ pageContext.request.contextPath }/account/join">
-		            		<button style="font-size: 13pt; border: none; width: 100px; background-color: #008B8B; line-height: 25px; border-radius: 80px; color: white;">
+		            		<button style="font-size: 13pt; border: none; width: 100px; background-color: #008B8B; line-height: 25px; border-radius: 80px; color: white; cursor: pointer;">
 		            			가입하기
 		            		</button>
 		            	</a>
-		            	<span class="pop_bt" style="font-size: 13pt; border-color: #008B8B; background-color: white; line-height: 25px; color: red; float: right;" onClick="close_pop();">
+		            	<span class="pop_bt" style="font-size: 13pt; border-color: #008B8B; background-color: white; line-height: 25px; color: red; float: right; cursor: pointer;" onClick="close_pop();">
 		                     닫기
 		                </span> 
 		            </div>

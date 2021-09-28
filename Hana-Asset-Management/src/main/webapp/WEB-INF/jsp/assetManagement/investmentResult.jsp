@@ -337,8 +337,8 @@
 				<br>
 				<br>
 			</div>
-			<button onClick="replay();" style="font-size:10pt; width: 150px; border-radius:10px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 33%;">다시분석하기</button>
-			<button onClick="design();" style="font-size:10pt; width: 150px; border-radius:10px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none;">설계받기</button>
+			<button onClick="replay();" style="font-size:10pt; width: 150px; border-radius:10px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 33%; cursor: pointer;">다시분석하기</button>
+			<button onClick="design();" style="font-size:10pt; width: 150px; border-radius:10px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none; cursor: pointer;">설계받기</button>
 		</div>
 	</section>
 	<footer style="clear: both;">

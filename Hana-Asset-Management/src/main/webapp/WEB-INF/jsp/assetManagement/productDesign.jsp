@@ -347,7 +347,7 @@
 		        	</dd>
 				</dl>
 				<div>
-		        	<input type="submit" value="설계하기" style="font-size:12pt; width: 150px; height: 40px; color: white; background-color: #008B8B; border: none; margin-left: 400px;">
+		        	<input type="submit" value="설계하기" style="font-size:12pt; width: 150px; height: 40px; color: white; background-color: #008B8B; border: none; margin-left: 400px; cursor: pointer;">
 		        </div>
 			</fieldset>
 			</form>

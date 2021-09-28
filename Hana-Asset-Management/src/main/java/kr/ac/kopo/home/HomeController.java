@@ -30,7 +30,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		
 		
-		service.sendAttach("cndaksrla@naver.com", "김충만", session);
+		service.sendAttach2("cndaksrla@naver.com", "김충만", session);
 		
 		return "map/kakaoMap";
 	}

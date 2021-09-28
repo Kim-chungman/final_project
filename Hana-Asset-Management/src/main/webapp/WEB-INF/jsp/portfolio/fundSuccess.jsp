@@ -98,7 +98,7 @@
 		</div>
 
 		<div style="margin-top: 100px; clear: both;" align="center">
-			<button id="startBtn" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-right: 140px;">
+			<button id="startBtn" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-right: 140px; cursor: pointer;">
 				다른 상품보기
 			</button>
 		</div>

@@ -493,7 +493,7 @@
         	<input type="hidden" name="pension" value="${ portfolio.pension }">
         	<input type="hidden" name="start" value="${ portfolio.start }">
         	<input type="hidden" name="last" value="${ portfolio.last }">
-   			<input type="submit" value="상품별 자세히보기" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 300px;">
+   			<input type="submit" value="상품별 자세히보기" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 300px; cursor: pointer;">
         </form>
         
 	</section>

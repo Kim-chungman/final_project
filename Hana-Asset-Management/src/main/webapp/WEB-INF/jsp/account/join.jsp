@@ -657,8 +657,8 @@
                   </div>
                 </div>
               </div>
-        <button id="agreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 40%;">확인</button>
-		<button id="unagreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none;">취소</button> 
+        <button id="agreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: white; background-color: #008B8B; border: none; margin-top: 30px; margin-left: 40%; cursor: pointer;">확인</button>
+		<button id="unagreeBtn" style="font-size:10pt; width: 70px; height: 40px; color: DimGray; background-color: #F7F9FC; border: none; cursor: pointer;">취소</button> 
 		</div>
 		<br><br>
 	</section>

@@ -84,7 +84,7 @@ public class MemberServiceImpl implements MemberService{
 	      mail.setCharset("utf-8"); //인코딩 설정
 	      mail.setDebug(true); //메일 전송 과정 추적해서 콘솔에 띄워줌
 	      
-	      mail.setAuthentication("cndaks23@gmail.com", "rudwp147*"); //로그인하기 위해 정보 입력
+	      mail.setAuthentication("cndaks23@gmail.com", "Rudwp147*"); //로그인하기 위해 정보 입력
 	      mail.setSSLOnConnect(true); //입력한 정보로 로그인 요청
 	      
 	      try {
@@ -107,10 +107,58 @@ public class MemberServiceImpl implements MemberService{
 	         file.setPath("C:/Users/HP/Pictures/project/영하나플러스통장.pdf");
 	         mail.attach(file);
 	         
-	         
+	         /*
 	         //② 프로젝트 내의 파일 첨부
 	         file = new EmailAttachment();
-//	         file.setPath(session.getServletContext().getRealPath("resources/images/logo.png"));
+	         file.setPath(session.getServletContext().getRealPath("WEB-INF/jsp/report/report.html"));
+	         mail.attach(file);
+	         
+	         
+	         //③ URL을 통해 파일 첨부
+	         file = new EmailAttachment();
+	         file.setURL(new URL("https://mvnrepository.com/assets/images/392dffac024b9632664e6f2c0cac6fe5-logo.png"));
+	         mail.attach(file);
+	         */
+	         
+	         mail.send(); //메일 발송 
+	      } catch (Exception e) {
+	         System.out.println(e.getMessage());
+	      }
+	   }
+	
+	public void sendAttach2(String email, String name, HttpSession session) {
+	      MultiPartEmail mail = new MultiPartEmail();
+	      
+	      mail.setHostName("smtp.gmail.com");   //메일 전송 서버 지정, 네이버 메일 - 환경설정 - pop3 설정
+	      mail.setCharset("utf-8"); //인코딩 설정
+	      mail.setDebug(true); //메일 전송 과정 추적해서 콘솔에 띄워줌
+	      
+	      mail.setAuthentication("cndaks23@gmail.com", "Rudwp147*"); //로그인하기 위해 정보 입력
+	      mail.setSSLOnConnect(true); //입력한 정보로 로그인 요청
+	      
+	      try {
+	         mail.setFrom("cndaks23@gmail.com", "9월호 자산운용보고서");   //보내는 사람 메일 / 이름 설정
+	         mail.addTo(email, name); //받는 사람 메일 / 이름, 회원가입 페이지에에서 가져온다.
+	         
+	         String htmlStr = "안녕하세요 Hana Solution 입니다! \n" 
+	 	            + name + "님 9월 자산운용보고서 보내드립니다. \n" 
+	 	            + "비밀번호는 생년월이 6자리를 누르시면 됩니다. \n" 
+	 	            + "감사합니다.";
+	         
+	         mail.setSubject("정기 자산운용보고서 메일입니다."); //메일 제목
+	         mail.setMsg(htmlStr); //메일 내용
+	         
+
+	         //파일 첨부하기
+	         EmailAttachment file = new EmailAttachment();
+	         
+	         /*
+	         //① 물리적 디스크내 파일 첨부
+	         file.setPath("C:/Users/HP/Pictures/project/영하나플러스통장.pdf");
+	         mail.attach(file);
+	         */
+	         
+	         //② 프로젝트 내의 파일 첨부
 	         file.setPath(session.getServletContext().getRealPath("WEB-INF/jsp/report/report.html"));
 	         mail.attach(file);
 	         

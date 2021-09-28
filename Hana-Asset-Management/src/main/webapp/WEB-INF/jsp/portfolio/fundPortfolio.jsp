@@ -332,7 +332,7 @@
         			</c:if>
         			<td style="text-align: center; font-size: 12pt;">
 						<input type="button" onclick="open_in_frame('https://dis.kofia.or.kr/websquare/popup.html?w2xPath=/wq/com/popup/DISComFundSmryInfo.xml&companyCd=&standardCd=${ planA.fund_code }')" value="자세히보기"
-							style="font-size:13pt; width: 100px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none;"/>
+							style="font-size:13pt; width: 100px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; cursor: pointer;"/>
 					</td>
         		</tr>
         		</c:forEach>
@@ -344,8 +344,8 @@
 		 
 		 		
 		    </iframe>
-		    <div style="margin-left:65.5%; width: 130px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none;pointer;" id="columnClose" >
-	            <span style="font-size: 13pt; width: 130px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none;" >
+		    <div style="margin-left:65.5%; width: 130px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none; cursor: pointer;" id="columnClose" >
+	            <span style="font-size: 13pt; width: 130px; line-height: 28px; border-radius: 80px; color: white; background-color: #008B8B; border: none; cursor: pointer;" >
 	                 닫기
 	            </span>
 	        </div>
@@ -382,7 +382,7 @@
         	<input type="hidden" name="pension" value="${ portfolio.pension }">
         	<input type="hidden" name="start" value="${ portfolio.start }">
         	<input type="hidden" name="last" value="${ portfolio.last }">
-   			<input type="submit" value="상품가입하기" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 300px;">
+   			<input type="submit" value="상품가입하기" style="font-size:13pt; width: 300px; height: 40px; border-radius: 15px; color: white; background-color: #008B8B; border: none; margin-left: 300px; cursor: pointer;">
         </form>
         
 	</section>
