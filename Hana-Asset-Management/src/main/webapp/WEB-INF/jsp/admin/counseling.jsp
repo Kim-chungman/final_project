@@ -1063,7 +1063,7 @@
 			var chatMsg = event.data;
 			var date = new Date();
 			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-			if(chatMsg.substring(0,6) == 'server'){
+			if(chatMsg.substring(0,4) == 'Hana'){
 				var $chat = $("<div class='chat notice'>" + chatMsg + "</div>");
 				$('#chat-container').append($chat);
 			}else{

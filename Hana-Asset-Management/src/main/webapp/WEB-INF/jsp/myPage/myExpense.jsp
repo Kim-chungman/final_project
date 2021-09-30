@@ -145,12 +145,27 @@
 	  modal.close();
 	});
 	
+	var modal2 = {
+	  open : function(){
+	    $('#myModal2').show();
+	  },
+	  close : function(){
+	    $('#myModal2').hide();    
+	  }
+	};
+	  
+	$(document).on('click', '#closeBtn', function(){
+	  modal2.close();
+	});
+	
 	
 	</script>
 	
 	<script>
 	
 	$(document).ready(function() {
+		
+		modal2.open();
 		
 		$('#oneYear').click(function() {
 			
@@ -258,6 +273,28 @@
 
     /* Modal Content/Box */
     .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;                         
+    }
+    
+    .modal2 {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    /* Modal Content/Box */
+    .modal-content2 {
         background-color: #fefefe;
         margin: 15% auto;
         padding: 20px;
@@ -554,6 +591,28 @@
             </main>
           </div>
         </div>
+
+		<!-- The Modal -->
+	    <div id="myModal2" class="modal2">
+	 
+	      <!-- Modal content -->
+	      <div class="modal-content2" style="border-color: #008B8B; border-width: 3px; width: 700px; height: 300px;">
+                <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 15pt; color: #008B8B;">${ userVO.name }님 반갑습니다.</span></b></span></p>
+                <hr style="border-color: #008B8B; border-width: 1px;">
+                <p style="text-align: left; font-size: 23pt; text-align: center; margin-top: 10px;">점심 맛있게 드셨나요?</p>
+                <p style="text-align: left; font-size: 15pt; text-align: center; margin-top: 30px;">커피와 함께 오후를 시작해보세요!</p>
+	            <br><br>
+	            
+	            <br>
+	            <div style="background-color:white;text-align: center; width: 200px; text-align: center; margin-left:35%; margin-bottom: 30px;">
+	            	<button type="button" id="closeBtn" style="font-size: 13pt; border: none; width: 130px; background-color: #008B8B; line-height: 32px; border-radius: 80px; color: white; cursor: pointer; outline: 0px;">
+            			확인
+            		</button>
+	            </div>
+	                      
+	      </div>
+	    </div>
+        <!--End Modal-->
 
         <!-- Panels -->
 

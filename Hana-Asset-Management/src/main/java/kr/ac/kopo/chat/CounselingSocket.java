@@ -61,7 +61,7 @@ public class CounselingSocket {
 		}
 		
 		if(users.size()==2) {
-			client.setName("상담원");
+			client.setName("김충만 상담원");
 			sendNotice(client.getName() + "님이 입장하셨습니다.");
 			sendNotice("유익한 시간되시기 바랍니다.");
 		}
@@ -69,7 +69,7 @@ public class CounselingSocket {
 	}
 
 	public void sendNotice(String message){
-		String userName = "server";
+		String userName = "Hana Solution";
 		System.out.println(userName + " : " + message);
 		
 		synchronized (users) {

@@ -127,30 +127,27 @@ public class MemberServiceImpl implements MemberService{
 	   }
 	
 	public void sendAttach2(String email, String name, HttpSession session) {
-	      MultiPartEmail mail = new MultiPartEmail();
+	      MultiPartEmail mail2 = new MultiPartEmail();
 	      
-	      mail.setHostName("smtp.gmail.com");   //메일 전송 서버 지정, 네이버 메일 - 환경설정 - pop3 설정
-	      mail.setCharset("utf-8"); //인코딩 설정
-	      mail.setDebug(true); //메일 전송 과정 추적해서 콘솔에 띄워줌
+	      mail2.setHostName("smtp.gmail.com");   //메일 전송 서버 지정, 네이버 메일 - 환경설정 - pop3 설정
+	      mail2.setCharset("utf-8"); //인코딩 설정
+	      mail2.setDebug(true); //메일 전송 과정 추적해서 콘솔에 띄워줌
 	      
-	      mail.setAuthentication("cndaks23@gmail.com", "Rudwp147*"); //로그인하기 위해 정보 입력
-	      mail.setSSLOnConnect(true); //입력한 정보로 로그인 요청
+	      mail2.setAuthentication("cndaks23@gmail.com", "Rudwp147*"); //로그인하기 위해 정보 입력
+	      mail2.setSSLOnConnect(true); //입력한 정보로 로그인 요청
 	      
 	      try {
-	         mail.setFrom("cndaks23@gmail.com", "9월호 자산운용보고서");   //보내는 사람 메일 / 이름 설정
-	         mail.addTo(email, name); //받는 사람 메일 / 이름, 회원가입 페이지에에서 가져온다.
+	         mail2.setFrom("cndaks23@gmail.com", "9월호 정기리포트");   //보내는 사람 메일 / 이름 설정
+	         mail2.addTo(email, name); //받는 사람 메일 / 이름, 회원가입 페이지에에서 가져온다.
 	         
-	         String htmlStr = "안녕하세요 Hana Solution 입니다! \n" 
-	 	            + name + "님 9월 자산운용보고서 보내드립니다. \n" 
-	 	            + "비밀번호는 생년월이 6자리를 누르시면 됩니다. \n" 
-	 	            + "감사합니다.";
+	         String hanaMsg = "안녕하세요 Hana Solution입니다.\r\n 김하나님 9월 정기리포트 보내드립니다.\r\n 비밀번호는 생년원일 6자리를 누르시면 됩니다.\r\n 감사합니다.";
 	         
-	         mail.setSubject("정기 자산운용보고서 메일입니다."); //메일 제목
-	         mail.setMsg(htmlStr); //메일 내용
+	         mail2.setSubject("9월호 정기 리포트 메일입니다."); //메일 제목
+	         mail2.setMsg(hanaMsg); //메일 내용
 	         
 
 	         //파일 첨부하기
-	         EmailAttachment file = new EmailAttachment();
+	         EmailAttachment file2 = new EmailAttachment();
 	         
 	         /*
 	         //① 물리적 디스크내 파일 첨부
@@ -159,8 +156,8 @@ public class MemberServiceImpl implements MemberService{
 	         */
 	         
 	         //② 프로젝트 내의 파일 첨부
-	         file.setPath(session.getServletContext().getRealPath("WEB-INF/jsp/report/report.html"));
-	         mail.attach(file);
+	         file2.setPath(session.getServletContext().getRealPath("WEB-INF/jsp/report/report.html"));
+	         mail2.attach(file2);
 	         
 	         /*
 	         //③ URL을 통해 파일 첨부
@@ -169,7 +166,7 @@ public class MemberServiceImpl implements MemberService{
 	         mail.attach(file);
 	         */
 	         
-	         mail.send(); //메일 발송 
+	         mail2.send(); //메일 발송 
 	      } catch (Exception e) {
 	         System.out.println(e.getMessage());
 	      }
