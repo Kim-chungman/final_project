@@ -207,10 +207,15 @@
             <dt>재테크의 기본은 지출관리!</dt>
             <dd style="font-size: 11pt;">용돈통장, 급여통장, 생활비통장 등 통장을 분리하여 <br>목적별로 관리하고 주거래은행을 만들자!</dd>
             <dd class="btn_fin1">
+            	<div style="font-size: 15pt; color: #FAC8C8;"><strong>결혼자금 설계</strong></div>
+            	<div style="font-size: 15pt; color: PaleVioletRed; margin-top: 10px; margin-bottom: 10px;">교육자금 설계</div>
+            	<div style="font-size: 15pt; color: #3CC8C8;">주택자금 설계</div>
+            	<%-- 
                 <a href="#"><img alt="은퇴설계" src="${ pageContext.request.contextPath }/resources/plan/btn1.png"></a>
                 <a href="#"><img alt="결혼자금 설계" src="${ pageContext.request.contextPath }/resources/plan/btn2.png"></a>
                 <a href="#"><img alt="교육자금 설계" src="${ pageContext.request.contextPath }/resources/plan/btn3.png"></a>
                 <a href="#"><img alt="주택자금 설계" src="${ pageContext.request.contextPath }/resources/plan/btn4.png"></a>
+            	 --%>
             </dd>
         </dl>
         <div class="f-con2 clearfix">
@@ -463,7 +468,7 @@
             <br>
             <div style="background-color:white;text-align: center;padding-bottom: 10px;padding-top: 10px; width: 200px; margin-left: 500px;">
             	<a href="${ pageContext.request.contextPath }/account/join">
-            		<button style="font-size: 13pt; border: none; width: 100px; background-color: #008B8B; line-height: 25px; border-radius: 80px; color: white;">
+            		<button style="font-size: 13pt; border: none; width: 100px; background-color: #008B8B; line-height: 25px; border-radius: 80px; color: white; cursor: pointer;">
             			가입하기
             		</button>
             	</a>
